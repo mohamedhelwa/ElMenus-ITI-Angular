@@ -1,0 +1,206 @@
+body {margin:0;font-family:Arial}
+
+.topnav {
+  overflow: hidden;
+ /* background-color: #333;*/
+ border-bottom: 1px solid rgb(165, 158, 158);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 2px 20px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav ul li a:hover {
+ background-color: white !important;
+ color: black;
+
+
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown2 {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown2 .dropbtn {
+  font-size: 25px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 2px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content2 a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown2:hover .dropbtn {
+  background-color: #E5533A;
+  color: white;
+}
+
+.dropdown-content2 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.cart:hover{
+  background-color: white !important;
+  color: #E5533A !important;
+}
+
+.dropdown2:hover .dropdown-content2 {
+  display: block;
+}
+
+@media screen and (max-width: 1360px) {
+  .topnav a:not(:first-child), .dropdown2 .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav
+  {
+      border-bottom: none;
+  }
+  .btnlogin{
+      left:2% !important;
+  }
+  .btnsign
+  {
+      left: 15% !important;
+  }
+  .login-nav
+  {
+    margin-bottom: 5px;
+  }
+}
+/*600*/
+@media screen and (max-width: 1360px) {
+
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown2 {float: none;}
+  .topnav.responsive .dropdown-content2 {position: relative;}
+  .topnav.responsive .dropdown2 .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .btnlogin{
+    left:2% !important;
+}
+.btnsign
+{
+    left: 15% !important;
+}
+}
+
+
+/*600*/
+@media screen and (max-width: 750px) {
+    .btnlogin{
+        left:2% !important;
+    }
+    .btnsign
+    {
+        left: 24% !important;
+    }
+}
+
+.topnav ul{
+    list-style: none;
+    margin-top: 0;
+}
+
+.topnav li img{
+    width:50px;
+    height: 45px;
+    margin-top: 10px;
+}
+.fas
+{
+    margin-right: 5px;
+
+}
+.gift
+{
+   margin-right: 15%;
+}
+@media (max-width:1545px)
+{
+    .gift
+{
+   margin-right: 3%;
+}
+}
+
+.none{
+    display: none !important;
+}
+
+.gift2
+{
+   margin-right: 35%;
+}
+@media (max-width:1545px)
+{
+    .gift2
+{
+   margin-right: 20%;
+}
+}
+.login-nav
+{
+  font-size: 22px !important;
+  margin-right: 5px;
+  width: 110px;
+}
+.signup-nav
+{
+  border: 1px solid #E5533A;
+  border-radius: 25px;
+  width: 118px;
+  background-color: #E5533A;
+  color: white !important;
+  font-size: 20px !important;
+}

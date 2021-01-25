@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Gilroy,Open Sans,sans-serif;
+}
+h1 {
+  font-size: 36px;
+  margin-top: 10%;
+}
+
+hr {
+  border-top: 6px solid #e5533a;
+  border-radius: 10px;
+  width: 100px;
+  margin-top: 10px;
+  /* float: left; */
+}
+
+.btn-primary {
+  background-color: #e5533a;
+  border-color: #e5533a;
+  border-radius: 4px;
+}
+.btn-primary:hover {
+  background-color: #DF342F;
+  border-color: #DF342F;
+  border-radius: 4px;
+}
+
+.btn-outline, .btn-outline:hover {
+  border-color: #e5533a;
+  color: #e5533a;
+}
+
+#giftingImg {
+  margin-top: 2%;
+  margin-left: 10%;
+  max-width: 100%;
+  width: 70%;
+  vertical-align: middle;
+}
+
+p {
+  clear: both;
+  margin-bottom: 2em;
+  color: #505f79;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  img#giftingImg {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  img#giftingImg-xs {
+    float: left;
+    display: none;
+  }
+}
+#section2{
+  justify-content: center;
+  text-align: center;
+  margin-top: 2em;
+  background-color: #fef9f4;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+  body{
+    font-family: Gilroy,Open Sans,sans-serif;
+  }
+  h1 {
+    font-size: 36px;
+    margin-top: 10%;
+  }
+
+  hr {
+    border-top: 6px solid #e5533a;
+    border-radius: 10px;
+    width: 100px;
+    margin-top: 10px;
+    /* float: left; */
+  }
+
+  .btn-primary {
+    background-color: #e5533a;
+    border-color: #e5533a;
+    border-radius: 4px;
+  }
+  .btn-primary:hover {
+    background-color: #DF342F;
+    border-color: #DF342F;
+    border-radius: 4px;
+  }
+
+  .btn-outline, .btn-outline:hover {
+    border-color: #e5533a;
+    color: #e5533a;
+  }
+
+  #giftingImg {
+    margin-top: 2%;
+    margin-left: 10%;
+    max-width: 100%;
+    width: 70%;
+    vertical-align: middle;
+  }
+
+  p {
+    clear: both;
+    margin-bottom: 2em;
+    color: #505f79;
+    font-size: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    img#giftingImg {
+      display: none;
+    }
+  }
+  @media (min-width: 1024px) {
+    img#giftingImg-xs {
+      float: left;
+      display: none;
+    }
+  }
+  #section2{
+    justify-content: center;
+    text-align: center;
+    margin-top: 2em;
+    background-color: #fef9f4;
+  }

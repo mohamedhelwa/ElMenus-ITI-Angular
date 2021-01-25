@@ -1,0 +1,109 @@
+<!----------------1st nav------------------------------------>
+<div class="container-fluid">
+  <div class="topnav" id="myTopnav" style="display: none;">
+    <ul>
+      <li><img src="images/app icon.jpg" style="float: left;"><a href="#home" class="active" style="font-size: 34px;padding:0;padding-top: 10px;border-right: 1px solid gray;padding-right: 8px;"> elmenus </a></li>
+    </ul>
+    <a href="Delivery-Page.html">Delivery</a>
+    <a href="DineOut-page.html">Dine Out</a>
+    <a href="giftmeals.html" class="gift"><i class="fas fa-gift"></i>Gift Meals</a>
+    <a href="#"><i class="fas fa-bell"></i>Notification</a>
+    <a href="myorderspast.html">My Orders</a>
+    <div class="dropdown2">
+      <button class="dropbtn" id="name_navbar"><i class="fas fa-user-friends"></i>
+        <!--<i class="fa fa-caret-down"></i>-->
+      </button>
+      <div class="dropdown-content2">
+        <a href="settings-Page.html">Account Settings</a>
+        <a href="#">Log Out</a>
+      </div>
+    </div>
+    <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+    <a href="javascript:void(0);" style="font-size:25px;" class="icon" onclick="myFunction()">&#9776;</a>
+
+  </div>
+  <!--------------------------------------------------->
+  <div class="topnav" id="myTopnav2">
+    <ul>
+      <li><img src="images/app icon.jpg" style="float: left;"><a href="#" class="active" style="font-size: 34px;padding:0;padding-top: 10px;border-right: 1px solid gray;padding-right: 8px;"> elmenus </a></li>
+    </ul>
+    <a href="Delivery-Page.html">Delivery</a>
+    <a href="DineOut-page.html">Dine Out</a>
+    <a href="giftmeals.html" class="gift2"><i class="fas fa-gift"></i>Gift Meals</a>
+    <a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="login-nav">Login</a>
+    <a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="signup-nav">Sign Up</a>
+    <a href="myorderspast.html" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
+    <a href="javascript:void(1);" style="font-size:25px;" class="icon" onclick="myFunction2()">&#9776;</a>
+
+  </div>
+</div>
+
+<!--------------- 2nd nav ---------------------->
+  <nav class=" navbar navbar-light bg-light">
+    <div class="input-container">
+      <input class="input-field" type="text" placeholder="Find a Restaurant">
+      <i class="fas fa-search"></i>
+    </div>
+    <span style="font-size: 24px;"><i class="fa fa-biking" style="color: #E5533A;"></i>Deliver</span>
+    <span style="margin-right: 100px;color: #E5533A; font-size: 26px;"><strong> St.Mohamed Tawfik</strong></span>
+    <button style="width: 100px; height: 35px; font-size: 20px;border:1px solid #E5533A;background-color: none;color: #E5533A; border-radius: 8px;">Change</button>
+  </nav>
+<!----------------------- Start Modal----------------------------->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2  class="modal-title"><img class="img-fluid rounded-circle mx-auto d-block" style="width: 19%;float: left;" src="images/app icon.jpg" alt="app icon">elmenus
+      </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" style="margin-left: 15px;">
+            <li role="presentation" id="login" class="active"><a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab" style="margin-right: 25px;font-size: 22px; font-weight: bold;">Login</a>
+
+            </li>
+            <li role="presentation"  id="createaccount"><a style="font-size: 20px; font-weight: bold;" href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab">Create Account</a>
+
+            </li>
+        </ul>
+        <br>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="uploadTab">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" style="font-size: 15px;height: 40px !important;" placeholder="email"  name="email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="pwd" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
+                  </div>
+                  <button type="button" id="modal_login" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 23px;">Login</button>
+                  <button type="button" class="btn btn-block" style="background-color: #4267B2; color: white; font-size: 22px;">Continue With FaceBook</button>
+                  <span style="font-size: 15px; margin-top: 10%; margin-left: 30%; color: #E5533A;">forget password?</span>
+                </div>
+            <!--------------------------------------------->
+            <div role="tabpanel" class="tab-pane" id="browseTab">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" style="font-size: 15px; height: 40px !important;" placeholder="name"  name="email">
+                  </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username2" style="font-size: 15px; height: 40px !important;" placeholder="email"  name="email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="pwd2" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
+                  </div>
+                  <button type="button" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 22px;">Create Account</button>
+                  <span style="font-size: 13px;text-align: center;color: rgb(207, 188, 188); ">By creating an account, you agree to our Terms</span>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+   <!----------------End Modal-------------------------------->
+<script src="js/pages.js"></script>
