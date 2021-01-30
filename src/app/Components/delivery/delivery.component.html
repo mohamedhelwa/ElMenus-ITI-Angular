@@ -1,0 +1,262 @@
+<div class="container-fluid">
+    <div class="row">
+      <!-----------Left Side--------------------------->
+      <div class="col-sm-2 right-delivery" style="flex-wrap: wrap;">
+        <h4 style="padding-top: 15px;margin-bottom: 15%;" class="gray-col">Show results for:</h4>
+        <div style="float: left;">
+        <label class="switch">
+          <input type="checkbox" #inputEl (change)="onChange(inputEl.checked)">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div>
+        <p class="gray-col" style="font-size: 16px;padding-left: 40px;line-height: 1.5;">Online ordering only
+          unavailable in St. Mohamed Tawfik
+          right now</p>
+      </div>
+          <hr>
+        
+          <input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Open Now</span>
+          <br><input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Promo</span>
+          <br><input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;"> Hygiene Check</span>
+          <hr>
+          <h4 class="gray-col">Sort by:</h4><br>
+       <input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Popular</span>
+       <br><input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Rating</span>
+       <br><input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Delivery Time</span>
+        <hr>
+    </div>
+      <!-----------right Side--------------------------->
+      <div class="col-sm-10 ">
+        <h3 style="padding-top: 10px; padding-left: 16px;">Discover Top Dishes</h3>
+      <img src="https://firebasestorage.googleapis.com/v0/b/elmenus-iti.appspot.com/o/Images%2Frestaurants_images%2Ffood1.png?alt=media&token=d3a84d7f-5952-426e-babe-1a4b0bb5259a" height="150px" width="300px">
+      <p style="margin-left: 12%;">All</p>
+      <br><br>
+      <h4>Restaurants <sub>({{number_of_restaurants}})</sub></h4><br>
+      <div class="row">
+        <div class="col-sm-4" style="margin-bottom: 30px;" *ngFor="let item of restaurantList">
+          <img [src]="item.restaurantFeaturedPhotos"  width="100%" height="250px">
+          
+          <img [src]="item.restaurantFeaturedPhotos" width="40px" height="40px" style="float: left;margin-right: 6px;margin-top: 12px;">
+          <p class="paragraph">{{item.restaurantName}}</p> 
+          
+          <p class="aria_parag">{{item.restaurantType}}</p>
+          <span class="fa fa-star orange_rate"></span>
+          <span  class="fa fa-star orange_rate"></span>
+          <span  class="fa fa-star orange_rate"></span>
+          <span  class="fa fa-star"></span>
+          <span  class="fa fa-star"></span>
+
+        </div>
+        <!----->
+    </div>
+    <button (click)="cll()">click</button>
+</div>
+    
+        <!--<div class="col-sm-4">
+          <img src="images/food2.jpg" width="100%" height="250px">
+          <p class="paragraph" style="margin-bottom:3px">Checken</p>
+          <img src="images/food2.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+            <p class="aria_parag">Basmation</p>
+          <span class="fa fa-star orange_rate"></span>
+          <span class="fa fa-star orange_rate"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        
+        </div>
+
+        <div class="col-sm-4">
+          <img src="images/food3.jpg" width="100%" height="250px">
+          <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+          <img src="images/food3.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+            <p class="aria_parag">ElRahman</p>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star "></span>
+          <span class="fa fa-star "></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        
+        </div>
+      </div>-->
+<!---------------------2nd row------------------------------->
+<!--<div class="row" id="hide2"style="margin-top: 50px;">
+<div class="col-sm-4">
+  <img src="images/food4.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">sheikh Sons</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food5.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Checken</p>
+  <img src="images/food5.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">Basmation</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food6.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food6.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">ElRahman</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+</div>-->
+<!--------------------- end 2nd row------------------------------->
+<!--------------------- 3rd row -------------------------------------------->
+<!--<div class="row" id="hide3" style="margin-top: 50px;">
+<div class="col-sm-4">
+  <img src="images/food4.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">sheikh Sons</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food5.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Checken</p>
+  <img src="images/food5.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">Basmation</p>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food6.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food6.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">ElRahman</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+</div>-->
+<!---------------------end 3rd row -------------------------------------------->
+<!----------------------- 4th row--------------------------------------------------- -->
+<!--<div class="row" id="hide4" style="margin-top: 50px;">
+<div class="col-sm-4">
+  <img src="images/food4.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">sheikh Sons</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food5.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Checken</p>
+  <img src="images/food5.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">Basmation</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food6.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food6.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">ElRahman</p>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+</div>  -->
+<!---------------------end 4th row------------------------------------------>
+<!--------------------- 5th row------------------------------------------->
+<!--<div class="row" id="hide5" style="margin-top: 50px;">
+<div class="col-sm-4">
+  <img src="images/food4.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">sheikh Sons</p>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food5.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Checken</p>
+  <img src="images/food5.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">Basmation</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+
+<div class="col-sm-4">
+  <img src="images/food6.jpg" width="100%" height="250px">
+  <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
+  <img src="images/food6.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
+    <p class="aria_parag">ElRahman</p>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star orange_rate"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+
+</div>
+</div>-->  
+<!--------------------- end 5th row------------------------------------------->
+
+<!---------------------button--------------------------->
+<!--<div class="row" style="margin-top: 50px; margin-bottom: 100px;">
+<div class="col">
+  <button id="btn_hide" type="button" class="btn btn-block " style="background-color: #E5533A;color: white; font-size: 25px;font-weight: bold;">Load More Restaurants</button>
+</div>
+</div>-->
+<!---------------------button--------------------------->
+
+</div>
+   <!--</div>
+    </div>-->
+    <!---------------- End Body ------------------------------->

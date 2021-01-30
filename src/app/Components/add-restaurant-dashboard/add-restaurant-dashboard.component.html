@@ -1,0 +1,141 @@
+<!--<div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="tutorial.title"
+          name="title"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="tutorial.description"
+          name="description"
+        />
+      </div>
+  
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+  
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>-->
+  <h3 style="color: #E5533A; margin-top: 20px;">Add New Restaurant</h3>
+  <br>
+<div class="row">
+  <div class="col-8 center">
+  <div class="form-group">
+    <label for="title">restaurantName</label>
+    <input
+     
+      type="text"
+      class="form-control"
+      id="title"
+     
+      [(ngModel)]="restaurant.restaurantName"
+    
+    />
+  </div>
+  
+  <div class="form-group">
+    <label for="title">restaurantBranchs</label>
+    <input
+     
+      type="text"
+      class="form-control"
+      id="title"
+     
+      [(ngModel)]="restaurant.restaurantBranchs"
+    
+    />
+ 
+  </div>
+
+  <div class="form-group">
+    <label for="description">restaurantClosing</label>
+    <input
+      
+      type="text"
+      class="form-control"
+      id="description"
+      [(ngModel)]="restaurant.restaurantClosing"
+      name="description"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">restaurantOpening</label>
+    <input
+      
+      type="text"
+      class="form-control"
+      id="description2"
+      [(ngModel)]="restaurant.restaurantOpening"
+      name="description"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">restaurantPhone</label>
+    <input
+      
+      type="text"
+      class="form-control"
+      id="description3"
+      [(ngModel)]="restaurant.restaurantPhone"
+      name="description"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">restaurantType</label>
+    <input
+      
+      type="text"
+      class="form-control"
+      id="description3"
+      [(ngModel)]="restaurant.restaurantType"
+      name="description"
+    />
+  </div> 
+   <br>
+  <div class="form-group col-12">
+    <input type="file"
+    [hidden]="true"
+    id="file"
+    #file
+    (change)="onFileSelected($event,file.files)"
+    name="image"
+    autocomplete="off"
+    value="Upload Image"
+    /><label for="file" class="btn btn-secondary">upload Restaurant Image <i class="fas fa-upload"></i></label>
+    <img [src]="imgURL" style="margin-left: 20px;" height="200" *ngIf="imgURL">
+    <p *ngIf="fb">{{fb}}</p>
+   <p *ngIf="clicked">Please Wait...</p>
+  </div>
+   
+
+  
+  </div> 
+ 
+</div>
+<button class="btn btn-dark-moon btn-rounded" (click)="Add()">Save</button>
+
+<!--<h3>Angular 7 Image Preview before Upload:</h3>
+<span style="color:red;" *ngIf="message">{{message}}</span>
+<input #file type="file" accept='image/*' (change)="preview(file.files,file.value)" />
+<img [src]="imgURL" height="200" *ngIf="imgURL">file
+<h4>{{message}}</h4>-->
+
+

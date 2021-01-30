@@ -1,13 +1,15 @@
 export class Restaurants {
-  restaurantName: string;
-  restaurantBranches: string[];
-  restaurantClosingTime: string;
-  restaurantOpiningTime: string;
-  restaurantPhone: string;
-  restaurantType: string;
-  restaurantFeaturedPhotos: string[];
+  id?:string;
+  restaurantName?: string;
+  restaurantBranchs?: string[];
+  restaurantClosing?: string;
+  restaurantOpening?: string;
+  restaurantPhone?: string;
+  restaurantType?: string;
+  restaurantFeaturedPhotos?: string[];
 
-  constructor(
+  /*constructor(
+    id:string,
     restaurantName: string,
     restaurantBranches: string[],
     restaurantClosingTime: string,
@@ -16,6 +18,7 @@ export class Restaurants {
     restaurantType: string,
     restaurantFeaturedPhotos: string[]
   ) {
+    this.id=id;
     this.restaurantName = restaurantName;
     this.restaurantBranches = restaurantBranches;
     this.restaurantClosingTime = restaurantClosingTime;
@@ -23,5 +26,5 @@ export class Restaurants {
     this.restaurantPhone = restaurantPhone;
     this.restaurantType = restaurantType;
     this.restaurantFeaturedPhotos = restaurantFeaturedPhotos;
-  }
+  }*/
 }

@@ -1,0 +1,35 @@
+<h2 style="color: #E5533A; margin-top: 20px;">All Restaurants</h2>
+<br><br>
+<div class="list row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let rest of restaurantList; let i = index"
+        >
+        <img [src]="rest.restaurantFeaturedPhotos" width="40px" height="40px"style="margin-right: 10px;">
+
+          {{ rest.restaurantName}} 
+         <button (click)="setActiveTutorial(rest, i)" class="badge badge-pill" style="float: right;border: none;">Show Restaurant Details</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 center">
+      <div *ngIf="currentrestaurant">
+        <app-details-restaurant-dashboard
+          (refreshList)="refreshList()"
+          [restaurant]="currentrestaurant"
+        ></app-details-restaurant-dashboard>
+        <!--<p>Please Not click on a Tutorial...</p>-->
+      </div>
+  
+      <div *ngIf="!currentrestaurant">
+        <br />
+        <!--<p>Show Restaurant Details</p>-->
+      </div>
+      <button class="btn btn-dark-moon btn-rounded" (click)="addrestaurant()">Add New Restaurant</button>
+
+    </div>
+  </div>

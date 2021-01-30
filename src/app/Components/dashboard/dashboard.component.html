@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top scrolling-navbar bg-light">
+    <a class="navbar-brand" href="#"><img class="img-fluid rounded-circle mx-auto d-block" src="/assets/app icon.jpg" alt="app icon">elmenus</a>
+</nav>
+
+<!------------- Left Side ---------------------------------------->
+<div class="container-fluid bg-light">
+<div class="row">
+    <div class=" col-sm-4 col-md-4 col-lg-2 right_side">
+       <img src="/assets/profile_image.jpg" class="img-responsive img-circle rounded-circle">
+        <h3>UserName</h3>
+        <hr><br>
+        <ul>
+        <li routerLinkActive="active"><a [routerLink]="['/overviewdashboard']" ><i class="fas fa-home"></i> Overview </a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/dineout']"><i class="fas fa-utensils"></i> Orders</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/showrestaurants']" style="font-size: 24px;"><i class="fas fa-user-friends"></i> Restaurants</a></li>
+        <li><a href="#"><i class="fas fa-chart-line"></i> Charts</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+        <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+        <li><a href="#"><i class="fas fa-power-off"></i> Logout</a></li>
+    </ul>
+    </div>
+<!---------------------------- end Left side------------------------------------>
+
+<!-----------------------------right side------------------------------------>
+    <div class=" col-sm-8 col-md-8 col-lg-10" >
+        <router-outlet></router-outlet>
+       
+</div>
+</div>
+</div>
+
+<!-------------end right Side ---------------------------------------->

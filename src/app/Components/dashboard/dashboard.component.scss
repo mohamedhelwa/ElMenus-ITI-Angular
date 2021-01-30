@@ -1,0 +1,89 @@
+/************ Start Navbar ***************************************************/
+/*body
+{
+    font-family: 'Anton', sans-serif !important;
+}*/
+nav a img {
+    width: 15%;
+    float: left;
+    padding-top: 3px;
+  }
+.navbar
+{
+     
+    height: 62px !important;
+    padding-top: 0 !important;
+}
+.navbar-brand
+{
+    margin-bottom: 80px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    color: #E5533A !important; 
+    font-size: 30px !important;
+font-weight: bold;
+}
+/************ End Navbar ***************************************************/
+
+/*********** start Left side *************************************/
+.container-fluid
+{
+margin-top: 4%;
+    background-color:   rgb(221, 219, 217);
+    
+}
+.right_side
+{
+    background-color: #E5533A;
+    width: 100%;
+    height: 900px;
+}
+.right_side img{
+    padding-top: 10px;
+    width: 90%;
+    height: 160px;
+}
+.right_side h3{
+    margin-top: 15px;
+    margin-left: 35px;
+    color: white;
+}
+.right_side ul{
+    list-style: none;
+    padding-left: 0;
+}
+.right_side ul li{
+margin-bottom: 18px;
+
+}
+.right_side ul li a{
+text-decoration: none;
+    
+    }
+
+.active
+{
+    border-bottom: 1px solid white;
+border-right: 1px solid white;
+box-shadow: 1px 1px 2px 1px white;
+}
+li:hover {
+    border-bottom: 1px solid white;
+border-right: 1px solid white;
+box-shadow: 1px 1px 2px 1px white;
+text-decoration: none;
+color: white;
+}
+.right_side a{
+    color: white;
+    font-size: 27px;
+}
+.right_side .fas
+{
+    margin-right: 5px;
+}
+/*********** End Left Side **************************************/
+
+/*********** Start right Side ******************************************************/
+

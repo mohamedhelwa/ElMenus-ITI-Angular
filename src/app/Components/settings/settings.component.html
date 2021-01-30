@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <br><br>
+    <div class="row justify-content-center">
+        <div class="col-xs-12">
+            <h1>Account Settings</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-xs-12" style="width: 100%;">
+            <div role="tabpanel" style="width: 100%;">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs justify-content-center" role="tablist">
+                  <li role="presentation" id="changeemail" class="btn_settings active_btn"><a href="#changeemailtab" aria-controls="uploadTab" role="tab" data-toggle="tab">Change email</a>
+    
+                  </li>
+                  <li role="presentation"  id="changepass" class="btn_settings"><a href="#changepasstab" aria-controls="browseTab" role="tab" data-toggle="tab" >Change password</a>
+    
+                  </li>
+
+                  <li role="presentation"  id="addressbook" class="btn_settings"><a href="#addressbooktab" aria-controls="browseTab" role="tab" data-toggle="tab" >Address book</a>
+    
+                  </li>
+              </ul>
+             <br>
+            <!------------------------>
+        <div class="tab-content" style="width:100%; margin: auto;">
+          <div role="tabpanel"  class="tab-pane active " id="changeemailtab">
+         <br><br>   <h3 style="text-align: center;">Change Email</h3> 
+            <div class="form-group" style="width: 40%; margin: auto;">
+                  <label style="font-size: 20px;">Email</label>
+                  <input type="text" class="form-control" id="email" style="font-size: 17px;" placeholder="Enter new email">
+                  <button class="main_setting_btn">Change email</button>
+                </div>
+               
+              </div>   
+              
+              <!-------tab2---------->
+              <div role="tabpanel" class="tab-pane " id="changepasstab">
+              <br><br>  <h3 style="text-align: center;">Change Password</h3> 
+               <br> <div class="form-group" style="width: 40%; margin: auto;">
+                      <label>old password</label>
+                      <input type="text" class="form-control" id="oldpass" style="font-size: 17px;" placeholder="Enter old Password">
+
+                      <label>new password</label>
+                      <input type="text" class="form-control" id="newpass" style="font-size: 17px;" placeholder="Enter new Password">
+
+                      <label >confirm new password</label>
+                      <input type="text" class="form-control" id="confirmnewpass" style="font-size: 17px;" placeholder="Enter new Password">
+                      <button class="main_setting_btn">Save Changes</button>
+                    </div>
+                   
+                  </div>   
+
+              <!----------------tab3---------------->
+              <br><br>
+              <div role="tabpanel" class="tab-pane " id="addressbooktab">
+                <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group" >
+                      <label >Name</label>
+                      <input type="text" class="form-control" id="name" style="font-size: 17px;">
+                     <br> <h6 >Add New Address Details</h6>
+                      <span style="font-size:15px; color: gray;"><i style="color: #E5533A;" class="fas fa-exclamation-circle"></i>Please select your exact location on the map, so that captains can reach</span>
+                      <p style="font-size: 18px; "><strong>city: </strong> Asyut,<strong> Area: </strong>St. Mohamed Tawfik,<strong> Zone:</strong> St. Mohamed Tawfik
+                      </p>
+
+                      <label>Address Info</label>
+                      <input type="text" class="form-control" id="addrinfo" placeholder="in Front of Le Carnaval Hotel" style="font-size: 17px;">
+                    <!----------------->
+                    <div class="row">
+                      <div class="col-xs-4" style="margin-left: 16px;">
+                        <label>Building no</label>
+                        <input type="text" class="form-control" id="addrinfo" placeholder="eg.4" style="font-size: 17px; ">
+                      </div>
+                      <div class="col-xs-4" style="margin-left: 16px;">
+                        <label>Floor no</label>
+                        <input type="text" class="form-control" id="addrinfo" placeholder="eg.2" style="font-size: 17px;">
+                      </div>
+                    </div>
+                    <!----------------->
+                      <label>Apartment no</label>
+                      <input type="text" class="form-control" id="addrinfo" placeholder="e.g.14" style="font-size: 17px;">
+                      
+                      <label>Mobile No</label>
+                      <input type="text" class="form-control" id="addrinfo" placeholder="eg.01654238764" style="font-size: 17px;">
+                      
+                      <label class="switch" style="margin-top: 30px;">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label><span style="font-size: 16px;"> That is a company address</span>
+                        <br>
+                      <button class="main_setting_btn">Save Address</button>
+                      <button class="main_setting_btn" style="color: gray; background-color: white;border: 1px solid gray;width: 80px;padding: 6px;">Cancel</button>
+
+                    </div>
+                  </div>
+                  <!----------------------------->
+                  <div class="col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.598168015172!2d31.240948785406374!3d30.048384025342653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458411d6e3369ed%3A0x4c934155924609c!2sAmbiance%20cairo%20hotel!5e0!3m2!1sar!2seg!4v1608641006272!5m2!1sar!2seg" width="100%" height="750" frameborder="0" style="border:0; margin-left:10px" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                  </div>
+                  
+                </div>
+              </div>
+        </div> 
+        <br><br>
+              <!---------------------------------------->
+      </div>
+    
+</div>
+</div>
+</div>
+</div>
+
+<!-----------------End Settings----------------------------------------->
