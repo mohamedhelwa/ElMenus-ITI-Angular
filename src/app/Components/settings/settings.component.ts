@@ -7,19 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-<<<<<<< HEAD
    changeEmail=true;
   changePasword=false;
   addressBook=false
 
-=======
->>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
   constructor() { }
 
   ngOnInit(): void {
   }
 
-<<<<<<< HEAD
   show_email(){
     this.changeEmail=true;
     this.changePasword=false;
@@ -38,6 +34,4 @@ export class SettingsComponent implements OnInit {
     this.changeEmail=false;
     this.changePasword=false;
   }
-=======
->>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 }

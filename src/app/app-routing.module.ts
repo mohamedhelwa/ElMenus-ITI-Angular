@@ -11,6 +11,7 @@ import { NoAvailableComponent } from './Components/no-available/no-available.com
 import { OverviewDashboardComponent } from './Components/overview-dashboard/overview-dashboard.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants-dashboard/show-restaurants-dashboard.component';
+import { TrackOrderComponent } from './Components/track-order/track-order.component';
 
 const routes: Routes = [
   {path:"overviewdashboard",component:OverviewDashboardComponent},
@@ -20,9 +21,8 @@ const routes: Routes = [
   {path:"delivery" , component:DeliveryComponent},
   {path:"noonlineavailable" , component:NoAvailableComponent},
   {path:"dineout" , component:DineOutComponent},
-  {path:"giftmeals" , component:GiftMealsComponent}
-
-
+  {path:"giftmeals" , component:GiftMealsComponent},
+  {path: "trackOrder", component: TrackOrderComponent}
 ];
 
 @NgModule({

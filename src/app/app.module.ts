@@ -26,10 +26,7 @@ import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants
 import { DetailsRestaurantDashboardComponent } from './Components/details-restaurant-dashboard/details-restaurant-dashboard.component';
 import { AddRestaurantDashboardComponent } from './Components/add-restaurant-dashboard/add-restaurant-dashboard.component';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-=======
->>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 
 
 
@@ -70,11 +67,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-<<<<<<< HEAD
     AngularFireStorageModule, NgbModule // storage
-=======
-    AngularFireStorageModule // storage
->>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
    
   ],
   providers: [],

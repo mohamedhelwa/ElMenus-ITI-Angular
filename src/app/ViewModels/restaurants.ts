@@ -7,10 +7,7 @@ export class Restaurants {
   restaurantPhone?: string;
   restaurantType?: string;
   restaurantFeaturedPhotos?: string[];
-<<<<<<< HEAD
   reviews?: number =0;
-=======
->>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 
   /*constructor(
     id:string,
