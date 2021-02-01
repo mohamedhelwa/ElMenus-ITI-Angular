@@ -1,4 +1,361 @@
+<<<<<<< HEAD
 
+/******************************************************/
+@media (min-width:1240px)
+{
+  .navbar-expand-lg
+  {
+    height: 50px !important;
+  }
+}
+
+.navbar-expand-lg {
+  background-color: white !important;
+  border-bottom: 1px solid #b1aaaa !important;
+  font-size: 20px !important;
+=======
+/*nav {
+  background-color: white;
+  border-bottom: 1px solid #b1aaaa;
+  font-size: 20px;
+}
+nav a {
+  color: black;
+  height: 100%;
+  font-size: 24px;
+  margin-left: 15px;
+}
+nav a img {
+  width: 25%;
+  float: left;
+  padding-top: 6px;
+}
+
+.nav-item {
+  height: 70px;
+  padding: 0px;
+  width: 120px;
+  line-height: 50px;
+  padding-left: 16px;
+}
+
+.nav-item:hover {
+  background-color: #E5533A;
+  color: white !important;
+}
+
+.fas {
+  margin-right: 3px;
+}
+
+.fa-shopping-cart {
+ 
+  font-size: 20px;
+  color: #E5533A;
+}
+
+.active a {
+  color: #E5533A;
+}
+
+#btn_nav .btn{
+width:100px !important;
+height: 40px !important;
+font-size: 18px !important;
+font-weight: bold;
+border: 1px solid #E5533A;
+border-radius: 25px;
+margin-bottom: 5px;
+}
+
+ @media (max-width:945px)
+{
+  #btn_nav .btn{
+    width:55px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+   
+        }
+}
+.modal-dialog {
+  width: 400px !important;
+ 
+}
+
+#btn_login {
+  height: 22px !important;
+  margin-top: 9px !important;
+  padding: 0 !important;
+  width: 60px !important;
+  font-size: 14px !important;
+  background-color: white !important;
+  margin-right: 6px !important;
+}
+
+#btn_signup {
+  height: 22px !important;
+  margin-top: 9px !important;
+  padding: 0 !important;
+  width: 60px !important;
+  font-size: 8pt !important;
+  background-color: #E5533A !important;
+  color: white;
+}
+
+#secondnav {
+  width: 45% !important;
+}
+#secondnav a {
+  width:14vw;
+}
+
+.sec_nav {
+  position: absolute;
+  left: 55%;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 500px) {
+  .sec_nav {
+    flex-direction: column;
+  }
+
+  #secondnav {
+    width: 30% !important;
+  }
+  #secondnav a {
+    width: 90px;
+  }
+}
+@media (max-width: 1370px){
+  #secondnav a{
+    font-size: 16px;
+  }
+  #secondnav{
+    position: fixed;
+    width: 18vw;
+    
+  }
+}
+////////////////////////////////////
+body {margin:0;font-family:Arial}
+
+.topnav {
+  overflow: hidden;
+ // background-color: #333;
+ border-bottom: 1px solid rgb(165, 158, 158);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 2px 20px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav ul li a:hover {
+ background-color: white !important;
+ color: black;
+ 
+
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+}
+.navbar-expand-lg a {
+  color: rgb(92, 87, 87) ;
+  font-size: 24px !important;
+  margin-left: 15px !important;
+}
+.navbar-expand-lg ul li a:hover{
+  background-color: #E5533A !important;
+  color: white ;
+}
+.active{
+  background-color: #E5533A !important;
+  color:white !important
+
+<<<<<<< HEAD
+=======
+.dropdown2 .dropbtn {
+  font-size: 25px;    
+  border: none;
+  outline: none;
+  color: black;
+  padding: 2px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+}
+.fas {
+  margin-right: 3px;
+}
+
+
+  .sign
+  {
+  margin-left:4px;
+  border: 1px solid #E5533A;
+  border-radius: 20px;
+  color: white;
+  height: 30px;
+  padding: 0;
+  width: 80px;
+  background-color: #E5533A !important;
+  }
+<<<<<<< HEAD
+
+  .modal-dialog {
+    width: 350px !important;
+   
+=======
+ 
+  .topnav
+  {
+      border-bottom: none;
+  }
+  .btnlogin{
+      left:2% !important;
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+  }
+  
+  @media (max-width:500px)
+  {
+<<<<<<< HEAD
+    .modal-dialog {
+      width: 300px !important;
+      margin:auto
+     
+    }
+=======
+      left: 15% !important;
+  }
+  .login-nav
+  {
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 1360px) {
+   
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown2 {float: none;}
+  .topnav.responsive .dropdown-content2 {position: relative;}
+  .topnav.responsive .dropdown2 .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+  }
+  
+  
+.navbar-after .nav-item a{
+  font-size: 20px !important;
+}
+
+<<<<<<< HEAD
+.fa-shopping-cart {
+ 
+  color: #E5533A;
+=======
+
+@media screen and (max-width: 750px) {
+    .btnlogin{
+        left:2% !important;
+    }
+    .btnsign
+    {
+        left: 24% !important;
+    }
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+}
+/************* 2nd header *******************************/
+.input-container {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  width: 600px;
+  border: 1px solid none;
+  box-shadow: 1px 1px 2px 2px #c0b9b9;
+}
+
+.fa-search {
+  padding-top: 4px;
+  background: white;
+  color: #ada4a4;
+  min-width: 50px;
+  text-align: center;
+}
+<<<<<<< HEAD
+
+.input-field {
+  width: 100%;
+  border: none;
+=======
+.fas
+{
+    margin-right: 5px;
+    
+}
+.gift
+{
+   margin-right: 15%;
+}
+@media (max-width:1545px)
+{
+    .gift
+{
+   margin-right: 3%;
+}
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
+}
+
+.gray-col {
+  color: gray;
+}
+
+<<<<<<< HEAD
+=======
+.gift2
+{
+   margin-right: 35%;
+}
+@media (max-width:1545px)
+{
+    .gift2
+{
+   margin-right: 20%;
+}
+}
+.login-nav
+{
+  font-size: 22px !important;
+  margin-right: 5px;
+  width: 110px;
+}
+.signup-nav
+{
+  border: 1px solid #E5533A;
+  border-radius: 25px;
+  width: 118px;
+  background-color: #E5533A;
+  color: white !important; 
+  font-size: 20px !important;
+}*/
 /******************************************************/
 @media (min-width:1240px)
 {
@@ -22,10 +379,13 @@
   background-color: #E5533A !important;
   color: white ;
 }
-.active{
+.navbar-expand-lg ul li.active
+{
   background-color: #E5533A !important;
-  color:white !important
-
+}
+.navbar-expand-lg ul li.active a
+{
+  color: white;
 }
 .fas {
   margin-right: 3px;
@@ -94,6 +454,7 @@
   color: gray;
 }
 
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 .paragraph {
   font-size: 6pt;
   color: gray;

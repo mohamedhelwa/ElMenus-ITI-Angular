@@ -44,68 +44,40 @@
 
     <!--			 Discover by dishes-->
     <h4 class="ml-4"> Discover by dishes</h4>
+
+    <div class="col-sm-1 ml-4 mt-4">
+      <button style="width: 35px;height: 35px; margin-top: 20%;" class="btn btn-danger rounded-circle" type="button"><i class="fas fa-angle-left"></i>
+      </button>
+    </div>
+
     <div class="row d-flex justify-content-center">
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
+      <div class="col-sm-2" *ngFor="let item of restaurantsList">
+        <img src="{{item.restaurantFeaturedPhotos}}" class="img-fluid" height="auto" width="100%">
       </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
+      
       <div class="col-sm-1 ml-4 mt-4">
         <button style="width: 35px;height: 35px; margin-top: 20%;" class="btn btn-danger rounded-circle" type="button"><i class="fas fa-angle-right"></i>
         </button>
       </div>
     </div>
-    <br><br><br>
+    <br><br>
 
 
     <!--			Discover Agouza-->
 
     <h3 class="mt-5">Discover Agouza</h3>
     <div class="row">
-      <div class="col-sm-4">
-        <img src="../../../assets/food4.jpg" class="img-fluid" height="auto" width="100%">
+      <div class="col-sm-4" *ngFor="let item of restaurantsList">
+        <img src="{{item.restaurantFeaturedPhotos}}" class="img-fluid" height="auto" width="100%">
         <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
-        <img src="../../../assets/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
-        <p class="aria_parag">sheikh Sons</p>
+        <img src="{{item.restaurantFeaturedPhotos}}" width="40px" height="40px" style="float: left;margin-right: 6px;">
+        <p class="aria_parag">{{item.restaurantName}}</p>
         <span class="fa fa-star text-danger"></span>
         <span class="fa fa-star text-danger"></span>
         <span class="fa fa-star "></span>
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
       </div>
-      <div class="col-sm-4">
-        <img src="../../../assets/food4.jpg" class="img-fluid" height="auto" width="100%">
-        <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
-        <img src="../../../assets/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
-        <p class="aria_parag">sheikh Sons</p>
-        <span class="fa fa-star text-danger"></span>
-        <span class="fa fa-star text-danger"></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-      </div>
-      <div class="col-sm-4">
-        <img src="../../../assets/food4.jpg" class="img-fluid" height="auto" width="100%">
-        <p class="paragraph" style="margin-bottom:3px">Egyptian</p>
-        <img src="../../../assets/food4.jpg" width="40px" height="40px" style="float: left;margin-right: 6px;">
-        <p class="aria_parag">sheikh Sons</p>
-        <span class="fa fa-star text-danger"></span>
-        <span class="fa fa-star text-danger"></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-      </div>
-
     </div>
 
 
@@ -113,21 +85,15 @@
     <!--			 New Restaurants-->
     <h4 class="mt-5 ml-4"> New Restaurants</h4>
     <div class="row d-flex justify-content-center">
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
+      <div class="col-sm-1  ml-4 mt-4">
+        <button style="width: 35px;height: 35px; margin-top: 20%;" class="btn btn-danger rounded-circle" type="button"><i class="fas fa-angle-left"></i>
+        </button>
       </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
+
+      <div class="col-sm-2" *ngFor="let item of restaurantsList">
+        <img src="{{item.restaurantFeaturedPhotos}}" class="img-fluid" height="auto" width="100%">
       </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
-      <div class="col-sm-2">
-        <img src="../../../assets/pic1.png" class="img-fluid" height="auto" width="100%">
-      </div>
+      
       <div class="col-sm-1  ml-4 mt-4">
         <button style="width: 35px;height: 35px; margin-top: 20%;" class="btn btn-danger rounded-circle" type="button"><i class="fas fa-angle-right"></i>
         </button>

@@ -6,8 +6,11 @@ import { Router } from '@angular/router';
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { OrdersService } from 'src/app/Services/orders.service';
+<<<<<<< HEAD
 import { RestaurantsServiceService } from 'src/app/Services/restaurants-service.service';
 import { Reviews } from 'src/app/ViewModels/reviews';
+=======
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 @Component({
   selector: 'app-delivery',
   templateUrl: './delivery.component.html',
@@ -16,12 +19,20 @@ import { Reviews } from 'src/app/ViewModels/reviews';
 export class DeliveryComponent implements OnInit {
 
   restaurantList: Restaurants[] | any = [];
+<<<<<<< HEAD
   reviewsList: Reviews[] | any = [];
   checked=false;
   number_of_restaurants=0;
 
   constructor(private restService:RestaurantsServiceService,private db: AngularFirestore ,  private router:Router) {
     /*const orders = this.db.collection('Restaurants').valueChanges();
+=======
+  checked=false;
+  //tutorial: Restaurants = new Restaurants();   
+  number_of_restaurants=0;
+  constructor(private ord:OrdersService,private db: AngularFirestore ,  private router:Router) {
+    const orders = this.db.collection('Restaurants').valueChanges();
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
     orders.subscribe(
       (response) => {
         this.restaurantList = response;
@@ -34,7 +45,11 @@ export class DeliveryComponent implements OnInit {
       (error) => {
         console.log(error);
       }
+<<<<<<< HEAD
     );*/ 
+=======
+    );
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
 
     /*this.tutorial.restaurantName="pizza Hut";
     this.tutorial.restaurantClosingTime="11.00";
@@ -43,14 +58,18 @@ export class DeliveryComponent implements OnInit {
     this.tutorial.restaurantType="pizza";
     this.tutorial.restaurantBranches=["cairo","sharmElshiekh"];
     this.tutorial.restaurantFeaturedPhotos=["url"];*/
+<<<<<<< HEAD
     this.retrieveRestaurants();
     this.retrieveReviews();
 
+=======
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
   }
 
   ngOnInit(): void {
   }
 
+<<<<<<< HEAD
   retrieveRestaurants(): void {
     this.restService.getAll().snapshotChanges().pipe(
       map(changes =>
@@ -103,6 +122,8 @@ export class DeliveryComponent implements OnInit {
   }
 
 
+=======
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
   onChange(checked:boolean)
   {
     if(checked)

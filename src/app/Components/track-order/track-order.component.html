@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>track-order works!</p>
 
 <div class="container">
@@ -7,7 +8,152 @@
       <div *ngFor="let item of ordersList">
         {{item.totalPrice}}
         {{item.restaurantImage}}
+=======
+<div class="container" id="orderContainer">
+  <article class="card">
+    <header class="card-header"> My Orders / Tracking </header>
+    <div class="card-body">
+      <h6>Order ID: {{ordersList[1]?.orderId}}</h6>
+      <article class="card">
+        <div class="card-body row">
+          <div class="col"> <strong>Estimated Delivery time:</strong> <br>7:12 PM </div>
+          <div class="col"> <strong>Shipping BY:</strong> <br> Ali, | <i class="fa fa-phone"></i> +201228802927 </div>
+          <div class="col"> <strong>Status:</strong> <br> {{ordersList[1]?.orderStatus}} </div>
+        </div>
+      </article>
+      <div class="track">
+        <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order placed</span> </div>
+        <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by delivery</span> </div>
+        <div class="step"> <span class="icon"> <i class="fa fa-motorcycle"></i> </span> <span class="text"> On the way </span> </div>
+        <div class="step"> <span class="icon"> <i class="fa fa-people-carry"></i> </span> <span class="text">Ready for pickup</span> </div>
+      </div>
+      <hr>
+
+      <div class="container-fluid my-5 d-flex justify-content-center">
+        <div class="card card-1">
+          <div class="card-header bg-white">
+            <div class="media flex-sm-row flex-column-reverse justify-content-between ">
+              <div class="col my-auto">
+                <h4 class="mb-0">Your order from <span class="change-color">{{(ordersList[1]?.restaurantName).toUpperCase()}}</span> details:</h4>
+              </div>
+              <div class="col-auto text-center my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3" src="{{ordersList[1]?.restaurantImage}}" width="115" height="115">
+                <p class="mb-4 pt-0 Glasses">{{ordersList[1]?.orderDate}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-between mb-3">
+              <div class="col-auto">
+                <h6 class="color-1 mb-0 change-color">Receipt</h6>
+              </div>
+            </div>
+
+            <div class="row mt-4" *ngFor="let item of ordersList[1]?.items">
+              <div class="col">
+                <div class="card card-2">
+                  <div class="card-body">
+                    <div class="media">
+                      <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="{{item.itemImage}}" width="135" height="135" /> </div>
+                      <div class="media-body my-auto text-right">
+                        <div class="row my-auto flex-column flex-md-row">
+                          <div class="col my-auto">
+                            <h5 class="mb-0">{{item.itemName}}</h5>
+                          </div>
+                          <div class="col-auto my-auto">Sandwich + Rizo + Small Coleslaw + Pepsi, {{item.itemSize}}</div>
+                          <div class="col my-auto">Qty : {{item.itemQuantity}}</div>
+                          <div class="col my-auto">
+                            <h6 class="mb-0">{{item.itemPrice}} EGP</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+
+            
+            <div class="row mt-4">
+              <div class="col">
+                <div class="row justify-content-between">
+                  <div class="col-auto">
+                    <p class="mb-1 text-dark"><b>Order Details</b></p>
+                  </div>
+                  <div class="flex-sm-col text-right col">
+                    <p class="mb-1"><b>Total</b></p>
+                  </div>
+                  <div class="flex-sm-col col-auto">
+                    <p class="mb-1">{{ordersList[1]?.totalPrice}} EGP</p>
+                  </div>
+                </div>
+                <!-- <div class="row justify-content-between">
+                  <div class="flex-sm-col text-right col">
+                    <p class="mb-1"> <b>Discount</b></p>
+                  </div>
+                  <div class="flex-sm-col col-auto">
+                    <p class="mb-1">50.00 EGP</p>
+                  </div>
+                </div>
+                <div class="row justify-content-between">
+                  <div class="flex-sm-col text-right col">
+                    <p class="mb-1"><b>VAT 14%</b></p>
+                  </div>
+                  <div class="flex-sm-col col-auto">
+                    <p class="mb-1">61.50 EGP</p>
+                  </div>
+                </div> -->
+                <div class="row justify-content-between">
+                  <div class="flex-sm-col text-right col">
+                    <p class="mb-1"><b>Delivery Fees</b></p>
+                  </div>
+                  <div class="flex-sm-col col-auto">
+                    <p class="mb-1">Free</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row invoice" style="float: left;">
+              <div class="col">
+                <p class="mb-1"> Invoice Number : 788152</p>
+                <p class="mb-1">Invoice Date : 28 Dec, 2020</p>
+              </div>
+            </div> -->
+          </div>
+          <div class="card-footer">
+            <div class="jumbotron-fluid">
+              <div class="row justify-content-between ">
+                <div class="col-auto my-auto ">
+                  <h4 class="mb-0 font-weight-bold">TOTAL PAID</h4>
+                </div>
+                <div class="col-auto my-auto ml-auto">
+                  <h3>{{ordersList[1]?.totalPrice}} EGP</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn btn-warning" style="float: left;" data-abc="true">Back to restaurants</a>
+      <button href="#" class="btn btn-warning" onclick="document.getElementById('id01').style.display='block'" style="float: right;" data-abc="true">Cancel my order</button>
+
+      <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/action_page.php">
+          <div class="cancel-container">
+            <h1>Cancel my order</h1>
+            <p>Are you sure you want to cancel your order?</p>
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Dismiss</button>
+              <button type="button" id="cancel-btn" class="deletebtn">Cancel</button>
+            </div>
+          </div>
+        </form>
+>>>>>>> 7523fe8cd85162d284ed7592c36cae778b135a43
       </div>
     </div>
-  </div>
+
+  </article>
 </div>
