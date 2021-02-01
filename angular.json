@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ElMenus"
+  "defaultProject": "ElMenus",
+  "cli": {
+    "analytics": "4aa927f3-c50d-46b8-92a3-a1edfe970f92"
+  }
 }

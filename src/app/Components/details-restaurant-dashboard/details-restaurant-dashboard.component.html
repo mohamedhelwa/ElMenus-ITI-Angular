@@ -1,0 +1,86 @@
+<div *ngIf="currentrestaurant" class="edit-form">
+  <br><br>
+    <h4>{{currentrestaurant.restaurantName}} Restaurant</h4>
+   <br><br>
+    <!--<form>-->
+      <div class="form-group">
+        <label for="title">restaurantName</label>
+        <input
+         
+          type="text"
+          class="form-control"
+          id="title"
+         
+          [(ngModel)]="currentrestaurant.restaurantName"
+        
+        />
+      </div>
+      <div class="form-group">
+        <h6>Restaurant Branches</h6>
+        <select name="category" class="form-control">
+          <option *ngFor="let rest of currentrestaurant.restaurantBranchs" >{{rest}}</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="description">restaurantClosing</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentrestaurant.restaurantClosing"
+          name="description"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">restaurantOpening</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description2"
+          [(ngModel)]="currentrestaurant.restaurantOpening"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">restaurantPhone</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description3"
+          [(ngModel)]="currentrestaurant.restaurantPhone"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">restaurantType</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description3"
+          [(ngModel)]="currentrestaurant.restaurantType"
+          name="description"
+        />
+      </div>     
+    <!--</form>--> 
+    
+   <button class="btn btn-danger mr-2" (click)="deleteTutorial()">
+      Delete
+    </button>
+  
+    <button type="submit" class="btn btn-info" (click)="updateTutorial()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  
+  <div *ngIf="!currentrestaurant">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>

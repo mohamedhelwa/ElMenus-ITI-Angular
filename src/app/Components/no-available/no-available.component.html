@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+      <!-----------Left Side--------------------------->
+      <div class="col-sm-2 right-delivery" style="flex-wrap: wrap;">
+        <hr>
+        <p>Order Online <span style="color: blue;">  x </span> </p>
+        <hr> 
+        <h5 style="padding-top: 15px;margin-bottom: 15%;" class="gray-col">Show results for:</h5>
+        <div style="float: left;">
+        <label class="switch">
+          <input type="checkbox" checked="true" #inputEl (change)="onChange(inputEl.checked)">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div>
+        <p class="gray-col" style="font-size: 16px;padding-left: 40px;line-height: 1.5;">Online ordering only
+          unavailable in St. Mohamed Tawfik
+          right now</p>
+      </div>
+          <hr>
+        
+          <input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Open Now</span>
+          <br><input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Promo</span>
+          <br><input type="checkbox" class="chkbox"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;"> Hygiene Check</span>
+          <hr>
+          <h5 class="gray-col">Sort by:</h5><br>
+       <input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Popular</span>
+       <br><input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Rating</span>
+       <br><input type="radio" name="sort"><span  style="font-size: 18px;padding-left:10px ; padding-bottom: 60px;">Delivery Time</span>
+        <hr>
+    </div>
+      <!-----------right Side--------------------------->
+      <div class="col-sm-10 ">
+        <h3 style="padding-top: 10px; padding-left: 16px;">Discover Top Dishes</h3>
+      <img src="https://firebasestorage.googleapis.com/v0/b/elmenus-iti.appspot.com/o/Images%2Frestaurants_images%2Ffood1.png?alt=media&token=d3a84d7f-5952-426e-babe-1a4b0bb5259a" height="150px" width="300px">
+      <p style="margin-left: 12%;">All</p>
+      <br><br>
+      <h4>Restaurants <sub>(0)</sub> </h4><br>
+      <div class="row">
+        <div class="col-12">
+            <img class="noorder" src="/assets/no-delivery-restaurants.svg">
+        <h6>Online ordering is not available in your area yet!</h6>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+    
+      
+      

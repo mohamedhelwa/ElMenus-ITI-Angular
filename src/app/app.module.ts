@@ -14,6 +14,19 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { DineOutComponent } from './Components/dine-out/dine-out.component';
+import { SettingsComponent } from './Components/settings/settings.component';
+import { ChangeEmailComponent } from './Components/change-email/change-email.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { AddressBookComponent } from './Components/address-book/address-book.component';
+import { DeliveryComponent } from './Components/delivery/delivery.component';
+import { NoAvailableComponent } from './Components/no-available/no-available.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { OverviewDashboardComponent } from './Components/overview-dashboard/overview-dashboard.component';
+import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants-dashboard/show-restaurants-dashboard.component';
+import { DetailsRestaurantDashboardComponent } from './Components/details-restaurant-dashboard/details-restaurant-dashboard.component';
+import { AddRestaurantDashboardComponent } from './Components/add-restaurant-dashboard/add-restaurant-dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -34,15 +47,28 @@ const firebaseConfig = {
     HeaderComponent,
     FooterComponent,
     TrackOrderComponent,
-    DineOutComponent
+    DineOutComponent,
+    SettingsComponent,
+    ChangeEmailComponent,
+    ChangePasswordComponent,
+    AddressBookComponent,
+    DeliveryComponent,
+    NoAvailableComponent,
+    DashboardComponent,
+    OverviewDashboardComponent,
+    ShowRestaurantsDashboardComponent,
+    DetailsRestaurantDashboardComponent,
+    AddRestaurantDashboardComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, NgbModule // storage
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
