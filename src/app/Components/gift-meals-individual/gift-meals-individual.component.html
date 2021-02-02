@@ -1,0 +1,350 @@
+<app-header></app-header>
+<!--	Gift_cards_section-->
+<div class="gift-cards mt-3">
+    <div class="container">
+        <div class="row text-center">
+            <!--				Individual_send_friend_gift_section_form-->
+            <div class="gift-card-chckout col-md-7 ">
+                <!--					gift_card_title-->
+                <h2 class="text-center mb-2">Elmenus Gift Cards</h2>
+                <!-- <p class="text-center mb-3">
+                    <img src="../../../assets/images/exclamation-circle-line.svg">
+                    <span class="gift-card-subtitle">
+                        <span class="individual-subtitle">
+                            Are you a corporate and want to send gift cards for your teams?
+                        </span>
+                        <span class="corporote-subtitle d-none">
+                            Would you like to send gift for your friends?
+                        </span>
+                        <a href="#" class="clicked">click here</a>
+                    </span>
+                </p> -->
+                <!--					gift_card_steps-->
+                <div class="gift-steps d-md-flex justify-content-center mb-5 mt-5">
+                    <!--						Stepper-->
+                    <ul class="steps mb-4">
+                        <li class="active-step">
+                            <span class="step-val">
+                                <span>1</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Gift Details
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-val">
+                                <span>2</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Payment
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--						end_Stepper-->
+                </div>
+                <!--					end_gift_card_steps-->
+
+                <!--					gift_card_form-->
+                <div class="gift-steps-cntnt">
+                    <form [formGroup]="giftMealsFrm" (ngSubmit)='submitGift()'
+                    class="needs-validation" novalidate>
+
+                        <div class="form-row text-left">
+                            <!--		  Dropdown-->
+                            <div class="col-sm-12">
+                                <div class="form-group row mb-3 drp-dwn">
+                                    <div class="col-sm-6 pl-0">
+                                        <label for="giftValue">Gift value*</label>
+                                        <select formControlName="giftValue"
+                                         id="giftValue" class="form-control selectpicker" name="gift-val" data-live-search="true" required>									
+                                            <option selected disabled value=""></option>
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>30</option>
+                                            <option>50</option>
+                                            <option>75</option>
+                                            <option>100</option>
+                                        </select>
+                                    <div *ngIf="(giftMealsFrm.controls['giftValue'].touched &&
+                                                giftMealsFrm.controls['giftValue'].invalid)" 
+                                                    class="text-danger sm-font">
+                                                    **Please fill out Gift Value.    
+                                    </div>
+                                        <!-- <div class="invalid-feedback">
+                                            Please fill out Gift Value
+                                        </div> -->
+                                    </div>
+                                    <span for="colFormLabel" class="col-form-label ml-lg-5">EGP</span>
+
+                                </div>
+                            </div>
+                            <!--		  end_Dropdown-->
+                        </div>
+
+                        <!--	  Promo_name-->
+                        <div class="form-group mb-3">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Promo Name*</label>
+                                <input formControlName="promoName"
+                                type="text" class="form-control mb-1" 
+                                id="validationCustom03" placeholder="e.g VF-" required>
+                                <p class="info mb-0"><span><img src="../../../assets/images/exclamation-circle-line.svg"></span> desired promo name.</p>
+                                <div *ngIf="(giftMealsFrm.controls['promoName'].touched &&
+                                            giftMealsFrm.controls['promoName'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Please fill out correct Promo name.     
+                                </div> 
+                                <!-- <div class="invalid-feedback">
+                                    Please fill out Promo name.
+                                </div> -->
+                            </div>
+                        </div>
+                        <!--	  end_Promo_name-->
+
+                        <!--							Company_section-->
+                        <div class="company-data d-none">
+                            <!--	  company_email-->
+                            <div class="form-group">
+                                <div class="row text-left">
+                                    <label for="validationCustom03">Company Email*</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                        Please fill out Email address.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--	  end_company_email-->
+
+                            <!--	  company_name-->
+                            <div class="form-group">
+                                <div class="row text-left">
+                                    <label for="validationCustom03">Company Name*</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                        Please fill out Name.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--	  end_company_name-->
+                        </div>
+                        <!--                        end_Company_section-->
+
+
+                        <!--                        Individual_section-->
+                        <div class="individual-data">
+                            <!--	  phone_number-->
+                            <div class="form-group">
+                                <div class="row text-left">
+                                    <label for="validationCustom03">
+                                        <span class="cmpny-phone d-none">Company</span> Phone Number*</label>
+                                    <input formControlName="phoneNumber"
+                                     type="text" class="form-control" id="validationCustom03" required>                                    
+                                     
+                                     <div *ngIf="(giftMealsFrm.controls['phoneNumber'].touched &&
+                                                giftMealsFrm.controls['phoneNumber'].invalid)" 
+                                                    class="text-danger sm-font">
+                                                    **Please fill out Phone.    
+                                    </div> 
+                                    <!-- <div class="invalid-feedback">
+                                        Please fill out Phone.
+                                    </div> -->
+                                </div>
+                            </div>
+                            <!--	  end_phone_number-->
+                        </div>
+                        <!--                        end_Individual_section-->
+
+                        <!--	  gift_rec_phone-->
+                        <div class="form-group mb-4">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Gift Receiver Phone Number*</label>
+                                <input formControlName="recPhoneNumber"
+                                 type="text" class="form-control form-control-sm mb-1" 
+                                id="validationCustom03" placeholder="01xxxxxxxxx" required>
+                                
+                                <div *ngIf="(giftMealsFrm.controls['recPhoneNumber'].touched &&
+                                            giftMealsFrm.controls['recPhoneNumber'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Please fill out phone numbers.
+                                </div>
+                                
+                                <!-- <div class="invalid-feedback">
+                                    Please fill out phone numbers.
+                                </div> -->
+                            </div>
+                        </div>
+                        <!--	  end_gift_rec_phone-->
+                        <div class="row">
+                            <button [disabled]="giftMealsFrm.invalid"
+                            id="gft-pymnt-btn" 
+                            class="btn btn-primary btn-lg btn-block text-uppercase" 
+                            type="submit">go to payment</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--					end_gift_card_form-->
+
+            </div>
+            <!--				end_Individual_send_friend_gift_section_form-->
+
+
+            <!--				Corporote_send_teams_gift_section_form-->
+            <div class="gift-card-chckout col-md-7 d-none">
+                <!--					gift_card_title-->
+                <h2 class="text-center mb-2">Elmenus Gift Cards</h2>
+                <p class="text-center mb-3">
+                    <img src="../../../assets/images/exclamation-circle-line.svg">
+                    <span class="gift-card-subtitle">
+                        Would you like to send gift for your friends?
+                        <a href="#">click here</a>
+                    </span>
+                </p>
+                <!--					gift_card_steps-->
+                <div class="gift-steps d-md-flex justify-content-center mb-5 mt-5">
+                    <!--						Stepper-->
+                    <ul class="steps mb-4">
+                        <li class="active-step">
+                            <span class="step-val">
+                                <span>1</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Gift Details
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-val">
+                                <span>2</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Payment
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--						end_Stepper-->
+                </div>
+                <!--					end_gift_card_steps-->
+
+                <!--					gift_card_form-->
+                <div class="gift-steps-cntnt">
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row text-left">
+                            <!--		  Dropdown-->
+                            <div class="col-sm-12">
+                                <div class="form-group row mb-3 drp-dwn">
+                                    <div class="col-sm-6 pl-0">
+                                        <label for="validationCustom04">Gift value*</label>
+                                        <select class="form-control" id="validationCustom04" required>
+                                            <option selected disabled value=""></option>
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>30</option>
+                                            <option>50</option>
+                                            <option>75</option>
+                                            <option>100</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please fill out Gift Value
+                                        </div>
+                                    </div>
+                                    <span for="colFormLabel" class="col-form-label ml-lg-5">EGP</span>
+
+                                </div>
+                            </div>
+                            <!--		  end_Dropdown-->
+                        </div>
+
+                        <!--	  Promo_name-->
+                        <div class="form-group mb-3">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Promo Name*</label>
+                                <input type="text" class="form-control mb-1" id="validationCustom03" placeholder="e.g VF-" required>
+                                <p class="info mb-0"><span><img src="../../../assets/images/exclamation-circle-line.svg"></span> desired promo name.</p>
+                                <div class="invalid-feedback">
+                                    Please fill out Promo name.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_Promo_name-->
+
+                        <!--	  company_email-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Company*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_company_email-->
+
+                        <!--	  company_name-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Your Phone*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_company_name-->
+
+                        <!--	  phone_number-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Your Phone*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_phone_number-->
+
+                        <!--	  gift_rec_phone-->
+                        <div class="form-group mb-4">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Gift Receiver Phone Number(s)*</label>
+                                <input type="text" class="form-control form-control-sm mb-1" id="validationCustom03" placeholder="01xxxxxxxxx, 01xxxxxxxxx" required>
+                                <p class="info mb-0"><span><img src="../../../assets/images/exclamation-circle-line.svg"></span> You can enter muliple numbers phone numbers separated by comma</p>
+                                <div class="invalid-feedback">
+                                    Please fill out phone numbers.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_gift_rec_phone-->
+                        <div class="row">
+                            <button id="gft-pymnt-btn" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit">go to payment</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--					end_gift_card_form-->
+
+            </div>
+            <!--				end_Corporote_send_teams_gift_section_form-->
+
+
+
+
+            <!--				gift-right-img-->
+            <div class="col-md-4 mt-5 ml-5 ">
+                <img src="../../../assets/images/promo.png" class="gift-img mt-5">
+            </div>
+            <!--				end_gift-right-img-->
+
+        </div>
+    </div>
+</div>
+<!--	end-Gift_cards_section-->
