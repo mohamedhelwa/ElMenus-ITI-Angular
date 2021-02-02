@@ -1,0 +1,472 @@
+
+
+
+<!--	header-->
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo col-sm-2 ml-5">
+                <a href="#"><img src="../../../assets/images/logo.svg"></a>
+            </div>
+            <div class="hdr-link col-sm-9 justify-content-center align-self-center">
+                <button id="exitCheckoutBtn" (click)="navToTest()"
+                type="button" class="CheckoutExitBtn btn float-md-right">
+                Exit Checkout <i class="ml-1 fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<!--	end-header-->
+
+<ng-template #userAddressInfo>
+<app-delivery-features-order-online 
+    [userName] = 'userName'
+    [address] = 'address'
+    [buildingNum] = 'buildingNum'
+    [mobNum] = 'mobNum'
+    [userId] = 'userId'    
+    (deleteEvent)="deleteAddress(userId)"
+    (updateEvent)="updateUserAddress(userId)"
+></app-delivery-features-order-online>
+
+</ng-template>
+<!--	CheckOut_section-->
+<div *ngIf="!editAddressState;else userAddressInfo" class="gift-cards pl-0 mt-3">
+    <div class="container">
+        <div class="row text-center">
+            <!--				Checkout_form-->
+            <div class="gift-card-chckout col-md-7">
+                <div class="stepper-section">
+                    <!--					checkout_title-->
+                    <div class="row checkout-title">
+                        <h3 class="mb-sm-2">Checkout</h3>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-12 mb-5 mb-md-0 pl-0">
+                            <!--					checkout_steps-->
+                            <div class="gift-steps mb-5 mt-5">
+                                <!--		Stepper-->
+                                <ul class="steps mb-4">
+                                    <li class="active-step">
+                                        <span class="step-val">
+                                            <span>1</span>
+                                        </span>
+                                        <div class="content">
+                                            <span class="step-title">
+                                                Delivery address
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="step-val">
+                                            <span>2</span>
+                                        </span>
+                                        <div class="content">
+                                            <span class="step-title">
+                                                Review
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!--						end_Stepper-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--end_checkout_steps-->
+
+
+                <!--Checkout_form-->
+                <div class="gift-steps-cntnt">
+                    <form class="needs-validation" [formGroup]="checkoutFrm" 
+                          (ngSubmit)="submitCheckout()">
+
+                        <div class="form-row text-left">
+                            <!--		  Name-->
+                            <div class="col-sm-12 ">
+                                <div class="form-group row mb-3">
+                                    <div class="col-sm-7 pl-0">
+                                        <label class="form-label" for="validationCustom04">Name*</label>
+                                        <input formControlName="userName"
+                                         type="text" class="form-control mb-1" 
+                                         id="" placeholder="e.g Shady Gamal"
+                                         value="">
+                                         <div *ngIf="(checkoutFrm.controls['userName'].touched &&
+                                                     checkoutFrm.controls['userName'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid name 'at least 4 character'      
+                                         </div>                                         
+                                        </div>
+                                </div>
+                            </div>
+                            <!--		  end_Name-->
+                        </div>                        
+
+                        <section class="text-left">
+                            <!--Address-->
+                            <h4 class="form-title">Add New Address Details</h4>
+                            <!--	  map-->
+                            <div class="map mb-3">
+                                <div class="row">
+                                    <!--Google map-->
+                                    <div id="map-container-google-1" class="z-depth-1-half map-container">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13813.850729271433!2d31.216463!3d30.0522694!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3cd98b6ceef3fd95!2sPolice%20Agouza%20Hospital!5e0!3m2!1sen!2seg!4v1609230657945!5m2!1sen!2seg" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+
+                                    <!--Google Maps-->
+                                </div>
+                            </div>
+                            <!--	  end_map-->
+
+                            <p class="form-info">
+                                <span>
+                                    <img src="../../../assets/images/exclamation-circle.svg">
+                                </span>
+                                Please select your exact location on the map, so that captains can reach you easily
+                            </p>
+
+                            <p class="form-instructions">
+                                <span class="font-weight-bold">City:</span> Cairo, <span class="font-weight-bold">Area:</span> Zamalek, <span class="font-weight-bold">Zone:</span> Zamalek
+                            </p>
+
+                            <!--Address_Info-->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-9 pl-0">
+                                        <label class="form-label" for="validationCustom03">
+                                            Address Info*</label>
+                                        <input formControlName="address"
+                                        type="text" class="form-control" 
+                                        id="validationCustom03" placeholder="in front of Le Carnaval Hotel" 
+                                        required>
+                                        <div *ngIf="(checkoutFrm.controls['address'].touched &&
+                                                     checkoutFrm.controls['address'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid address info      
+                                         </div>
+                                        <!-- <div class="invalid-feedback">
+                                            Enter a valid address info
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="inputs-group">
+                                <div class="row">
+                                    <!--Building_no-->
+                                    <div class="form-group col-md-3 pl-0">
+
+                                        <label class="form-label" for="validationCustom03">
+                                            Building no.*</label>
+                                        <input formControlName="buildingNum"
+                                         type="text" class="form-control" id="validationCustom03"
+                                         placeholder="e.g. 4" required>
+                                         <div *ngIf="(checkoutFrm.controls['buildingNum'].touched &&
+                                                     checkoutFrm.controls['buildingNum'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid building number       
+                                         </div>
+                                        <!-- <div class="invalid-feedback">
+                                            Enter a valid building number
+                                        </div> -->
+                                    </div>
+                                    
+                                    <!--Floor_no.-->
+                                    <div class="form-group col-md-3 pl-0">
+                                        <label class="form-label" for="validationCustom03">
+                                            Floor no.*</label>
+                                        <input formControlName="floorNum"
+                                         type="text" class="form-control" id="validationCustom03" placeholder="e.g. 4" required>
+                                         <div *ngIf="(checkoutFrm.controls['floorNum'].touched &&
+                                                    checkoutFrm.controls['floorNum'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid floor number      
+                                        </div>
+                                         <!-- <div class="invalid-feedback">
+                                            Enter a valid floor number
+                                        </div> -->
+                                    </div>
+                                    <!--Apart_no.-->
+                                    <div class="form-group col-md-3 pl-0">
+                                        <label class="form-label" for="validationCustom03">
+                                            Apart no.*</label>
+                                        <input formControlName="apartNum"
+                                         type="text" class="form-control" id="validationCustom03" placeholder="e.g. 4" required>
+                                         <div *ngIf="(checkoutFrm.controls['apartNum'].touched &&
+                                                    checkoutFrm.controls['apartNum'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid Apart number      
+                                        </div>
+                                         <!-- <div class="invalid-feedback">
+                                            Enter a valid Apart number
+                                        </div> -->
+                                    </div>
+
+                                </div>
+                            </div>                           
+
+                            <!--Mob_Number-->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8 pl-0">
+                                        <label class="form-label" for="validationCustom03">
+                                            Mobile No.*</label>
+                                        <input formControlName="mobNum"
+                                        type="text" class="form-control" id="validationCustom03" 
+                                        placeholder="eg. 01023456789" required>
+                                        <div *ngIf="(checkoutFrm.controls['mobNum'].touched &&
+                                                     checkoutFrm.controls['mobNum'].invalid)" 
+                                                class="text-danger sm-font">
+                                                **Enter a valid mobile number       
+                                         </div>
+                                        <!-- <div class="invalid-feedback">
+                                            Enter a valid mobile number
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <!--toggler-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="toggleBtn">
+                                    <label class="custom-control-label" for="toggleBtn"></label>
+                                    <p class="toggler-title"> This is a Company Address </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_toggler-->
+
+
+                        <!--							Company_section-->
+                        <div class="company-name d-none">
+                            <!--	  company_name-->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8 pl-0">
+                                        <input type="text" class="form-control" id="validationCustom03" placeholder="Company Name" required>
+                                        <div class="invalid-feedback">
+                                            Enter a valid company name
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--	  end_company_name-->
+                        </div>
+                        <!--                        end_Company_section-->
+
+                        <div class="row pt-sm-3">
+                            <div class="col-md-5 pl-0 pr-lg-1 pb-sm-4">
+                                <button id="chckout-svAddress-btn" 
+                                class="btn btn-primary btn btn-block" 
+                                type="submit" [disabled]="checkoutFrm.invalid">Save Address</button>
+                            </div>
+                            <div class="col-md-4 pl-0 pb-sm-3">
+                                <button id="chckout-cancel-btn" 
+                                class="btn btn-primary btn btn-block" 
+                                type="button">Cancel</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+                <!--					end_Checkout_form-->
+
+            </div>
+            <!--				end_Checkout_form-->
+
+
+            <!--				Corporote_send_teams_gift_section_form-->
+            <div class="gift-card-chckout col-md-7 d-none">
+                <!--					gift_card_title-->
+                <h2 class="text-center mb-2">Elmenus Gift Cards</h2>
+                <p class="text-center mb-3">
+                    <img src="../../../assets/images/exclamation-circle-line.svg">
+                    <span class="gift-card-subtitle">
+                        Would you like to send gift for your friends?
+                        <a href="#">click here</a>
+                    </span>
+                </p>
+                <!--					gift_card_steps-->
+                <div class="gift-steps d-md-flex justify-content-center mb-5 mt-5">
+                    <!--						Stepper-->
+                    <ul class="steps mb-4">
+                        <li class="active-step">
+                            <span class="step-val">
+                                <span>1</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Gift Details
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-val">
+                                <span>2</span>
+                            </span>
+                            <div class="content">
+                                <span class="step-title">
+                                    Payment
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--						end_Stepper-->
+                </div>
+                <!--					end_gift_card_steps-->
+
+                <!--					gift_card_form-->
+                <div class="gift-steps-cntnt">
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row text-left">
+                            <!--		  Dropdown-->
+                            <div class="col-sm-12">
+                                <div class="form-group row mb-3 drp-dwn">
+                                    <div class="col-sm-6 pl-0">
+                                        <label for="validationCustom04">Gift value*</label>
+                                        <select class="form-control" id="validationCustom04" required>
+                                            <option selected disabled value=""></option>
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>30</option>
+                                            <option>50</option>
+                                            <option>75</option>
+                                            <option>100</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please fill out Gift Value
+                                        </div>
+                                    </div>
+                                    <span for="colFormLabel" class="col-form-label ml-lg-5">EGP</span>
+
+                                </div>
+                            </div>
+                            <!--		  end_Dropdown-->
+                        </div>
+
+                        <!--	  Promo_name-->
+                        <div class="form-group mb-3">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Promo Name*</label>
+                                <input type="text" class="form-control mb-1" id="validationCustom03" placeholder="e.g VF-" required>
+                                <p class="info mb-0"><span><img src="../../../assets/images/exclamation-circle-line.svg"></span> desired promo name.</p>
+                                <div class="invalid-feedback">
+                                    Please fill out Promo name.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_Promo_name-->
+
+                        <!--	  company_email-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Company*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_company_email-->
+
+                        <!--	  company_name-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Your Phone*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_company_name-->
+
+                        <!--	  phone_number-->
+                        <div class="form-group">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Your Phone*</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please fill out Phone.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_phone_number-->
+
+                        <!--	  gift_rec_phone-->
+                        <div class="form-group mb-4">
+                            <div class="row text-left">
+                                <label for="validationCustom03">Gift Receiver Phone Number(s)*</label>
+                                <input type="text" class="form-control form-control-sm mb-1" id="validationCustom03" placeholder="01xxxxxxxxx, 01xxxxxxxxx" required>
+                                <p class="info mb-0"><span><img src="../../../assets/images/exclamation-circle-line.svg"></span> You can enter muliple numbers phone numbers separated by comma</p>
+                                <div class="invalid-feedback">
+                                    Please fill out phone numbers.
+                                </div>
+                            </div>
+                        </div>
+                        <!--	  end_gift_rec_phone-->
+                        <div class="row">
+                            <button id="gft-pymnt-btn" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit">go to payment</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--					end_gift_card_form-->
+
+            </div>
+            <!--				end_Corporote_send_teams_gift_section_form-->
+
+
+
+
+            <!--				gift-right-img-->
+            <!--				<div class="right-sec col-md-4 ml-5 ">
+                                    <img src="../../../assets/images/promo.png" class="gift-img mt-5">
+                
+
+            </div>-->
+            <!--				end_gift-right-img-->
+
+        </div>
+    </div>
+</div>
+<!--	end-CheckOut_section-->
+
+<!-- <div>
+<ul *ngFor="let user of users">     -->
+    <!-- {{item.userId}} -->
+    <!-- <li>{{user.id}}</li> -->
+    <!-- <li >
+        {{user.id}}
+        {{user.userName}}
+        <button><i (click)="editUser(user)" class="fa fa-pencil"></i></button>
+    
+        <div *ngIf="editState && userToEdit.id == user.id"> -->
+
+                <!-- <form (ngSubmit)=updateUser(user)>
+                    <input type="submit" value="update" class="btn orange">
+                    <button (click)="deleteUser(user)">Delete</button>
+                </form> -->
+                <!-- <form (ngSubmit)="deleteUser(user)"> -->
+                    <!-- <input type="submit" value="update" class="btn orange"> -->
+                    <!-- <button type="submit" >Delete</button>
+                </form>
+            </div>
+    </li> -->
+        
+    <!-- {{item.userName}}
+    {{item.phoneNumber}}
+    {{item.buildingNum}}
+    {{item.address}}
+    {{item.mobNum}} -->
+    <!-- </ul>
+</div> -->
+

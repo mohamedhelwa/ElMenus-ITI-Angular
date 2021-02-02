@@ -25,8 +25,14 @@ import { OverviewDashboardComponent } from './Components/overview-dashboard/over
 import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants-dashboard/show-restaurants-dashboard.component';
 import { DetailsRestaurantDashboardComponent } from './Components/details-restaurant-dashboard/details-restaurant-dashboard.component';
 import { AddRestaurantDashboardComponent } from './Components/add-restaurant-dashboard/add-restaurant-dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { DeliveryFeaturesOrderOnlineComponent } from './Components/delivery-features-order-online/delivery-features-order-online.component';
+import { GiftMealsIndividualComponent } from './Components/gift-meals-individual/gift-meals-individual.component';
+import { HomeComponent } from './Components/home/home.component';
+import { TestComponent } from './Components/test/test.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 
 
@@ -58,11 +64,18 @@ const firebaseConfig = {
     OverviewDashboardComponent,
     ShowRestaurantsDashboardComponent,
     DetailsRestaurantDashboardComponent,
-    AddRestaurantDashboardComponent
+    AddRestaurantDashboardComponent,
+    CheckoutComponent,
+    DeliveryFeaturesOrderOnlineComponent,
+    GiftMealsIndividualComponent,
+    HomeComponent,
+    TestComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore

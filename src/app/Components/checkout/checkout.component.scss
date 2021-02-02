@@ -1,0 +1,380 @@
+header {
+	background-color: #fff;
+	border-top: 6px solid #e5533b;
+	border-bottom: 1px solid #dfe2e6;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+/*/-/-/-/-/-/-/-/-/-/-/
+  Checkout_page_style
+/-/-/-/-/-/-/-/-/-/-/*/
+
+/*Stepper_Style
+----------------*/
+/*Gift_Cards_section
+--------------------*/
+.gift-card-chckout {
+	padding-left: 3rem;
+	padding-right: 2rem;
+}
+
+.gift-card-chckout .checkout-title {
+	margin-left: 90px;
+}
+
+.gift-card-subtitle {
+	color: #adbccc;
+	font-size: 1rem;
+}
+
+.gift-card-subtitle a {
+	color: #0099FF;
+	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.steps li {
+	vertical-align: top;
+	position: relative;
+	margin-right: 115px;
+	float: left;
+}
+
+.gift-steps .steps li.active-step .step-val {
+	box-shadow: 0 0 0 2px #00da67;
+	background-color: #44db5e;
+	color: #fff;
+}
+
+.gift-steps .steps li .step-val {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	box-shadow: 0 0 0 2px #fff;
+	border-radius: 50%;
+	background-color: #e9ecf0;
+	color: #adbccc;
+	position: relative;
+	border: 4px solid #fff;
+	margin: 0 auto 8px;
+	font-size: 24px;
+	font-weight: 600;
+	box-sizing: content-box;
+	text-align: center;
+}
+
+.gift-steps .steps li.active-step .step-val {
+	margin-left: 0;
+}
+
+.gift-steps .steps li .step-title {
+	color: #adbccc;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.gift-steps .steps li.active-step .step-title {
+	color: #2a2b2c;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.steps .step-val {
+	box-shadow: 0 0 0 2px #00da67;
+	background-color: #44db5e;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	border-radius: 50%;
+	position: relative;
+	border: 4px solid #fff;
+	margin: 0 auto 8px;
+	font-size: 24px;
+	font-weight: 600;
+	box-sizing: content-box;
+	text-align: center;
+}
+
+.steps li:last-child {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	float: left;
+	margin-right: 0;
+	margin-left: -39px;
+}
+
+.steps-list li .content {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}
+
+/*add-step-line-after-circle*/
+.steps li.active-step .step-val:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -1px;
+	margin-left: 6px;
+	height: 3px;
+	width: 130px;
+	background-color: #e9ecf0;
+}
+
+/*remove-step-line-from-second-circle*/
+.steps li.active-step:nth-child(2) .step-val:after {
+	content: "";
+	display: none;
+}
+
+
+/*checkout_Form
+----------------*/
+/*formvaliator*/
+.form-control.is-valid,
+.was-validated .form-control:valid {
+	background-image: url(../../../assets/images/check-mark-circle.svg);
+}
+
+.form-title {
+	margin-left: -0.9rem;
+	font-size: 18px;
+	color: #2a2b2c;
+	margin-bottom: 13px;
+}
+
+.form-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #7d7e7e;
+}
+
+/*.map {
+	background-color: red;
+	height: 114vh;
+	min-height: 450px;
+}*/
+
+/*Map
+------*/
+.map-container {
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	/*height:0;*/
+	height: 61vh;
+	width: 102vw;
+}
+
+.map-container iframe {
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+/*end_Map
+---------*/
+
+
+.form-info {
+	margin-left: -0.9rem;
+	font-size: 11px;
+	color: #a9acae;
+	line-height: 16px;
+	max-width: 27rem;
+}
+
+.form-instructions {
+	font-size: 0.8rem;
+	line-height: 1.42857143;
+	color: #333;
+	margin-left: -0.9rem;
+}
+
+/*custom_toggle_switch_button_style*/
+.custom-switch .custom-control-label::before {
+	left: -2.25rem;
+	width: 2.95rem;
+	height: 1.95rem;
+	border-radius: 1.5rem;
+}
+
+.custom-switch .custom-control-label::after {
+	position: relative;
+	top: 5px;
+	left: -32px;
+	display: block;
+	width: 26px;
+	height: 27px;
+	border-radius: 50%;
+	box-shadow: 0 2px 1px 0 rgb(0 0 0);
+	background-color: #fff;
+	transition: background-color .4s, transform .4s;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+	border-color: #EBE4F7;
+	background-color: #EBE4F7;
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+	background-color: #4CAF50;
+}
+
+.toggler-title {
+	margin-top: -22px;
+	margin-left: 25px;
+}
+/*end_custom_toggle_switch_button_style*/
+
+
+/*buttons-styles
+----------------*/
+#chckout-svAddress-btn {
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .4);
+	font-size: 15px;
+	font-weight: 500;
+	background-color: #e5533a;
+	border-color: #e5533a;
+	border-radius: 4px;
+}
+
+#chckout-svAddress-btn:hover {
+	background-color: #DF3019;
+	border-color: #DF3019;
+}
+
+
+#chckout-cancel-btn {
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .4);
+	color: #333;
+	border: 1px solid transparent;
+	background: none;
+}
+
+/*end-buttons-styles
+--------------------*/
+
+@media screen and (max-width: 425px) {
+	.gift-card-chckout .checkout-title {
+		margin-left: 0;
+	}
+
+	.steps li {
+		margin-right: -50px;
+	}
+
+	.steps li.active-step .step-val:after {
+		width: 80px;
+	}
+
+	.gift-steps .steps li.active-step .step-val {
+		margin-left: 0;
+	}
+
+	.gift-steps .steps li .step-val {
+		width: 27px;
+		height: 27px;
+		position: relative;
+	}
+
+	.gift-steps .steps li .step-val span {
+		position: absolute;
+		top: -7px;
+		left: 10px;
+		font-size: 1rem
+	}
+
+	.gift-steps .steps li.active-step .step-title {
+		font-size: .8rem;
+		position: absolute;
+		top: 37px;
+	}
+
+	.steps li:last-child {
+		margin-left: 110px;
+	}
+
+}
+
+
+/*map*/
+@media screen and (min-width: 769px) {
+	.gift-card-chckout {
+		position: relative;
+	}
+
+	.map {
+		/*background-color: red;*/
+		position: absolute;
+		top: 0px;
+		right: -19rem;
+		width: 73.5%;
+		height: 62vh;
+		min-height: 450px;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+	.map {
+		right: -24rem;
+		width: 84.5%;
+	}
+
+	.stepper-section {
+		margin-left: 3.3rem;
+	}
+}
+
+@media screen and (min-width: 1208px) {
+	.map {
+		right: -29rem;
+		width: 80.5%;
+	}
+}
+
+/*map*/
+@media screen and (max-width: 768px) {
+	.map {
+		max-height: 500px;
+		margin-left: -.9rem;
+	}
+	.map-container {
+		height: 43vh;
+	}
+}
+/*/-/-/-/-/-/-/-/-/-/-/-/-/
+  end_Checkout_page_style
+/-/-/-/-/-/-/-/-/-/-/-/-/*/
+
+.ng-valid:not(form)  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  .sm-font{
+	  font-size: 12px;
+  }
