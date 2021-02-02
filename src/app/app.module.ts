@@ -33,6 +33,13 @@ import { GiftMealsIndividualComponent } from './Components/gift-meals-individual
 import { HomeComponent } from './Components/home/home.component';
 import { TestComponent } from './Components/test/test.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { SearchComponent } from './Components/search/search.component';
+import { SearchdetailsComponent } from './Components/searchdetails/searchdetails.component';
+import { AboutComponent } from './Components/about/about.component';
+import { TermsComponent } from './Components/terms/terms.component';
+import { PastordersComponent } from './Components/pastorders/pastorders.component';
+import { PastorderdetailsComponent } from './Components/pastorderdetails/pastorderdetails.component';
+import { NoordersComponent } from './Components/noorders/noorders.component';
 
 
 
@@ -70,7 +77,14 @@ const firebaseConfig = {
     GiftMealsIndividualComponent,
     HomeComponent,
     TestComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchComponent,
+    SearchdetailsComponent,
+    AboutComponent,
+    TermsComponent,
+    PastordersComponent,
+    PastorderdetailsComponent,
+    NoordersComponent
   ],
   imports: [
     BrowserModule,
