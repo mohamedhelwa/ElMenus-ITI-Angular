@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutComponent } from './Components/about/about.component';
 import { AddRestaurantDashboardComponent } from './Components/add-restaurant-dashboard/add-restaurant-dashboard.component';
 import { AddressBookComponent } from './Components/address-book/address-book.component';
 import { ChangeEmailComponent } from './Components/change-email/change-email.component';
@@ -14,8 +15,11 @@ import { HomeComponent } from './Components/home/home.component';
 import { NoAvailableComponent } from './Components/no-available/no-available.component';
 import { OverviewDashboardComponent } from './Components/overview-dashboard/overview-dashboard.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { PastordersComponent } from './Components/pastorders/pastorders.component';
+import { SearchComponent } from './Components/search/search.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants-dashboard/show-restaurants-dashboard.component';
+import { TermsComponent } from './Components/terms/terms.component';
 import { TestComponent } from './Components/test/test.component';
 import { TrackOrderComponent } from './Components/track-order/track-order.component';
 
@@ -34,6 +38,10 @@ const routes: Routes = [
   { path:'Checkout', component:CheckoutComponent },
   { path:'Giftmeals-individual', component:GiftMealsIndividualComponent },
   { path:'Delivery2', component:DeliveryFeaturesOrderOnlineComponent },
+  {path:"myorders",component:PastordersComponent},
+  {path:"search",component:SearchComponent},
+  {path:"about",component:AboutComponent},
+  {path:"terms",component:TermsComponent},
   { path:'Test', component:TestComponent },
   { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
  
