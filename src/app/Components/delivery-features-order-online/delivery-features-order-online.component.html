@@ -59,7 +59,7 @@
             <!--			Address_section-->
             <div class="row mt-5 mb-4 ">
                 <!-- (click)='navToChckout()' -->
-                <button class="CheckoutBtn btn" (click)='updateUserAddress()' >+ Add New Address</button>
+                <button class="CheckoutBtn btn">+ Add New Address</button>
             </div>
 
             <section class="container-fluid card-container">
@@ -95,7 +95,7 @@
                                     <div class="col-md-6 checkout-card-links text-right pl-3">
                                         <!-- routerLink="Checkout/{{id}}" routerLinkActive="active" -->
                                         <!-- <a (click)='updateUserAddress()'  class=" mr-4 text-muted">Edit</a> -->
-                                        <button (click)='updateUserAddress()'  class=" mr-4 text-muted">Edit</button>
+                                        <button (click)='getUserId()'  class=" mr-4 text-muted">Edit</button>
                                         <a href="#deleteAddressModal" class="text-muted" 
                                            data-toggle="modal" data-target="#deleteAddressModal"
                                            data-backdrop="false" data-keyboard="false" >Delete</a>

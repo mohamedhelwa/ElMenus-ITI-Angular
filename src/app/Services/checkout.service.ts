@@ -6,7 +6,7 @@ import { Checkout } from "./../ViewModels/checkout";
 import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/firestore";
 // import { environment } from 'src/environments/environment';
-
+ 
 @Injectable({
   providedIn: "root",
 })

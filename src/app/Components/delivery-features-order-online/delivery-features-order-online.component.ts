@@ -18,7 +18,8 @@ export class DeliveryFeaturesOrderOnlineComponent implements OnInit {
   @Input('userId') currentUserId:string='';
 
   @Output() deleteEvent = new EventEmitter<string>();
-  @Output() updateEvent = new EventEmitter<string>();
+  @Output() userIdFrmChild = new EventEmitter<string>();
+  // @Output() userNameFrmChild = new EventEmitter<string>();
 
   id:string='';
   address:string='';
@@ -78,11 +79,19 @@ export class DeliveryFeaturesOrderOnlineComponent implements OnInit {
   //   this.onChildEditOrDelete.emit();
   // }
 
+  //send user Id to parent
   deleteUserAddress(): void {
     this.deleteEvent.next(this.currentUserId);
   }
-  updateUserAddress(): void{
-    this.updateEvent.next(this.currentUserId);    
+  getUserId(): void{
+    //console.log(this.currentUserId);    
+    this.userIdFrmChild.next(this.currentUserId);    
   }
+
+  // getUserName(): void{     
+  //   console.log("got name"); 
+  //   console.log(this.usrNmfrmprnt);         
+  //   //this.userNameFrmChild.next(this.usrNmfrmprnt);    
+  // }
 
 }

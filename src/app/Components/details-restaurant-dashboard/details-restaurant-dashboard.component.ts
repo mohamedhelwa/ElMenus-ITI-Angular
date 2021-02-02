@@ -42,7 +42,7 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
       restaurantClosing:this.currentrestaurant.restaurantClosing,
      // restaurantBranches:this.currentrestaurant.restaurantBranches
     };
-
+ 
     if (this.currentrestaurant.id) {
       this.restService.update(this.currentrestaurant.id, data)
         .then(() =>this.message = 'Restaurant updated successfully!')

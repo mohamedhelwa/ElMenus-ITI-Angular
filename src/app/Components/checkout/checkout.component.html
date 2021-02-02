@@ -27,7 +27,7 @@
     [mobNum] = 'mobNum'
     [userId] = 'userId'    
     (deleteEvent)="deleteAddress(userId)"
-    (updateEvent)="updateUserAddress(userId)"
+    (userIdFrmChild)="setUserId(userId)"
 ></app-delivery-features-order-online>
 
 </ng-template>
@@ -90,9 +90,10 @@
                                     <div class="col-sm-7 pl-0">
                                         <label class="form-label" for="validationCustom04">Name*</label>
                                         <input formControlName="userName"
+                                        name="userName"
                                          type="text" class="form-control mb-1" 
                                          id="" placeholder="e.g Shady Gamal"
-                                         value="">
+                                         [(ngModel)]="userName">
                                          <div *ngIf="(checkoutFrm.controls['userName'].touched &&
                                                      checkoutFrm.controls['userName'].invalid)" 
                                                 class="text-danger sm-font">

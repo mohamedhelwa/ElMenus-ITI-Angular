@@ -55,7 +55,7 @@ export class CheckoutComponent implements OnInit {
     apartNum: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
     mobNum: ["", [Validators.required, Validators.pattern("^01[0-9]{9}")]],
   });
-
+  
   ngOnInit(): void {   
 
     //Deprecated
@@ -85,28 +85,41 @@ export class CheckoutComponent implements OnInit {
 
   submitCheckout() {
       if(this.userId){            
-        this.chckoutService.updateUserAddress(this.userId).update(this.checkoutFrm.value);
-        this.editAddressState = true;
+        this.chckoutService.updateUserAddress(this.userId)
+        .update({
+          userName: this.checkoutFrm.value.userName,
+          address: this.checkoutFrm.value.address,
+          buildingNum: this.checkoutFrm.value.buildingNum,
+          floorNum: this.checkoutFrm.value.floorNum,
+          apartNum: this.checkoutFrm.value.apartNum,
+          mobNum: this.checkoutFrm.value.mobNum          
+          })       
+        .then(() => {
+          console.log('user Address updated successfully!')})
+        .catch(err => console.log(err));
       }
-     this.chckoutService.setUserData(this.checkoutFrm.value)
-     .then((docRef) => {
-         this.userId = docRef.id;
-        //console.log("Document written with ID: ", docRef.id);
-      })  
-     this.editAddressState = true;
-    
-     this.userName = this.checkoutFrm.value.userName;
-     this.address = this.checkoutFrm.value.address;
-     this.buildingNum = this.checkoutFrm.value.buildingNum;
-     this.mobNum = this.checkoutFrm.value.mobNum;
-        
-     this.checkoutFrm.reset();
-
-      /* this.router.navigate(["/Delivery"]).then(() => {
-        console.log("navigated");
-      }); */
-
-  }
+      else {
+        this.chckoutService.setUserData(this.checkoutFrm.value)
+        .then((docRef) => {          
+            this.userId = docRef.id;
+            console.log('user Address added successfully!');            
+            //console.log("Document written with ID: ", docRef.id);
+          })            
+                 
+          
+          /* this.router.navigate(["/Delivery"]).then(() => {
+            console.log("navigated");
+          }); */
+          
+        }
+       this.userName = this.checkoutFrm.value.userName;
+       this.address = this.checkoutFrm.value.address;
+       this.buildingNum = this.checkoutFrm.value.buildingNum;
+       this.mobNum = this.checkoutFrm.value.mobNum; 
+       
+       this.editAddressState = true;
+       this.checkoutFrm.reset();
+}
 
   navToTest(){
     this.router.navigate(["/Test"]);
@@ -132,14 +145,20 @@ export class CheckoutComponent implements OnInit {
 
   deleteAddress(userId:string){
     this.chckoutService.deleteUserAddress(userId);
+    location.reload();
     this.editAddressState = false;
-
   }
-  updateUserAddress(userId:string){
+
+  setUserId(userId:string){
     this.editAddressState = false;
     console.log(userId);
     this.userId = userId;
   }
+  // setUserName(userName:string){
+  //   // console.log(userName);
+  //   this.userName = userName;
+  // }
+
 }
 /**{
       "address": 13,
