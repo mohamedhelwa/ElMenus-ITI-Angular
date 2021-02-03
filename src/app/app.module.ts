@@ -105,7 +105,8 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule, NgbModule // storage
+    AngularFireStorageModule, // storage
+    NgbModule //ngbootstrap
    
   ],
   providers: [],
