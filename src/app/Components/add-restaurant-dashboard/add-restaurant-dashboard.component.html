@@ -1,36 +1,4 @@
-<!--<div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          required
-          [(ngModel)]="tutorial.title"
-          name="title"
-        />
-      </div>
-  
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          class="form-control"
-          id="description"
-          required
-          [(ngModel)]="tutorial.description"
-          name="description"
-        />
-      </div>
-  
-      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
-    </div>
-  
-    <div *ngIf="submitted">
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newTutorial()">Add</button>
-    </div>
-  </div>-->
+
   <h3 style="color: #E5533A; margin-top: 20px;">Add New Restaurant</h3>
   <br>
 <div class="row">
@@ -132,10 +100,6 @@
 </div>
 <button class="btn btn-dark-moon btn-rounded" (click)="Add()">Save</button>
 
-<!--<h3>Angular 7 Image Preview before Upload:</h3>
-<span style="color:red;" *ngIf="message">{{message}}</span>
-<input #file type="file" accept='image/*' (change)="preview(file.files,file.value)" />
-<img [src]="imgURL" height="200" *ngIf="imgURL">file
-<h4>{{message}}</h4>-->
+
 
 

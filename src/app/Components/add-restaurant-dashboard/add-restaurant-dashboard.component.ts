@@ -23,6 +23,7 @@ export class AddRestaurantDashboardComponent implements OnInit {
   fb;
   downloadURL: Observable<string>;
   clicked=false;
+  ///////////////
   constructor(private storage: AngularFireStorage,private ord:RestaurantsServiceService , private router:Router) 
   { 
     
