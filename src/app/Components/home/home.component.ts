@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
               this.restaurantSearchFrm.value.selectedBranch);
     }   
 
-    this.router.navigate(['/delivery']).then(()=>{
+    this.router.navigate(['/search']).then(()=>{
               console.log("navigated")
         })   
            
