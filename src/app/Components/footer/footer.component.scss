@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.42857143;
+}
+
+.footer-main {
+    margin-top: 30px;
+    padding: 10px 30px;
+    background: #fff url('../../../assets/images/footer-bg.png') no-repeat bottom;
+    background-size: 100% 100%;
+}
+
+.footer-main h4:after {
+    content: "";
+    width: 40px;
+    background: #ed3c0b;
+    height: 2px;
+    display: block;
+    margin-top: 7px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.footer-images{
+    text-align: center;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+}
