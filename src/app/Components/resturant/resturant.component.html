@@ -9,9 +9,9 @@
     <div class="row mx-4 cove-logo-content">
         <div class="col-md-8 px-4">
             <div class="cover-logo">
-                <img src="../../../assets/images/mc logo.jpg" class="img-fluid" alt="resturant-logo">
+                <img src="{{restaurant?.restaurantFeaturedPhotos}}" class="img-fluid" alt="resturant-logo">
                 <div class="rest-info pt-2">
-                    <h2 class="rest-name">McDonald's <span>order online</span></h2>
+                    <h2 class="rest-name">{{restaurant?.restaurantName}} <span>order online</span></h2>
                     <h5 class="rest-type">fast food <span class="stars">
                             <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
                                 class="vue-star-rating-star" step="10">
@@ -138,16 +138,16 @@
             <div class="menu-container">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/resturant/menu" routerLinkActive="active" >Menu</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}" routerLinkActive="active" >Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/resturant/info" routerLinkActive="active">About</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}" routerLinkActive="active">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/resturant/list" routerLinkActive="active">Branches</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}" routerLinkActive="active">Branches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/resturant/reviews" routerLinkActive="active">Reviews</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}" routerLinkActive="active">Reviews</a>
                     </li>
                 </ul>
             </div>

@@ -72,6 +72,9 @@ export class DeliveryComponent implements OnInit {
     });
   }
 
+  goRestaurant(id: string) {
+    this.router.navigate(['/restaurant/', id]);
+  }                         
 
   retrieveReviews(): void {
     this.restService.getAllReviews().snapshotChanges().pipe(

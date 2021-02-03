@@ -10,6 +10,7 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
   @Input() orderId;
   @Input() ordersList;
   selectedOrder: any;
+  
   constructor(private db: AngularFirestore) {
   }
   ngOnChanges(): void {

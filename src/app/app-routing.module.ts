@@ -29,34 +29,36 @@ import { TestComponent } from './Components/test/test.component';
 import { TrackOrderComponent } from './Components/track-order/track-order.component';
 
 const routes: Routes = [
-  { path:'Home', component:HomeComponent },
-  { path:'', redirectTo:'/Home', pathMatch:'full' }, // default path 
-  {path:"overviewdashboard",component:OverviewDashboardComponent},
-  {path:"showrestaurants",component:ShowRestaurantsDashboardComponent},
-  {path:"addrestaurant",component:AddRestaurantDashboardComponent},
-  {path:"setting" , component:SettingsComponent},
-  {path:"delivery" , component:DeliveryComponent},
-  {path:"noonlineavailable" , component:NoAvailableComponent},
-  {path:"dineout" , component:DineOutComponent},
-  {path:"giftmeals" , component:GiftMealsComponent},
-  {path: "trackOrder", component: TrackOrderComponent},
-  { path:'Checkout', component:CheckoutComponent },
-  { path:'Giftmeals-individual', component:GiftMealsIndividualComponent },
-  { path:'Delivery2', component:DeliveryFeaturesOrderOnlineComponent },
-  {path:"myorders",component:PastordersComponent},
-  {path:"search",component:SearchComponent},
-  {path:"about",component:AboutComponent},
-  {path:"terms",component:TermsComponent},
-  { path:'Test', component:TestComponent },
-  {path: 'resturant',component: ResturantComponent,
-    children:[
-      {path:'menu',component:ResturantMenuComponent},//menu
-      { path: 'info', component: ResturantInfoComponent },//info
-      { path: 'list', component: ResturantListComponent },//list of resturants
-      { path: 'reviews', component: ResturantReviewsComponent }//reviews
-    ]},
+  { path: 'Home', component: HomeComponent },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' }, // default path 
+  { path: "overviewdashboard", component: OverviewDashboardComponent },
+  { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
+  { path: "addrestaurant", component: AddRestaurantDashboardComponent },
+  { path: "setting", component: SettingsComponent },
+  { path: "delivery", component: DeliveryComponent },
+  { path: "noonlineavailable", component: NoAvailableComponent },
+  { path: "dineout", component: DineOutComponent },
+  { path: "giftmeals", component: GiftMealsComponent },
+  { path: "trackOrder", component: TrackOrderComponent },
+  { path: 'Checkout', component: CheckoutComponent },
+  { path: 'Giftmeals-individual', component: GiftMealsIndividualComponent },
+  { path: 'Delivery2', component: DeliveryFeaturesOrderOnlineComponent },
+  { path: "myorders", component: PastordersComponent },
+  { path: "search", component: SearchComponent },
+  { path: "about", component: AboutComponent },
+  { path: "terms", component: TermsComponent },
+  { path: 'Test', component: TestComponent },
+  {
+    path: 'restaurant/:id', component: ResturantComponent,
+    children: [
+      { path: 'menu/:id', component: ResturantMenuComponent },//menu
+      { path: 'info/:id', component: ResturantInfoComponent },//info
+      { path: 'list/:id', component: ResturantListComponent },//list of resturants
+      { path: 'reviews/:id', component: ResturantReviewsComponent }//reviews
+    ]
+  },
   { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
- 
+
 ];
 
 @NgModule({

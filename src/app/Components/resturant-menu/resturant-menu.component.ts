@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Dishes } from 'src/app/ViewModels/dishes';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resturant-menu',
@@ -12,24 +15,41 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class ResturantMenuComponent implements OnInit {
 
     closeResult='';
-    menu:Dishes[] | any;
-    DishBuy:Dishes[];
+    menu: Dishes[] |any;
+
+    //menuList: Dishes[] | any;
+    DishBuy:Dishes;
     add:number = 1;
-  constructor(private db:AngularFirestore , private modalService: NgbModal) { }
+
+    restID: string = "";
+  constructor(private db:AngularFirestore , 
+              private modalService: NgbModal,
+              private activatedRoute: ActivatedRoute,
+              private router: Router
+              ) { }
 
   ngOnInit(): void {
-    const d = this.db.collection('Dishes').valueChanges();
-    d.subscribe(
-      (response) => {
-        this.menu = response;
-        // console.log(this.menu)
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+
+    let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
+    this.restID = productIDParam;
+  
+    this.getRestMenu().snapshotChanges().pipe(
+      map( changes =>
+        changes.map(o =>
+        (console.log({...o.payload.doc.data()}),
+          {id: o.payload.doc.id, ...o.payload.doc.data()})
+        )
+      )
+    ).subscribe(response => 
+      this.menu = response
+    )
 
   }
+
+  getRestMenu(): AngularFirestoreCollection <Dishes> {
+    return this.db.collection('Dishes', ref => ref.where('restaurantId', '==', this.restID));
+  }
+
   buy(i){
     this.DishBuy= i;
     console.log(i)

@@ -1,5 +1,5 @@
 export interface Dishes {
-    restaurantId?:number,
+    restaurantId?:string,
 
     dishId:number,
     dishName:string,
