@@ -125,23 +125,6 @@ export class CheckoutComponent implements OnInit {
     this.router.navigate(["/delivery"]);
   }
 
-  // deleteUser(user:Checkout){
-  //   this.chckoutService.deleteUser(user);
-  // }
-
-  // editUser(user:Checkout){
-  //   this.editState = true;
-  //   this.userToEdit = user;
-  // }
-
-  // updateUser(user:Checkout){
-  //   this.chckoutService.updateUser(user);
-  // }
-
-  // editUser(userId:string){
-  //   this.editAddressState = false;
-  //   console.log(userId);    
-  // }
 
   deleteAddress(userId:string){
     this.chckoutService.deleteUserAddress(userId);
@@ -154,17 +137,5 @@ export class CheckoutComponent implements OnInit {
     console.log(userId);
     this.userId = userId;
   }
-  // setUserName(userName:string){
-  //   // console.log(userName);
-  //   this.userName = userName;
-  // }
-
+  
 }
-/**{
-      "address": 13,
-      "apartNum": "Red",
-      "buildingNum":"",
-      "floorNum":"",
-      "mobNum":"",
-      "userName":""
-    } */
