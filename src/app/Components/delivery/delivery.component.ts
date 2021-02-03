@@ -24,7 +24,8 @@ export class DeliveryComponent implements OnInit {
   checked=false;
   number_of_restaurants=0;
 
-  constructor(private restService:RestaurantsServiceService,private db: AngularFirestore ,  private router:Router) {
+  constructor(private restService:RestaurantsServiceService,private db: AngularFirestore ,
+    private router:Router) {
     /*const orders = this.db.collection('Restaurants').valueChanges();
     orders.subscribe(
       (response) => {
@@ -114,6 +115,9 @@ export class DeliveryComponent implements OnInit {
       this.router.navigate(['/noonlineavailable']);
     }
    
+  }
+  goResturant(id:string){
+    this.router.navigate(['/resturant/menu/'+(id)]);
   }
 
   cll()

@@ -50,7 +50,7 @@ const routes: Routes = [
   { path:'Test', component:TestComponent },
   {path: 'resturant',component: ResturantComponent,
     children:[
-      {path:'menu',component:ResturantMenuComponent},//menu
+      {path:'menu/:id',component:ResturantMenuComponent},//menu
       { path: 'info', component: ResturantInfoComponent },//info
       { path: 'list', component: ResturantListComponent },//list of resturants
       { path: 'reviews', component: ResturantReviewsComponent }//reviews
