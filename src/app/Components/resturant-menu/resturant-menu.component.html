@@ -12,7 +12,6 @@
         <h4 class="collection-title">Top Dishes</h4>
         <div class="row colection" *ngFor="let item of menu">
             <div class="col-md-8">
-                
                 <p class="meal-info">{{item.dishDescription}}</p>
                 <span class="price-span" (click)="open(content)"><i class="fas fa-plus-circle"></i>{{ item.dishPrice | currency:'EGP' }}</span>
             </div>

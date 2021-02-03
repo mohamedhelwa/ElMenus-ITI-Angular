@@ -52,6 +52,7 @@ export class ResturantMenuComponent implements OnInit {
 
   buy(i){
     this.DishBuy= i;
+    this.router.navigate(['Checkout']);
     console.log(i)
     console.log(this.DishBuy)
   }

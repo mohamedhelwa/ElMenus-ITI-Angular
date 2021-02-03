@@ -46,6 +46,6 @@ export class SearchComponent implements OnInit {
   }
 
   goResturant(id:string){
-    this.route.navigate(['/resturant/menu/'+(id)]);
+    this.route.navigate([`/restaurant/${id}/menu/`+(id)]);
   }
 }

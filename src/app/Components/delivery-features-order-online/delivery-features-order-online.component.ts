@@ -71,7 +71,7 @@ export class DeliveryFeaturesOrderOnlineComponent implements OnInit {
     // this.router.navigate(['/Checkout'])
   }
   navToTest() {
-    this.router.navigate(['/Test'])
+    this.router.navigate(['/myorders'])
   }
 
   // deleteAddress(){

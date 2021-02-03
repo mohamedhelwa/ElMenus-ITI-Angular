@@ -23,10 +23,10 @@
       </div>
   
       <div class="card-body">
-        <p class="paragraph">Egyptian</p>
+        <p class="paragraph">{{selectedResturant.restaurantName}}</p>
         <img src="{{selectedResturant.restaurantFeaturedPhotos[0]}}" width="40px" height="40px"
           style="float: left;margin-right: 6px;">
-        <p class="aria_parag">{{selectedResturant.restaurantName}}</p>
+        <p class="aria_parag">{{selectedResturant.restaurantType}}</p>
         <ngb-rating [max]="5" [rate]="5"  [readonly]="true"></ngb-rating>
       </div>
     </div>

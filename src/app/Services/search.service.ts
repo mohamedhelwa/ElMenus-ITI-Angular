@@ -14,10 +14,14 @@ export class SearchService {
 
   getAllResturants(name:string,city:string): AngularFirestoreCollection<Restaurants> {
     console.log(name);
-    if(name == "" || city == "")
-    return  this.resturants = this.db.collection('/Restaurants')
+    if(name == "" || city == "") {
+      return  this.resturants = this.db.collection('/Restaurants')
+    }
+    else {
+      return this.resturants = this.db.collection('/Restaurants', ref => ref.where('restaurantName', '==', name));
+    }
     
-    return this.resturants = this.db.collection('/Restaurants', ref => ref.where('restaurantName', '==', name));
+    
     
   }
 }
