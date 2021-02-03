@@ -122,7 +122,7 @@ export class CheckoutComponent implements OnInit {
 }
 
   navToTest(){
-    this.router.navigate(["/Test"]);
+    this.router.navigate(["/delivery"]);
   }
 
   // deleteUser(user:Checkout){

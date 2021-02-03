@@ -1,43 +1,17 @@
 <div class="row mx-0">
     <div class="col-md-9 pt-3">
       <h4 class="start-title">Branches</h4>
-      <div class="jumbotron">
+      <div class="jumbotron" *ngFor="let item of branch">
         <div class="container">
-          <span class="area-icon"> SZ </span>
-          <h4 class="area-title">Shekh Zayed</h4>
+          <span class="area-icon">{{item  | slice:0:2 }}</span>
+          <h4 class="area-title">{{item}}</h4>
 
-          <p class="info-value"><span> Gas Station</span></p>
+          <!-- <p class="info-value"><span> Gas Station</span></p> -->
           <span class="text float-right">
             <i class="far fa-check-circle"></i>
             Delivers to you
           </span>
-          <p class="info-2-value"><i class="far fa-clock"></i>9:00 AM - 3:00 AM</p>
-        </div>
-      </div>
-      <div class="jumbotron">
-        <div class="container">
-          <span class="area-icon"> SZ </span>
-          <h4 class="area-title">Shekh Zayed</h4>
-
-          <p class="info-value"><span> Gas Station</span></p>
-          <span class="text float-right">
-            <i class="far fa-check-circle"></i>
-            Delivers to you
-          </span>
-          <p class="info-2-value"><i class="far fa-clock"></i>9:00 AM - 3:00 AM</p>
-        </div>
-      </div>
-      <div class="jumbotron">
-        <div class="container">
-          <span class="area-icon"> SZ </span>
-          <h4 class="area-title">Shekh Zayed</h4>
-
-          <p class="info-value"><span> Gas Station</span></p>
-          <span class="text float-right">
-            <i class="far fa-check-circle"></i>
-            Delivers to you
-          </span>
-          <p class="info-2-value"><i class="far fa-clock"></i>9:00 AM - 3:00 AM</p>
+          <p class="info-2-value"><i class="far fa-clock"></i>{{workOpen}} - {{WrokClose}}</p>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container-fluid">
     <!-- cover image -->
     <div class="row">
@@ -9,9 +10,9 @@
     <div class="row mx-4 cove-logo-content">
         <div class="col-md-8 px-4">
             <div class="cover-logo">
-                <img src="../../../assets/images/mc logo.jpg" class="img-fluid" alt="resturant-logo">
+                <img src="{{restaurant?.restaurantFeaturedPhotos}}" class="img-fluid" alt="resturant-logo">
                 <div class="rest-info pt-2">
-                    <h2 class="rest-name">McDonald's <span>order online</span></h2>
+                    <h2 class="rest-name">{{restaurant?.restaurantName}} <span>order online</span></h2>
                     <h5 class="rest-type">fast food <span class="stars">
                             <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
                                 class="vue-star-rating-star" step="10">
@@ -120,14 +121,14 @@
 
                         </span> 4.6 (17611)</h5>
                     <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i>39 El Hosary Square <a
-                            href="#">District 1,6th of October</a></h3>
+                        routerLink="/resturant/list">District 1,6th of October</a></h3>
                 </div>
             </div>
         </div>
         <div class="col-md-4 px-4">
             <div class="cover-btns float-right my-5">
                 <button class="btn"><i class="fas fa-users"></i></button>
-                <button class="btn"><i class="fas fa-phone"></i></button>
+                <button class="btn" data-toggle="tooltip" data-placement="top" title="19991"><i class="fas fa-phone"></i></button>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -138,16 +139,16 @@
             <div class="menu-container">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/resturant/menu" routerLinkActive="active" >Menu</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}" routerLinkActive="active" >Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/resturant/info" routerLinkActive="active">About</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}" routerLinkActive="active">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/resturant/list" routerLinkActive="active">Branches</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}" routerLinkActive="active">Branches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/resturant/reviews" routerLinkActive="active">Reviews</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}" routerLinkActive="active">Reviews</a>
                     </li>
                 </ul>
             </div>

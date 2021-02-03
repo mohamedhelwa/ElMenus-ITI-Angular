@@ -45,4 +45,7 @@ export class RestaurantsServiceService {
     return this.newRestaurant.doc(id).delete();
   }
 
+  // getRestaurantById() {
+
+  // }
 }

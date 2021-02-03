@@ -2,10 +2,10 @@
   <div class="col-md-9 pt-3">
     <h4 class="collection-title">About</h4>
     <div class="jumbotron jEnfo">
-      <p class="info-3-value"><i class="fas fa-home"></i>19991</p>
+      <p class="info-3-value"><i class="fas fa-home"></i>{{listofres.restaurantPhone}}</p>
       <p class="info-3-value"><i class="fas fa-map-marker-alt"></i>39 El Hosary Square District 1, 6th of October <a
         routerLink="/resturant/list" >+73 BRANCHES</a></p>
-      <p class="info-3-value"><i class="far fa-clock"></i>Working Hours : 9:00 AM - 3:00 AM</p>
+      <p class="info-3-value"><i class="far fa-clock"></i>Working Hours :{{listofres.restaurantOpening}} - {{listofres.restaurantClosing}}</p>
     </div>
     <h4 class="start-title"> <i class="fab fa-instagram"></i> Featured photos</h4>
     <div class="card d-inline-block" *ngFor="let item of list">
@@ -26,7 +26,7 @@
       <i class="far fa-clock"></i>
       Working Hours
     </h4>
-    <p class="info-2-value"> 9:00 AM - 3:00 AM </p>
+    <p class="info-2-value">{{listofres.restaurantOpening}} - {{listofres.restaurantClosing}} </p>
     <span class="text float-right">
       <i class="far fa-check-circle"></i>
       open now
@@ -44,15 +44,13 @@
         </span>
       </div>
       <div class="area float-right col-md-8">
-        <span class="area-icon"> SZ </span>
-        <p class="area-t">Shekh Zayed</p>
-        <span class="area-icon"> OC </span>
-        <p class="area-t">6 October</p>
-        <span class="area-icon"> OC </span>
-      </div>
+        <div class="pt-2" style="display: inline-block;" *ngFor="let item of listofres.restaurantBranchs">
+          <span class="area-icon">{{item  | slice:0:2 }} </span>
+          <p class="area-t" style="margin-right: 20px;">{{item}}</p>
+        </div>
       <div class="clear-fix"></div>
     </div>
-
+    </div>
   </div>
 <!-- sidebar -->
 <div class="col-md-3 pt-3">

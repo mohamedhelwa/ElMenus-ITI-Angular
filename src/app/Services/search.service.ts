@@ -8,10 +8,20 @@ import { Restaurants } from '../ViewModels/restaurants';
 export class SearchService {
   resturants: AngularFirestoreCollection<Restaurants>;
   constructor(private db:AngularFirestore) {
-    this.resturants = this.db.collection('/Restaurants')
+    // this.resturants = this.db.collection('/Restaurants')
+    
   }
 
-  getAllResturants(): AngularFirestoreCollection<Restaurants> {
-    return this.resturants;
+  getAllResturants(name:string,city:string): AngularFirestoreCollection<Restaurants> {
+    console.log(name);
+    if(name == "" || city == "") {
+      return  this.resturants = this.db.collection('/Restaurants')
+    }
+    else {
+      return this.resturants = this.db.collection('/Restaurants', ref => ref.where('restaurantName', '==', name));
+    }
+    
+    
+    
   }
 }

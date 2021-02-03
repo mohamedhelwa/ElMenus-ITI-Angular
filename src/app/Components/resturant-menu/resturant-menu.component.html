@@ -12,15 +12,29 @@
         <h4 class="collection-title">Top Dishes</h4>
         <div class="row colection" *ngFor="let item of menu">
             <div class="col-md-8">
-                <h3>{{item.dishName}}</h3>
                 <p class="meal-info">{{item.dishDescription}}</p>
-                <span class="price-span"><i class="fas fa-plus-circle"></i>{{ item.dishPrice | currency:'EGP' }}</span>
+                <span class="price-span" (click)="open(content)"><i class="fas fa-plus-circle"></i>{{ item.dishPrice | currency:'EGP' }}</span>
             </div>
             <div class="col-md-4 float-right">
                 <img [src]="item.dishImage" alt="meal" class="img-fluid">
             </div>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                  <img [src]="item.dishImage" alt="meal" class="img-fluid">
+                    <span aria-hidden="true">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h3>{{item.dishName}}</h3>
+                    <p class="meal-info py-3">{{item.dishDescription}}</p>
+                    <p class="addToOrder"><i class="fas fa-minus-circle f" (click)="remOrder()"></i>{{add}}<i class="fas fa-plus-circle f" (click)="addOrder()"></i></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-c" (click)="modal.close('Save click');buy(item)">Buy</button>
+                </div>
+              </ng-template>        
         </div>
         </div>
+          
     <!-- sidebar -->
     <div class="col-md-3 pt-3">
         <div class="card" style="width: 18rem;">
