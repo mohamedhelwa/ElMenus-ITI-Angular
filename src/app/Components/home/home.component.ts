@@ -34,20 +34,22 @@ export class HomeComponent implements OnInit {
   }
 
   viewRestaurant(){
+    console.log("Clicked");
+    
     // console.log(this.restaurantSearchFrm.value);
     console.log(this.restaurantSearchFrm.value.restaurantName);
     console.log(this.restaurantSearchFrm.value.selectedBranch);
 
-    if(this.restaurantSearchFrm.value.selectedBranch)
+    if(this.restaurantSearchFrm.value.restaurantName == "")
         this.homeService.setData("", this.restaurantSearchFrm.value.selectedBranch);
         
-    else if (this.restaurantSearchFrm.value.restaurantName&&
+    if (this.restaurantSearchFrm.value.restaurantName&&
                   this.restaurantSearchFrm.value.selectedBranch){
               this.homeService.setData(this.restaurantSearchFrm.value.restaurantName,
               this.restaurantSearchFrm.value.selectedBranch);
     }   
 
-    this.router.navigate(['/delivery']).then(()=>{
+    this.router.navigate(['/search']).then(()=>{
               console.log("navigated")
         })   
            

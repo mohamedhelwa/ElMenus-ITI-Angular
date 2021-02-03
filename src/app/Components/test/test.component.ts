@@ -12,7 +12,12 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     // this.searchData = this.homeService.getData();
-    // console.log("testform Home" + this.searchData);    
+    // console.log("testform Home" + this.searchData);   
+    
+    // this.homeService.getData();
+    console.log("restaurant Name: "+this.homeService.restName);
+    console.log("restaurant Branch: "+this.homeService.selBranch);
+    
   }
 
 }
