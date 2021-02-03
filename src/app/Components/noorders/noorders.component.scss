@@ -1,0 +1,47 @@
+
+.no-orders-header{
+    font-size: 45px;
+    font-weight: 600;
+    color: #2a2b2c;
+    text-align: center;
+    line-height: 48px;
+    margin-bottom: 80px;
+
+}
+.no-orders-div{
+    text-align: center;
+}
+.no-orders-image{
+    max-width: 134px;
+    margin: 20px auto 35px;
+}
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f0f10;
+    line-height: 32px;
+}
+.par{
+    font-family: Gilroy,Open Sans,sans-serif;
+    font-size: 14px;
+    color: #464748;
+    letter-spacing: -.01em;
+    line-height: 20px;
+}
+.discover-btn{
+    font-weight: 600;
+    padding: 8px 16px;
+    margin-top: 40px;
+    background-color: #e5533a;
+    border-radius: 4px;
+    color: #fff;
+}
+.discover-btn:hover{
+    font-weight: 600;
+    padding: 8px 16px;
+    margin-top: 40px;
+    background-color: #e64327;
+    border-color: #e64327;
+    border-radius: 4px;
+    color: #fff;
+}

@@ -39,6 +39,13 @@ import { ResturantMenuComponent } from './Components/resturant-menu/resturant-me
 import { ResturantInfoComponent } from './Components/resturant-info/resturant-info.component';
 import { ResturantListComponent } from './Components/resturant-list/resturant-list.component';
 import { ResturantReviewsComponent } from './Components/resturant-reviews/resturant-reviews.component';
+import { SearchComponent } from './Components/search/search.component';
+import { SearchdetailsComponent } from './Components/searchdetails/searchdetails.component';
+import { AboutComponent } from './Components/about/about.component';
+import { TermsComponent } from './Components/terms/terms.component';
+import { PastordersComponent } from './Components/pastorders/pastorders.component';
+import { PastorderdetailsComponent } from './Components/pastorderdetails/pastorderdetails.component';
+import { NoordersComponent } from './Components/noorders/noorders.component';
 
 
 
@@ -81,7 +88,14 @@ const firebaseConfig = {
     ResturantMenuComponent,
     ResturantInfoComponent,
     ResturantListComponent,
-    ResturantReviewsComponent
+    ResturantReviewsComponent,
+    SearchComponent,
+    SearchdetailsComponent,
+    AboutComponent,
+    TermsComponent,
+    PastordersComponent,
+    PastorderdetailsComponent,
+    NoordersComponent
   ],
   imports: [
     BrowserModule,

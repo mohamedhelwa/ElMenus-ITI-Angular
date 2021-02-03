@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="container" *ngIf="resturantsList != null">
+    <!-- body header -->
+    <div class="row">
+        <h3 class="resturants-number" id="resturants-number">Resturants ( {{resturantsList.length}} )</h3>
+    </div>
+
+    <!-- body content -->
+    <div class="container body-content">
+        <div class="row" id="content">
+            <!-- resturant card -->
+            <div class="col-lg-4 col-sm-12 col-md-6 col-xs-12" *ngFor="let resturant of resturantsList">
+                <app-searchdetails [resturant]="resturant"></app-searchdetails>
+            </div>
+        </div>
+        <button class="btn load-more-btn"> Load more restaurants </button>
+    </div>
+</div>

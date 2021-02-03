@@ -1,0 +1,58 @@
+.resturant-card{
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.rest-logo-image{
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+.card-rest{
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.card-rest:hover{
+    background-color: #e0e0e0;
+}
+.card-images{
+    border-radius: 20px;
+    
+}
+#meal-image{
+    width: 100%;
+    height: 100%;
+}
+.meal-name{
+    font-size: 14px;
+    color: #2a2b2c;
+}
+.meal-price{
+    font-size: 14px;
+    color: #2a2b2c;
+}
+
+.load-more-btn{
+    width: 100%;
+    padding: 19px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    background-color: #e5533a;
+    border-color: #e5533a;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.load-more-btn:hover{
+    background-color: #e64327;
+    border-color: #e64327;
+    color: #fff;
+}
+
+ngb-rating {
+    color: orange;
+    font-size: 25px;
+  }
