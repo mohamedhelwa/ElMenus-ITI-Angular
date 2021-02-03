@@ -15,6 +15,11 @@ import { HomeComponent } from './Components/home/home.component';
 import { NoAvailableComponent } from './Components/no-available/no-available.component';
 import { OverviewDashboardComponent } from './Components/overview-dashboard/overview-dashboard.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ResturantInfoComponent } from './Components/resturant-info/resturant-info.component';
+import { ResturantListComponent } from './Components/resturant-list/resturant-list.component';
+import { ResturantMenuComponent } from './Components/resturant-menu/resturant-menu.component';
+import { ResturantReviewsComponent } from './Components/resturant-reviews/resturant-reviews.component';
+import { ResturantComponent } from './Components/resturant/resturant.component';
 import { PastordersComponent } from './Components/pastorders/pastorders.component';
 import { SearchComponent } from './Components/search/search.component';
 import { SettingsComponent } from './Components/settings/settings.component';
@@ -43,6 +48,13 @@ const routes: Routes = [
   {path:"about",component:AboutComponent},
   {path:"terms",component:TermsComponent},
   { path:'Test', component:TestComponent },
+  {path: 'resturant',component: ResturantComponent,
+    children:[
+      {path:'menu',component:ResturantMenuComponent},//menu
+      { path: 'info', component: ResturantInfoComponent },//info
+      { path: 'list', component: ResturantListComponent },//list of resturants
+      { path: 'reviews', component: ResturantReviewsComponent }//reviews
+    ]},
   { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
  
 ];
