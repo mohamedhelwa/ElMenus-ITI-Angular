@@ -19,11 +19,11 @@
   margin-left: 15px !important;
 }
 .navbar-expand-lg ul li a:hover{
-  background-color: #E5533A !important;
+  background-color: #E5533A ;//!important;
   color: white ;
 }
 .active{
-  background-color: #E5533A !important;
+  background-color: #E5533A;
   color:white !important
 
 }
@@ -97,4 +97,25 @@
 .paragraph {
   font-size: 6pt;
   color: gray;
+}
+
+
+.dropdown-menu a:hover {
+  background-color:#E5533A !important;
+  width: 90%;
+
+  
+}
+///////////////////////////////////
+.nav-tabs {
+  .active{
+    background-color: white !important;
+     color:#E5533A !important;
+    
+  }
+}
+////////////////////
+.tab-pane
+{
+      background-color: white !important;
 }

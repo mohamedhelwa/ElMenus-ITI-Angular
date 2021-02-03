@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class DeliveryComponent implements OnInit {
 
   restaurantList: Restaurants[] | any = [];
+  
   reviewsList: Reviews[] | any = [];
   checked=false;
   number_of_restaurants=0;

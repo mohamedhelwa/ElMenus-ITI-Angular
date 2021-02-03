@@ -5,6 +5,7 @@ import { RestaurantsServiceService } from 'src/app/Services/restaurants-service.
 import { Restaurants } from 'src/app/ViewModels/restaurants';
 import {  finalize } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-restaurant-dashboard',
   templateUrl: './add-restaurant-dashboard.component.html',
@@ -24,7 +25,29 @@ export class AddRestaurantDashboardComponent implements OnInit {
   downloadURL: Observable<string>;
   clicked=false;
   ///////////////
-  constructor(private storage: AngularFireStorage,private ord:RestaurantsServiceService , private router:Router) 
+  addFrm = this.FB.group({
+    
+    restName: [
+      "",
+      [
+        Validators.required,
+        Validators.pattern("^[a-zA-Z]+$"),
+      ],
+    ],
+    restClose: [
+      "",
+      [
+        Validators.required,
+        Validators.pattern("^[0-9]+$"),
+      ],
+    ],
+    restOpen: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
+    restPhone: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
+    restBranch: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
+    restType: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
+  });
+  //////
+  constructor(private FB :FormBuilder,private storage: AngularFireStorage,private ord:RestaurantsServiceService , private router:Router) 
   { 
     
   }

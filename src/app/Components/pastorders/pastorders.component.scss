@@ -1,0 +1,156 @@
+.list-item-order{
+    background-color: #f2f5f7;
+    padding: 5%;
+    margin-bottom: 10px;
+}
+.page-title {
+    font-size: 45px;
+    font-weight: 600;
+    color: #2a2b2c;
+    text-align: center;
+    line-height: 48px;
+    margin-bottom: 80px;
+}
+.rest-image{
+    width: 60px;
+}
+.rest-image .rest-info{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.order-price{
+    float: right;
+    font-size: 13px;
+}
+
+.reorder-btn{
+    background-color: #e5533a;
+    float: right;
+    padding: 3%;
+    width: 24%;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    border: none;
+}
+
+
+.order-details{
+    margin-top: 40px;
+    border: 1px solid #d5d8db;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.action-btn {
+    position: relative;
+    float: right;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #e5533a;
+    text-decoration: underline;
+}
+
+.address-details-div{
+    border: 1px solid #d5d8db;
+    border-radius: 8px;
+    margin-top: 45px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+#address-data{
+    color: #464748;
+    font-size: 13px;
+    font-weight: 600;
+    max-width: 167px;
+}
+
+#payment-method{
+    color: #464748;
+    font-weight: 600;
+    max-width: 167px;
+}
+.items-div{
+    border: 1px solid #d5d8db;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+#food-type{
+    font-size: 12px;
+    font-weight: 600;
+    color: #7b7d7f;
+    text-align: center;
+    letter-spacing: .03em;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+#item-count{
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a2b2c;
+}
+
+#item-name{
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a2b2c;
+}
+#item-size{
+    font-size: 12px;
+    font-weight: 600;
+    color: #7b7d7f;
+}
+
+#item-price-quantity{
+    font-size: 12px;
+    font-weight: 600;
+    color: #7b7d7f;
+}
+.bill-div{
+    max-width: 370px;
+    width: 100%;
+}
+.title{
+    color: #464748;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0;
+}
+
+.bill-span{
+    position: relative;
+    color: #464748;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline;
+    margin: 0;
+    float: right;
+    text-align: center;
+}
+.total{
+    color: #464748;
+    font-size: 30px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0;
+}
+#total-price{
+    position: relative;
+    color: #464748;
+    font-size: 30px;
+    font-weight: 600;
+    display: inline;
+    margin: 0;
+    float: right;
+    text-align: center;
+}
+

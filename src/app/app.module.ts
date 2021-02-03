@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GiftMealsComponent } from './Components/gift-meals/gift-meals.component';
@@ -25,8 +26,26 @@ import { OverviewDashboardComponent } from './Components/overview-dashboard/over
 import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants-dashboard/show-restaurants-dashboard.component';
 import { DetailsRestaurantDashboardComponent } from './Components/details-restaurant-dashboard/details-restaurant-dashboard.component';
 import { AddRestaurantDashboardComponent } from './Components/add-restaurant-dashboard/add-restaurant-dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { DeliveryFeaturesOrderOnlineComponent } from './Components/delivery-features-order-online/delivery-features-order-online.component';
+import { GiftMealsIndividualComponent } from './Components/gift-meals-individual/gift-meals-individual.component';
+import { HomeComponent } from './Components/home/home.component';
+import { TestComponent } from './Components/test/test.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ResturantComponent } from './Components/resturant/resturant.component';
+import { ResturantMenuComponent } from './Components/resturant-menu/resturant-menu.component';
+import { ResturantInfoComponent } from './Components/resturant-info/resturant-info.component';
+import { ResturantListComponent } from './Components/resturant-list/resturant-list.component';
+import { ResturantReviewsComponent } from './Components/resturant-reviews/resturant-reviews.component';
+import { SearchComponent } from './Components/search/search.component';
+import { SearchdetailsComponent } from './Components/searchdetails/searchdetails.component';
+import { AboutComponent } from './Components/about/about.component';
+import { TermsComponent } from './Components/terms/terms.component';
+import { PastordersComponent } from './Components/pastorders/pastorders.component';
+import { PastorderdetailsComponent } from './Components/pastorderdetails/pastorderdetails.component';
+import { NoordersComponent } from './Components/noorders/noorders.component';
 
 
 
@@ -58,11 +77,30 @@ const firebaseConfig = {
     OverviewDashboardComponent,
     ShowRestaurantsDashboardComponent,
     DetailsRestaurantDashboardComponent,
-    AddRestaurantDashboardComponent
+    AddRestaurantDashboardComponent,
+    CheckoutComponent,
+    DeliveryFeaturesOrderOnlineComponent,
+    GiftMealsIndividualComponent,
+    HomeComponent,
+    TestComponent,
+    PageNotFoundComponent,
+    ResturantComponent,
+    ResturantMenuComponent,
+    ResturantInfoComponent,
+    ResturantListComponent,
+    ResturantReviewsComponent,
+    SearchComponent,
+    SearchdetailsComponent,
+    AboutComponent,
+    TermsComponent,
+    PastordersComponent,
+    PastorderdetailsComponent,
+    NoordersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore

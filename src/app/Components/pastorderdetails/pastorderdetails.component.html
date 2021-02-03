@@ -1,0 +1,108 @@
+<div *ngIf="ordersList != null">
+    <p class="price-details" id="order-price" style="text-align: right;">{{selectedOrder.totalPrice}}</p>
+    <!-- order details header -->
+    <div class="order-header">
+        <div>
+            <button class="reorder-btn" id="reorder-btn">Reorder</button>
+        </div>
+        <!-- order image -->
+        <img class="rest-image" id="rest-image" src={{selectedOrder.restaurantImage}}
+            style="float: left; border-radius: 50%;">
+
+        <!-- order info -->
+        <div class="rest-info" style="padding-left: 70px;">
+            <span style="font-size: 13px;">{{selectedOrder.totalPrice}}</span>
+            <h3 class="rest-name" id="rest-name" style="color: #1f0f10;line-height: 24px;font-size: 16px;"></h3>
+            <p>
+                <span id="order-date" style="font-size: 13px;">{{selectedOrder.orderDate}}</span>
+                <span id="order-id" style="font-size: 13px;">{{selectedOrder.orderId}}</span>
+                <a>
+                    <h6 class="action-btn bold support-btn underline orange pointer">Support</h6>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- order details body -->
+    <div class="order-details-body">
+        <div class="address-details-div">
+            <div class="row">
+                <!-- address data -->
+                <div class="col-sm-8">
+                    <h5>Delivery Address</h5>
+                    <div class="address-details">
+                        <h6 id="user-name">Ahmed Ali</h6>
+                        <p id="address-data">
+                            Cairo, Area: 6th of October, Zone: 1st Urban <br>
+                            Building no. 4 <br>
+                            Floor no. 2 <br>
+                            Apartment no. 2 <br>
+                        </p>
+                    </div>
+                    <div>
+                        <p> <i class="fas fa-phone-alt"></i> <span id="user-phone">01091820422</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- payment data -->
+                <div class="col-sm-4">
+                    <h5>Payment Method</h5>
+                    <p id="payment-method">{{selectedOrder.paymentMethod}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- order items -->
+    <div class="conainer">
+        <h4>Items</h4>
+        <div class="items-div" *ngFor="let item of selectedOrder.items">
+            <h5 id="food-type" class="text-center">Desserts</h5>
+            <div class="row item-details">
+                <div class="col-sm-2">
+                    <span id="item-count">{{item.itemQuantity}}</span>
+                </div>
+                <div class="col-sm-8">
+                    <h5 id="item-name">{{item.itemName}}</h5>
+                    <h6 id="item-size">{{item.itemSize}}</h6>
+                </div>
+                <div class="col-sm-2">
+                    <h6 id="item-price">{{item.itemPrice | currency: 'EGP'}}</h6>
+                        <h6 id="item-price-quantity">{{item.itemPrice}} X {{item.itemQuantity}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- bill-div -->
+    <div class="bill-div float-right">
+        <div class="cost-row">
+            <h6 class="title">Sub-title</h6>
+            <span class="bill-span" id="cost">12.00 EGP</span>
+        </div>
+
+        <div class="cost-row">
+            <h6 class="title">Items</h6>
+            <span class="bill-span" id="quantity">{{selectedOrder.items.length}}</span>
+        </div>
+
+        <div class="cost-row">
+            <h6 class="title">Tax</h6>
+            <span class=" bill-span" id="tax">00.00 EGP</span>
+        </div>
+
+        <div class="cost-row">
+            <h6 class="title">Delivery Fee</h6>
+            <span class="bill-span" id="delivery-fee">10.50 EGP</span>
+        </div>
+
+        <div class="cost-row">
+            <h6 class="total">Order Total</h6>
+            <span class="bill-span" id="total-price">{{selectedOrder.totalPrice | currency:'EGP'}}</span>
+
+        </div>
+    </div>
+
+</div>

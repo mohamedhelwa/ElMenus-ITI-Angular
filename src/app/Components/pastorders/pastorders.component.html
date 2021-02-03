@@ -1,0 +1,49 @@
+<app-header></app-header>
+<!-- body Start -->
+<div class="container" [hidden] = "orders == null">
+
+    <!-- page title -->
+    <h1 class="page-title">My Orders</h1>
+
+    <!-- page content -->
+    <div class="container">
+        <div class="row">
+            <!-- orders tabs -->
+            <div class="col-sm-12 col-lg-5 ">
+                <h3 style="color: #ed3c0b;">Previous Orders</h3>
+
+                <ul style="list-style: none;" *ngFor="let order of orders">
+                    <li class="list-item-order" (click) = "getorderDetails(order.orderId)" >
+                        <!-- order image -->
+                        <img class="rest-image" id="rest-image" src={{order.restaurantImage}}
+                            style="float: left; border-radius: 50%;">
+
+                        <!-- order info -->
+                        <div class="rest-info" style="padding-left: 70px;">
+                            <h3 class="rest-name" id="rest-name"
+                                style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.restaurantName}}</h3>
+                            <p>
+                                <span id="quantity-of-item" style="font-size: 13px;">{{order.itemsQuantity}} Items</span><br>
+                                <span id="order-status" style="font-size: 13px;color: #ed3c0b;"> {{order.orderStatus}} </span>
+                                <strong class="order-price" id="order-price">{{order.totalPrice | currency:'EGP'}}</strong>
+                            </p>
+                            <p>
+                                <button class="reorder-btn" id="reorder-btn">Reorder</button>
+                                <span id="order-date" style="font-size: 13px;">{{order.orderDate}}</span><br>
+                                <span id="order-id" style="font-size: 13px;">{{order.orderId}}</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- order details -->
+            <div class="col-sm-12 col-lg-7 order-details">
+                <app-pastorderdetails *ngIf="orders != null" [orderId] = "orderId" [ordersList]="orders"></app-pastorderdetails>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-noorders [hidden] = "orders != null"></app-noorders>
+
