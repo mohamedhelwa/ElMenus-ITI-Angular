@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GiftMealsComponent } from './Components/gift-meals/gift-meals.component';
@@ -33,6 +34,11 @@ import { GiftMealsIndividualComponent } from './Components/gift-meals-individual
 import { HomeComponent } from './Components/home/home.component';
 import { TestComponent } from './Components/test/test.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ResturantComponent } from './Components/resturant/resturant.component';
+import { ResturantMenuComponent } from './Components/resturant-menu/resturant-menu.component';
+import { ResturantInfoComponent } from './Components/resturant-info/resturant-info.component';
+import { ResturantListComponent } from './Components/resturant-list/resturant-list.component';
+import { ResturantReviewsComponent } from './Components/resturant-reviews/resturant-reviews.component';
 import { SearchComponent } from './Components/search/search.component';
 import { SearchdetailsComponent } from './Components/searchdetails/searchdetails.component';
 import { AboutComponent } from './Components/about/about.component';
@@ -78,6 +84,11 @@ const firebaseConfig = {
     HomeComponent,
     TestComponent,
     PageNotFoundComponent,
+    ResturantComponent,
+    ResturantMenuComponent,
+    ResturantInfoComponent,
+    ResturantListComponent,
+    ResturantReviewsComponent,
     SearchComponent,
     SearchdetailsComponent,
     AboutComponent,

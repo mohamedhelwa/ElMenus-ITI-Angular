@@ -166,7 +166,7 @@
                                     name="location"
                                     required >                                
                                 <option *ngFor="let branch of branches; let i = index"
-                                        [value]='branch.id'>
+                                        [value]='branch.branchName'>
                                     {{branch.branchName}}
                                 </option>
                                 </select>
@@ -176,7 +176,10 @@
                             <!--    DropDown-->
                             <!--   Button-->
                             <div class="col-md-2 col-sm-4 my-1">
-                                <button id="go-btn" routerLink="/search" type="submit" class="btn btn-danger">Go<i class="pl-2 fas fa-arrow-right"></i></button>
+                                <!-- routerLink="/search" -->
+                                <button id="go-btn" (click)="viewRestaurant()" type="submit" class="btn btn-danger">
+                                    Go <i class="pl-2 fas fa-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -192,7 +195,7 @@
                             </div>
                             <div class=" col-sm-8 col-xs-9">
                                 <h5 style="font-weight:350; line-height: 1.3;">Send great food to your friends or teams at work
-                                    <a routerLink="/Test" routerLinkActive="active" >Try now</a>
+                                    <a routerLink="/giftmeals" routerLinkActive="active" >Try now</a>
                                 </h5>
 
                             </div>
