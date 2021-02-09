@@ -18,7 +18,7 @@ export class ResturantMenuComponent implements OnInit {
     menu: Dishes[] |any;
 
     //menuList: Dishes[] | any;
-    DishBuy:Dishes;
+    DishBuy:Dishes[]=[];
     add:number = 1;
 
     restID: string = "";
@@ -50,10 +50,10 @@ export class ResturantMenuComponent implements OnInit {
     return this.db.collection('Dishes', ref => ref.where('restaurantId', '==', this.restID));
   }
 
-  buy(i){
-    this.DishBuy= i;
-    this.router.navigate(['Checkout']);
-    console.log(i)
+  buy(i:Dishes){
+    console.log(i);
+    this.DishBuy.push(i);
+    // this.router.navigate(['Checkout']);
     console.log(this.DishBuy)
   }
   addOrder(){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef} from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   nav_before_login=true;
     @ViewChild('close') closeAddExpenseModal: ElementRef =new ElementRef('button');
 
-  constructor() { 
+  constructor(public auth:AuthService) { 
 
   }
 
