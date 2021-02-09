@@ -1,4 +1,6 @@
-
+/**{
+  direction: rtl;
+}*/
 /******************************************************/
 @media (min-width:1240px)
 {
@@ -118,4 +120,9 @@
 .tab-pane
 {
       background-color: white !important;
+}
+/////////////////////
+select{
+  width: 80px !important;
+  height: 35px;
 }

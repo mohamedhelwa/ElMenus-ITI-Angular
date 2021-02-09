@@ -12,13 +12,13 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="height: 50px;">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active">Delivery</a>
+        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active"> {{'deliveryLink' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >Dine Out</a>
+        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >{{'dineoutLink' |translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>Gift Meals</a>
+        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>{{'giftmealsLink' |translate }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">My Orders</a>
@@ -37,7 +37,13 @@
       <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Login</button>
       <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Sign Up</button>
       <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
-
+      
+      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+        <option *ngFor="let language of translate.getLangs()" [value]="language"
+          [selected]="language === translate.currentLang">
+          {{ language }}
+        </option>
+      </select>
     <!--</form>-->
   </div>
 </nav>      

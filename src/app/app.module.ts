@@ -47,7 +47,9 @@ import { PastordersComponent } from './Components/pastorders/pastorders.componen
 import { PastorderdetailsComponent } from './Components/pastorderdetails/pastorderdetails.component';
 import { NoordersComponent } from './Components/noorders/noorders.component';
 
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD553sG0S5TK4x855X912d7wbMgbrxO88c",
@@ -106,10 +108,22 @@ const firebaseConfig = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    NgbModule //ngbootstrap
+    NgbModule ,//ngbootstrap
+    HttpClientModule,// for translate
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

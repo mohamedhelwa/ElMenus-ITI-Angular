@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,8 +12,13 @@ export class HeaderComponent implements OnInit {
   nav_before_login=true;
     @ViewChild('close') closeAddExpenseModal: ElementRef =new ElementRef('button');
 
-  constructor() { 
+  constructor(public translate: TranslateService) { 
+    translate.addLangs(['en', 'ar']);
+    translate.setDefaultLang('en');
+  }
 
+  switchLang(lang: string) {
+    this.translate.use(lang);
   }
 
   ngOnInit(): void {
