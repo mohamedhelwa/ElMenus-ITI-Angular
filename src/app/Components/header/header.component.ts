@@ -19,12 +19,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login()
-  {
-   this.nav_after_login=true;
-    this.nav_before_login=false;
-    this.closeAddExpenseModal.nativeElement.click();
+  // login()
+  // {
+  //  this.nav_after_login=true;
+  //   this.nav_before_login=false;
+  //   this.closeAddExpenseModal.nativeElement.click();
     
 
-  }
+  // }
 }
