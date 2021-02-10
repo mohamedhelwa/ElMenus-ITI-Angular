@@ -27,6 +27,7 @@ import { ShowRestaurantsDashboardComponent } from './Components/show-restaurants
 import { TermsComponent } from './Components/terms/terms.component';
 import { TestComponent } from './Components/test/test.component';
 import { TrackOrderComponent } from './Components/track-order/track-order.component';
+import { AuthGuard } from './Services/auth.guard';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'Giftmeals-individual', component: GiftMealsIndividualComponent },
   { path: 'Delivery2', component: DeliveryFeaturesOrderOnlineComponent },
   { path: "myorders", component: PastordersComponent },
-  { path: "search", component: SearchComponent },
+  // { path: "search", component: SearchComponent , canActivate:[AuthGuard]},
+  { path: "search", component: SearchComponent},
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },

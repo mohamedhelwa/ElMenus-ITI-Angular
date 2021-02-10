@@ -3,7 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { OrdersService } from 'src/app/Services/orders.service';
 import { PastordersService } from 'src/app/Services/pastorders.service';
 import { Orderitem } from 'src/app/ViewModels/orderitem';
-import {map} from 'rxjs/operators'
+import {map, switchMap} from 'rxjs/operators'
+import { AuthService } from 'src/app/Services/auth.service';
+import { User } from 'src/app/ViewModels/user';
 
 @Component({
   selector: 'app-pastorders',
@@ -14,12 +16,15 @@ export class PastordersComponent implements OnInit {
   
   orders:any;
   orderId:string;
-  constructor(private orderService:PastordersService) { 
-
+  constructor(private orderService:PastordersService,
+              public auth:AuthService) { 
+                
   }
   ngOnInit(): void {
+    console.log(this.auth.getUid())
     this.getAllOrders();
   }
+  
   getAllOrders(){
     this.orderService.getAllOrders().snapshotChanges().pipe(
       map( changes =>

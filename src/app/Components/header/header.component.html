@@ -1,6 +1,48 @@
 
 <!-------------- nav before login ------------------------>
-<div *ngIf="nav_before_login">
+<ng-template #login>
+  <div *ngIf="nav_before_login">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom" style="padding: 0;" >
+      <a class="navbar-brand" href="#">
+        <img src="assets/app icon.jpg" style="width: 40px; height: 40px;" class="d-inline-block align-top" alt="">
+        elmenus
+      </a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="height: 50px;">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active">{{'deliveryLink' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >{{'dineoutLink' |translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>{{'giftmealsLink' |translate }}</a>
+          </li>
+          
+          
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">-->
+          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Login</button>
+          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Sign Up</button>
+          <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
+    
+          <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+            <option *ngFor="let language of translate.getLangs()" [value]="language"
+              [selected]="language === translate.currentLang">
+              {{ language }}
+            </option>
+          </select>
+        <!--</form>-->
+      </div>
+    </nav>      
+    </div>
+</ng-template>
+
+<!-------------- nav after login ----------------------------->
+<div *ngIf="auth.user$ | async as user; else login">
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom" style="padding: 0;" >
   <a class="navbar-brand" href="#">
     <img src="assets/app icon.jpg" style="width: 40px; height: 40px;" class="d-inline-block align-top" alt="">
@@ -12,13 +54,19 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="height: 50px;">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active"> {{'deliveryLink' | translate }}</a>
+        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active">Delivery</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >{{'dineoutLink' |translate }}</a>
+        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >Dine Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>{{'giftmealsLink' |translate }}</a>
+        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>Gift Meals</a>
+      </li>
+    </ul>
+    <!-----right Side -->
+    <ul class="navbar-nav navbar-after mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-bell"></i>Notification</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">My Orders</a>
@@ -29,62 +77,6 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item nobg"  [routerLink]="['/setting']" >Account Settings</a>
-        </div>
-      </li>
-      
-    </ul>
-    <!--<form class="form-inline my-2 my-lg-0">-->
-      <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Login</button>
-      <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Sign Up</button>
-      <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
-      
-      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-        <option *ngFor="let language of translate.getLangs()" [value]="language"
-          [selected]="language === translate.currentLang">
-          {{ language }}
-        </option>
-      </select>
-    <!--</form>-->
-  </div>
-</nav>      
-</div>
-<!-------------- nav after login ----------------------------->
-<div *ngIf="nav_after_login">
-<nav class="navbar navbar-expand-lg navbar-light bg-light custom" style="padding: 0;" >
-  <a class="navbar-brand" href="#">
-    <img src="assets/app icon.jpg" style="width: 40px; height: 40px;" class="d-inline-block align-top" alt="">
-    elmenus
-  </a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="height: 50px;">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Delivery</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Dine Out</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-gift"></i>Gift Meals</a>
-      </li>
-    </ul>
-    <!-----right Side -->
-    <ul class="navbar-nav navbar-after mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-bell"></i>Notification</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/myorders']" href="#">My Orders</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-friends"></i>  Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item"  href="#">Account Settings</a>
-          <a class="dropdown-item" href="#">Logout</a>
         </div>
       </li>
       </ul>
@@ -137,8 +129,8 @@
                   <div class="form-group">
                     <input type="password" class="form-control" id="pwd" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
                   </div>
-                  <button (click)="login()" type="button" id="modal_login" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Login</button>
-                  <button (click)="login()" type="button" class="btn btn-block" style="background-color: #4267B2; color: white; font-size: 15px;">Continue With FaceBook</button>
+                  <button type="button" id="modal_login" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Login</button>
+                  <button type="button" class="btn btn-block" style="background-color: #4267B2; color: white; font-size: 15px;">Continue With FaceBook</button>
                   <span style="font-size: 15px; margin-top: 10%; margin-left: 30%; color: #E5533A;">forget password?</span>
                 </div>
             <!--------------------------------------------->
@@ -152,7 +144,7 @@
                   <div class="form-group">
                     <input type="password" class="form-control" id="pwd2" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
                   </div>
-                  <button (click)="login()" type="button" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Create Account</button>
+                  <button type="button" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Create Account</button>
                   <span style="font-size: 13px;text-align: center;color: rgb(207, 188, 188); ">By creating an account, you agree to our Terms</span>
                 </div>
         </div>
