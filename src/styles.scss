@@ -8,3 +8,9 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('/src/assets/fonts/mohammad-bold-art-1.ttf');
+}
+  

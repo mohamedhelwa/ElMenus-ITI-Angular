@@ -6,6 +6,11 @@
 // body{
 //   font-family: Gilroy,Open Sans,sans-serif;
 // }
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('/src/assets/fonts/mohammad-bold-art-1.ttf');
+}
+
 h1 {
   font-size: 36px;
   margin-top: 10%;

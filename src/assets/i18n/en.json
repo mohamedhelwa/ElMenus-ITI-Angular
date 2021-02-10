@@ -1,5 +1,20 @@
 {
     "deliveryLink": "Delivery",
     "dineoutLink":"Dineout",
-    "giftmealsLink":"GiftMeals"
+    "giftmealsLink":"GiftMeals",
+    
+    "main-header": "Give the gift of great food to your friends or teams at work",
+    "main-paragraph": "We listened to your requests and launched elmenus GiftMeals, a simple way for you to share promos with friends or teams at work so everyone can enjoy great food wherever they are.",
+    "button1":"Send Gifts to your teams",
+    "button2":"Send Gifts to your friends",
+    "second-header":"Bring Happiness To Your Team or to your Friends",
+    
+    "setGift":"Set a gift amount",
+    "setGiftText":"Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
+    "listFriends":"List your friends or teams",
+    "listFriendsText":"Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
+    "pay":"Pay the full amount online",
+    "payText":"Once you purchase the GiftMeals, you'll receive a confirmation email and your friends/teams will receive an SMS with the GiftMeal promo code.",
+    "theyReceive":"They receive the GiftMeals",
+    "theyReceiveText":"The people you gifted can use their personalized GiftMeal promo code via their associated phone number to order great dishes on elmenus."
 }
