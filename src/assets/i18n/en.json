@@ -16,5 +16,22 @@
     "pay":"Pay the full amount online",
     "payText":"Once you purchase the GiftMeals, you'll receive a confirmation email and your friends/teams will receive an SMS with the GiftMeal promo code.",
     "theyReceive":"They receive the GiftMeals",
-    "theyReceiveText":"The people you gifted can use their personalized GiftMeal promo code via their associated phone number to order great dishes on elmenus."
+    "theyReceiveText":"The people you gifted can use their personalized GiftMeal promo code via their associated phone number to order great dishes on elmenus.",
+
+    
+    "myOrders":"My Orders",
+    "previousOrders":"Previous Orders",
+    "itemsQuantity":"Items",
+    "reorder":"Reorder",
+
+    "deliveryAddress":"Delivery Address",
+    "paymentMethod":"Payment Method",
+    "items":"Items",
+    "subTitle":"Sub-title",
+    "tax":"Tax",
+    "deliveryFee":"Delivery Fee",
+    "orderTotal":"Order Total",
+    "support":"Support"
+    
+
 }

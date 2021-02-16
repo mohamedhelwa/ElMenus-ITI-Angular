@@ -3,7 +3,7 @@
     <!-- order details header -->
     <div class="order-header">
         <div>
-            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder">Reorder</button>
+            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder">{{'reorder'|translate}}</button>
         </div>
         <!-- order image -->
         <img class="rest-image" id="rest-image" src={{selectedOrder.restaurantImage}}
@@ -17,7 +17,7 @@
                 <span id="order-date" style="font-size: 13px;">{{selectedOrder.orderDate}}</span>
                 <span id="order-id" style="font-size: 13px;">{{selectedOrder.orderId}}</span>
                 <a>
-                    <h6 class="action-btn bold support-btn underline orange pointer">Support</h6>
+                    <h6 class="action-btn bold support-btn underline orange pointer">{{'support'|translate}}</h6>
                 </a>
             </p>
         </div>
@@ -29,7 +29,7 @@
             <div class="row">
                 <!-- address data -->
                 <div class="col-sm-8">
-                    <h5>Delivery Address</h5>
+                    <h5>{{'deliveryAddress'|translate}}</h5>
                     <div class="address-details">
                         <h6 id="user-name">Ahmed Ali</h6>
                         <p id="address-data">
@@ -47,7 +47,7 @@
 
                 <!-- payment data -->
                 <div class="col-sm-4">
-                    <h5>Payment Method</h5>
+                    <h5>{{'paymentMethod'|translate}}</h5>
                     <p id="payment-method">{{selectedOrder.paymentMethod}}</p>
                 </div>
             </div>
@@ -56,7 +56,7 @@
 
     <!-- order items -->
     <div class="conainer">
-        <h4>Items</h4>
+        <h4>{{'items'|translate}}</h4>
         <div class="items-div" *ngFor="let item of selectedOrder.items">
             <h5 id="food-type" class="text-center">Desserts</h5>
             <div class="row item-details">
@@ -79,27 +79,27 @@
     <!-- bill-div -->
     <div class="bill-div float-right">
         <div class="cost-row">
-            <h6 class="title">Sub-title</h6>
+            <h6 class="title">{{'subTitle'|translate}}</h6>
             <span class="bill-span" id="cost">12.00 EGP</span>
         </div>
 
         <div class="cost-row">
-            <h6 class="title">Items</h6>
+            <h6 class="title">{{'items'|translate}}</h6>
             <span class="bill-span" id="quantity">{{selectedOrder.items.length}}</span>
         </div>
 
         <div class="cost-row">
-            <h6 class="title">Tax</h6>
+            <h6 class="title">{{'tax'|translate}}</h6>
             <span class=" bill-span" id="tax">00.00 EGP</span>
         </div>
 
         <div class="cost-row">
-            <h6 class="title">Delivery Fee</h6>
+            <h6 class="title">{{'deliveryFee'|translate}}</h6>
             <span class="bill-span" id="delivery-fee">10.50 EGP</span>
         </div>
 
         <div class="cost-row">
-            <h6 class="total">Order Total</h6>
+            <h6 class="total">{{'orderTotal'|translate}}</h6>
             <span class="bill-span" id="total-price">{{selectedOrder.totalPrice | currency:'EGP'}}</span>
 
         </div>
