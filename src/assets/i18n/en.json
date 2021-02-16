@@ -1,22 +1,21 @@
 {
     "deliveryLink": "Delivery",
-    "dineoutLink":"Dineout",
-    "giftmealsLink":"GiftMeals",
-    
+    "dineoutLink": "Dineout",
+    "giftmealsLink": "GiftMeals",
     "main-header": "Give the gift of great food to your friends or teams at work",
     "main-paragraph": "We listened to your requests and launched elmenus GiftMeals, a simple way for you to share promos with friends or teams at work so everyone can enjoy great food wherever they are.",
-    "button1":"Send Gifts to your teams",
-    "button2":"Send Gifts to your friends",
-    "second-header":"Bring Happiness To Your Team or to your Friends",
+    "button1": "Send Gifts to your teams",
+    "button2": "Send Gifts to your friends",
+    "second-header": "Bring Happiness To Your Team or to your Friends",
+    "setGift": "Set a gift amount",
+    "setGiftText": "Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
+    "listFriends": "List your friends or teams",
+    "listFriendsText": "Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
+    "pay": "Pay the full amount online",
+    "payText": "Once you purchase the GiftMeals, you'll receive a confirmation email and your friends/teams will receive an SMS with the GiftMeal promo code.",
+    "theyReceive": "They receive the GiftMeals",
+    "theyReceiveText": "The people you gifted can use their personalized GiftMeal promo code via their associated phone number to order great dishes on elmenus.",
     
-    "setGift":"Set a gift amount",
-    "setGiftText":"Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
-    "listFriends":"List your friends or teams",
-    "listFriendsText":"Set your budget for each GiftMeal (e.g. 10 EGP) and select how many GiftMeals you would like to buy.",
-    "pay":"Pay the full amount online",
-    "payText":"Once you purchase the GiftMeals, you'll receive a confirmation email and your friends/teams will receive an SMS with the GiftMeal promo code.",
-    "theyReceive":"They receive the GiftMeals",
-    "theyReceiveText":"The people you gifted can use their personalized GiftMeal promo code via their associated phone number to order great dishes on elmenus.",
 
     
     "myOrders":"My Orders",
@@ -31,7 +30,29 @@
     "tax":"Tax",
     "deliveryFee":"Delivery Fee",
     "orderTotal":"Order Total",
-    "support":"Support"
+    "support":"Support",
     
-
+    "hm-SIGNUP": "SIGNUP",
+    "hm-Login": "Login",
+    "hm-main-header": "Discover & Order the food you love.",
+    "hm-go-btn": "Go",
+    "hm-send-food": "Send great food to your friends or teams at work",
+    "hm-send-food-link": "Try now",
+    "hm-explore-elmenus": "Or explore elmenus",
+    "hm-Delivery": "Delivery",
+    "hm-Get food delivered": "Get food delivered from amazing restaurants around you",
+    "hm-Dine Out": "Dine Out",
+    "hm-Browse restaurants by": "Browse restaurants by mood, cuisine, area or dish names",
+    "hm-Now you can": "Now you can",
+    "hm-order-wrd": "Order",
+    "hm-online-wrd": "Online",
+    "hm-Track your order" : "Track your order",
+    "hm-Want to know your order status" : "Want to know your order status? No problem, Now you can know exactly where your order is throughout the delivery process.",
+    "hm-No phone calls": "No phone calls",
+    "hm-Order your favorite food" : "hm-Order your favorite food easier, faster, and without phone calls.",
+    "hm-Looking for delivery": "Looking for delivery",
+    "hm-Look for restaurants that have this sign": "Look for restaurants that have this sign",
+    "hm-Order online now" : "Order online now"
 }
+
+                                            

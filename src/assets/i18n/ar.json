@@ -1,8 +1,7 @@
 {
     "deliveryLink": "ديليفري",
-    "dineoutLink":"خروجات",
-    "giftmealsLink":"أكلة هدية",
-
+    "dineoutLink": "خروجات",
+    "giftmealsLink": "أكلة هدية",
     "main-header": "مفيش هدية أجمل من انك تعزم صحابك أو موظفينك في الشغل على الأكل",
     "main-paragraph": "عشان كده عملنا خدمة جديدة وهي 'أكلة هدية' طريقة بسيطة تبسط بيها صحابك وموظفينك انك تبعتلهم برومو هدية يطلبوا بيه الأكل اللي بيحبوه",
     "button1":"ابعت هدية لموظفينك",
@@ -31,6 +30,27 @@
     "tax":"ضريبة",
     "deliveryFee":"تكلفة التوصيل",
     "orderTotal":"إجمالي الطلب",
-    "support":"الدعم"
+    "support":"الدعم",
 
+    "hm-SIGNUP": "حساب جديد",
+    "hm-Login": "تسجيل الدخول",
+    "hm-main-header": "إكتشف وأوردر دلوقتى أحلى الأكلات",
+    "hm-go-btn": "ديليفرى",
+    "hm-send-food": "ابعت اكلة هدية لصحابك و زمايلك في الشغل",
+    "hm-send-food-link": "جرب دلوقتى",
+    "hm-explore-elmenus": "أو إكتشف المنيوز",
+    "hm-Delivery": "ديليفرى",
+    "hm-Get food delivered": "أفضل المطاعم بتوصل حواليك",
+    "hm-Dine Out": "خروجات",
+    "hm-Browse restaurants by": "إكتشف خروجه حسب نوع الأكلة أو نوع الخروجة أو المنطقة",
+    "hm-Now you can": "دلوقتى تقدر ت",
+    "hm-order-wrd": "أوردر",
+    "hm-online-wrd": "أونلاين",
+    "hm-Track your order": "تابع الأوردر لحد ما يوصلك",
+    "hm-Want to know your order status": "دلوقتي تقدر تعرف الاوردر بتاعك بيتحضر ولا في الطريق لحد ما يوصل ليك.",
+    "hm-No phone calls": "من غير تليفونات",
+    "hm-Order your favorite food": ".اوردر الأكل اللي بتحبة أسرع وأسهل ومن غير تليفونات",
+    "hm-Looking for delivery": "بتدور علي الدليفيري؟",
+    "hm-Look for restaurants that have this sign": "دور علي المطاعم اللي عليها العلامة دى",
+    "hm-Order online now": "أوردر أونلاين"
 }
