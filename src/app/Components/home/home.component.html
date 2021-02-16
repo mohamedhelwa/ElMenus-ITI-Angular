@@ -1,3 +1,4 @@
+
 <div class="hm-pg">
     <!--	HomePage_Header_Section-->
     <!-- Background image -->
@@ -51,18 +52,36 @@
                                         <li class="nav-item">
                                             <a class="nav-link"><button id="nv-lgn-lnk" type="button" class="btn btn-link"
                                                 data-toggle="modal" data-target="#myModal" data-backdrop="static"
-                                                data-keyboard="false">Login</button></a>
+                                                data-keyboard="false">{{"hm-Login" | translate}}</button></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link"><button type="button" id="hm-signup-btn" class="btn btn-danger"
                                                 data-toggle="modal" data-target="#mySignUpModal" data-backdrop="static"
-                                                data-keyboard="false">SIGNUP</button></a>
+                                                data-keyboard="false">{{"hm-SIGNUP" | translate}}</button></a>
                                         </li>
-                                    </ul>
-                                    
+                                    </ul>                                    
                                 </ng-template>
                             </li>
-                            
+                            <!-- Translation -->
+                            <div *ngIf="lang == 'en'; else arSection">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <button type="button" class="btn btn-link" 
+                                        (click)="changeLanguage('ar')"
+                                        style="color: white">العربية</button>
+                                    </a>
+                                </li>
+                            </div>
+                            <ng-template #arSection>
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <button type="button" class="btn btn-link" 
+                                        (click)="changeLanguage('en')"
+                                        style="color: white">English</button>
+                                    </a>
+                                </li>
+                            </ng-template>
+                            <!-- Translation -->                            
 
                             <!--					Modal-->
                             <div class="modal fade" id="myModal">
@@ -165,7 +184,7 @@
             <section class="first-section">
                 <div class="container mt-4">
                     <div class="mb-5">
-                        <h1 class="st-hdr-title text-white text-center">Discover &amp; Order the food you love.</h1>
+                        <h1 class="st-hdr-title text-white text-center">{{'hm-main-header' | translate}}</h1>
                     </div>
                     <!--					Form_Group-->
                     <form class="mb-5" [formGroup]="restaurantSearchFrm" (ngSubmit)="viewRestaurant()">
@@ -203,19 +222,18 @@
                                 </select>
                             </div>
 
-
                             <!--    DropDown-->
                             <!--   Button-->
                             <div class="col-md-2 col-sm-4 my-1">
-                                <button id="go-btn" (click)="viewRestaurant()" type="submit" class="btn btn-danger">Go<i
-                                        class="pl-2 fas fa-arrow-right"></i></button>
+                                <button id="go-btn" (click)="viewRestaurant()" type="submit" class="btn btn-danger">
+                                    {{'hm-go-btn' | translate}}<i class="pl-2 fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                     </form>
                     <!--   Button-->
 
                     <!--					end_Form_Group-->
-
+                    <!--  -->
                     <!--				gift_Black_Box-->
                     <div class="blackBx-mask2 text-white text-center mb-5">
                         <div class="row pt-4 pb-4">
@@ -223,9 +241,9 @@
                                 <img src="../../../assets/images/surprise.png">
                             </div>
                             <div class=" col-sm-8 col-xs-9">
-                                <h5 style="font-weight:350; line-height: 1.3;">Send great food to your friends or teams
-                                    at work
-                                    <a routerLink="/giftmeals" routerLinkActive="active">Try now</a>
+                                <h5 style="font-weight:350; line-height: 1.3;">
+                                    {{"hm-send-food" | translate}}
+                                    <a routerLink="/giftmeals" routerLinkActive="active">{{"hm-send-food-link" | translate}}</a>
                                 </h5>
 
                             </div>
@@ -235,7 +253,7 @@
 
                     <!--Delivery | Dine Out_section	-->
                     <section>
-                        <h4 class="text-white text-center mb-4">Or explore elmenus</h4>
+                        <h4 class="text-white text-center mb-4">{{ "hm-explore-elmenus" | translate}}</h4>
                         <div class="card delivery-dineout-hm">
 
                             <div class="container">
@@ -254,7 +272,7 @@
                                                     <div class="row">
                                                         <div class="col-10">
                                                             <h4 class="card-title"><i
-                                                                    class="mr-1 fas fa-motorcycle"></i> Delivery</h4>
+                                                                    class="mr-1 fas fa-motorcycle"></i> {{"hm-Delivery" | translate}}</h4>
                                                         </div>
                                                         <div class="col-1 ml-md-4">
                                                             <span>
@@ -264,8 +282,7 @@
                                                     </div>
 
                                                     <!--Text-->
-                                                    <p class="card-text">Get food delivered from amazing restaurants
-                                                        around you</p>
+                                                    <p class="card-text">{{"hm-Get food delivered" | translate}}</p>
                                                 </div>
 
                                             </div>
@@ -286,7 +303,7 @@
                                                     <div class="row">
                                                         <div class="col-10">
                                                             <h4 class="card-title"><i class="mr-1 fas fa-utensils"></i>
-                                                                Dine Out</h4>
+                                                                {{"hm-Dine Out" | translate}}</h4>
                                                         </div>
                                                         <div class="col-1 ml-md-4">
                                                             <span>
@@ -296,8 +313,7 @@
                                                     </div>
 
                                                     <!--Text-->
-                                                    <p class="card-text">Browse restaurants by mood, cuisine, area or
-                                                        dish names</p>
+                                                    <p class="card-text">{{"hm-Browse restaurants by" | translate}}</p>
                                                 </div>
 
                                             </div>
@@ -325,11 +341,11 @@
     <section class="hm-online-ordr text-center">
         <!--		second-section-header-->
         <div class="scnd-section-header mt-4">
-            <h3 class="hdr-subtitle mb-4 d-xl-none">Now you can</h3>
+            <h3 class="hdr-subtitle mb-4 d-xl-none">{{"hm-Now you can" | translate}}</h3>
             <h2 class="hdr-title text-uppercase">
-                <span style="color: #e5533a;">order</span>
+                <span style="color: #e5533a;">{{"hm-order-wrd" | translate}}</span>
                 <div>
-                    <span style="color: #e9725d;">online</span>
+                    <span style="color: #e9725d;">{{"hm-online-wrd" | translate}}</span>
                 </div>
             </h2>
         </div>
@@ -355,11 +371,10 @@
                                         <img src="../../../assets/images/track-order.svg">
                                     </div>
                                     <div class="col-10 text-left pt-3 mt-md-2">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">Track your order</h5>
+                                        <h5 class="font-weight-bold" style="margin-left: 50px">{{"hm-Track your order" | translate}}</h5>
                                         <!--Text-->
-                                        <p class="card-text pt-1" style="margin-left: 50px">Want to know your order
-                                            status? No problem, Now you can know exactly where your order is throughout
-                                            the delivery process.</p>
+                                        <p class="card-text pt-1" style="margin-left: 50px">{{"hm-Want to know your order
+                                            status" | translate}}</p>
                                     </div>
                                 </div>
 
@@ -385,13 +400,12 @@
                                         <img src="../../../assets/images/no-phone.svg">
                                     </div>
                                     <div class="col-10 text-left pt-3 mt-md-3">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">No phone calls</h5>
+                                        <h5 class="font-weight-bold" style="margin-left: 50px">{{"hm-No phone calls" | translate}}</h5>
                                         <!--Text-->
-                                        <p class="card-text pt-1" style="margin-left: 50px">Order your favorite food
-                                            easier, faster, and without phone calls.</p>
+                                        <p class="card-text pt-1" style="margin-left: 50px">{{"hm-Order your favorite food" | translate}}</p>
                                     </div>
                                 </div>
-
+                                
                             </div>
 
                         </div>
@@ -406,14 +420,14 @@
         </div>
         <!--		second-section-body-->
 
-
+        
         <!--		second-section-footer-->
         <div class="scnd-section-footer mt-5">
             <div class="container pt-lg-4">
                 <div class="row">
                     <div class="col-lg-8 text-lg-left">
-                        <h4 style="color: #8e52ff;">Looking for delivery</h4>
-                        <p style="font-size: 24px; font-weight: 500;">Look for restaurants that have this sign <span
+                        <h4 style="color: #8e52ff;" >{{"hm-Looking for delivery" | translate}}</h4>
+                        <p dir="auto" style="font-size: 24px; font-weight: 500;">{{"hm-Look for restaurants that have this sign" | translate}} <span
                                 class="ordr-online-chck"><span class="ml-3 "><img
                                         src="../../../assets/images/check-mark-circle.svg"></span><span
                                     class="align-middle ml-1" style="font-size: 10px;
@@ -422,7 +436,7 @@ font-weight: 700; color: #8e52ff;"> Order online
                     </div>
                     <div class="col-lg-4 float-lg-right mt-3">
                         <a routerLink="/delivery" routerLinkActive="active" id="hm-ordr-btn" class="text-uppercase btn">
-                            Order online now
+                            {{"hm-Order online now" | translate}}
                         </a>
                     </div>
                 </div>
@@ -434,3 +448,4 @@ font-weight: 700; color: #8e52ff;"> Order online
 
 
 </div>
+

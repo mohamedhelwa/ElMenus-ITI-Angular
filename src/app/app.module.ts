@@ -111,6 +111,7 @@ const firebaseConfig = {
     NgbModule ,//ngbootstrap
     HttpClientModule,// for translate
     TranslateModule.forRoot({
+      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
@@ -124,6 +125,8 @@ const firebaseConfig = {
 })
 export class AppModule { }
 
+// Load translation files
 export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+

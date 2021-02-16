@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { RegisterService } from 'src/app/Services/register.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/Services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnChanges {
+  lang = 'en'
+
   restaurantSearchFrm = this.fb.group({
     restaurantName: ['', Validators.required],
     selectedBranch: ['']
@@ -28,10 +31,18 @@ export class HomeComponent implements OnInit, OnChanges {
     private fb: FormBuilder,
     private db: AngularFirestore,
     private homeService: HomeService,
-    public auth: AuthService
+    public auth: AuthService,
+    public translateService: TranslateService
     ) {
   
   }
+
+  changeLanguage(lang: string) {
+    this.lang = lang;
+    this.translateService.setDefaultLang(this.lang);
+    this.translateService.use(this.lang);
+ }
+
   ngOnChanges(): void {
     
   }
