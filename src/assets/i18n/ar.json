@@ -52,5 +52,27 @@
     "hm-Order your favorite food": ".اوردر الأكل اللي بتحبة أسرع وأسهل ومن غير تليفونات",
     "hm-Looking for delivery": "بتدور علي الدليفيري؟",
     "hm-Look for restaurants that have this sign": "دور علي المطاعم اللي عليها العلامة دى",
-    "hm-Order online now": "أوردر أونلاين"
+    "hm-Order online now": "أوردر أونلاين",
+
+    "head delivery":"اكتشف الاصناف المميزة",
+    "restaurants":"المطاعم",
+    "all":"الكل",
+    "show result":":عرض نتائج",
+    "orderOnline":"اوردر انلاين غير متاح في شارع محمد توفيق حتي الان",
+    "openNow":"مفتوح الان",
+    "promo":"عروض",
+    "check":"فحص النظافه",
+    "sortBy":":ترتيب",
+    "popular":"الاكثر شهره",
+    "rating":"الاعلي تقييما",
+    "Delivery Time":"الاسرع في التوصيل",
+
+    "Notification":"اشعارات",
+    "My Orders":"اوردراتي",
+    "Account Settings":"اعدادات الحساب",
+    "Profile":"الصفحه الشخصيه",
+    "Deliver":"بيوصل",
+    "Change":"تغيير",
+    "FindRestaurant":"دور علي اي مطعم"
+
 }

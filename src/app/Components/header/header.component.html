@@ -25,8 +25,8 @@
           
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
-          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Login</button>
-          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >Sign Up</button>
+          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >{{'hm-Login'|translate}}</button>
+          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >{{'hm-SIGNUP'|translate}}</button>
           <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
     
           <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
@@ -54,29 +54,29 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="height: 50px;">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active">Delivery</a>
+        <a class="nav-link" [routerLink]="['/delivery']" routerLinkActive="active">{{'deliveryLink' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >Dine Out</a>
+        <a class="nav-link" [routerLink]="['/dineout']" routerLinkActive="active" >{{'dineoutLink' |translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>Gift Meals</a>
+        <a class="nav-link" [routerLink]="['/giftmeals']" routerLinkActive="active"><i class="fas fa-gift" ></i>{{'giftmealsLink' |translate }}</a>
       </li>
     </ul>
     <!-----right Side -->
     <ul class="navbar-nav navbar-after mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-bell"></i>Notification</a>
+        <a class="nav-link" href="#"><i class="fas fa-bell"></i>{{'Notification'|translate}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">My Orders</a>
+        <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">{{'My Orders'|translate}}</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-friends"></i>  Profile
+          <i class="fas fa-user-friends"></i>  {{'Profile'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item nobg"  [routerLink]="['/setting']" >Account Settings</a>
+          <a class="dropdown-item nobg"  [routerLink]="['/setting']" >{{'Account Settings'|translate}}</a>
         </div>
       </li>
       </ul>
@@ -93,12 +93,12 @@
 <!------------------- 2nd nav --------------------------------->
     <nav class=" navbar navbar-light bg-light">
       <div class="input-container">
-        <input class="input-field" type="text" placeholder="Find a Restaurant">
+        <input class="input-field" type="text" placeholder="{{'FindRestaurant'|translate}}">
         <i class="fas fa-search"></i>
       </div>
-      <span style="font-size: 20px;"><i class="fas fa-biking" style="color: #E5533A;"></i>Deliver</span>
+      <span style="font-size: 20px;"><i class="fas fa-biking" style="color: #E5533A;"></i>{{'Deliver'|translate}}</span>
       <span style="margin-right: 100px;color: #E5533A; font-size: 22px;"><strong> St.Mohamed Tawfik</strong></span>
-      <button style="width: 100px; height: 30px; font-size: 17px;border:1px solid #E5533A;background-color: none;color: #E5533A; border-radius: 8px;">Change</button>
+      <button style="width: 100px; height: 30px; font-size: 17px;border:1px solid #E5533A;background-color: none;color: #E5533A; border-radius: 8px;">{{'Change'|translate}}</button>
     </nav>
 
 <!-------- Routing -------------------------------------------->

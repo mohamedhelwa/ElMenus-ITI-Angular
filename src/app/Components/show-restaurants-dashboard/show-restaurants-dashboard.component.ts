@@ -46,8 +46,8 @@ export class ShowRestaurantsDashboardComponent implements OnInit {
   }
 
   
-  addrestaurant()
+  /*addrestaurant()
   {
     this.router.navigate(['/addrestaurant']);
-  }
+  }*/
 }

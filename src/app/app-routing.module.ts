@@ -28,10 +28,16 @@ import { TermsComponent } from './Components/terms/terms.component';
 import { TestComponent } from './Components/test/test.component';
 import { TrackOrderComponent } from './Components/track-order/track-order.component';
 import { AuthGuard } from './Services/auth.guard';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { DashboardOrderListComponent } from './Components/dashboard-order-list/dashboard-order-list.component';
+import { MenulistDashboardComponent } from './Components/menulist-dashboard/menulist-dashboard.component';
+import { ReviewDashboardComponent } from './Components/review-dashboard/review-dashboard.component';
+import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: '', redirectTo: '/Home', pathMatch: 'full' }, // default path 
+  { path: "dashboard", component: DashboardComponent },
   { path: "overviewdashboard", component: OverviewDashboardComponent },
   { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
   { path: "addrestaurant", component: AddRestaurantDashboardComponent },
@@ -50,6 +56,14 @@ const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },
+  { path: "orderlist", component: DashboardOrderListComponent},
+  { path: "menulist", component: MenulistDashboardComponent},
+  { path: "reviewlist", component: ReviewDashboardComponent},
+  { path: "customerlist", component:CustomersDashboardComponent },
+
+
+
+
   {
     path: 'restaurant/:id', component: ResturantComponent,
     children: [

@@ -50,6 +50,10 @@ import { NoordersComponent } from './Components/noorders/noorders.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DashboardOrderListComponent } from './Components/dashboard-order-list/dashboard-order-list.component';
+import { MenulistDashboardComponent } from './Components/menulist-dashboard/menulist-dashboard.component';
+import { ReviewDashboardComponent } from './Components/review-dashboard/review-dashboard.component';
+import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD553sG0S5TK4x855X912d7wbMgbrxO88c",
@@ -97,7 +101,11 @@ const firebaseConfig = {
     TermsComponent,
     PastordersComponent,
     PastorderdetailsComponent,
-    NoordersComponent
+    NoordersComponent,
+    DashboardOrderListComponent,
+    MenulistDashboardComponent,
+    ReviewDashboardComponent,
+    CustomersDashboardComponent
   ],
   imports: [
     BrowserModule,

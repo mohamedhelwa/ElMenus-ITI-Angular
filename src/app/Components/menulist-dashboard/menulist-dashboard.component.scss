@@ -1,0 +1,40 @@
+.card{
+    background-color: #E5533A;
+    height: 350px;
+    width: 360px;
+    border: none;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    color: white;
+    padding-bottom: 0px;
+    flex-grow: 100px;
+}
+
+.description{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+   padding: 5px;
+}
+
+.btn{
+    width:20px !important;
+    padding: 0 !important;
+    height: 40px !important;
+    background-color: white;
+    color: #E5533A;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.ff{
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap ;
+}

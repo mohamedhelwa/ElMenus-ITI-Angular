@@ -57,6 +57,7 @@ export class AddRestaurantDashboardComponent implements OnInit {
 
   Add()
   {
+    alert('click');
     const data = {
       restaurantName : this.restaurant.restaurantName,
       restaurantOpening: this.restaurant.restaurantOpening,

@@ -6,6 +6,7 @@ export class Reviews {
     reviewText?: string;
     userId?: number;
     userName?: string;
+    restaurantName?:string;
     
 
 }

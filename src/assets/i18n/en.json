@@ -52,7 +52,29 @@
     "hm-Order your favorite food" : "hm-Order your favorite food easier, faster, and without phone calls.",
     "hm-Looking for delivery": "Looking for delivery",
     "hm-Look for restaurants that have this sign": "Look for restaurants that have this sign",
-    "hm-Order online now" : "Order online now"
+    "hm-Order online now" : "Order online now",
+
+    "head delivery":"Discover Top Dishes",
+    "restaurants":"Restaurants",
+    "all":"All",
+    "show result":"Show results for:",
+    "orderOnline":"Online ordering only unavailable in St. Mohamed Tawfik right now",
+    "openNow":"Open Now",
+    "promo":"Promo",
+    "check":"Hygiene Check",
+    "sortBy":"Sort by:",
+    "popular":"Popular",
+    "rating":"Rating",
+    "Delivery Time":"Delivery Time",
+
+    "Notification":"Notification",
+    "My Orders":"My Orders",
+    "Account Settings":"Account Settings",
+    "Profile":"Profile",
+    "Deliver":"Deliver",
+    "Change":"Change",
+    "FindRestaurant":"Find a Restaurant"
+    
 }
 
                                             
