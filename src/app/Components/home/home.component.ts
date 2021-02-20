@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    var order = JSON.parse(localStorage.getItem("order_data"));
+    console.log(order)
     this.homeService.getAllBranches()
       .subscribe(branches => {
         this.branches = branches;

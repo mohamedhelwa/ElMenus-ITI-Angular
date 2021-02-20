@@ -91,7 +91,10 @@ export class AuthService {
   }
 
   signOut() {
-    localStorage.removeItem("userId")
+    // localStorage.removeItem("userId")
+    // localStorage.removeItem("elmenus_cart")
+    // localStorage.removeItem("order_data")
+    localStorage.clear();
     this.afAuth.signOut();
   }
 }

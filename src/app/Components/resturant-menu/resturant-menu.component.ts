@@ -54,6 +54,8 @@ export class ResturantMenuComponent implements OnInit {
     console.log(i);
     this.DishBuy.push(i);
     // this.router.navigate(['Checkout']);
+    localStorage.setItem("elmenus_cart",JSON.stringify(this.DishBuy));
+    this.router.navigate(['Checkout']);
     console.log(this.DishBuy)
   }
   addOrder(){
