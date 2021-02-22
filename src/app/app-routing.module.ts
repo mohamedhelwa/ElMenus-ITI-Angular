@@ -33,6 +33,7 @@ import { DashboardOrderListComponent } from './Components/dashboard-order-list/d
 import { MenulistDashboardComponent } from './Components/menulist-dashboard/menulist-dashboard.component';
 import { ReviewDashboardComponent } from './Components/review-dashboard/review-dashboard.component';
 import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
+import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -60,6 +61,7 @@ const routes: Routes = [
   { path: "menulist", component: MenulistDashboardComponent},
   { path: "reviewlist", component: ReviewDashboardComponent},
   { path: "customerlist", component:CustomersDashboardComponent },
+  { path: "addMenu", component:AddMenuDashboardComponent },
 
 
 

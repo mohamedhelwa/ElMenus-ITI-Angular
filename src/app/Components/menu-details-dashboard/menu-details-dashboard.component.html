@@ -1,0 +1,61 @@
+<div class="container-fluid mt-5">
+  <form [formGroup]="menuForm" (ngSubmit)="updateMenu()">
+    <fieldset>
+      <legend class="jumbotron text-center">
+        <h3>Update {{ menu.dishName }} Menu</h3>
+      </legend>
+      <div class="form-group">
+        <label for="dishName">Dish Name</label>
+        <input
+          [(ngModel)]="menu.dishName"
+          formControlName="dishName"
+          type="text"
+          class="form-control"
+          id="dishName"
+          placeholder="Enter Dish Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dishPrice">Dish Price</label>
+        <input
+          [(ngModel)]="menu.dishPrice"
+          formControlName="dishPrice"
+          type="text"
+          class="form-control"
+          id="dishPrice"
+          placeholder="Enter Dish Price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dishSize">Dish Size</label>
+        <input
+          [(ngModel)]="menu.dishSize"
+          formControlName="dishSize"
+          type="text"
+          class="form-control"
+          id="dishSize"
+          placeholder="Enter Dish Size"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dishDescription">Dish Description</label>
+        <textarea
+          [(ngModel)]="menu.dishDescription"
+          formControlName="dishDescription"
+          class="form-control"
+          id="dishDescription"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <button
+        (click)="updateMenu()"
+        type="button"
+        class="btn btn-primary d-inline mr-2 btn-block mt-3"
+      >
+        update
+      </button>
+    </fieldset>
+  </form>
+</div>

@@ -22,7 +22,7 @@ export class RestaurantsServiceService {
    
     return this.newRestaurant.add({ ...tutorial });
   }
-
+ 
   ///get All Restaurants ///
   getAll(): AngularFirestoreCollection<Restaurants> {
     return this.newRestaurant;

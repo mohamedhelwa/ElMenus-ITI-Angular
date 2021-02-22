@@ -1,0 +1,82 @@
+<div class="container-fluid mt-5">
+  <form [formGroup]="menuForm" (ngSubmit)="addMenu()">
+    <fieldset>
+      <legend class="jumbotron text-center"><h2>Add New Menu</h2></legend>
+      <div class="form-group">
+        <label for="dishName">Dish Name</label>
+        <input
+          formControlName="dishName"
+          type="text"
+          class="form-control"
+          id="dishName"
+          placeholder="Enter Dish Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dishPrice">Dish Price</label>
+        <input
+          formControlName="dishPrice"
+          type="text"
+          class="form-control"
+          id="dishPrice"
+          placeholder="Enter Dish Price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dishSize">Dish Size</label>
+        <input
+          formControlName="dishSize"
+          type="text"
+          class="form-control"
+          id="dishSize"
+          placeholder="Enter Dish Size"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dishDescription">Dish Description</label>
+        <textarea
+          formControlName="dishDescription"
+          class="form-control"
+          id="dishDescription"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="file">Dish Image </label><br />
+        <input
+          formControlName="dishImage"
+          class="form-control-file"
+          type="file"
+          [hidden]="true"
+          id="file"
+          #file
+          (change)="onFileSelected($event, file.files)"
+          name="image"
+          autocomplete="off"
+          value="Upload Image"
+        /><label for="file" class="btn btn-secondary"
+          >Choose dish Image <i class="fas fa-upload"></i
+        ></label>
+        <img
+          [src]="imgURL"
+          style="margin-left: 20px"
+          height="200"
+          *ngIf="imgURL"
+        />
+        <p *ngIf="fbase">{{ fbase }}</p>
+        <p *ngIf="clicked">Please Wait...</p>
+      </div>
+      <div class="text-center">
+        <button
+          (click)="addMenu()"
+          type="button"
+          class="btn btn-primary btn-lg"
+        >
+          Add Menu
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

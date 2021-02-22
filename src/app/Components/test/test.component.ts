@@ -1,5 +1,6 @@
 import { HomeService } from './../../Services/home.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
+//import { Dishes } from 'src/app/ViewModels/dishes';
 
 @Component({
   selector: 'app-test',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  searchData:[] =[];
+  // searchData:[] =[];
+  //@Input() menu: Dishes;
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
@@ -15,8 +17,10 @@ export class TestComponent implements OnInit {
     // console.log("testform Home" + this.searchData);   
     
     // this.homeService.getData();
-    console.log("restaurant Name: "+this.homeService.restName);
-    console.log("restaurant Branch: "+this.homeService.selBranch);
+    // console.log("restaurant Name: "+this.homeService.restName);
+    // console.log("restaurant Branch: "+this.homeService.selBranch);
+    //console.log("test", this.menu);
+    
     
   }
 
