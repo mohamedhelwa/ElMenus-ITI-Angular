@@ -56,12 +56,15 @@ export class MenulistDashboardComponent implements OnInit {
   }
 
   deleteMenu(menuId: number) {
-    this.dishService.deleteDish(menuId.toString()).then(
-      () => { 
-        console.log("Menu Deleted Successfully!");
-        this.refreshList();
-      }
-    )
+    const response = confirm('Are You Sure, You Want to Delete this menu?');
+    if(response){
+      this.dishService.deleteDish(menuId.toString()).then(
+        () => { 
+          console.log("Menu Deleted Successfully!");
+          this.refreshList();
+        }
+      )
+    }
   }
 
   addMenu() {  
