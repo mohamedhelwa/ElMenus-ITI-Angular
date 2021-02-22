@@ -2,8 +2,34 @@
     <a class="navbar-brand" href="#"><img class="img-fluid rounded-circle mx-auto d-block" src="/assets/app icon.jpg" alt="app icon">elmenus</a>
 </nav>
 
+<div class="container-fluid">
+    <div class="row bg-light">
+      <nav class="col-sm-3 col-md-2  d-sm-block right_side sidebar">
+        <img src="/assets/profile_image.jpg" class="img-responsive img-circle rounded-circle">
+        <h3>UserName</h3>
+        <hr> 
+        <ul class="nav nav-pills flex-column" style="padding: 10px;">
+            <li routerLinkActive="active"><i [routerLink]="['/overviewdashboard']" class="fas fa-home"  placement= 'top' ngbTooltip="Overview"></i><a [routerLink]="['/overviewdashboard']" > Overview </a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/orderlist']" class="fas fa-pizza-slice" placement= 'top' ngbTooltip="Orders"></i><a [routerLink]="['/orderlist']"> Orders</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/showrestaurants']" class="fas fa-utensils" placement= 'top'  ngbTooltip="Restaurants"></i><a [routerLink]="['/showrestaurants']" style="font-size: 24px;"> Restaurants</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/addrestaurant']" class="fas fa-calendar-plus" placement= 'top' ngbTooltip="Add"></i><a [routerLink]="['/addrestaurant']" style="font-size: 21px;"> Add Restaurant</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/menulist']" class="fas fa-list-alt" placement= 'top' ngbTooltip="Menu"></i><a [routerLink]="['/menulist']"> Menu List</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/customerlist']" class="fas fa-user-friends" placement= 'top' ngbTooltip="Users"></i><a [routerLink]="['/customerlist']"> Customers</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/reviewlist']" class="fas fa-comment-alt" placement= 'top' ngbTooltip="Reviews"></i><a [routerLink]="['/reviewlist']"> Reviews</a></li>
+            <li><i class="fas fa-cogs" placement= 'top' ngbTooltip="Settings"></i><a href="#"> Settings</a></li>
+            <li><i class="fas fa-cogs" placement= 'top' ngbTooltip="Logout"></i><a href="#"><i class="fas fa-power-off"></i> Logout</a></li>
+        </ul>
+      </nav>
+  
+      <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3 main ">
+  
+            <router-outlet></router-outlet>
+        
+      </main>
+    </div>
+  </div>
 <!------------- Left Side ---------------------------------------->
-<div class="container-fluid bg-light">
+<!--<div class="container-fluid bg-light">
 <div class="row">
     <div class=" col-sm-4 col-md-4 col-lg-2 right_side">
        <img src="/assets/profile_image.jpg" class="img-responsive img-circle rounded-circle">
@@ -20,15 +46,15 @@
         <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
         <li><a href="#"><i class="fas fa-power-off"></i> Logout</a></li>
     </ul>
-    </div>
+    </div>-->
 <!---------------------------- end Left side------------------------------------>
 
 <!-----------------------------right side------------------------------------>
-    <div class=" col-sm-8 col-md-8 col-lg-10" >
+    <!--<div class=" col-sm-8 col-md-8 col-lg-10 right" >
         <router-outlet></router-outlet>
        
 </div>
 </div>
-</div>
+</div>-->
 
 <!-------------end right Side ---------------------------------------->
