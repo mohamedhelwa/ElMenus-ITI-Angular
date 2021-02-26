@@ -25,8 +25,8 @@
           
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
-          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >{{'hm-Login'|translate}}</button>
-          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter" >{{'hm-SIGNUP'|translate}}</button>
+          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#myModal" >{{'hm-Login'|translate}}</button>
+          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#mySignUpModal" >{{'hm-SIGNUP'|translate}}</button>
           <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
     
           <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
@@ -35,6 +35,7 @@
               {{ language }}
             </option>
           </select>
+        
         <!--</form>-->
       </div>
     </nav>      
@@ -104,60 +105,92 @@
 <!-------- Routing -------------------------------------------->
 
 <!----------------------- Start Modal----------------------------->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2  class="modal-title"><img class="img-fluid rounded-circle mx-auto d-block" style="width: 19%;float: left;" src="/assets/app icon.jpg" alt="app icon">elmenus
-      </h2>
-        <button type="button" #close class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div role="tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist" style="margin-left: 15px;">
-            <li role="presentation" id="login"><a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab" style="margin-right: 25px;font-size: 22px; font-weight: bold;">Login</a>
+<!--Modal-->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
 
-            </li>
-            <li role="presentation"  id="createaccount"><a style="font-size: 20px; font-weight: bold;" href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab">Create Account</a>
+          <!-- Modal Header -->
+          <div class="modal-header text-center">
+              <img class="modal-title w-100 mt-2 mb-2"
+                  src="../../../assets/images/logo.svg" height="25">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
 
-            </li> 
-        </ul>
-        <br>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="uploadTab">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="email" style="font-size: 15px;height: 40px !important;" placeholder="email"  name="email">
+          <!-- Modal body -->
+          <form>
+              <div class="form-group">
+                  <div class="modal-body mx-3">
+                      <div class="md-form mb-4">
+                          <input #emailLogin type="text" id="usr-nm"
+                              class="form-control validate" placeholder="username">
+                      </div>
+                      <div class="md-form mb-1">
+                          <input #passLogin type="password" id="defaultForm-pass"
+                              class="form-control validate" placeholder="password">
+                      </div>
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="pwd" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
-                  </div>
-                  <button type="button" id="modal_login" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Login</button>
-                  <button type="button" class="btn btn-block" style="background-color: #4267B2; color: white; font-size: 15px;">Continue With FaceBook</button>
-                  <span style="font-size: 15px; margin-top: 10%; margin-left: 30%; color: #E5533A;">forget password?</span>
-                </div>
-            <!--------------------------------------------->
-            <div role="tabpanel" class="tab-pane" id="browseTab">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="username" style="font-size: 15px; height: 40px !important;" placeholder="name"  name="email">
-                  </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="username2" style="font-size: 15px; height: 40px !important;" placeholder="email"  name="email">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="pwd2" style="font-size: 15px; height: 40px !important;" placeholder="password" name="pswd">
-                  </div>
-                  <button type="button" class="btn btn-block" style="background-color: #E5533A; color: white; font-size: 18px;">Create Account</button>
-                  <span style="font-size: 13px;text-align: center;color: rgb(207, 188, 188); ">By creating an account, you agree to our Terms</span>
-                </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer justify-content-center">
+                  <button id="Modal-Lgn-btn" type="button"
+                      class="btn btn-danger btn-block " data-dismiss="modal"
+                      (click)="auth.signIn(emailLogin.value,passLogin.value)">Login</button>
+                  <button id="Login-FB-btn" type="button"
+                      class="btn btn-primary btn-block">Continue With Facebook </button>
+                  <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a>
+              </div>
+          </form>
 
+      </div>
+  </div>
+</div>
+<!--end_Modal-->
+
+<!--signup_Modal-->
+<div class="modal fade" id="mySignUpModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header text-center">
+              <img class="modal-title w-100 mt-2 mb-2"
+                  src="../../../assets/images/logo.svg" height="25">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+
+          <!-- Modal body -->
+          <form>
+              <div class="form-group">
+                  <div class="modal-body mx-3">
+                      <div class="md-form mb-4">
+                          <input #name type="text" id="reg-usr-nm"
+                              class="form-control validate" placeholder="name">
+                      </div>
+                      <div class="md-form mb-4">
+                          <input #email type="text" id="usr-mail"
+                              class="form-control validate" placeholder="email">
+                      </div>
+                      <div class="md-form mb-1">
+                          <input #password type="password" id="usr-pass"
+                              class="form-control validate" placeholder="password">
+                      </div>
+                  </div>
+
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer justify-content-center">
+                  <button id="ModalSignUp-btn" type="button"
+                      (click)="auth.signUp(email.value,password.value,name.value)"
+                      class="mb-5 btn btn-danger btn-block " data-dismiss="modal">Create
+                      Account</button>
+                  <p class="pb-3 text-center form-text text-muted">By creating an account,
+                      you agree to our Terms of service and Privacy policy</p>
+              </div>
+          </form>
+
+      </div>
+  </div>
+</div>
+<!--end_signup_Modal-->
    <!----------------End Modal-------------------------------->

@@ -38,10 +38,9 @@ import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-m
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: '', redirectTo: '/Home', pathMatch: 'full' }, // default path 
-  { path: "dashboard", component: DashboardComponent },
-  { path: "overviewdashboard", component: OverviewDashboardComponent },
-  { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
-  { path: "addrestaurant", component: AddRestaurantDashboardComponent },
+  // { path: "overviewdashboard", component: OverviewDashboardComponent },
+  // { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
+  // { path: "addrestaurant", component: AddRestaurantDashboardComponent },
   { path: "setting", component: SettingsComponent },
   { path: "delivery", component: DeliveryComponent },
   { path: "noonlineavailable", component: NoAvailableComponent },
@@ -57,12 +56,21 @@ const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },
+  // { path: "orderlist", component: DashboardOrderListComponent},
+  // { path: "menulist", component: MenulistDashboardComponent},
+  // { path: "reviewlist", component: ReviewDashboardComponent},
+  // { path: "customerlist", component:CustomersDashboardComponent },
+  // { path: "addMenu", component:AddMenuDashboardComponent },
+
+  { path: 'dashboard', component: OverviewDashboardComponent },
+  { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
+  { path: "addrestaurant", component: AddRestaurantDashboardComponent },
   { path: "orderlist", component: DashboardOrderListComponent},
   { path: "menulist", component: MenulistDashboardComponent},
   { path: "reviewlist", component: ReviewDashboardComponent},
   { path: "customerlist", component:CustomersDashboardComponent },
   { path: "addMenu", component:AddMenuDashboardComponent },
-
+  
 
 
 
