@@ -1,4 +1,3 @@
-
 <div class="hm-pg">
     <!--	HomePage_Header_Section-->
     <!-- Background image -->
@@ -16,7 +15,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        
+
 
                         <ul id="lgn-sign-sec" class="navbar-nav ml-auto">
                             <li class="nav-item">
@@ -31,59 +30,62 @@
                                             <a class="nav-link dropdown-toggle d-inline" data-toggle="dropdown" href="#"
                                                 role="button" aria-haspopup="true" aria-expanded="false"><span
                                                     id="usr-nm-val"></span></a>
-            
+
                                             <div class="dropdown-menu">
-                                                <i class="far fa-user ml-2 mr-2 pt-3 "></i> <span class="text-muted">Your
+                                                <i class="far fa-user ml-2 mr-2 pt-3 "></i> <span
+                                                    class="text-muted">Your
                                                     profile</span>
-                                                <div class="ml-5"> <span class="font-weight-bold" id="usr-nm-val2"></span></div>
+                                                <div class="ml-5"> <span class="font-weight-bold"
+                                                        id="usr-nm-val2"></span></div>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#">Account Settings</a>
                                                 <div class="dropdown-divider"></div>
-            
-                                                <a id="lgt-btn" class="dropdown-item" (click)="auth.signOut()">Log Out</a>
+
+                                                <a id="lgt-btn" class="dropdown-item" (click)="auth.signOut()">Log
+                                                    Out</a>
                                             </div>
                                         </li>
                                     </ul>
-                                
+
                                 </div>
-                            
+
                                 <ng-template #login>
                                     <ul class="ml-auto list-group navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link"><button id="nv-lgn-lnk" type="button" class="btn btn-link"
-                                                data-toggle="modal" data-target="#myModal" data-backdrop="static"
-                                                data-keyboard="false">{{"hm-Login" | translate}}</button></a>
+                                            <a class="nav-link"><button id="nv-lgn-lnk" type="button"
+                                                    class="btn btn-link" data-toggle="modal" data-target="#myModal"
+                                                    data-backdrop="static"
+                                                    data-keyboard="false">{{"hm-Login" | translate}}</button></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link"><button type="button" id="hm-signup-btn" class="btn btn-danger"
-                                                data-toggle="modal" data-target="#mySignUpModal" data-backdrop="static"
-                                                data-keyboard="false">{{"hm-SIGNUP" | translate}}</button></a>
+                                            <a class="nav-link"><button type="button" id="hm-signup-btn"
+                                                    class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#mySignUpModal" data-backdrop="static"
+                                                    data-keyboard="false">{{"hm-SIGNUP" | translate}}</button></a>
                                         </li>
-                                    </ul>                                    
+                                    </ul>
                                 </ng-template>
                             </li>
                             <!-- Translation -->
                             <div *ngIf="lang == 'en'; else arSection">
                                 <li class="nav-item">
                                     <a class="nav-link">
-                                        <button type="button" class="btn btn-link" 
-                                        (click)="changeLanguage('ar')"
-                                        style="color: white">العربية</button>
+                                        <button type="button" class="btn btn-link" (click)="changeLanguage('ar')"
+                                            style="color: white">العربية</button>
                                     </a>
                                 </li>
                             </div>
                             <ng-template #arSection>
                                 <li class="nav-item">
                                     <a class="nav-link">
-                                        <button type="button" class="btn btn-link" 
-                                        (click)="changeLanguage('en')"
-                                        style="color: white">English</button>
+                                        <button type="button" class="btn btn-link" (click)="changeLanguage('en')"
+                                            style="color: white">English</button>
                                     </a>
                                 </li>
                             </ng-template>
-                            <!-- Translation -->                            
+                            <!-- Translation -->
 
-                            <!--					Modal-->
+                            <!--Modal-->
                             <div class="modal fade" id="myModal">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -123,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--					end_Modal-->
+                            <!--end_Modal-->
 
                             <!--signup_Modal-->
                             <div class="modal fade" id="mySignUpModal">
@@ -142,8 +144,8 @@
                                             <div class="form-group">
                                                 <div class="modal-body mx-3">
                                                     <div class="md-form mb-4">
-                                                        <input #name type="text" id="reg-usr-nm" class="form-control validate"
-                                                            placeholder="name">
+                                                        <input #name type="text" id="reg-usr-nm"
+                                                            class="form-control validate" placeholder="name">
                                                     </div>
                                                     <div class="md-form mb-4">
                                                         <input #email type="text" id="usr-mail"
@@ -159,7 +161,8 @@
                                             <!-- Modal footer -->
                                             <div class="modal-footer justify-content-center">
                                                 <button id="ModalSignUp-btn" type="button"
-                                                 (click)="auth.signUp(email.value,password.value,name.value)"   class="mb-5 btn btn-danger btn-block " data-dismiss="modal">Create
+                                                    (click)="auth.signUp(email.value,password.value,name.value)"
+                                                    class="mb-5 btn btn-danger btn-block " data-dismiss="modal">Create
                                                     Account</button>
                                                 <p class="pb-3 text-center form-text text-muted">By creating an account,
                                                     you agree to our Terms of service and Privacy policy</p>
@@ -243,7 +246,8 @@
                             <div class=" col-sm-8 col-xs-9">
                                 <h5 style="font-weight:350; line-height: 1.3;">
                                     {{"hm-send-food" | translate}}
-                                    <a routerLink="/giftmeals" routerLinkActive="active">{{"hm-send-food-link" | translate}}</a>
+                                    <a routerLink="/giftmeals"
+                                        routerLinkActive="active">{{"hm-send-food-link" | translate}}</a>
                                 </h5>
 
                             </div>
@@ -272,7 +276,8 @@
                                                     <div class="row">
                                                         <div class="col-10">
                                                             <h4 class="card-title"><i
-                                                                    class="mr-1 fas fa-motorcycle"></i> {{"hm-Delivery" | translate}}</h4>
+                                                                    class="mr-1 fas fa-motorcycle"></i>
+                                                                {{"hm-Delivery" | translate}}</h4>
                                                         </div>
                                                         <div class="col-1 ml-md-4">
                                                             <span>
@@ -371,7 +376,8 @@
                                         <img src="../../../assets/images/track-order.svg">
                                     </div>
                                     <div class="col-10 text-left pt-3 mt-md-2">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">{{"hm-Track your order" | translate}}</h5>
+                                        <h5 class="font-weight-bold" style="margin-left: 50px">
+                                            {{"hm-Track your order" | translate}}</h5>
                                         <!--Text-->
                                         <p class="card-text pt-1" style="margin-left: 50px">{{"hm-Want to know your order
                                             status" | translate}}</p>
@@ -400,12 +406,14 @@
                                         <img src="../../../assets/images/no-phone.svg">
                                     </div>
                                     <div class="col-10 text-left pt-3 mt-md-3">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">{{"hm-No phone calls" | translate}}</h5>
+                                        <h5 class="font-weight-bold" style="margin-left: 50px">
+                                            {{"hm-No phone calls" | translate}}</h5>
                                         <!--Text-->
-                                        <p class="card-text pt-1" style="margin-left: 50px">{{"hm-Order your favorite food" | translate}}</p>
+                                        <p class="card-text pt-1" style="margin-left: 50px">
+                                            {{"hm-Order your favorite food" | translate}}</p>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                         </div>
@@ -420,14 +428,15 @@
         </div>
         <!--		second-section-body-->
 
-        
+
         <!--		second-section-footer-->
         <div class="scnd-section-footer mt-5">
             <div class="container pt-lg-4">
                 <div class="row">
                     <div class="col-lg-8 text-lg-left">
-                        <h4 style="color: #8e52ff;" >{{"hm-Looking for delivery" | translate}}</h4>
-                        <p dir="auto" style="font-size: 24px; font-weight: 500;">{{"hm-Look for restaurants that have this sign" | translate}} <span
+                        <h4 style="color: #8e52ff;">{{"hm-Looking for delivery" | translate}}</h4>
+                        <p dir="auto" style="font-size: 24px; font-weight: 500;">
+                            {{"hm-Look for restaurants that have this sign" | translate}} <span
                                 class="ordr-online-chck"><span class="ml-3 "><img
                                         src="../../../assets/images/check-mark-circle.svg"></span><span
                                     class="align-middle ml-1" style="font-size: 10px;
@@ -448,4 +457,3 @@ font-weight: 700; color: #8e52ff;"> Order online
 
 
 </div>
-
