@@ -33,7 +33,7 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
     this.message = '';
   }
 
-  updateTutorial(): void {
+  updateRestaurant(): void {
     const data = {
       restaurantName : this.currentrestaurant.restaurantName,
       restaurantOpening: this.currentrestaurant.restaurantOpening,
@@ -52,7 +52,7 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
   }
 
 
-  deleteTutorial(): void {
+  deleteRestaurant(): void {
     var response=confirm('Are You Sure to delete this Restaurant');
     if(response)
     {

@@ -56,6 +56,7 @@ import { ReviewDashboardComponent } from './Components/review-dashboard/review-d
 import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 import { MenuDetailsDashboardComponent } from './Components/menu-details-dashboard/menu-details-dashboard.component';
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
+import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD553sG0S5TK4x855X912d7wbMgbrxO88c",
@@ -109,7 +110,8 @@ const firebaseConfig = {
     ReviewDashboardComponent,
     CustomersDashboardComponent,
     MenuDetailsDashboardComponent,
-    AddMenuDashboardComponent
+    AddMenuDashboardComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

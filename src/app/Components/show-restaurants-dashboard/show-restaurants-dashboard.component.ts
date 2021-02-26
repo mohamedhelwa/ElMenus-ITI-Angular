@@ -18,16 +18,16 @@ export class ShowRestaurantsDashboardComponent implements OnInit {
              , private router:Router) { }
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    this.retrieveRestaurants();
   }
 
   refreshList(): void {
     this.currentrestaurant = undefined;
     this.currentIndex = -1;
-    this.retrieveTutorials();
+    this.retrieveRestaurants();
   }
 
-  retrieveTutorials(): void {
+  retrieveRestaurants(): void {
     this.restService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -40,7 +40,7 @@ export class ShowRestaurantsDashboardComponent implements OnInit {
   }
 
   // to put data in details page //
-  setActiveTutorial(rest: Restaurants, index: number): void {
+  setActiveRestaurant(rest: Restaurants, index: number): void {
     this.currentrestaurant = rest;
     this.currentIndex = index;
   }

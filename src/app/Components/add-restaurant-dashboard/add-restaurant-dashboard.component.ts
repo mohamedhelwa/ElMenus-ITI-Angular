@@ -47,7 +47,7 @@ export class AddRestaurantDashboardComponent implements OnInit {
     restType: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
   });
   //////
-  constructor(private FB :FormBuilder,private storage: AngularFireStorage,private ord:RestaurantsServiceService , private router:Router) 
+  constructor(private FB :FormBuilder,private storage: AngularFireStorage,private rest:RestaurantsServiceService , private router:Router) 
   { 
     
   }
@@ -57,7 +57,7 @@ export class AddRestaurantDashboardComponent implements OnInit {
 
   Add()
   {
-    alert('click');
+    //alert('click');
     const data = {
       restaurantName : this.restaurant.restaurantName,
       restaurantOpening: this.restaurant.restaurantOpening,
@@ -66,7 +66,7 @@ export class AddRestaurantDashboardComponent implements OnInit {
       restaurantClosing:this.restaurant.restaurantClosing,
       restaurantBranchs: this.restaurant.restaurantBranchs =[String(this.restaurant.restaurantBranchs)],
       restaurantFeaturedPhotos: this.restaurant.restaurantFeaturedPhotos=this.fb };
-    this.ord.create(data).then(() => {
+    this.rest.create(data).then(() => {
       console.log('Created new item successfully!');
       this.router.navigate(['/showrestaurants']);
     // this.message="succussfully";
