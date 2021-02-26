@@ -34,6 +34,7 @@ import { MenulistDashboardComponent } from './Components/menulist-dashboard/menu
 import { ReviewDashboardComponent } from './Components/review-dashboard/review-dashboard.component';
 import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
+import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -52,7 +53,7 @@ const routes: Routes = [
   { path: 'Delivery2', component: DeliveryFeaturesOrderOnlineComponent },
   { path: "myorders", component: PastordersComponent },
   // { path: "search", component: SearchComponent , canActivate:[AuthGuard]},
-  { path: "search", component: SearchComponent},
+  { path: "search", component: SearchComponent },
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },
@@ -62,17 +63,25 @@ const routes: Routes = [
   // { path: "customerlist", component:CustomersDashboardComponent },
   // { path: "addMenu", component:AddMenuDashboardComponent },
 
-  { path: 'dashboard', component: OverviewDashboardComponent },
-  { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
-  { path: "addrestaurant", component: AddRestaurantDashboardComponent },
-  { path: "orderlist", component: DashboardOrderListComponent},
-  { path: "menulist", component: MenulistDashboardComponent},
-  { path: "reviewlist", component: ReviewDashboardComponent},
-  { path: "customerlist", component:CustomersDashboardComponent },
-  { path: "addMenu", component:AddMenuDashboardComponent },
-  
+  {
+    path: 'dashboard', component: DashboardComponent,
+    children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full', },
+      { path: 'overview', component: OverviewDashboardComponent },
+      { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
+      { path: "addrestaurant", component: AddRestaurantDashboardComponent },
+      { path: "orderlist", component: DashboardOrderListComponent },
+      { path: "menulist", component: MenulistDashboardComponent },
+      { path: "reviewlist", component: ReviewDashboardComponent },
+      { path: "customerlist", component: CustomersDashboardComponent },
+      { path: "addMenu", component: AddMenuDashboardComponent },
+    ]
+  },
 
 
+
+
+  { path: "adminlogin", component: AdminLoginComponent },
 
   {
     path: 'restaurant/:id', component: ResturantComponent,

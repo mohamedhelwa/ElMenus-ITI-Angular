@@ -12,7 +12,7 @@
         <img [src]="rest.restaurantFeaturedPhotos" width="40px" height="40px"style="margin-right: 10px;">
 
           {{ rest.restaurantName}} 
-         <button (click)="setActiveTutorial(rest, i)" class="badge badge-pill" style="float: right;border: none;">Show Restaurant Details</button>
+         <button (click)="setActiveRestaurant(rest, i)" class="badge badge-pill" style="float: right;border: none;">Show Restaurant Details</button>
         </li>
       </ul>
     </div>
@@ -24,7 +24,6 @@
           (refreshList)="refreshList()"
           [restaurant]="currentrestaurant"
         ></app-details-restaurant-dashboard>
-        <!--<p>Please Not click on a Tutorial...</p>-->
       </div>
   
       <div *ngIf="!currentrestaurant">

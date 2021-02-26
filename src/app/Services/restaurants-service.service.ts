@@ -18,9 +18,9 @@ export class RestaurantsServiceService {
    }
 
    /// Add New Restaurant ///
-   create(tutorial: Restaurants): any {
+   create(restaurant: Restaurants): any {
    
-    return this.newRestaurant.add({ ...tutorial });
+    return this.newRestaurant.add({ ...restaurant });
   }
  
   ///get All Restaurants ///

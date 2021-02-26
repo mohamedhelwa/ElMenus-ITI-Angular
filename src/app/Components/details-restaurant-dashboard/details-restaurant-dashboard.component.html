@@ -71,11 +71,11 @@
       </div>     
     <!--</form>--> 
     
-   <button class="btn btn-danger mr-2" (click)="deleteTutorial()">
+   <button class="btn btn-danger mr-2" (click)="deleteRestaurant()">
       Delete
     </button>
   
-    <button type="submit" class="btn btn-info" (click)="updateTutorial()">
+    <button type="submit" class="btn btn-info" (click)="updateRestaurant()">
       Update
     </button>
     <p>{{ message }}</p>
@@ -83,5 +83,5 @@
   
   <div *ngIf="!currentrestaurant">
     <br />
-    <p>Cannot access this Tutorial...</p>
+    <p>Cannot access this Restaurant...</p>
   </div>

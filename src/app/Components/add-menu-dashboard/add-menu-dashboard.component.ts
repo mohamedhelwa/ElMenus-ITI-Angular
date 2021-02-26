@@ -3,8 +3,10 @@ import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DishesService } from 'src/app/Services/dishes.service';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { RestaurantsServiceService } from '../../Services/restaurants-service.service';
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 
 @Component({
   selector: 'app-add-menu-dashboard',
@@ -18,25 +20,43 @@ export class AddMenuDashboardComponent implements OnInit {
   title = "cloudsSorage";
   selectedFile: File = null;
   downloadURL: Observable<string>;
-  clicked=false;
+  clicked = false;
   fbase;
-  
+
+  selectedRestID: string = "";
+  restaurantsList: Restaurants[] = [];
 
   constructor(private fb: FormBuilder,
-              private dishService: DishesService,
-              private router: Router,
-              private storage: AngularFireStorage) { }
+    private dishService: DishesService,
+    private router: Router,
+    private storage: AngularFireStorage,
+    private restaurantsService: RestaurantsServiceService) { }
 
   menuForm = this.fb.group({
     dishName: [""],
     dishPrice: [""],
     dishSize: [""],
     dishDescription: [""],
-    dishRate:[""],
-    dishImage:[""]
+    dishRate: [""],
+    dishImage: [""],
+    restId: [""]
   });
 
   ngOnInit(): void {
+    this.retrieveRestaurants();
+  }
+
+  retrieveRestaurants(): void {
+    this.restaurantsService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.restaurantsList = data;
+      // console.log(this.restaurantsList);
+    });
   }
 
   addMenu() {
@@ -47,34 +67,35 @@ export class AddMenuDashboardComponent implements OnInit {
       dishSize: this.menuForm.value.dishSize,
       dishDescription: this.menuForm.value.dishDescription,
       dishRate: '',
-      dishImage:this.fbase,
+      dishImage: this.fbase,
+      restaurantId: this.selectedRestID
     };
     this.dishService.addDish(data).then(() => {
       console.log('Created new Menu successfully!');
       this.router.navigate(['/menulist']);
-    // this.message="succussfully";
+      // this.message="succussfully";
     });
   }
 
-  onFileSelected(event,files) {
-    this.clicked=true
+  onFileSelected(event, files) {
+    this.clicked = true
     //////////////
     if (files.length === 0)
       return;
- 
+
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
     }
- 
+
     var reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
       //console.log(this.imagePath.name)
-       console.log("done")
+      console.log("done")
     }
     //////////////
     var n = Date.now();
@@ -90,7 +111,7 @@ export class AddMenuDashboardComponent implements OnInit {
           this.downloadURL.subscribe(url => {
             if (url) {
               this.fbase = url;
-              this.clicked=false;
+              this.clicked = false;
             }
             console.log(this.fbase);
             console.log("url");
@@ -102,7 +123,7 @@ export class AddMenuDashboardComponent implements OnInit {
           console.log(url);
           console.log("url2");
         }
-      }); 
+      });
   }
 
 }
