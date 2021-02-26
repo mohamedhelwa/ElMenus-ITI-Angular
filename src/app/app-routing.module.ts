@@ -34,6 +34,7 @@ import { MenulistDashboardComponent } from './Components/menulist-dashboard/menu
 import { ReviewDashboardComponent } from './Components/review-dashboard/review-dashboard.component';
 import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
+import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -62,9 +63,7 @@ const routes: Routes = [
   { path: "reviewlist", component: ReviewDashboardComponent},
   { path: "customerlist", component:CustomersDashboardComponent },
   { path: "addMenu", component:AddMenuDashboardComponent },
-
-
-
+  { path: "adminlogin", component:AdminLoginComponent },
 
   {
     path: 'restaurant/:id', component: ResturantComponent,
