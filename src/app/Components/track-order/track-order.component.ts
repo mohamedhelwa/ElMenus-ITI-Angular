@@ -14,7 +14,7 @@ export class TrackOrderComponent implements OnInit {
 
   constructor(private db: AngularFirestore) {
 
-    
+
     const orders = this.db.collection('Orders').valueChanges();
     orders.subscribe(
       (response) => {
@@ -24,6 +24,8 @@ export class TrackOrderComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        console.log(error);
+
       }
     );
 
