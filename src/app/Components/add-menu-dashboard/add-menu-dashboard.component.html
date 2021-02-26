@@ -2,6 +2,13 @@
   <form [formGroup]="menuForm" (ngSubmit)="addMenu()">
     <fieldset>
       <legend class="jumbotron text-center"><h2>Add New Menu</h2></legend>
+      
+            <div class="form-group">
+              <label for="dishSize">Select Restaurant</label>
+              <select [(ngModel)]="selectedRestID" formControlName="restId" class="form-control">
+                <option *ngFor="let item of restaurantsList" value="{{item.id}}">{{item.restaurantName}}</option>
+              </select>
+            </div>
       <div class="form-group">
         <label for="dishName">Dish Name</label>
         <input

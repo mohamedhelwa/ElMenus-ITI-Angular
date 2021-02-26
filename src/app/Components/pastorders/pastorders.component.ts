@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { OrdersService } from 'src/app/Services/orders.service';
 import { PastordersService } from 'src/app/Services/pastorders.service';
 import { Orderitem } from 'src/app/ViewModels/orderitem';
-import {map, switchMap} from 'rxjs/operators'
+import { map, switchMap } from 'rxjs/operators'
 import { AuthService } from 'src/app/Services/auth.service';
 import { User } from 'src/app/ViewModels/user';
 
@@ -13,34 +13,35 @@ import { User } from 'src/app/ViewModels/user';
   styleUrls: ['./pastorders.component.scss']
 })
 export class PastordersComponent implements OnInit {
-  
-  orders:any;
-  orderId:string;
-  constructor(private orderService:PastordersService,
-              public auth:AuthService) { 
-                
+
+  orders: any;
+  orderId: string;
+  constructor(private orderService: PastordersService,
+    public auth: AuthService) {
+
   }
   ngOnInit(): void {
     console.log(this.auth.getUid())
     this.getAllOrders();
   }
-  
-  getAllOrders(){
+
+  getAllOrders() {
     this.orderService.getAllOrders().snapshotChanges().pipe(
-      map( changes =>
+      map(changes =>
         changes.map(o =>
-        (console.log({...o.payload.doc.data()}),
-          {...o.payload.doc.data()})
-        
+        (console.log({ ...o.payload.doc.data() }),
+          { ...o.payload.doc.data() })
+
         )
       )
-    ).subscribe(orders => 
+    ).subscribe(orders =>
       this.orders = orders
     )
   }
 
-  getorderDetails(id:string){
+  getorderDetails(id: string) {
     console.log(id)
-    this.orderId=id
+    this.orderId = id
+    // localStorage.setItem('reOrderedID', id);
   }
 }
