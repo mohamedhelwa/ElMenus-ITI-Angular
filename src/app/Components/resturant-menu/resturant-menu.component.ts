@@ -16,6 +16,7 @@ export class ResturantMenuComponent implements OnInit {
 
     closeResult='';
     menu: Dishes[] |any;
+    itemsNumber:number =0;
 
     //menuList: Dishes[] | any;
     DishBuy:Dishes[]=[];
@@ -52,10 +53,10 @@ export class ResturantMenuComponent implements OnInit {
 
   buy(i:Dishes){
     console.log(i);
+    this.itemsNumber += this.add;
     this.DishBuy.push(i);
     // this.router.navigate(['Checkout']);
     localStorage.setItem("elmenus_cart",JSON.stringify(this.DishBuy));
-    this.router.navigate(['Checkout']);
     console.log(this.DishBuy)
   }
   addOrder(){
@@ -66,8 +67,7 @@ export class ResturantMenuComponent implements OnInit {
       this.add = 0;
     }else{
       this.add-=1;
-    }
-    
+    }    
   }
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -85,6 +85,9 @@ export class ResturantMenuComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  goto(){
+    this.router.navigate(['Checkout']);
   }
 
 }

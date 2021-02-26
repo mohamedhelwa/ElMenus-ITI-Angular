@@ -14,3 +14,22 @@
 .f{
     padding: 0 12px ;
 }
+.orderDetials{
+    padding-top: 12px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 55;
+    background-color: #E5533A;
+    color:#fff;
+    font-size: 20px;
+
+}
+.link{
+cursor: pointer;
+}
+
+.orderDetials p i{
+position: relative;
+top:-4px;
+}
