@@ -8,11 +8,13 @@ import { Order } from "src/app/ViewModels/order";
 import { Dishes } from "src/app/ViewModels/dishes";
 import { CreateOrder } from "src/app/ViewModels/create-order";
 import { AuthService } from "src/app/Services/auth.service";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
   styleUrls: ["./checkout.component.scss"],
+  providers: [DatePipe]
 })
 export class CheckoutComponent implements OnInit {
   // userName: string = "";
@@ -36,7 +38,8 @@ export class CheckoutComponent implements OnInit {
     private router: Router,
     private db: AngularFirestore,
     private chckoutService: CheckoutService,
-    private auth: AuthService
+    private auth: AuthService,
+    private datePipe: DatePipe
   ) { }
 
   checkoutFrm = this.fb.group({
@@ -132,9 +135,15 @@ export class CheckoutComponent implements OnInit {
   //   this.editAddressState = true;
   //   this.checkoutFrm.reset();
   // }
+  // let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd');
 
   saveOrder() {
     // var orderDoc = this.db.collection("Orders").doc();
+    // let order_date = new Date();
+    // let day = order_date.getDate();
+    // let month = order_date.getMonth()+1;
+    // let year = order_date.
+
     this.userName = this.checkoutFrm.value.userName;
     this.address = this.checkoutFrm.value.address;
     this.buildingNum = this.checkoutFrm.value.buildingNum;
@@ -142,7 +151,7 @@ export class CheckoutComponent implements OnInit {
     this.order = {
       items: this.items,
       itemsQuantity: this.items.length,
-      orderDate: new Date().toString(),
+      orderDate: this.datePipe.transform(new Date(), 'short'),
       orderID: "",
       orderStatus: 'active',
       paymentMethod: 'Cash',

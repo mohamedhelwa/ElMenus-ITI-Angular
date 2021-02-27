@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { CreateOrder } from 'src/app/ViewModels/create-order';
 import { Order } from '../../ViewModels/order';
+import { Restaurants } from '../../ViewModels/restaurants';
 
 @Component({
   selector: 'app-track-order',
@@ -10,40 +12,46 @@ import { Order } from '../../ViewModels/order';
 export class TrackOrderComponent implements OnInit {
 
 
-  ordersList: Order[] | any = [];
+  selectedOrder: CreateOrder | any;
+  selectedOrderId: string;
+  restaurant: Restaurants;
+  showLoading: boolean = true;
 
-  constructor(private db: AngularFirestore) {
-
-
-    const orders = this.db.collection('Orders').valueChanges();
-    orders.subscribe(
-      (response) => {
-        this.ordersList = response;
-        //console.log(this.ordersList[1])
-        // console.log("success");
-      },
-      (error) => {
-        console.log(error);
-        console.log(error);
-
-      }
-    );
-
-
-    // db.collection('Orders').doc("WRQlvFUcx3PIgL8hZnfh").ref.get()
-    // .then(function (doc) {
-    //   if (doc.exists) {
-    //     console.log(doc.data());
-    //   } else {
-    //     console.log("There is no document!");
-    //   }
-    // }).catch(function (error) {
-    //   console.log("There was an error getting your document:", error);
-    // });
-
-  }
+  constructor(private db: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.selectedOrderId = localStorage.getItem('reOrderedID');
+    console.log("orderID: " + this.selectedOrderId);
+
+    this.db.collection('Orders').doc(this.selectedOrderId).ref.get()
+      .then((doc) => {
+        if (doc.exists) {
+          this.selectedOrder = doc.data();
+          console.log(this.selectedOrder);
+
+          this.db.collection('Restaurants').doc(this.selectedOrder.restaurantID).ref.get()
+            .then((doc) => {
+              if (doc.exists) {
+                this.restaurant = doc.data();
+                this.showLoading = false
+                console.log(this.restaurant);
+              }
+              else {
+                console.log("There is no document");
+              }
+            }).catch(function (err) {
+              console.log("error !!", err);
+            })
+
+        }
+        else {
+          console.log("There is no document");
+        }
+      }).catch(function (err) {
+        console.log("error !!", err);
+      })
+
+
   }
 
 }

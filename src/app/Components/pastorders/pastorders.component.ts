@@ -53,6 +53,6 @@ export class PastordersComponent implements OnInit , AfterViewInit{
   getorderDetails(id: string) {
     console.log(id)
     this.orderId = id
-    // localStorage.setItem('reOrderedID', id);
+    localStorage.setItem('reOrderedID', id);
   }
 }
