@@ -149,3 +149,12 @@ select{
 	line-height: 30px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.4);
 }
+////////////////////////
+@media (min-width:991px) and (max-width:1121px){
+  .tabs ul li a{
+    font-size: 18px !important;
+  }
+  .dropdown-menu{
+    width:185px !important;
+  }
+}

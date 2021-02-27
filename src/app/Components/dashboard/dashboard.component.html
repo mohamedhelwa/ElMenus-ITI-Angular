@@ -16,9 +16,9 @@
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/menulist']" class="fas fa-list-alt" placement= 'top' ngbTooltip="Menu"></i><a [routerLink]="['/dashboard/menulist']"> Menu List</a></li>
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/customerlist']" class="fas fa-user-friends" placement= 'top' ngbTooltip="Users"></i><a [routerLink]="['/dashboard/customerlist']"> Customers</a></li>
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/reviewlist']" class="fas fa-comment-alt" placement= 'top' ngbTooltip="Reviews"></i><a [routerLink]="['/dashboard/reviewlist']"> Reviews</a></li>
-            <li><i class="fas fa-cogs" placement= 'top' ngbTooltip="Settings"></i><a href="#"> Settings</a></li>
-            <li><i class="fas fa-cogs" placement= 'top' ngbTooltip="Logout"></i><a href="#"><i class="fas fa-power-off"></i> Logout</a></li>
-        </ul>
+            <li routerLinkActive="active"><i [routerLink]="['/dashboard/customerlist']" class="fas fa-power-off" placement= 'top' ngbTooltip="Logout"></i><a [routerLink]="['/dashboard/customerlist']"> Logout</a></li>
+
+          </ul>
       </nav>
   
       <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3 main ">
