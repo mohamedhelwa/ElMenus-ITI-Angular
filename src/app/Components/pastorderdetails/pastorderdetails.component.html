@@ -1,9 +1,10 @@
-<div *ngIf="ordersList != null">
+
+<div *ngIf = "selectedOrder != null">
     <p class="price-details" id="order-price" style="text-align: right;">{{selectedOrder.totalPrice}}</p>
     <!-- order details header -->
     <div class="order-header">
         <div>
-            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder">{{'reorder'|translate}}</button>
+            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder" (click)="reorder(selectedOrder.orderID)">{{'reorder'|translate}}</button>
         </div>
         <!-- order image -->
         <img class="rest-image" id="rest-image" src={{selectedOrder.restaurantImage}}
@@ -15,7 +16,7 @@
             <h3 class="rest-name" id="rest-name" style="color: #1f0f10;line-height: 24px;font-size: 16px;"></h3>
             <p>
                 <span id="order-date" style="font-size: 13px;">{{selectedOrder.orderDate}}</span>
-                <span id="order-id" style="font-size: 13px;">{{selectedOrder.orderId}}</span>
+                <span id="order-id" style="font-size: 13px;">{{selectedOrder.orderID}}</span>
                 <a>
                     <h6 class="action-btn bold support-btn underline orange pointer">{{'support'|translate}}</h6>
                 </a>
@@ -31,16 +32,16 @@
                 <div class="col-sm-8">
                     <h5>{{'deliveryAddress'|translate}}</h5>
                     <div class="address-details">
-                        <h6 id="user-name">Ahmed Ali</h6>
+                        <h6 id="user-name">{{selectedOrder.userName}}</h6>
                         <p id="address-data">
-                            Cairo, Area: 6th of October, Zone: 1st Urban <br>
-                            Building no. 4 <br>
-                            Floor no. 2 <br>
-                            Apartment no. 2 <br>
+                            {{selectedOrder.orderAddress.addressInfo}} <br>
+                            Building no. {{selectedOrder.orderAddress.buildingNumber}} <br>
+                            Floor no. {{selectedOrder.orderAddress.floorNumber}} <br>
+                            Apartment no. {{selectedOrder.orderAddress.ApartNumber}} <br>
                         </p>
                     </div>
                     <div>
-                        <p> <i class="fas fa-phone-alt"></i> <span id="user-phone">01091820422</span>
+                        <p> <i class="fas fa-phone-alt"></i> <span id="user-phone">{{selectedOrder.userPhone}}</span>
                         </p>
                     </div>
                 </div>
@@ -61,15 +62,15 @@
             <h5 id="food-type" class="text-center">Desserts</h5>
             <div class="row item-details">
                 <div class="col-sm-2">
-                    <span id="item-count">{{item.itemQuantity}}</span>
+                    <span id="item-count">{{item.dishQuantity}}</span>
                 </div>
                 <div class="col-sm-8">
-                    <h5 id="item-name">{{item.itemName}}</h5>
-                    <h6 id="item-size">{{item.itemSize}}</h6>
+                    <h5 id="item-name">{{item.dishName}}</h5>
+                    <h6 id="item-size">{{item.dishSize}}</h6>
                 </div>
                 <div class="col-sm-2">
-                    <h6 id="item-price">{{item.itemPrice | currency: 'EGP'}}</h6>
-                        <h6 id="item-price-quantity">{{item.itemPrice}} X {{item.itemQuantity}}</h6>
+                    <h6 id="item-price">{{item.dishPrice | currency: 'EGP'}}</h6>
+                        <h6 id="item-price-quantity">{{item.dishPrice}} X {{item.dishQuantity}}</h6>
                 </div>
             </div>
         </div>
@@ -101,7 +102,6 @@
         <div class="cost-row">
             <h6 class="total">{{'orderTotal'|translate}}</h6>
             <span class="bill-span" id="total-price">{{selectedOrder.totalPrice | currency:'EGP'}}</span>
-
         </div>
     </div>
     

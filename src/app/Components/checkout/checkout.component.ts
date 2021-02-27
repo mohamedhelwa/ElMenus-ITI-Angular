@@ -149,7 +149,7 @@ export class CheckoutComponent implements OnInit {
       restaurantID: this.items[0].restaurantId,
       uid: this.auth.getUid(),
       userName: this.userName,
-      totalPrice: 132,
+      totalPrice: localStorage.getItem('total_order_price'),
       orderAddress: {
         addressInfo: this.address,
         builldingNumber: this.buildingNum,
@@ -159,16 +159,15 @@ export class CheckoutComponent implements OnInit {
       userPhone: this.mobNum
     }
     console.log("in save order!!")
-    // var orderDoc = this.db.collection("Orders").doc();
-    // orderDoc.set(this.order);
-    // orderDoc.update({"orderID":orderDoc.ref.id})
+    var orderDoc = this.db.collection("Orders").doc();
+    orderDoc.set(this.order);
+    orderDoc.update({"orderID":orderDoc.ref.id})
     localStorage.setItem("order_data",JSON.stringify(this.order))
     this.router.navigate(['/Home']);
   }
   navToTest() {
     this.router.navigate(["/delivery"]);
   }
-
 
   deleteAddress(userId: string) {
     this.chckoutService.deleteUserAddress(userId);

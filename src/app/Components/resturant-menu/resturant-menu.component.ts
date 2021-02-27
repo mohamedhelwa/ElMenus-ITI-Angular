@@ -23,6 +23,8 @@ export class ResturantMenuComponent implements OnInit {
     add:number = 1;
 
     restID: string = "";
+    totalOrderPrice:number = 0;
+
   constructor(private db:AngularFirestore , 
               private modalService: NgbModal,
               private activatedRoute: ActivatedRoute,
@@ -51,10 +53,18 @@ export class ResturantMenuComponent implements OnInit {
   }
 
   buy(i:Dishes){
-    console.log(i);
+
     this.itemsNumber += this.add;
+    i.dishQuantity = this.add;
+    i.dishTotalPrice = this.add*i.dishPrice;
+    console.log(i);
+    // update total price
+    this.totalOrderPrice += i.dishTotalPrice;
+
+    console.log("order total price "+this.totalOrderPrice)
+    localStorage.setItem("total_order_price",this.totalOrderPrice.toString());
     this.DishBuy.push(i);
-    // this.router.navigate(['Checkout']);
+    
     localStorage.setItem("elmenus_cart",JSON.stringify(this.DishBuy));
     console.log(this.DishBuy)
   }

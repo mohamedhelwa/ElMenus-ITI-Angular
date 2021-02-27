@@ -8,4 +8,6 @@ export interface Dishes {
     dishDescription:string,
     dishSize?:string,
     dishImage?:string,
+    dishQuantity:number,
+    dishTotalPrice:number
 }

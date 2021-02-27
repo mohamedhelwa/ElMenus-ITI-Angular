@@ -9,7 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class PastorderdetailsComponent implements OnInit, OnChanges {
   @Input() orderId;
   @Input() ordersList;
-  selectedOrder: any;
+  selectedOrder: any = null;
   
   constructor(private db: AngularFirestore) {
   }
@@ -38,4 +38,8 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
       })
   }
 
+  reorder(orderId:string){
+    console.log("selectedOrderId "+orderId)
+    localStorage.setItem("selected_order_id",orderId);
+  }
 }
