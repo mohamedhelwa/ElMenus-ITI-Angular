@@ -11,7 +11,7 @@ export interface CreateOrder {
     paymentMethod: string;
     restaurantName?: string;
     restaurantImage?: string;
-    totalPrice: number;
+    totalPrice: string;
     uid:string;
     orderAddress:{
         addressInfo:string,

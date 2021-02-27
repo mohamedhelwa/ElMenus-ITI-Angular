@@ -1,6 +1,11 @@
 <app-header></app-header>
+
+<app-loading *ngIf="showLoading"></app-loading>
+
 <!-- body Start -->
-<div class="container" [hidden] = "orders == null">
+
+
+<div class="container" *ngIf="ordersList.length != 0; else noOrders">
 
     <!-- page title -->
     <h1 class="page-title">{{'myOrders'|translate}}</h1>
@@ -12,8 +17,8 @@
             <div class="col-sm-12 col-lg-5 ">
                 <h3 style="color: #ed3c0b;">{{'previousOrders'|translate}}</h3>
 
-                <ul style="list-style: none;" *ngFor="let order of orders">
-                    <li class="list-item-order" (click) = "getorderDetails(order.orderId)" >
+                <ul style="list-style: none;" *ngFor="let order of order$ | async">
+                    <li class="list-item-order" (click)="getorderDetails(order.orderID)">
                         <!-- order image -->
                         <img class="rest-image" id="rest-image" src={{order.restaurantImage}}
                             style="float: left; border-radius: 50%;">
@@ -23,14 +28,17 @@
                             <h3 class="rest-name" id="rest-name"
                                 style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.restaurantName}}</h3>
                             <p>
-                                <span id="quantity-of-item" style="font-size: 13px;">{{order.itemsQuantity}} {{'itemsQuantity'|translate}}</span><br>
-                                <span id="order-status" style="font-size: 13px;color: #ed3c0b;"> {{order.orderStatus}} </span>
-                                <strong class="order-price" id="order-price">{{order.totalPrice | currency:'EGP'}}</strong>
+                                <span id="quantity-of-item" style="font-size: 13px;">{{order.itemsQuantity}}
+                                    {{'itemsQuantity'|translate}}</span><br>
+                                <span id="order-status" style="font-size: 13px;color: #ed3c0b;"> {{order.orderStatus}}
+                                </span>
+                                <strong class="order-price"
+                                    id="order-price">{{order.totalPrice | currency:'EGP'}}</strong>
                             </p>
                             <p>
                                 <button class="reorder-btn" id="reorder-btn">{{'reorder'|translate}}</button>
                                 <span id="order-date" style="font-size: 13px;">{{order.orderDate}}</span><br>
-                                <span id="order-id" style="font-size: 13px;">{{order.orderId}}</span>
+                                <span id="order-id" style="font-size: 13px;">{{order.orderID}}</span>
                             </p>
                         </div>
                     </li>
@@ -38,12 +46,14 @@
             </div>
             <!-- order details -->
             <div class="col-sm-12 col-lg-7 order-details">
-                <app-pastorderdetails *ngIf="orders != null" [orderId] = "orderId" [ordersList]="orders"></app-pastorderdetails>
+                <app-pastorderdetails [orderId] = "orderId" [ordersList]="ordersList"></app-pastorderdetails>
             </div>
-            
+
         </div>
     </div>
 </div>
 
-<app-noorders [hidden] = "orders != null"></app-noorders>
 
+<ng-template #noOrders>
+    <app-noorders  *ngIf="!showLoading"></app-noorders>
+</ng-template>
