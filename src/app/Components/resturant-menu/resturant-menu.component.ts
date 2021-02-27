@@ -44,7 +44,6 @@ export class ResturantMenuComponent implements OnInit {
     ).subscribe(response => 
       this.menu = response
     )
-
   }
 
   getRestMenu(): AngularFirestoreCollection <Dishes> {
