@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { User } from 'src/app/ViewModels/user';
 import { orderData } from 'src/app/ViewModels/orderData';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pastorders',
@@ -22,12 +23,16 @@ export class PastordersComponent implements OnInit , AfterViewInit{
   ordersList: any=[];
   showLoading: boolean = true;
   flag: boolean = false;
+  lang:string;
 
-  constructor(private orderService: PastordersService,
+  constructor(public translate: TranslateService,
+    private orderService: PastordersService,
     private afs: AngularFirestore,
     public auth: AuthService) {
     // get user id
     this.userId$ = new BehaviorSubject(this.auth.getUid());
+    this.lang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.lang);
   }
   ngAfterViewInit(): void {
     
