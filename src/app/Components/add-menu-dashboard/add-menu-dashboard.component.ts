@@ -72,7 +72,7 @@ export class AddMenuDashboardComponent implements OnInit {
     };
     this.dishService.addDish(data).then(() => {
       console.log('Created new Menu successfully!');
-      this.router.navigate(['/menulist']);
+      this.router.navigate(['/dashboard/menulist']);
       // this.message="succussfully";
     });
   }
