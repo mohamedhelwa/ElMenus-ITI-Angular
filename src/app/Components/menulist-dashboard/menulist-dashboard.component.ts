@@ -68,6 +68,6 @@ export class MenulistDashboardComponent implements OnInit {
   }
 
   addMenu() {  
-    this.router.navigate(['/addMenu']);
+    this.router.navigate(['/dashboard/addMenu']);
   }
 }
