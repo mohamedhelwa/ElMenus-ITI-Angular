@@ -4,4 +4,22 @@
 .checked {
     color: #E5533A;
   }
-  
+.buttonAdd{
+    background-color: #DA532C;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+}
+.buttonAdd-outline{
+    background-color: #fff;
+    border: 1px solid #DA532C;
+    color: #DA532C;
+    font-weight: 600;
+    font-size: 20px;
+}
+.input-group-text{
+    background-color: #DA532C !important;
+    color: #fff !important;
+    border: none;
+    box-shadow: none;
+}

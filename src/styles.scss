@@ -13,4 +13,26 @@
     font-family: 'MyWebFont';
     src: url('/src/assets/fonts/mohammad-bold-art-1.ttf');
 }
-  
+
+
+.popover { max-width: 96% !important;}
+
+
+// scroll bar style ....
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #E5533A; 
+    border-radius: 10px;
+  }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
 import { Restaurants } from 'src/app/ViewModels/restaurants';
 
 @Component({
@@ -8,28 +9,27 @@ import { Restaurants } from 'src/app/ViewModels/restaurants';
   styleUrls: ['./resturant-list.component.scss','../resturant/resturant.component.scss']
 })
 export class ResturantListComponent implements OnInit {
-  list:Restaurants | any ;
+  returantBrnches = [];
   workOpen:string;
   WrokClose:string;
-  branch:any[];
+  restID: string = "";
+  resturnt:Restaurants;
   
-  constructor(private db:AngularFirestore) { }
+  constructor(private db:AngularFirestore,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const d = this.db.collection('Restaurants').valueChanges();
-    d.subscribe(
-      (response) => {
-        this.list = response;
-        console.log(this.list)
-        this.branch = this.list[0].restaurantBranchs
-        this.workOpen = this.list[0].restaurantOpening;
-        this.WrokClose = this.list[0].restaurantClosing;
-        console.log(this.list[0].restaurantBranchs)
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
+    let productIDParam:
+      | string
+      | null = this.activatedRoute.snapshot.paramMap.get("id");
+    this.restID = productIDParam;
+    
+    this.db.collection('Restaurants').doc(this.restID).ref.get().then((response) =>{
+      this.resturnt = response.data();
+      console.log(this.resturnt.restaurantBranchs)
+      this.returantBrnches = this.resturnt.restaurantBranchs;
+      this.workOpen = this.resturnt.restaurantOpening;
+      this.WrokClose = this.resturnt.restaurantClosing;
+    }).catch(function (error) {
+      console.log("There was an error getting your document:", error);
+    });}
 }
