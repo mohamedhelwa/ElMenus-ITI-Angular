@@ -1,103 +1,129 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Dishes } from 'src/app/ViewModels/dishes';
+import { Component, OnInit } from "@angular/core";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { Dishes } from "src/app/ViewModels/dishes";
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ActivatedRoute, Router } from "@angular/router";
+import { map } from "rxjs/operators";
+import { User } from "src/app/ViewModels/user";
 
 @Component({
-  selector: 'app-resturant-menu',
-  templateUrl: './resturant-menu.component.html',
-  styleUrls: ['./resturant-menu.component.scss','../resturant/resturant.component.scss']
+  selector: "app-resturant-menu",
+  templateUrl: "./resturant-menu.component.html",
+  styleUrls: [
+    "./resturant-menu.component.scss",
+    "../resturant/resturant.component.scss",
+  ],
 })
 export class ResturantMenuComponent implements OnInit {
+  //resturnt ID / Menu
+  restID: string = "";
+  menu: Dishes[] | any;
 
-    closeResult='';
-    menu: Dishes[] |any;
-    itemsNumber:number =0;
+  dishSize = "small";
+  // cont items
+  add: number = 1;
+  itemsNumber: number = 0;
 
-    //menuList: Dishes[] | any;
-    DishBuy:Dishes[]=[];
-    add:number = 1;
+  //local storage saved array
+  DishBuy: Dishes[] = [];
 
-    restID: string = "";
-    totalOrderPrice:number = 0;
+  //total price
+  totalOrderPrice: number = 0;
 
-  constructor(private db:AngularFirestore , 
-              private modalService: NgbModal,
-              private activatedRoute: ActivatedRoute,
-              private router: Router
-              ) { }
-
-  ngOnInit(): void {
-
-    let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
-    this.restID = productIDParam;
   
-    this.getRestMenu().snapshotChanges().pipe(
-      map( changes =>
-        changes.map(o =>
-        (console.log({...o.payload.doc.data()}),
-          {id: o.payload.doc.id, ...o.payload.doc.data()})
+
+  constructor(
+    private db: AngularFirestore,
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  
+
+  //get resturnt menu
+  ngOnInit(): void {
+    let productIDParam:
+      | string
+      | null = this.activatedRoute.snapshot.paramMap.get("id");
+    this.restID = productIDParam;
+
+    this.getRestMenu()
+      .snapshotChanges()
+      .pipe(
+        map((changes) =>
+          changes.map(
+            (o) => (
+              // console.log({ ...o.payload.doc.data() }),
+              { id: o.payload.doc.id, ...o.payload.doc.data() }
+            )
+          )
         )
       )
-    ).subscribe(response => 
-      this.menu = response
-    )
-
+      .subscribe((response) => (this.menu = response));
   }
 
-  getRestMenu(): AngularFirestoreCollection <Dishes> {
-    return this.db.collection('Dishes', ref => ref.where('restaurantId', '==', this.restID));
+  //get resturnt menu
+  getRestMenu(): AngularFirestoreCollection<Dishes> {
+    return this.db.collection("Dishes", (ref) =>
+      ref.where("restaurantId", "==", this.restID)
+    );
   }
 
-  buy(i:Dishes){
 
-    this.itemsNumber += this.add;
+  //buy dish / calc total price
+  buy(i: Dishes) {
+    i.dishSize = this.dishSize;
+    if (this.add != 0){
+      this.itemsNumber += this.add;
     i.dishQuantity = this.add;
-    i.dishTotalPrice = this.add*i.dishPrice;
-    console.log(i);
+    i.dishTotalPrice = this.add * i.dishPrice;
+    // console.log(i);
+    this.DishBuy.push(i);
+    console.log(this.DishBuy);
     // update total price
     this.totalOrderPrice += i.dishTotalPrice;
+    console.log("order total price " + this.totalOrderPrice);
+    }
+    this.add = 1;
+  }
 
-    console.log("order total price "+this.totalOrderPrice)
-    localStorage.setItem("total_order_price",this.totalOrderPrice.toString());
-    this.DishBuy.push(i);
-    
-    localStorage.setItem("elmenus_cart",JSON.stringify(this.DishBuy));
-    console.log(this.DishBuy)
+  //itemCount btn +
+  addOrder() {
+    this.add += 1;
   }
-  addOrder(){
-    this.add+=1;
-  }
-  remOrder(){
-    if(this.add <=1){
+  //itemCount btn -
+  remOrder() {
+    if (this.add <= 1) {
       this.add = 0;
-    }else{
-      this.add-=1;
-    }    
-  }
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
     } else {
-      return `with: ${reason}`;
+      this.add -= 1;
     }
   }
-  goto(){
-    this.router.navigate(['Checkout']);
+  // open openDishModal
+  open(content) {
+    this.modalService.open(content ,{ scrollable: true , });
   }
+  //delete item from DishBy
+  deleteItem(dishId :number){
+    this.DishBuy.forEach((e,i)=>{
+      if(e.dishId === dishId){
+        this.DishBuy.splice(i,1)
+        this.itemsNumber-=e.dishQuantity
+        this.totalOrderPrice -=e.dishTotalPrice
+      }
+    })
+    console.log(this.DishBuy)
+    
 
+  }
+  //navigate to checkout
+  goto() {
+    this.router.navigate(["Checkout"]);
+    //set local storage.
+    localStorage.setItem("total_order_price", this.totalOrderPrice.toString());
+    localStorage.setItem("elmenus_cart", JSON.stringify(this.DishBuy));
+  }
+  
 }

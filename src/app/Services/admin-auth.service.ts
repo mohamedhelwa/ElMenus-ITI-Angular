@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Admin } from '../ViewModels/admin';
 import { User } from '../ViewModels/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AdminAuthService {
 
   constructor(private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router) {
+    private router: Router,
+    public userAuth: AuthService) {
     // Get the auth state, then fetch the Firestore user document or return null
     this.admin$ = this.afAuth.authState.pipe(
       switchMap(admin => {
@@ -34,7 +36,7 @@ export class AdminAuthService {
     )
   }
 
-  getAdminUid(){
+  getAdminUid() {
     return localStorage.getItem("adminUid");
   }
 
@@ -43,21 +45,25 @@ export class AdminAuthService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log(res);
-        this.afs.collection(`Admins`, ref => ref.where('uid', "==", res.user.uid)).snapshotChanges().subscribe(res => {
-          if (res.length > 0)
-          {
-          this.router.navigate(['/dashboard']);
-          console.log("Match found.");
-          }
-          else
-          {
-          console.log("Does not exist.");
-          }
-        });
-        
-      })
-      .catch(err => {
+        let adminId = res.user.uid;
+        this.afs.collection(`Admins`, ref => ref.where('uid', "==", res.user.uid))
+          .snapshotChanges().subscribe(res => {
+            if (res.length > 0) {
+              localStorage.setItem('adminId',adminId)
+              this.router.navigate(['/dashboard']);
+              console.log("Match found.");
+            }
+            else {
+              console.log("Does not exist.");
+              this.afAuth.signOut();
+              this.afAuth.currentUser = null;
+              this.userAuth.signOut()
+              localStorage.clear();
+            }
+          });
+      }).catch(err => {
         //code: "auth/user-not-found"
+        this.afAuth.signOut();
         alert(err.message)
         console.log('Something is wrong:', err.message);
       });

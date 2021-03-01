@@ -1,15 +1,18 @@
 <app-header></app-header>
+<app-loading *ngIf="showLoading; else content"></app-loading>
 
+<ng-template #content>
+  
 <div class="container" id="orderContainer">
   <article class="card">
     <header class="card-header"> My Orders / Tracking </header>
     <div class="card-body">
-      <h6>Order ID: {{ordersList[1]?.orderId}}</h6>
+      <h6>Order ID: {{selectedOrder.orderID}}</h6>
       <article class="card">
         <div class="card-body row">
-          <div class="col"> <strong>Estimated Delivery time:</strong> <br>7:12 PM </div>
-          <div class="col"> <strong>Shipping BY:</strong> <br> Ali, | <i class="fa fa-phone"></i> +201228802927 </div>
-          <div class="col"> <strong>Status:</strong> <br> {{ordersList[1]?.orderStatus}} </div>
+          <div class="col"> <strong>Estimated Delivery time:</strong> <br>{{selectedOrder.orderDate}} </div>
+          <div class="col"> <strong>Shipping to:</strong> <br> {{selectedOrder.userName}} | <i class="fa fa-phone"></i> {{selectedOrder.userPhone}} </div>
+          <div class="col"> <strong>Status:</strong> <br> {{selectedOrder.orderStatus}} </div>
         </div>
       </article>
       <div class="track">
@@ -25,10 +28,10 @@
           <div class="card-header bg-white">
             <div class="media flex-sm-row flex-column-reverse justify-content-between ">
               <div class="col my-auto">
-                <h4 class="mb-0">Your order from <span class="change-color">{{(ordersList[1]?.restaurantName).toUpperCase()}}</span> details:</h4>
+                <h4 class="mb-0">Your order from <span class="change-color">{{(restaurant.restaurantName).toUpperCase()}}</span> details:</h4>
               </div>
-              <div class="col-auto text-center my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3" src="{{ordersList[1]?.restaurantImage}}" width="115" height="115">
-                <p class="mb-4 pt-0 Glasses">{{ordersList[1]?.orderDate}}</p>
+              <div class="col-auto text-center my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3" src="{{restaurant.restaurantFeaturedPhotos[0]}}" width="115" height="115">
+                <p class="mb-4  mt-4 pt-0 Glasses">{{selectedOrder.orderDate}}</p>
               </div>
             </div>
           </div>
@@ -39,25 +42,46 @@
               </div>
             </div>
 
-            <div class="row mt-4" *ngFor="let item of ordersList[1]?.items">
-              <div class="col">
+            <div class=" mt-4" *ngFor="let item of selectedOrder.items">
+              <!-- <div class="col">
                 <div class="card card-2">
-                  <div class="card-body">
+                  <div class="card-body row">
                     <div class="media">
-                      <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="{{item.itemImage}}" width="135" height="135" /> </div>
+                      <div class="sq align-self-center col-sm-4  col-md-2"> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="{{item.dishImage}}" width="135" height="135" /> </div>
                       <div class="media-body my-auto text-right">
-                        <div class="row my-auto flex-column flex-md-row">
-                          <div class="col my-auto">
-                            <h5 class="mb-0">{{item.itemName}}</h5>
+                        <div class="row ">
+                          <div class="col-md-2 col-sm-8 ">
+                            <h5 class="mb-0">{{item.dishName}}</h5>
                           </div>
-                          <div class="col-auto my-auto">Sandwich + Rizo + Small Coleslaw + Pepsi, {{item.itemSize}}</div>
-                          <div class="col my-auto">Qty : {{item.itemQuantity}}</div>
-                          <div class="col my-auto">
-                            <h6 class="mb-0">{{item.itemPrice}} EGP</h6>
+                          <div class="col-md-6 col-sm-12 my-auto">{{item.dishDescription}} {{item.itemSize}}</div>
+                          <div class="col-md-2 col-sm-6 my-auto">Qty : {{item.dishQuantity}}</div>
+                          <div class="col-md-2 col-sm-6 my-auto">
+                            <h6 class="mb-0">{{item.dishPrice}} EGP</h6>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="card">
+                <div class="card-body row align-items-center">
+                  <div class="col-md-2 col-sm-4">
+                    <img class="" src="{{item.dishImage}}" width="135" height="135" />
+                  </div>
+                  <div class="col-md-2 col-sm-5">
+                    <h4>{{item.dishName}}</h4>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <p>{{item.dishDescription}}</p>
+                  </div>
+
+                  <div class="col-md-2 col-sm-6">
+                    <p>Qty: {{item.dishQuantity}}</p>
+                  </div>
+
+                  <div class="col-md-2 col-sm-6">
+                    <p>{{item.dishPrice}} EGP</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +100,7 @@
                     <p class="mb-1"><b>Total</b></p>
                   </div>
                   <div class="flex-sm-col col-auto">
-                    <p class="mb-1">{{ordersList[1]?.totalPrice}} EGP</p>
+                    <p class="mb-1">{{selectedOrder.totalPrice}} EGP</p>
                   </div>
                 </div>
                 <!-- <div class="row justify-content-between">
@@ -119,7 +143,7 @@
                   <h4 class="mb-0 font-weight-bold">TOTAL PAID</h4>
                 </div>
                 <div class="col-auto my-auto ml-auto">
-                  <h3>{{ordersList[1]?.totalPrice}} EGP</h3>
+                  <h3>{{selectedOrder.totalPrice}} EGP</h3>
                 </div>
               </div>
             </div>
@@ -147,4 +171,7 @@
 
   </article>
 </div>
+
+</ng-template>
+
 <app-footer></app-footer>

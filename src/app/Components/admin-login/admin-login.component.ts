@@ -15,22 +15,6 @@ export class AdminLoginComponent implements OnInit {
               private afs:AngularFirestore) { }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('adminId'));
-    
-    if(localStorage.getItem('adminId')){
-      this.afs.collection(`Admins`, ref => ref.where('uid', "==", localStorage.getItem('adminId'))).snapshotChanges().subscribe(res => {
-        if (res.length > 0)
-        {
-        this.router.navigate(['/dashboard']);
-        console.log("Match found.");
-        }
-        else
-        {
-        console.log("Does not exist.");
-        }
-      });
-    }
-    
     
   }
 
