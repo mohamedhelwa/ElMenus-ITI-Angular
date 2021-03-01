@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { User } from 'src/app/ViewModels/user';
 import { orderData } from 'src/app/ViewModels/orderData';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,15 +16,18 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './pastorders.component.html',
   styleUrls: ['./pastorders.component.scss']
 })
-export class PastordersComponent implements OnInit , AfterViewInit{
+export class PastordersComponent implements OnInit, AfterViewInit {
 
   orderId: string;
   order$: Observable<orderData[]>;
   userId$: BehaviorSubject<string>;
-  ordersList: any=[];
+  ordersList: any = [];
   showLoading: boolean = true;
   flag: boolean = false;
   lang:string;
+
+  restaurant:Restaurants;
+  resturantsList:Restaurants[]=[];
 
   constructor(public translate: TranslateService,
     private orderService: PastordersService,
@@ -35,7 +39,7 @@ export class PastordersComponent implements OnInit , AfterViewInit{
     this.translate.use(this.lang);
   }
   ngAfterViewInit(): void {
-    
+
   }
 
   ngOnInit(): void {
@@ -46,11 +50,12 @@ export class PastordersComponent implements OnInit , AfterViewInit{
       )
     )
     console.log(this.order$);
-    
-    this.order$.subscribe(orders =>{
+
+    this.order$.subscribe(orders => {
       this.ordersList = orders,
       this.showLoading = false
     })
+    
     console.log(this.showLoading);
     console.log(this.ordersList)
   }

@@ -25,16 +25,16 @@
           
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
-          <button class="btn login my-2 my-sm-0" data-toggle="modal" data-target="#myModal" >{{'hm-Login'|translate}}</button>
-          <button class="btn sign my-2 my-sm-0" data-toggle="modal" data-target="#mySignUpModal" >{{'hm-SIGNUP'|translate}}</button>
-          <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
+          <button class="btn login mr-2 my-sm-0" data-toggle="modal" data-target="#myModal" >{{'hm-Login'|translate}}</button>
+          <button class="btn sign mr-2 my-sm-0" data-toggle="modal" data-target="#mySignUpModal" >{{'hm-SIGNUP'|translate}}</button>
+          <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
     
-          <!--<select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+          <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
             <option *ngFor="let language of translate.getLangs()" [value]="language"
               [selected]="language === translate.currentLang">
               {{ language }}
             </option>
-          </select>-->
+          </select>
         
         <!--</form>-->
       </div>
@@ -65,7 +65,7 @@
       </li>
     </ul>
     <!-----right Side -->
-    <ul class="navbar-nav navbar-after ml-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav navbar-after mr-5 mt-2 mt-lg-0">
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-bell"></i>{{'Notification'|translate}}</a>
       </li>
@@ -81,13 +81,13 @@
         </div>
       </li>
       </ul>
-      <a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>
-      <!--<select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+      <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
+      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
         <option *ngFor="let language of translate.getLangs()" [value]="language"
           [selected]="language === translate.currentLang">
           {{ language }}
         </option>
-      </select>-->
+      </select>
   </div>
 </nav> 
 </div>

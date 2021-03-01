@@ -138,12 +138,7 @@ export class CheckoutComponent implements OnInit {
   // let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd');
 
   saveOrder() {
-    // var orderDoc = this.db.collection("Orders").doc();
-    // let order_date = new Date();
-    // let day = order_date.getDate();
-    // let month = order_date.getMonth()+1;
-    // let year = order_date.
-
+    var orderDoc = this.db.collection("Orders").doc();
     this.userName = this.checkoutFrm.value.userName;
     this.address = this.checkoutFrm.value.address;
     this.buildingNum = this.checkoutFrm.value.buildingNum;
@@ -168,11 +163,12 @@ export class CheckoutComponent implements OnInit {
       userPhone: this.mobNum
     }
     console.log("in save order!!")
-    var orderDoc = this.db.collection("Orders").doc();
-    orderDoc.set(this.order);
-    orderDoc.update({"orderID":orderDoc.ref.id})
+    // var orderDoc = this.db.collection("Orders").doc();
+    // orderDoc.set(this.order);
+    // orderDoc.update({"orderID":orderDoc.ref.id})
     localStorage.setItem("order_data",JSON.stringify(this.order))
-    this.router.navigate(['/Home']);
+
+    this.router.navigate(['/payment']);
   }
   navToTest() {
     this.router.navigate(["/delivery"]);

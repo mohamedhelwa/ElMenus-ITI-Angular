@@ -12,7 +12,15 @@
     </div>
   </div>
   <br /><br />
+  <h5>Select Menu Category : </h5>
+  <select (change)="getCategoryMenu()" [(ngModel)]="selectedRestID" class="form-control">
+    <option *ngFor="let item of restaurantsList" value="{{item.id}}">{{item.restaurantName}}</option>
+  </select>
+  <br><br>
   <div class="ff">
+    <div *ngIf="MenuList.length==0" >
+        <h3 style="color: #e5533a;margin-bottom: 20px;" class="text-center">There is no Menues In This Restaurant <i class="far fa-frown"></i></h3>
+    </div>
     <div
       style="margin-bottom: 30px; margin-left: 46px"
       *ngFor="let item of MenuList"

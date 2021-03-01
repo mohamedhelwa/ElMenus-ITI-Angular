@@ -35,6 +35,7 @@ import { ReviewDashboardComponent } from './Components/review-dashboard/review-d
 import { CustomersDashboardComponent } from './Components/customers-dashboard/customers-dashboard.component';
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },
+  { path: 'payment', component: PaymentComponent},
   // { path: "orderlist", component: DashboardOrderListComponent},
   // { path: "menulist", component: MenulistDashboardComponent},
   // { path: "reviewlist", component: ReviewDashboardComponent},
