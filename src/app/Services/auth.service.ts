@@ -23,13 +23,15 @@ export class AuthService {
       switchMap(user => {
         // Logged in
         if (user) {
-          this.afs.collection(`Users`, ref => ref.where('uid', "==", user.uid))
+          console.log(user.uid);
+          
+          this.afs.collection(`users`, ref => ref.where('uid', "==", user.uid))
           .snapshotChanges().subscribe(res => {
             if (res.length > 0) {
               this.userId = user.uid;
               localStorage.setItem("userId", user.uid);
               console.log(user.uid)
-              //
+              
               console.log("Match found.");
             }
             else {
@@ -70,14 +72,20 @@ export class AuthService {
       .then(res => {
         console.log('You are Successfully logged in!');
         console.log(res);
-        this.afs.collection(`Users`, ref => ref.where('uid', "==", res.user.uid)).snapshotChanges().subscribe(res => {
+        let userId = res.user.uid;
+        this.afs.collection(`users`, ref => ref.where('uid', "==", res.user.uid)).snapshotChanges().subscribe(res => {
           if (res.length > 0) {
-            this.router.navigate(['/dashboard']);
+            localStorage.setItem("userId", userId);
+            console.log(userId)
+              
             console.log("Match found.");
           }
           else {
-            this.signOut();
             console.log("Does not exist.");
+              this.afAuth.signOut();
+              this.afAuth.currentUser = null;
+              this.signOut()
+              localStorage.clear();
           }
         });
       })
