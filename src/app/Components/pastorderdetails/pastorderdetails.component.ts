@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pastorderdetails',
@@ -10,8 +11,12 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
   @Input() orderId;
   @Input() ordersList;
   selectedOrder: any = null;
+  lang:string;
   
-  constructor(private db: AngularFirestore) {
+  constructor(public translate: TranslateService,
+              private db: AngularFirestore) {
+    this.lang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.lang);
   }
   ngOnChanges(): void {
     this.getOrderById(this.orderId);

@@ -14,31 +14,24 @@ export class ResturantComponent implements OnInit {
   restID: string = "";
   restaurantList: Restaurants[] | any;
   restaurant: any;
-  constructor(private list:RestaurantsServiceService,
-              private activatedRoute: ActivatedRoute,
+  //user id 
+  UserId = localStorage.getItem("userId");
+  constructor(private activatedRoute: ActivatedRoute,
               private db: AngularFirestore          
     ) {}
 
   ngOnInit(): void {
-
-    // const d = this.db.collection('Restaurants').valueChanges();
-    // d.subscribe(
-    //   (response) => {
-    //     this.restaurantList = response;
-    //     // console.log(this.menu)
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    console.log(this.UserId)
+    this.db.collection('users').doc(this.UserId).ref.get().then((response) =>{
+      console.log(response.data());
+    }).catch(function (error) {
+      console.log("There was an error getting your document:", error);
+    });
 
     let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
     this.restID = productIDParam;
     this.getRestaurant(this.restID);
-    
-//    this.restaurantList = this.db.collection('/Restaurants', ref => ref.where('restaurantId', '==', this.restID));
-
-    
+        
   }
 
   
@@ -47,7 +40,6 @@ export class ResturantComponent implements OnInit {
       .then((doc) => {
         if (doc.exists) {
           this.restaurant = doc.data();
-          // console.log(this.restaurant);
         }
         else {
           console.log("There is no document");
