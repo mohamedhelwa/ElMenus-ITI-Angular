@@ -16,6 +16,7 @@ export class TrackOrderComponent implements OnInit {
   selectedOrderId: string;
   restaurant: Restaurants;
   showLoading: boolean = true;
+  orderStatus: boolean = true;
 
   constructor(private db: AngularFirestore) { }
 
@@ -50,8 +51,25 @@ export class TrackOrderComponent implements OnInit {
       }).catch(function (err) {
         console.log("error !!", err);
       })
+  }
 
+  cancelOrder() {
+    this.orderStatus = false;
 
+    console.log(this.selectedOrder);
+    console.log("(Before) -> OrderStatus: " + this.selectedOrder.orderStatus)
+
+    this.selectedOrder.orderStatus = 'Canceled';
+    
+    console.log("(After) -> OrderStatus: " + this.selectedOrder.orderStatus);
+
+    let updatedOrder = this.db.collection('Orders').doc(this.selectedOrderId);
+    var setWithMerge = updatedOrder.set({
+      orderStatus: this.selectedOrder.orderStatus
+    }, { merge: true });
+
+    console.log("(After updating) -> OrderStatus: " + this.selectedOrder.orderStatus);
+    console.log(this.selectedOrder);
   }
 
 }

@@ -45,6 +45,12 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
 
   reorder(orderId:string){
     console.log("selectedOrderId "+orderId)
+
+    let updatedOrder = this.db.collection('Orders').doc(this.orderId);
+    var setWithMerge = updatedOrder.set({
+      orderStatus: "active"
+    }, { merge: true });
+
     localStorage.setItem("selected_order_id",orderId);
   }
 }
