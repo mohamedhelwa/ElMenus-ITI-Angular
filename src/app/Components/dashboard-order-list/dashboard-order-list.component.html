@@ -1,1 +1,44 @@
-<p>dashboard-order-list works!</p>
+<div class="container" style="height: 83vh;">
+    <h2 style="color: #E5533A; margin-top: 20px;">Order List</h2>
+   <br><br>
+ <div class="row">
+   <div class="col-12">
+    <div style="overflow-x:auto;">
+      <table class="table table-hover text-center">
+          <thead style="background-color: #E5533A; color: white;">
+            <tr style="font-size: 19px;">
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Order Address</th>
+            <th scope="col">Items Quantity</th>
+            <th scope="col">Items Name</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderList;index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.userName}}</td>
+            <td>{{item.orderAddress.addressInfo}}</td>
+            <td>{{item.itemsQuantity}}</td>
+            <td *ngIf="item.items.length >1">
+                <select class="form-control">
+                    <option *ngFor="let item2 of item.items;index as i">{{item2.dishName}}</option>
+                </select>
+            </td>
+            <td *ngIf="item.items.length==1">{{item.items[0].dishName}}</td>
+           
+            <td>{{item.paymentMethod}}</td>
+
+            <td style="font-size: 22px; font-weight: bold; color: #E5533A;">{{item.totalPrice}} EGP</td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+      </div>
+</div>
+</div>
+</div> 
+

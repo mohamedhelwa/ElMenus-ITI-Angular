@@ -4,37 +4,24 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { Order } from '../ViewModels/order';
 import { Restaurants } from '../ViewModels/restaurants';
+import { CreateOrder } from '../ViewModels/create-order';
+import { User } from '../ViewModels/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
 
-  tutorialsRef: AngularFirestoreCollection<Restaurants>;
-  private dbPath = '/Restaurants';
+  order: AngularFirestoreCollection<CreateOrder>;
+  private orderPath = '/Orders';
+
   constructor(private db: AngularFirestore) {
-
-    /*const orders = this.db.collection('Orders').valueChanges();
-    orders.subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );*/
-
-    this.tutorialsRef = this.db.collection(this.dbPath);
+    this.order = this.db.collection(this.orderPath);
 
   }
 
-
-  create(tutorial: Restaurants): any {
-   
-    return this.tutorialsRef.add({ ...tutorial });
+  getAll(): AngularFirestoreCollection<CreateOrder> {
+    return this.order;
   }
 
-  // getAllOrders(): Observable <Order[]> {
-  //   return this.http.get<Order[]>(`Orders`);
-  // }
 }
