@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user$: Observable<User>;
-  userId:string;
+  userId: string;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -23,25 +23,40 @@ export class AuthService {
       switchMap(user => {
         // Logged in
         if (user) {
-          this.userId=user.uid;
-          localStorage.setItem("userId",user.uid);
-          console.log(user.uid)
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          // Logged out
-          return of(null);
+          this.afs.collection(`Users`, ref => ref.where('uid', "==", user.uid))
+          .snapshotChanges().subscribe(res => {
+            if (res.length > 0) {
+              this.userId = user.uid;
+              localStorage.setItem("userId", user.uid);
+              console.log(user.uid)
+              //
+              console.log("Match found.");
+            }
+            else {
+              console.log("Does not exist.");
+              this.afAuth.signOut();
+              this.afAuth.currentUser = null;
+              this.signOut()
+              localStorage.clear();
+            }
+          });
+        return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
+        else{
+          return null;
+        }
+        
       })
     )
   }
-  getUid(){
-   return localStorage.getItem("userId");
+  getUid() {
+    return localStorage.getItem("userId");
   }
-  signUp(email: string, password: string, name:string) {
+  signUp(email: string, password: string, name: string) {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
-        this.setUserData(res.user.uid,name,email);
+        this.setUserData(res.user.uid, name, email);
         console.log('You are Successfully signed up!', res.user.uid);
       })
       .catch(error => {
@@ -54,6 +69,17 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('You are Successfully logged in!');
+        console.log(res);
+        this.afs.collection(`Users`, ref => ref.where('uid', "==", res.user.uid)).snapshotChanges().subscribe(res => {
+          if (res.length > 0) {
+            this.router.navigate(['/dashboard']);
+            console.log("Match found.");
+          }
+          else {
+            this.signOut();
+            console.log("Does not exist.");
+          }
+        });
       })
       .catch(err => {
         //code: "auth/user-not-found"
@@ -63,7 +89,7 @@ export class AuthService {
       });
   }
 
-  setUserData(uid:string,name:string,email:string){
+  setUserData(uid: string, name: string, email: string) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
     const data = {
       uid: uid,
@@ -71,8 +97,8 @@ export class AuthService {
       name: name,
     }
     userRef.set(data, { merge: true })
-    
-    return userRef.update({address:"Cairo"});
+
+    return userRef.update({ address: "Cairo" });
   }
 
   updateUserData(user) {
