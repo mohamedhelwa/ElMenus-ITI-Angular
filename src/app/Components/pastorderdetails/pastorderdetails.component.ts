@@ -20,7 +20,6 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
   }
   ngOnChanges(): void {
     this.getOrderById(this.orderId);
-
   }
 
   ngOnInit(): void {
