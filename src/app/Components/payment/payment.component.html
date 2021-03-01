@@ -1,0 +1,201 @@
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo col-sm-2 ml-5">
+                <a href="#"><img src="../../../assets/images/logo.svg" width="100px" height="100px"></a>
+            </div>
+            <div class="hdr-link col-sm-9 justify-content-center align-self-center">
+                <button id="exitCheckoutBtn" (click)="goToDelivery()" type="button"
+                    class="CheckoutExitBtn btn float-md-right">
+                    Exit Checkout <i class="ml-1 fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Content -->
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- top side -->
+        <div class="col-12">
+            <!-- Start Stepper -->
+            <div class="gift-card-chckout">
+                <div class="stepper-section">
+                    <!--checkout_title-->
+                    <div class="row checkout-title">
+                        <h3 class="mb-sm-2">Checkout</h3>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-12 mb-5 mb-md-0 pl-0">
+                            <!--checkout_steps-->
+                            <div class="gift-steps mb-5 mt-5">
+                                <!--Stepper-->
+                                <ul class="steps mb-4">
+                                    <li class="active-step">
+                                        <span class="step-val">
+                                            <span>✓</span>
+                                        </span>
+                                        <div class="content">
+                                            <span class="step-title">
+                                                Delivery address
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="active-step">
+                                        <span class="step-val-final">
+                                            <span>2</span>
+                                        </span>
+                                        <div class="content">
+                                            <span class="step-title">
+                                                Review
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!--end_Stepper-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- right side -->
+        <div class="col-lg-7 col-md-12 col-sm-12">
+            <!-- Review Order -->
+            <div>
+                <h5>Review Your Order</h5>
+                <div class="row">
+                    <!-- Address Card -->
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <div class="order-details-card details-div">
+                            <!-- address data -->
+                            <h5>{{'deliveryAddress'|translate}}</h5>
+                            <div class="address-details">
+                                <h6 id="user-name">{{order.userName}}</h6>
+                                <p id="address-data">
+                                    {{order.orderAddress.addressInfo}} <br>
+                                    Building no. {{order.orderAddress.buildingNumber}} <br>
+                                    Floor no. {{order.orderAddress.floorNumber}} <br>
+                                    Apartment no. {{order.orderAddress.ApartNumber}} <br>
+                                </p>
+                            </div>
+                            <div>
+                                <p> <i class="fas fa-phone-alt"></i> <span id="user-phone">{{order.userPhone}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment and promo -->
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <!-- Payment Card -->
+                        <div class="order-details-card details-div">
+                            <h5>Payment Methods</h5>
+                            <div class="form-check" >
+                                <input class="form-check-input" type="radio" name="paymentRadio"
+                                 id="cashRadio" value="Cash on delivery" checked>
+                                <label class="form-check-label" for="cashRadio">
+                                    Cash On Delivery
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="paymentRadio" id="creditRadio" value="CreditCard" disabled>
+                                <label class="form-check-label" for="creditRadio">
+                                  Credit Card <a>add new</a>
+                                </label>
+                              </div>
+                        </div>
+
+                        <!-- Promo Card -->
+                        <div class="promo-card details-div">
+                            <h5>Promo Code</h5>
+                            <div>
+                                <div class="input-group"> <input type="text" class="form-control" name=""
+                                        placeholder="Coupon code"> <span class="input-group-append"> <button
+                                            class="btn btn-apply coupon">Apply</button> </span> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estimated Delivery Card -->
+                    <div class="col-12 estimatied-time-card">
+                        <h5><img src="../../../assets/motorcycle-delivery.svg"> Estimated Delivery Time : <span
+                                style="color: green;">90 min</span></h5>
+                    </div>
+
+                    <!-- Items Card -->
+                    <h5>Items</h5>
+                    <div class="col-12">
+                        <!-- order items -->
+                        <div class="conainer">
+                            <div class="items-div" *ngFor="let item of order.items">
+                                <h5 id="food-type" class="text-center">{{item.dishName}}</h5>
+                                <div class="row item-details">
+                                    <div class="col-sm-2">
+                                        <span id="item-count">{{item.dishQuantity}}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 id="item-name">{{item.dishName}}</h5>
+                                        <h6 id="item-size">{{item.dishSize}}</h6>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <h6 id="item-price">{{item.dishPrice | currency: 'EGP'}}</h6>
+                                        <h6 id="item-price-quantity">{{item.dishPrice}} X {{item.dishQuantity}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- left side -->
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            
+            <div class="col-12 left-side-card">
+                <div class="card">
+                    <h5 class="card-header text-center"><a class="btn discover-btn" (click)="saveOrder()">Place Order</a></h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Order Summary</h5>
+                        <!-- bill-div -->
+                        <div class="bill-div">
+                            <div class="cost-row">
+                                <h6 class="title">{{'subTitle'|translate}}</h6>
+                                <span class="bill-span" id="cost">{{order.totalPrice | currency: 'EGP'}}</span>
+                            </div>
+
+                            <div class="cost-row">
+                                <h6 class="title">{{'items'|translate}}</h6>
+                                <span class="bill-span" id="quantity">{{order.itemsQuantity}}</span>
+                            </div>
+
+                            <div class="cost-row">
+                                <h6 class="title">{{'tax'|translate}}</h6>
+                                <span class=" bill-span" id="tax">00.00 EGP</span>
+                            </div>
+
+                            <div class="cost-row">
+                                <h6 class="title">{{'deliveryFee'|translate}}</h6>
+                                <span class="bill-span" id="delivery-fee">00.00 EGP</span>
+                            </div>
+                            
+                            <hr>
+                            <div class="cost-row">
+                                <h6 class="total">{{'orderTotal'|translate}}</h6>
+                                <span class="bill-span"
+                                    id="total-price">{{order.totalPrice | currency:'EGP'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

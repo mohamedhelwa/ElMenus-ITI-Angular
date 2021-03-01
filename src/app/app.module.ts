@@ -58,6 +58,7 @@ import { MenuDetailsDashboardComponent } from './Components/menu-details-dashboa
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 import { LoadingComponent } from './Components/loading/loading.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD553sG0S5TK4x855X912d7wbMgbrxO88c",
@@ -113,7 +114,8 @@ const firebaseConfig = {
     MenuDetailsDashboardComponent,
     AddMenuDashboardComponent,
     AdminLoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

@@ -81,7 +81,7 @@
     <div class="bill-div float-right">
         <div class="cost-row">
             <h6 class="title">{{'subTitle'|translate}}</h6>
-            <span class="bill-span" id="cost">12.00 EGP</span>
+            <span class="bill-span" id="cost">{{selectedOrder.totalPrice | currency: 'EGP'}}</span>
         </div>
 
         <div class="cost-row">
@@ -96,7 +96,7 @@
 
         <div class="cost-row">
             <h6 class="title">{{'deliveryFee'|translate}}</h6>
-            <span class="bill-span" id="delivery-fee">10.50 EGP</span>
+            <span class="bill-span" id="delivery-fee">00.00 EGP</span>
         </div>
 
         <div class="cost-row">

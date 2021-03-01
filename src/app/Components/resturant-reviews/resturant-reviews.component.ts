@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { Reviews } from 'src/app/ViewModels/reviews';
 
 @Component({
   selector: 'app-resturant-reviews',
@@ -9,19 +13,32 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ResturantReviewsComponent implements OnInit {
 
     reviewList:any[];
+    review$: Observable<Reviews[]>;
 
-  constructor(private review:AngularFirestore) { }
+    resturantId$ : BehaviorSubject<string>;
+    
+  constructor(private afs:AngularFirestore,
+    private activatedRoute: ActivatedRoute) { 
+
+    let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
+    this.resturantId$ = new BehaviorSubject(productIDParam);
+    
+    
+  }
 
   ngOnInit(): void {
-    const r =this.review.collection('Reviews').valueChanges();
-    r.subscribe((response) => {
-      this.reviewList = response;
-      console.log(this.reviewList)
-    },
-    (error) => {
-      console.log(error);
-    }
-    );
+    this.review$ = this.resturantId$.pipe(
+      switchMap(restId =>
+        this.afs.collection<Reviews>('Reviews', ref => ref.where('restaurantId', '==', restId)).valueChanges()
+      )
+    )
+    console.log(this.review$);
+    
+    this.review$.subscribe(reviews =>{
+      this.reviewList = reviews
+      
+    })
+    console.log(this.reviewList)
   }
 
 }
