@@ -49,25 +49,25 @@
     <!--			 Discover by dishes-->
     <h2 class="ml-4"> Discover by dishes</h2>
 
-    <div class="container">    
+    <div class="container">
       <h1 class="row">
-    
-        <div class="card col-lg-3" style="margin-left: 7%; margin-top:40px;"
-          *ngFor="let item of restaurantsList">
-          <img class="card-img-top mt-2" src="{{item.restaurantFeaturedPhotos}}"  style="width: 100%; height: 250px;" alt="">
+
+        <div class="card col-lg-3" style="margin-left: 7%; margin-top:40px;" *ngFor="let item of restaurantsList">
+          <img class="card-img-top mt-2" src="{{item.restaurantFeaturedPhotos}}" style="width: 100%; height: 250px;"
+            alt="">
           <div class="card-body">
             <h6>Location: <strong>{{item.restaurantBranchs[0]}}</strong></h6>
             <h6>Phone: <strong>{{item.restaurantPhone}}</strong></h6>
             <h6>From: <strong>{{item.restaurantOpening}}</strong> To: <strong>{{item.restaurantClosing}}</strong></h6>
             <h6>Type: <strong>{{item.restaurantType}}</strong></h6>
-    
+
           </div>
         </div>
-    
+
       </h1>
     </div>
-    
-    
+
+
     <br><br>
 
 
@@ -75,7 +75,7 @@
 
     <h3 class="mt-5 mb-4">Discover {{restaurantsList[0].restaurantBranchs[0]}}</h3>
     <div class="row" style="margin-left: 7%;">
-      <div class="col-sm-10 ">        
+      <div class="col-sm-10 ">
         <div class="row">
           <div class="col-sm-4" style="margin-bottom: 30px;" *ngFor="let item of restaurantsList">
             <img [src]="item.restaurantFeaturedPhotos" width="100%" height="250px">
@@ -88,7 +88,6 @@
 
         </div>
       </div>
-      <app-footer></app-footer>
 
 
       <!--			 New Restaurants-->
@@ -114,3 +113,4 @@
 
     </div>
   </div>
+  <app-footer></app-footer>
