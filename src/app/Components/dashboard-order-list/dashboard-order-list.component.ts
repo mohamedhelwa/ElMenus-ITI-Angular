@@ -16,6 +16,7 @@ export class DashboardOrderListComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveOrders();
+    console.log('any');
   }
 
   retrieveOrders(): void {

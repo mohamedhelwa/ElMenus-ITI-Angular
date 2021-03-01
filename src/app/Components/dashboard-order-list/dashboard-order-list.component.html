@@ -1,4 +1,4 @@
-<div class="container" style="height: 83vh;">
+<div class="container">
     <h2 style="color: #E5533A; margin-top: 20px;">Order List</h2>
    <br><br>
  <div class="row">
@@ -12,6 +12,7 @@
             <th scope="col">Order Address</th>
             <th scope="col">Items Quantity</th>
             <th scope="col">Items Name</th>
+            <th scope="col">Order Status</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Total Price</th>
           </tr>
@@ -28,7 +29,7 @@
                 </select>
             </td>
             <td *ngIf="item.items.length==1">{{item.items[0].dishName}}</td>
-           
+            <td [ngClass]="{green: item.orderStatus=='active',red: item.orderStatus=='Canceled'}">{{item.orderStatus}}</td>
             <td>{{item.paymentMethod}}</td>
 
             <td style="font-size: 22px; font-weight: bold; color: #E5533A;">{{item.totalPrice}} EGP</td>
