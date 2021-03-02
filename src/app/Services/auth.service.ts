@@ -23,6 +23,7 @@ export class AuthService {
         // Logged in
         if (user) {
           console.log(user.uid);
+          localStorage.setItem('userId',user.uid);
           // return user document
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
@@ -58,6 +59,7 @@ export class AuthService {
       roles: roles
     }
     userRef.set(data, { merge: true })
+    localStorage.setItem('userId',uid);
 
     return userRef.update({ address: "Cairo" });
   }
@@ -72,7 +74,8 @@ export class AuthService {
         this.afs.collection('users').doc(userId).ref.get().then((doc) =>{
           let user:User = doc.data();
           if(user.roles.admin){
-            this.router.navigate(['/dashboard'])
+          localStorage.setItem('userId',user.uid);
+          this.router.navigate(['/dashboard'])
           }
           else{
             console.log('access denied')
@@ -94,6 +97,7 @@ export class AuthService {
         console.log('You are Successfully logged in!');
         console.log(res);
         let userId = res.user.uid;
+        localStorage.setItem('userId',res.user.uid);
       })
       .catch(err => {
         //code: "auth/user-not-found"
