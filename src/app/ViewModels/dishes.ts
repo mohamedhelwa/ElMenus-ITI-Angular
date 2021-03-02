@@ -1,6 +1,7 @@
 export interface Dishes {
     restaurantId?:string,
-
+    resturantName?:string,
+    resturantLogo?:string,
     dishId:number,
     dishName:string,
     dishPrice:number,

@@ -33,6 +33,8 @@ export class ResturantMenuComponent implements OnInit {
   //total price
   totalOrderPrice: number = 0;
   resObj:Restaurants;
+
+  userID = localStorage.getItem("userId");
   
 
   constructor(
@@ -84,6 +86,8 @@ export class ResturantMenuComponent implements OnInit {
 
   //buy dish / calc total price
   buy(i: Dishes) {
+    i.resturantName = this.resObj.restaurantName;
+    i.resturantLogo = this.resObj.logo;
     i.dishSize = this.dishSize;
     if (this.add != 0){
       this.itemsNumber += this.add;
@@ -132,8 +136,6 @@ export class ResturantMenuComponent implements OnInit {
   goto() {
     this.router.navigate(["Checkout"]);
     //set local storage.
-    localStorage.setItem('resturantImage',this.resObj.logo);
-    localStorage.setItem('resturantName',this.resObj.restaurantName);
     localStorage.setItem("total_order_price", this.totalOrderPrice.toString());
     localStorage.setItem("elmenus_cart", JSON.stringify(this.DishBuy));
   }
