@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminAuthService } from 'src/app/Services/admin-auth.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +8,10 @@ import { AdminAuthService } from 'src/app/Services/admin-auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public adminAuth:AdminAuthService) { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('adminId'));
+    console.log(this.auth.getUid())
   }
 
 }
