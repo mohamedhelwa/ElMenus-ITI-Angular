@@ -17,7 +17,7 @@
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/menulist']" class="fas fa-list-alt" placement= 'top' ngbTooltip="Menu"></i><a [routerLink]="['/dashboard/menulist']"> Menu List</a></li>
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/customerlist']" class="fas fa-user-friends" placement= 'top' ngbTooltip="Users"></i><a [routerLink]="['/dashboard/customerlist']"> Customers</a></li>
             <li routerLinkActive="active"><i [routerLink]="['/dashboard/reviewlist']" class="fas fa-comment-alt" placement= 'top' ngbTooltip="Reviews"></i><a [routerLink]="['/dashboard/reviewlist']"> Reviews</a></li>
-            <li routerLinkActive="active"><i [routerLink]="['/adminlogin']" class="fas fa-power-off" placement= 'top' ngbTooltip="Logout" (click)="auth.signOut()"></i><a  (click)="adminAuth.signOut()" [routerLink]="['/adminlogin']"> Logout</a></li>
+            <li routerLinkActive="active"><i [routerLink]="['/adminlogin']" class="fas fa-power-off" placement= 'top' ngbTooltip="Logout" (click)="auth.signOut()"></i><a  (click)="auth.signOut()" [routerLink]="['/adminlogin']"> Logout</a></li>
 
           </ul>
       </nav>

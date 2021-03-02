@@ -47,8 +47,7 @@ export class PaymentComponent implements OnInit {
 
     orderDoc.set(this.order);
     orderDoc.update({"orderID":orderDoc.ref.id})
-    localStorage.setItem('reOrderedID',orderDoc.ref.id);
-
+    localStorage.setItem('reOrderedID', orderDoc.ref.id);
     // remove order from local stoarge
     localStorage.removeItem("order_data");
     console.log("order Done")

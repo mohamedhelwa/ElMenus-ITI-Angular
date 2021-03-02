@@ -70,7 +70,7 @@ export class AuthService {
         console.log(res);
         let userId = res.user.uid;
         this.afs.collection('users').doc(userId).ref.get().then((doc) =>{
-          let user = doc.data();
+          let user:User = doc.data();
           if(user.roles.admin){
             this.router.navigate(['/dashboard'])
           }

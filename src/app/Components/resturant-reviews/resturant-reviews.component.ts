@@ -15,10 +15,11 @@ export class ResturantReviewsComponent implements OnInit {
     userName ="";
     rate=1;
     comment="";
-    RList:Reviews[];
-    reviewList:any[];
-    review$: Observable<Reviews[]>;
+    restID: string = "";
+    UserId = localStorage.getItem("userId");
 
+    reviewList:Reviews[];
+    review$: Observable<Reviews[]>;
     resturantId$ : BehaviorSubject<string>;
     
   constructor(private afs:AngularFirestore,
@@ -27,7 +28,10 @@ export class ResturantReviewsComponent implements OnInit {
     let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
     this.resturantId$ = new BehaviorSubject(productIDParam);
     
-    
+    this.restID = productIDParam;
+
+    console.log(this.restID)
+    console.log(this.UserId)
   }
 
   ngOnInit(): void {
@@ -42,39 +46,19 @@ export class ResturantReviewsComponent implements OnInit {
       this.reviewList = reviews
       
     })
-    console.log(this.reviewList)
-  //   restID: string = "";
-  //   UserId = localStorage.getItem("userId");
-
-  // constructor(private review:AngularFirestore,private activatedRoute: ActivatedRoute) { }
-
-  // ngOnInit(): void {
-
-  //   let productIDParam:
-  //     | string
-  //     | null = this.activatedRoute.snapshot.paramMap.get("id");
-  //   this.restID = productIDParam;
-  //   console.log(this.restID)
-
-  //   const r =this.review.collection('Reviews').valueChanges();
-  //   r.subscribe((response) => {
-  //     this.reviewList = response;
-  //     // console.log(this.reviewList)
-  //   },
-  //   (error) => {
-  //     console.log(error);
-  //   }
-  //   );
-  // }
+    // console.log(this.reviewList)
   }
-  // addReview(){
-  //   this.addAnReivew.restaurantId = this.restID;
-  //   this.addAnReivew.userId = this.UserId;
-  //   this.addAnReivew.userName = this.userName;
-  //   this.addAnReivew.reviewRate = this.rate;
-  //   this.addAnReivew.reviewText = this.comment;
-  //   console.log(this.addAnReivew)
-  //   // this.reviewList.push(this.addAnReivew)
-  // }
+
+  addReview(){
+    this.addAnReivew = {
+      restaurantId:this.restID,
+      userId:this.UserId,
+      userName: this.userName,
+      reviewRate:this.rate,
+      reviewText:this.comment
+    }
+    // console.log(this.addAnReivew)
+    this.afs.collection('Reviews').add({...this.addAnReivew}).then(()=> console.log('sucsses'))
+  }
 
 }

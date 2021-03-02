@@ -9,9 +9,11 @@ import { Restaurants } from 'src/app/ViewModels/restaurants';
   styleUrls: ['./resturant-info.component.scss','../resturant/resturant.component.scss']
 })
 export class ResturantInfoComponent implements OnInit {
-  returantBrnches:string[];
+
+  returantBrnches=[''];
   workOpen:string;
   WrokClose:string;
+  resturantAddress:string;
   featuredPhotos:string[];
   resturantPhone : string;
   restID: string = "";
@@ -32,6 +34,7 @@ export class ResturantInfoComponent implements OnInit {
       this.workOpen = this.resturant.restaurantOpening;
       this.WrokClose = this.resturant.restaurantClosing;
       this.featuredPhotos = this.resturant.restaurantFeaturedPhotos;
+      this.resturantAddress = this.resturant.adress;      
 
       console.log(this.resturant)
     }).catch(function (error) {
