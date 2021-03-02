@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { CreateOrder } from 'src/app/ViewModels/create-order';
 import { Order } from '../../ViewModels/order';
 import { Restaurants } from '../../ViewModels/restaurants';
@@ -9,7 +10,7 @@ import { Restaurants } from '../../ViewModels/restaurants';
   templateUrl: './track-order.component.html',
   styleUrls: ['./track-order.component.scss']
 })
-export class TrackOrderComponent implements OnInit {
+export class TrackOrderComponent implements OnInit{
 
 
   selectedOrder: CreateOrder | any;
@@ -18,12 +19,31 @@ export class TrackOrderComponent implements OnInit {
   showLoading: boolean = true;
   orderStatus: boolean = true;
 
-  constructor(private db: AngularFirestore) { }
+  mySubscription: any;
 
+  constructor(private db: AngularFirestore,
+              private route: ActivatedRoute,
+              private router: Router) {
+        this.router.routeReuseStrategy.shouldReuseRoute = function () {
+          return false;
+        };
+        this.mySubscription = this.router.events.subscribe((event) => {
+          if (event instanceof NavigationEnd) {
+            // Trick the Router into believing it's last link wasn't previously loaded
+            this.router.navigated = false;
+          }
+        });
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+   }
+   ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
+  }
   ngOnInit(): void {
     this.selectedOrderId = localStorage.getItem('reOrderedID');
     console.log("orderID: " + this.selectedOrderId);
-
+    
     this.db.collection('Orders').doc(this.selectedOrderId).ref.get()
       .then((doc) => {
         if (doc.exists) {

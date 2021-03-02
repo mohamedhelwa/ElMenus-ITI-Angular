@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -9,7 +10,10 @@ import { Dishes } from 'src/app/ViewModels/dishes';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  styleUrls: ['./payment.component.scss'],
+  providers: [
+    DatePipe
+  ]
 })
 export class PaymentComponent implements OnInit {
   userName: string = "";
@@ -24,7 +28,8 @@ export class PaymentComponent implements OnInit {
   constructor(private router:Router,
     private db: AngularFirestore,
     private chckoutService: CheckoutService,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.order = JSON.parse(localStorage.getItem("order_data"));
@@ -46,7 +51,7 @@ export class PaymentComponent implements OnInit {
     console.log("in save order!!")
 
     orderDoc.set(this.order);
-    orderDoc.update({"orderID":orderDoc.ref.id})
+    orderDoc.update({"orderID":orderDoc.ref.id,"orderDate":this.datePipe.transform(new Date(), 'short')})
     localStorage.setItem('reOrderedID', orderDoc.ref.id);
     // remove order from local stoarge
     localStorage.removeItem("order_data");

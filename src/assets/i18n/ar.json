@@ -73,6 +73,8 @@
     "Profile":"الصفحه الشخصيه",
     "Deliver":"بيوصل",
     "Change":"تغيير",
-    "FindRestaurant":"دور علي اي مطعم"
+    "FindRestaurant":"دور علي اي مطعم",
+
+    "logout":"تسجيل الخروج"
 
 }

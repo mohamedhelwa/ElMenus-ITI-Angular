@@ -20,13 +20,13 @@
                 <ul style="list-style: none;" *ngFor="let order of order$ | async">
                     <li class="list-item-order" (click)="getorderDetails(order.orderID)">
                         <!-- order image -->
-                        <img class="rest-image" id="rest-image" src={{order.restaurantImage}}
+                        <img class="rest-image" id="rest-image" src={{order.items[0].resturantLogo}}
                             style="float: left; border-radius: 50%;">
 
                         <!-- order info -->
                         <div class="rest-info" style="padding-left: 70px;">
                             <h3 class="rest-name" id="rest-name"
-                                style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.restaurantName}}</h3>
+                                style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.items[0].resturantName}}</h3>
                             <p>
                                 <span id="quantity-of-item" style="font-size: 13px;">{{order.itemsQuantity}}
                                     {{'itemsQuantity'|translate}}</span><br>

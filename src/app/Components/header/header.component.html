@@ -29,12 +29,25 @@
           <button class="btn sign mr-2 my-sm-0" data-toggle="modal" data-target="#mySignUpModal" >{{'hm-SIGNUP'|translate}}</button>
           <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
     
-          <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-            <option *ngFor="let language of translate.getLangs()" [value]="language"
-              [selected]="language === translate.currentLang">
-              {{ language }}
-            </option>
-          </select>
+          
+          <!-- Translation -->
+          <div *ngIf="lang == 'en'; else arSection">
+            <div class="nav-item">
+                <a class="nav-link">
+                    <button type="button" class="btn btn-link" (click)="changeLanguage('ar')"
+                        style="color: #E5533A; padding-bottom: 10px;">العربية</button>
+                </a>
+            </div>
+        </div>
+        <ng-template #arSection>
+            <div class="nav-item">
+                <a class="nav-link">
+                    <button type="button" class="btn btn-link" (click)="changeLanguage('en')"
+                        style="color: #E5533A; padding-bottom: 10px;">English</button>
+                </a>
+            </div>
+        </ng-template>
+        <!-- Translation -->
         
         <!--</form>-->
       </div>
@@ -78,21 +91,40 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item nobg"  [routerLink]="['/setting']" >{{'Account Settings'|translate}}</a>
+          <a class="dropdown-item nobg"  [routerLink]="['/Home']" (click)="auth.signOut()" >{{'logout'|translate}}</a>
         </div>
       </li>
       </ul>
       <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
-      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+      <!-- <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
         <option *ngFor="let language of translate.getLangs()" [value]="language"
           [selected]="language === translate.currentLang">
           {{ language }}
         </option>
-      </select>
+      </select> -->
+      <!-- Translation -->
+      <div *ngIf="lang == 'en'; else arSection">
+        <div class="nav-item">
+            <a class="nav-link">
+                <button type="button" class="btn" (click)="changeLanguage('ar')"
+                    style="color: #E5533A; padding-bottom: 10px;">العربية</button>
+            </a>
+          </div>
+    </div>
+    <ng-template #arSection>
+        <div class="nav-item">
+            <a class="nav-link">
+                <button type="button" class="btn" (click)="changeLanguage('en')"
+                    style="color: #E5533A; padding-bottom: 10px;">English</button>
+            </a>
+          </div>
+    </ng-template>
+    <!-- Translation -->
   </div>
 </nav> 
 </div>
 <!------------------- 2nd nav --------------------------------->
-    <nav class=" navbar navbar-light bg-light">
+    <!-- <nav class=" navbar navbar-light bg-light">
       <div class="input-container">
         <input class="input-field" type="text" placeholder="{{'FindRestaurant'|translate}}">
         <i class="fas fa-search"></i>
@@ -100,7 +132,7 @@
       <span style="font-size: 20px;"><i class="fas fa-biking" style="color: #E5533A;"></i>{{'Deliver'|translate}}</span>
       <span style="margin-right: 100px;color: #E5533A; font-size: 22px;"><strong> St.Mohamed Tawfik</strong></span>
       <button style="width: 100px; height: 30px; font-size: 17px;border:1px solid #E5533A;background-color: none;color: #E5533A; border-radius: 8px;">{{'Change'|translate}}</button>
-    </nav>
+    </nav> -->
 
 <!-------- Routing -------------------------------------------->
 

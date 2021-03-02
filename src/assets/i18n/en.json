@@ -73,7 +73,9 @@
     "Profile":"Profile",
     "Deliver":"Deliver",
     "Change":"Change",
-    "FindRestaurant":"Find a Restaurant"
+    "FindRestaurant":"Find a Restaurant",
+
+    "logout":"Logout"
     
 }
 

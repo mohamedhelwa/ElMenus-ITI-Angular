@@ -1,18 +1,18 @@
 
 <div *ngIf = "selectedOrder != null">
-    <p class="price-details" id="order-price" style="text-align: right;">{{selectedOrder.totalPrice}}</p>
+    <p class="price-details" id="order-price" style="text-align: right;">{{selectedOrder.totalPrice | currency: 'EGP'}}</p>
     <!-- order details header -->
     <div class="order-header">
         <div>
-            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder" (click)="reorder(selectedOrder.orderID)">{{'reorder'|translate}}</button>
+            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder" (click)="reorder()">{{'reorder'|translate}}</button>
         </div>
         <!-- order image -->
-        <img class="rest-image" id="rest-image" src={{selectedOrder.restaurantImage}}
+        <img class="rest-image" id="rest-image" src={{selectedOrder.items[0].resturantLogo}}
             style="float: left; border-radius: 50%;">
 
         <!-- order info -->
         <div class="rest-info" style="padding-left: 70px;">
-            <span style="font-size: 13px;">{{selectedOrder.totalPrice}}</span>
+            <span style="font-size: 13px;">{{selectedOrder.items[0].resturantName}}</span>
             <h3 class="rest-name" id="rest-name" style="color: #1f0f10;line-height: 24px;font-size: 16px;"></h3>
             <p>
                 <span id="order-date" style="font-size: 13px;">{{selectedOrder.orderDate}}</span>
