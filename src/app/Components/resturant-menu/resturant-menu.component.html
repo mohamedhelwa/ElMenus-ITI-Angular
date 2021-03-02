@@ -27,8 +27,8 @@
         <img [src]="item.dishImage" alt="meal" class="img-fluid" />
       </div>
       <ng-template #content let-modal>
-        <img [src]="item.dishImage" alt="meal" class="img-modal" />
         <div class="modal-body">
+          <img [src]="item.dishImage" alt="meal" class="img-thumbnail mb-1" />
           <h3>{{ item.dishName }}</h3>
           <p class="meal-info py-3">{{ item.dishDescription }}</p>
           <div class="dish-size p-2">

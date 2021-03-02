@@ -1,4 +1,6 @@
 export class Restaurants {
+  logo?:string;
+  adress?:string;
   id?:string;
   restaurantName?: string;
   restaurantBranchs?: string[];

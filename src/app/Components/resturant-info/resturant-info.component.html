@@ -1,17 +1,17 @@
   <div class="col-md-12 pt-3">
     <h4 class="collection-title">About</h4>
     <div class="jumbotron jEnfo">
-      <p class="info-3-value"><i class="fas fa-home"></i>{{resturantPhone}}</p>
-      <p class="info-3-value"><i class="fas fa-map-marker-alt"></i>39 El Hosary Square District 1, 6th of October <a
-        routerLink="/resturant/list" >+{{returantBrnches.length}}</a></p>
-      <p class="info-3-value"><i class="far fa-clock"></i>Working Hours :{{workOpen}} - {{WrokClose}}</p>
+      <p class="info-3-value"><i class="fas fa-home"></i> Phone : {{resturantPhone}}</p>
+      <p class="info-3-value"><i class="fas fa-map-marker-alt"></i> Address : {{resturantAddress}} <a
+        routerLink="/restaurant/{{restID}}/list/{{restID}}" > +{{returantBrnches.length}}</a></p>
+      <p class="info-3-value"><i class="far fa-clock"></i> Working Hours : {{workOpen}} - {{WrokClose}}</p>
     </div>
     <h4 class="start-title"> <i class="fab fa-instagram"></i> Featured photos</h4>
     <div class="card d-inline-block" *ngFor="let item of featuredPhotos">
       <img [src]="item" alt="dImg" class="d-block w-100">
     </div>
     <h4 class="start-title"> <i class="fas fa-map-marker-alt"></i> Adrress</h4>
-    <p class="info-2-value">39 El Hosary Square District 1, 6th of October <a href="#">+{{returantBrnches.length}}</a></p>
+    <p class="info-2-value"> {{ resturantAddress }} <a routerLink="/restaurant/{{restID}}/list/{{restID}}">+{{returantBrnches.length}}</a></p>
     <!--maps  -->
   <div class="row">
     <div class="col-md-12" style="height: 500px;">

@@ -6,6 +6,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs/operators";
 import { User } from "src/app/ViewModels/user";
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 
 @Component({
   selector: "app-resturant-menu",
@@ -16,6 +17,7 @@ import { User } from "src/app/ViewModels/user";
   ],
 })
 export class ResturantMenuComponent implements OnInit {
+
   //resturnt ID / Menu
   restID: string = "";
   menu: Dishes[] | any;
@@ -30,7 +32,7 @@ export class ResturantMenuComponent implements OnInit {
 
   //total price
   totalOrderPrice: number = 0;
-
+  resObj:Restaurants;
   
 
   constructor(
@@ -62,6 +64,14 @@ export class ResturantMenuComponent implements OnInit {
         )
       )
       .subscribe((response) => (this.menu = response));
+
+
+      this.db.collection('Restaurants').doc(this.restID).ref.get().then((response) =>{
+        this.resObj = response.data();
+        console.log(this.resObj)
+      }).catch(function (error) {
+        console.log("There was an error getting your document:", error);
+      });
   }
 
   //get resturnt menu
@@ -122,6 +132,8 @@ export class ResturantMenuComponent implements OnInit {
   goto() {
     this.router.navigate(["Checkout"]);
     //set local storage.
+    localStorage.setItem('resturantImage',this.resObj.logo);
+    localStorage.setItem('resturantName',this.resObj.restaurantName);
     localStorage.setItem("total_order_price", this.totalOrderPrice.toString());
     localStorage.setItem("elmenus_cart", JSON.stringify(this.DishBuy));
   }

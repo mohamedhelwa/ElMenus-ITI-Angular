@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsServiceService } from 'src/app/Services/restaurants-service.service';
 import { Restaurants } from 'src/app/ViewModels/restaurants';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'src/app/ViewModels/user';
 
 @Component({
   selector: 'app-resturant',
@@ -13,17 +14,22 @@ export class ResturantComponent implements OnInit {
 
   restID: string = "";
   restaurantList: Restaurants[] | any;
-  restaurant: any;
+  restaurant: Restaurants;
+  userAdress:string;
   //user id 
   UserId = localStorage.getItem("userId");
   constructor(private activatedRoute: ActivatedRoute,
-              private db: AngularFirestore          
+              private db: AngularFirestore,
+              private Router : Router          
     ) {}
 
   ngOnInit(): void {
     console.log(this.UserId)
     this.db.collection('users').doc(this.UserId).ref.get().then((response) =>{
-      console.log(response.data());
+        let userObject:User = response.data()
+        this.userAdress = userObject.address
+        // console.log(response.data())
+        // console.log(this.userAdress)
     }).catch(function (error) {
       console.log("There was an error getting your document:", error);
     });
@@ -40,6 +46,7 @@ export class ResturantComponent implements OnInit {
       .then((doc) => {
         if (doc.exists) {
           this.restaurant = doc.data();
+          // console.log(this.restaurant)
         }
         else {
           console.log("There is no document");
@@ -48,6 +55,9 @@ export class ResturantComponent implements OnInit {
         console.log("error !!", err);
       })
 
+  }
+  gotoUserSetings(){
+    this.Router.navigate(['setting'])
   }
 
 }

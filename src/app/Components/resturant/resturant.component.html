@@ -10,10 +10,10 @@
     <div class="row mx-4 cove-logo-content">
         <div class="col-md-8 px-4">
             <div class="cover-logo">
-                <img src="{{restaurant?.restaurantFeaturedPhotos}}"  alt="resturant-logo">
+                <img src="{{restaurant?.logo}}" class="img-fluid"  alt="resturant-logo">
                 <div class="rest-info pt-2">
-                    <h2 class="rest-name">{{restaurant?.restaurantName}} <span>order online</span></h2>
-                    <h5 class="rest-type">fast food <span class="stars">
+                    <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>order online</span></h2>
+                    <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
                             <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
                                 class="vue-star-rating-star" step="10">
                                 <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
@@ -120,8 +120,8 @@
                             </svg>
 
                         </span> 4.6 (17611)</h5>
-                    <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i>39 El Hosary Square <a
-                        routerLink="/resturant/list">District 1,6th of October</a></h3>
+                    <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i> Cairo <a
+                        routerLink="/restaurant/{{restID}}/info/{{restID}}"> {{ restaurant?.adress }} </a></h3>
                 </div>
             </div>
         </div>
@@ -198,8 +198,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h2 class="card-title">Delivers to<span> District 3 6th of October</span></h2>
-                    <button class="btn btn-address">Change Adress<i
+                    <h2 class="card-title">Delivers to<span> {{ userAdress }} </span></h2>
+                    <button class="btn btn-address" (click)="gotoUserSetings()">Change Adress<i
                             class="fas fa-arrow-right float-right"></i></button>
                 </div>
             </div>
