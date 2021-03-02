@@ -36,6 +36,7 @@ import { CustomersDashboardComponent } from './Components/customers-dashboard/cu
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { AdminGuard } from './core/admin.guard';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -66,7 +67,7 @@ const routes: Routes = [
   // { path: "addMenu", component:AddMenuDashboardComponent },
 
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard],
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full', },
       { path: 'overview', component: OverviewDashboardComponent },

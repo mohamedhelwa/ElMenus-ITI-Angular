@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,7 +15,8 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
   lang:string;
   
   constructor(public translate: TranslateService,
-              private db: AngularFirestore) {
+              private db: AngularFirestore,
+              private router:Router) {
     this.lang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.lang);
   }
@@ -42,14 +44,30 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
       })
   }
 
-  reorder(orderId:string){
-    console.log("selectedOrderId "+orderId)
+  reorder(id:string){
+    console.log("selectedOrderId "+id)
+    console.log("in reorder order!!")
+    
+    this.db.collection('Orders').doc(id).ref.get()
+    .then(async (doc) => {
+      var orderDoc = this.db.collection("Orders").doc();
+      console.log(doc.data());
+      await orderDoc.set(doc.data());
+      await orderDoc.update({"orderID":orderDoc.ref.id,"orderStatus":"active"})
+  
+      console.log(orderDoc.ref.id);
+      
+      localStorage.setItem('reOrderedID',orderDoc.ref.id);
+  
+      console.log("order Done")
+      localStorage.setItem("selected_order_id",orderDoc.ref.id);
+      this.router.navigate(['/trackOrder']);
+  
+      
+    });
+    
+    
 
-    let updatedOrder = this.db.collection('Orders').doc(this.orderId);
-    var setWithMerge = updatedOrder.set({
-      orderStatus: "active"
-    }, { merge: true });
-
-    localStorage.setItem("selected_order_id",orderId);
+    
   }
 }
