@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Restaurants } from '../../ViewModels/restaurants';
+import { Router } from '@angular/router';
+import { RestaurantsServiceService } from 'src/app/Services/restaurants-service.service';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-dine-out',
@@ -9,24 +13,31 @@ import { Restaurants } from '../../ViewModels/restaurants';
 })
 export class DineOutComponent implements OnInit {
 
-  restaurantsList: Restaurants[] | any = [];
+  restaurantsList: Restaurants[] = [];
 
-  constructor(private db: AngularFirestore) {
-    const orders = this.db.collection('Restaurants').valueChanges();
-    orders.subscribe(
-      (response) => {
-        this.restaurantsList = response;
-        console.log(this.restaurantsList)
-        // console.log("success");
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
+  constructor(private route: Router, private restService: RestaurantsServiceService) {
+    this.retrieveRestaurants();
   }
 
   ngOnInit(): void {
   }
 
+
+
+  retrieveRestaurants(): void {
+    this.restService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.restaurantsList = data;
+      console.log(this.restaurantsList);
+    });
+  }
+
+  goRestaurant(id: string) {
+    this.route.navigate([`/restaurant/${id}/menu/` + (id)]);
+  }
 }
