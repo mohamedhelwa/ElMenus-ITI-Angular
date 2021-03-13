@@ -25,8 +25,11 @@ export class ResturantComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.UserId)
-    this.db.collection('users').doc(this.UserId).ref.get().then((response) =>{
+    console.log(this.UserId);
+    if(this.UserId == null){
+      this.userAdress = "your location"
+    }else{
+      this.db.collection('users').doc(this.UserId).ref.get().then((response) =>{
         let userObject:User = response.data()
         this.userAdress = userObject.address
         // console.log(response.data())
@@ -34,7 +37,7 @@ export class ResturantComponent implements OnInit {
     }).catch(function (error) {
       console.log("There was an error getting your document:", error);
     });
-
+    }
     let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
     this.restID = productIDParam;
     this.getRestaurant(this.restID);
