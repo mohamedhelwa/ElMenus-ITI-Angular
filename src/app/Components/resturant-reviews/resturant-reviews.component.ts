@@ -62,7 +62,7 @@ export class ResturantReviewsComponent implements OnInit {
       restaurantName:this.restName,
       userId:this.UserId,
       userName: this.userName,
-      reviewRate:this.rate.toString(),
+      reviewRate:this.rate,
       reviewText:this.comment
     }
     this.afs.collection('Reviews').add({...this.addAnReivew}).then(()=> console.log('sucsses'))

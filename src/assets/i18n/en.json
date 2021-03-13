@@ -76,15 +76,10 @@
     "FindRestaurant":"Find a Restaurant",
 
     "logout":"Logout",
-<<<<<<< HEAD
 
     "trackOrder":"Track Order",
-    "orderDetails":"Order Details"
-=======
->>>>>>> a70724e27eafb027f6c21282c6f35fe83e050f42
+    "orderDetails":"Order Details",
     
-
-
     "Menu":"Menu",
     "About":"About",
     "branch":"Branches",
