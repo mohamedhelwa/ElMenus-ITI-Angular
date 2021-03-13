@@ -15,113 +15,8 @@
                     <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>{{"OrderOnline" | translate}}</span></h2>
                      <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
                         <ngb-rating [max]="5" [rate]="restaurant?.rate"  [readonly]="true"></ngb-rating>
-                         <!--
-                            <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
-                                class="vue-star-rating-star" step="10">
-                                <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#faad1d"></stop>
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#d8d8d8"></stop>
-                                </linearGradient>
-                                <filter data-v-21f5376e="" id="ytfl3" height="130%" width="130%"
-                                    filterUnits="userSpaceOnUse">
-                                    <feGaussianBlur data-v-21f5376e="" stdDeviation="0" result="coloredBlur">
-                                    </feGaussianBlur>
-                                    <feMerge data-v-21f5376e="">
-                                        <feMergeNode data-v-21f5376e="" in="coloredBlur"></feMergeNode>
-                                        <feMergeNode data-v-21f5376e="" in="SourceGraphic"></feMergeNode>
-                                    </feMerge>
-                                </filter>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#fff" filter="url(#ytfl3)"></polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#999" stroke-width="0" stroke-linejoin="miter">
-                                </polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)"></polygon>
-                            </svg>
-                            <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
-                                class="vue-star-rating-star" step="10">
-                                <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#faad1d"></stop>
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#d8d8d8"></stop>
-                                </linearGradient>
-                                <filter data-v-21f5376e="" id="ytfl3" height="130%" width="130%"
-                                    filterUnits="userSpaceOnUse">
-                                    <feGaussianBlur data-v-21f5376e="" stdDeviation="0" result="coloredBlur">
-                                    </feGaussianBlur>
-                                    <feMerge data-v-21f5376e="">
-                                        <feMergeNode data-v-21f5376e="" in="coloredBlur"></feMergeNode>
-                                        <feMergeNode data-v-21f5376e="" in="SourceGraphic"></feMergeNode>
-                                    </feMerge>
-                                </filter>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#fff" filter="url(#ytfl3)"></polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#999" stroke-width="0" stroke-linejoin="miter">
-                                </polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)"></polygon>
-                            </svg>
-                            <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
-                                class="vue-star-rating-star" step="10">
-                                <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#faad1d"></stop>
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#d8d8d8"></stop>
-                                </linearGradient>
-                                <filter data-v-21f5376e="" id="ytfl3" height="130%" width="130%"
-                                    filterUnits="userSpaceOnUse">
-                                    <feGaussianBlur data-v-21f5376e="" stdDeviation="0" result="coloredBlur">
-                                    </feGaussianBlur>
-                                    <feMerge data-v-21f5376e="">
-                                        <feMergeNode data-v-21f5376e="" in="coloredBlur"></feMergeNode>
-                                        <feMergeNode data-v-21f5376e="" in="SourceGraphic"></feMergeNode>
-                                    </feMerge>
-                                </filter>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#fff" filter="url(#ytfl3)"></polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#999" stroke-width="0" stroke-linejoin="miter">
-                                </polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)"></polygon>
-                            </svg>
-                            <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
-                                class="vue-star-rating-star" step="10">
-                                <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#faad1d"></stop>
-                                    <stop data-v-21f5376e="" offset="100%" stop-color="#d8d8d8"></stop>
-                                </linearGradient>
-                                <filter data-v-21f5376e="" id="ytfl3" height="130%" width="130%"
-                                    filterUnits="userSpaceOnUse">
-                                    <feGaussianBlur data-v-21f5376e="" stdDeviation="0" result="coloredBlur">
-                                    </feGaussianBlur>
-                                    <feMerge data-v-21f5376e="">
-                                        <feMergeNode data-v-21f5376e="" in="coloredBlur"></feMergeNode>
-                                        <feMergeNode data-v-21f5376e="" in="SourceGraphic"></feMergeNode>
-                                    </feMerge>
-                                </filter>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#fff" filter="url(#ytfl3)"></polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)" stroke="#999" stroke-width="0" stroke-linejoin="miter">
-                                </polygon>
-                                <polygon data-v-21f5376e=""
-                                    points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
-                                    fill="url(#eelzk)"></polygon>
-                            </svg>-->
 
-                        </span> 4.6 (17611)</h5>
+                        </span> {{ restaurant?.rate }}</h5>
                     <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i> Cairo <a
                         routerLink="/restaurant/{{restID}}/info/{{restID}}"> {{ restaurant?.adress }} </a></h3>
                 </div>
@@ -179,9 +74,9 @@
                     </svg> {{"Hygine" | translate}}</span>
                 <span>
                     <i class="fas fa-bicycle"></i>
-                    90 {{"review" | translate}}</span>
-                <span><i class="fas fa-wallet"></i> 0 {{"min" | translate}}</span>
-                <span><i class="far fa-clock"></i>08:00 {{"am" | translate}} - 03:00 {{"pm" | translate}}</span>
+                    90 {{ "min" | translate}}</span>
+                <span><i class="fas fa-wallet"></i> 0 {{ "EGP" | translate}}</span>
+                <span><i class="far fa-clock"></i>{{ restaurant?.restaurantOpening }} {{"am" | translate}} - {{ restaurant?.restaurantClosing }} {{"pm" | translate}}</span>
             </div>
         </div>
     </div>
