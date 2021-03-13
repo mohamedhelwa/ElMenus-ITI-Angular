@@ -1,460 +1,621 @@
 <div class="hm-pg">
-    <!--	HomePage_Header_Section-->
-    <!-- Background image -->
-    <div id="intro">
-        <div class="mask">
-            <!--			Nav_bar-->
-            <nav class="navbar navbar-expand-md  navbar-dark">
+  <!--	HomePage_Header_Section-->
+  <!-- Background image -->
+  <div id="intro">
+    <div class="mask">
+      <!--			Nav_bar-->
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand" href="#"
+            ><img src="../../../assets/images/logo-landing.png" height="25"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul id="lgn-sign-sec" class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <!-- Button to Open the Modal -->
+                <div *ngIf="auth.user$ | async as user; else login">
+                  <ul id="cntct-info" class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link"
+                        ><img
+                          src="../../../assets/images/profile_no_pic.svg"
+                          style="width: 40px; height: 40px"
+                      /></a>
+                    </li>
+                    <li class="nav-item dropdown pt-3">
+                      <a
+                        class="nav-link dropdown-toggle d-inline"
+                        data-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        ><span id="usr-nm-val"></span
+                      ></a>
 
-                <div class="container">
+                      <div class="dropdown-menu">
+                        <i class="far fa-user ml-2 mr-2 pt-3"></i>
+                        <span class="text-muted">Your profile</span>
+                        <div class="ml-5">
+                          <span
+                            class="font-weight-bold"
+                            id="usr-nm-val2"
+                          ></span>
+                        </div>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <div class="dropdown-divider"></div> -->
 
-                    <!-- Navbar brand -->
-                    <a class="navbar-brand" href="#"><img src="../../../assets/images/logo-landing.png" height="25"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-
-                        <ul id="lgn-sign-sec" class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <!-- Button to Open the Modal -->
-                                <div *ngIf="auth.user$ | async as user; else login">
-                                    <ul id="cntct-info" class="navbar-nav ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link"><img src="../../../assets/images/profile_no_pic.svg"
-                                                    style="width: 40px; height: 40px;"></a>
-                                        </li>
-                                        <li class="nav-item dropdown pt-3">
-                                            <a class="nav-link dropdown-toggle d-inline" data-toggle="dropdown" href="#"
-                                                role="button" aria-haspopup="true" aria-expanded="false"><span
-                                                    id="usr-nm-val"></span></a>
-
-                                            <div class="dropdown-menu">
-                                                <i class="far fa-user ml-2 mr-2 pt-3 "></i> <span
-                                                    class="text-muted">Your
-                                                    profile</span>
-                                                <div class="ml-5"> <span class="font-weight-bold"
-                                                        id="usr-nm-val2"></span></div>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Account Settings</a>
-                                                <div class="dropdown-divider"></div>
-
-                                                <a id="lgt-btn" class="dropdown-item" (click)="auth.signOut()">Log
-                                                    Out</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                                <ng-template #login>
-                                    <ul class="ml-auto list-group navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link"><button id="nv-lgn-lnk" type="button"
-                                                    class="btn btn-link" data-toggle="modal" data-target="#myModal"
-                                                    data-backdrop="static"
-                                                    data-keyboard="false">{{"hm-Login" | translate}}</button></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link"><button type="button" id="hm-signup-btn"
-                                                    class="btn btn-danger" data-toggle="modal"
-                                                    data-target="#mySignUpModal" data-backdrop="static"
-                                                    data-keyboard="false">{{"hm-SIGNUP" | translate}}</button></a>
-                                        </li>
-                                    </ul>
-                                </ng-template>
-                            </li>
-                            <!-- Translation -->
-                            <div *ngIf="lang == 'en'; else arSection">
-                                <li class="nav-item">
-                                    <a class="nav-link">
-                                        <button type="button" class="btn btn-link" (click)="changeLanguage('ar')"
-                                            style="color: white">العربية</button>
-                                    </a>
-                                </li>
-                            </div>
-                            <ng-template #arSection>
-                                <li class="nav-item">
-                                    <a class="nav-link">
-                                        <button type="button" class="btn btn-link" (click)="changeLanguage('en')"
-                                            style="color: white">English</button>
-                                    </a>
-                                </li>
-                            </ng-template>
-                            <!-- Translation -->
-
-                            <!--Modal-->
-                            <div class="modal fade" id="myModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <!-- Modal Header -->
-                                        <div class="modal-header text-center">
-                                            <img class="modal-title w-100 mt-2 mb-2"
-                                                src="../../../assets/images/logo.svg" height="25">
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                        </div>
-
-                                        <!-- Modal body -->
-                                        <form>
-                                            <div class="form-group">
-                                                <div class="modal-body mx-3">
-                                                    <div class="md-form mb-4">
-                                                        <input #emailLogin type="text" id="usr-nm"
-                                                            class="form-control validate" placeholder="username">
-                                                    </div>
-                                                    <div class="md-form mb-1">
-                                                        <input #passLogin type="password" id="defaultForm-pass"
-                                                            class="form-control validate" placeholder="password">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer justify-content-center">
-                                                <button id="Modal-Lgn-btn" type="button"
-                                                    class="btn btn-danger btn-block " data-dismiss="modal"
-                                                    (click)="auth.signIn(emailLogin.value,passLogin.value)">Login</button>
-                                                <button id="Login-FB-btn" type="button"
-                                                    class="btn btn-primary btn-block">Continue With Facebook </button>
-                                                <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end_Modal-->
-
-                            <!--signup_Modal-->
-                            <div class="modal fade" id="mySignUpModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <!-- Modal Header -->
-                                        <div class="modal-header text-center">
-                                            <img class="modal-title w-100 mt-2 mb-2"
-                                                src="../../../assets/images/logo.svg" height="25">
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                        </div>
-
-                                        <!-- Modal body -->
-                                        <form>
-                                            <div class="form-group">
-                                                <div class="modal-body mx-3">
-                                                    <div class="md-form mb-4">
-                                                        <input #name type="text" id="reg-usr-nm"
-                                                            class="form-control validate" placeholder="name">
-                                                    </div>
-                                                    <div class="md-form mb-4">
-                                                        <input #email type="text" id="usr-mail"
-                                                            class="form-control validate" placeholder="email">
-                                                    </div>
-                                                    <div class="md-form mb-1">
-                                                        <input #password type="password" id="usr-pass"
-                                                            class="form-control validate" placeholder="password">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer justify-content-center">
-                                                <button id="ModalSignUp-btn" type="button"
-                                                    (click)="auth.signUp(email.value,password.value,name.value)"
-                                                    class="mb-5 btn btn-danger btn-block " data-dismiss="modal">Create
-                                                    Account</button>
-                                                <p class="pb-3 text-center form-text text-muted">By creating an account,
-                                                    you agree to our Terms of service and Privacy policy</p>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end_signup_Modal-->
-
-                        </ul>
-                    </div>
-
-
+                        <a
+                          id="lgt-btn"
+                          class="dropdown-item"
+                          (click)="auth.signOut()"
+                          >Log Out</a
+                        >
+                      </div>
+                    </li>
+                  </ul>
                 </div>
 
-            </nav>
-            <!--			End_Nav_bar-->
+                <ng-template #login>
+                  <ul class="ml-auto list-group navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link"
+                        ><button
+                          id="nv-lgn-lnk"
+                          type="button"
+                          class="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#myModal"
+                          data-backdrop="static"
+                          data-keyboard="false"
+                        >
+                          {{ "hm-Login" | translate }}
+                        </button></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link"
+                        ><button
+                          type="button"
+                          id="hm-signup-btn"
+                          class="btn btn-danger"
+                          data-toggle="modal"
+                          data-target="#mySignUpModal"
+                          data-backdrop="static"
+                          data-keyboard="false"
+                        >
+                          {{ "hm-SIGNUP" | translate }}
+                        </button></a
+                      >
+                    </li>
+                  </ul>
+                </ng-template>
+              </li>
+              <!-- Translation -->
+              <div *ngIf="lang == 'en'; else arSection">
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <button
+                      type="button"
+                      class="btn btn-link"
+                      (click)="changeLanguage('ar')"
+                      style="color: white"
+                    >
+                      العربية
+                    </button>
+                  </a>
+                </li>
+              </div>
+              <ng-template #arSection>
+                <li class="nav-item">
+                  <a class="nav-link">
+                    <button
+                      type="button"
+                      class="btn btn-link"
+                      (click)="changeLanguage('en')"
+                      style="color: white"
+                    >
+                      English
+                    </button>
+                  </a>
+                </li>
+              </ng-template>
+              <!-- Translation -->
 
-            <!--		Main_section_BG-->
-            <section class="first-section">
-                <div class="container mt-4">
-                    <div class="mb-5">
-                        <h1 class="st-hdr-title text-white text-center">{{'hm-main-header' | translate}}</h1>
+              <!--Modal-->
+              <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header text-center">
+                      <img
+                        class="modal-title w-100 mt-2 mb-2"
+                        src="../../../assets/images/logo.svg"
+                        height="25"
+                      />
+                      <button type="button" class="close" data-dismiss="modal">
+                        ×
+                      </button>
                     </div>
-                    <!--					Form_Group-->
-                    <form class="mb-5" [formGroup]="restaurantSearchFrm" (ngSubmit)="viewRestaurant()">
-                        <div class="form-row align-items-center">
-                            <div class="form-group col-md-8 col-sm-12 my-1">
-                                <div class="input-group search-hm">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text" style="background-color: white;"><i
-                                                class="fas fa-gift"></i></div>
-                                    </div>
 
-                                    <input type="text" formControlName="restaurantName" class="form-control search-hm"
-                                        id="inlineFormInputGroupUsername"
-                                        placeholder="eg: KFC, Zack's, McDonald's, Gambarina Hago " autocomplete="off"
-                                        required>
+                    <!-- Modal body -->
+                    <form>
+                      <div class="form-group">
+                        <div class="modal-body mx-3">
+                          <div class="md-form mb-4">
+                            <input
+                              #emailLogin
+                              type="text"
+                              id="usr-nm"
+                              class="form-control validate"
+                              name="validate"
+                              #validate="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required
+                            />
+                            <small class="form-text text-muted"
+                              >example@example.com</small
+                            >
+                          </div>
+                          <div class="md-form mb-1">
+                            <input
+                              #passLogin
+                              type="password"
+                              id="defaultForm-pass"
+                              class="form-control validate"
+                              name="validate2"
+                              #validate2="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer justify-content-center">
+                        <button
+                          id="Modal-Lgn-btn"
+                          type="button"
+                          class="btn btn-danger btn-block"
+                          data-dismiss="modal"
+                          (click)="
+                            auth.signIn(emailLogin.value, passLogin.value)
+                          "
+                        >
+                          Login
+                        </button>
+                        <!-- <a id="frgt-lnk" href="#" class="text-center"
+                          >Forgot Password</a
+                        > -->
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--end_Modal-->
 
-                                    <div class="input-group-append search-hm">
-                                        <div class="input-group-text" style="background-color: white;"><i
-                                                class="fas fa-search"></i></div>
-                                    </div>
-                                </div>
-                                <!-- <div *ngIf="(restaurantSearchFrm.controls['restaurantName'].touched)" 
+              <!--signup_Modal-->
+              <div class="modal fade" id="mySignUpModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header text-center">
+                      <img
+                        class="modal-title w-100 mt-2 mb-2"
+                        src="../../../assets/images/logo.svg"
+                        height="25"
+                      />
+                      <button type="button" class="close" data-dismiss="modal">
+                        ×
+                      </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <form>
+                      <div class="form-group">
+                        <div class="modal-body mx-3">
+                          <div class="md-form mb-4">
+                            <input
+                              #name
+                              type="text"
+                              id="reg-usr-nm"
+                              class="form-control validate"
+                              name="validate5"
+                              #validate5="ngModel"
+                              ngModel
+                              pattern="[Aa-Zz]"
+                              placeholder="name"
+                              required
+                            />
+                          </div>
+                          <div class="md-form mb-4">
+                            <input
+                              #email
+                              type="text"
+                              id="usr-mail"
+                              class="form-control validate"
+                              name="validate3"
+                              #validate3="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required
+                            />
+                            
+                          </div>
+                          <div class="md-form mb-1">
+                            <input
+                              #password
+                              type="password"
+                              id="usr-pass"
+                              class="form-control validate"
+                              name="validate4"
+                              #validate4="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required
+                            />
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer justify-content-center">
+                        <button
+                          id="ModalSignUp-btn"
+                          type="button"
+                          (click)="
+                            auth.signUp(email.value, password.value, name.value)
+                          "
+                          class="mb-5 btn btn-danger btn-block"
+                          data-dismiss="modal"
+                        >
+                          Create Account
+                        </button>
+                        <p class="pb-3 text-center form-text text-muted">
+                          By creating an account, you agree to our Terms of
+                          service and Privacy policy
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--end_signup_Modal-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--			End_Nav_bar-->
+
+      <!--		Main_section_BG-->
+      <section class="first-section">
+        <div class="container mt-4">
+          <div class="mb-5">
+            <h1 class="st-hdr-title text-white text-center">
+              {{ "hm-main-header" | translate }}
+            </h1>
+          </div>
+          <!--					Form_Group-->
+          <form
+            class="mb-5"
+            [formGroup]="restaurantSearchFrm"
+            (ngSubmit)="viewRestaurant()"
+          >
+            <div class="form-row align-items-center">
+              <div class="form-group col-md-8 col-sm-12 my-1">
+                <div class="input-group search-hm">
+                  <div class="input-group-prepend">
+                    <div
+                      class="input-group-text"
+                      style="background-color: white"
+                    >
+                      <i class="fas fa-gift"></i>
+                    </div>
+                  </div>
+
+                  <input
+                    type="text"
+                    formControlName="restaurantName"
+                    class="form-control search-hm"
+                    id="inlineFormInputGroupUsername"
+                    placeholder="eg: KFC, Zack's, McDonald's, Gambarina Hago "
+                    autocomplete="off"
+                  />
+
+                  <div class="input-group-append search-hm">
+                    <div
+                      class="input-group-text"
+                      style="background-color: white"
+                    >
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div *ngIf="(restaurantSearchFrm.controls['restaurantName'].touched)" 
                                       class="alert alert-danger">
                                             Restaurant Name is required.        
                                 </div> -->
+              </div>
+              <!--    DropDown-->
+              <div class="pl-md-0 col-md-2 col-sm-8">
+                <select
+                  formControlName="selectedBranch"
+                  [(ngModel)]="defaultVal"
+                  id="drpdwn-hm"
+                  class="form-control"
+                  name="location"
+                >
+                  <option
+                    *ngFor="let branch of branches; let i = index"
+                    [value]="branch.branchName"
+                  >
+                    {{ branch.branchName }}
+                  </option>
+                </select>
+              </div>
 
-                            </div>
-                            <!--    DropDown-->
-                            <div class="pl-md-0 col-md-2 col-sm-8">
-                                <select formControlName="selectedBranch" [(ngModel)]="defaultVal" id="drpdwn-hm"
-                                    class="form-control" name="location" required>
-                                    <option *ngFor="let branch of branches; let i = index" [value]='branch.branchName'>
-                                        {{branch.branchName}}
-                                    </option>
-                                </select>
-                            </div>
+              <!--    DropDown-->
+              <!--   Button-->
+              <div class="col-md-2 col-sm-4 my-1">
+                <button
+                  id="go-btn"
+                  (click)="viewRestaurant()"
+                  type="submit"
+                  class="btn btn-danger"
+                >
+                  {{ "hm-go-btn" | translate
+                  }}<i class="pl-2 fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!--   Button-->
 
-                            <!--    DropDown-->
-                            <!--   Button-->
-                            <div class="col-md-2 col-sm-4 my-1">
-                                <button id="go-btn" (click)="viewRestaurant()" type="submit" class="btn btn-danger">
-                                    {{'hm-go-btn' | translate}}<i class="pl-2 fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                    <!--   Button-->
+          <!--					end_Form_Group-->
+          <!--  -->
+          <!--				gift_Black_Box-->
+          <div class="blackBx-mask2 text-white text-center mb-5">
+            <div class="row pt-4 pb-4">
+              <div class="col-sm-2 ml-sm-4">
+                <img src="../../../assets/images/surprise.png" />
+              </div>
+              <div class="col-sm-8 col-xs-9">
+                <h5 style="font-weight: 350; line-height: 1.3">
+                  {{ "hm-send-food" | translate }}
+                  <a routerLink="/giftmeals" routerLinkActive="active">{{
+                    "hm-send-food-link" | translate
+                  }}</a>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!--				gift_Black_Box-->
 
-                    <!--					end_Form_Group-->
-                    <!--  -->
-                    <!--				gift_Black_Box-->
-                    <div class="blackBx-mask2 text-white text-center mb-5">
-                        <div class="row pt-4 pb-4">
-                            <div class=" col-sm-2 ml-sm-4">
-                                <img src="../../../assets/images/surprise.png">
-                            </div>
-                            <div class=" col-sm-8 col-xs-9">
-                                <h5 style="font-weight:350; line-height: 1.3;">
-                                    {{"hm-send-food" | translate}}
-                                    <a routerLink="/giftmeals"
-                                        routerLinkActive="active">{{"hm-send-food-link" | translate}}</a>
-                                </h5>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--				gift_Black_Box-->
-
-                    <!--Delivery | Dine Out_section	-->
-                    <section>
-                        <h4 class="text-white text-center mb-4">{{ "hm-explore-elmenus" | translate}}</h4>
-                        <div class="card delivery-dineout-hm">
-
-                            <div class="container">
-                                <!--			2 Cards-->
-                                <!--			row-cols-1 row-cols-md-2-->
-                                <div class="row  pt-md-4 pb-md-4">
-                                    <div id="clickable-delivery" class="col-lg-6 vl clickable">
-                                        <a routerLink="/delivery">
-                                            <!-- Card -->
-                                            <div class="card crd-no-brdr">
-
-                                                <!--Card content-->
-                                                <div class="card-body">
-
-                                                    <!--Title-->
-                                                    <div class="row">
-                                                        <div class="col-10">
-                                                            <h4 class="card-title"><i
-                                                                    class="mr-1 fas fa-motorcycle"></i>
-                                                                {{"hm-Delivery" | translate}}</h4>
-                                                        </div>
-                                                        <div class="col-1 ml-md-4">
-                                                            <span>
-                                                                <i class="fas fa-lg fa-arrow-right"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                    <!--Text-->
-                                                    <p class="card-text">{{"hm-Get food delivered" | translate}}</p>
-                                                </div>
-
-                                            </div>
-                                            <hr class="d-lg-none">
-                                            <!-- Card -->
-                                        </a>
-                                    </div>
-
-                                    <div id="clickable-dineout" class="col-lg-6 clickable">
-                                        <a routerLink="/dineout" routerLinkActive="active">
-                                            <!-- second-Card -->
-                                            <div class="card crd-no-brdr">
-
-                                                <!--Card content-->
-                                                <div class="card-body">
-
-                                                    <!--Title-->
-                                                    <div class="row">
-                                                        <div class="col-10">
-                                                            <h4 class="card-title"><i class="mr-1 fas fa-utensils"></i>
-                                                                {{"hm-Dine Out" | translate}}</h4>
-                                                        </div>
-                                                        <div class="col-1 ml-md-4">
-                                                            <span>
-                                                                <i class="fas fa-lg fa-arrow-right"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                    <!--Text-->
-                                                    <p class="card-text">{{"hm-Browse restaurants by" | translate}}</p>
-                                                </div>
-
-                                            </div>
-                                            <!-- Card -->
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <!--			2 Cards-->
-                            </div>
-                        </div>
-                    </section>
-                    <!--Delivery | Dine Out_section	-->
-
-                </div>
-            </section>
-            <!--		end_Main_section_BG-->
-        </div>
-    </div>
-    <!-- Background image -->
-    <!--	HomePage_Header_Section-->
-
-
-    <!--	Second-section-Online_order-->
-    <section class="hm-online-ordr text-center">
-        <!--		second-section-header-->
-        <div class="scnd-section-header mt-4">
-            <h3 class="hdr-subtitle mb-4 d-xl-none">{{"hm-Now you can" | translate}}</h3>
-            <h2 class="hdr-title text-uppercase">
-                <span style="color: #e5533a;">{{"hm-order-wrd" | translate}}</span>
-                <div>
-                    <span style="color: #e9725d;">{{"hm-online-wrd" | translate}}</span>
-                </div>
-            </h2>
-        </div>
-        <!--		second-section-header-->
-
-        <!--		second-section-body-->
-        <div class="scnd-section-body">
-            <div class="container-fluid ">
+          <!--Delivery | Dine Out_section	-->
+          <section>
+            <h4 class="text-white text-center mb-4">
+              {{ "hm-explore-elmenus" | translate }}
+            </h4>
+            <div class="card delivery-dineout-hm">
+              <div class="container">
                 <!--			2 Cards-->
                 <!--			row-cols-1 row-cols-md-2-->
-                <div class="row  pt-md-4 pb-md-4 mr-lg-5 ml-lg-5 ml-md-1 mr-md-1">
-                    <div class="col-lg-6 clickable">
-
-                        <!-- Card -->
-                        <div class="card shadow" style="border-radius: 15px;">
-
-                            <!--Card content-->
-                            <div class="card-body pl-0">
-
-                                <!--Title-->
-                                <div class="row pb-3">
-                                    <div class="col-2">
-                                        <img src="../../../assets/images/track-order.svg">
-                                    </div>
-                                    <div class="col-10 text-left pt-3 mt-md-2">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">
-                                            {{"hm-Track your order" | translate}}</h5>
-                                        <!--Text-->
-                                        <p class="card-text pt-1" style="margin-left: 50px">{{"hm-Want to know your order
-                                            status" | translate}}</p>
-                                    </div>
-                                </div>
-
+                <div class="row pt-md-4 pb-md-4">
+                  <div id="clickable-delivery" class="col-lg-6 vl clickable">
+                    <a routerLink="/delivery">
+                      <!-- Card -->
+                      <div class="card crd-no-brdr">
+                        <!--Card content-->
+                        <div class="card-body">
+                          <!--Title-->
+                          <div class="row">
+                            <div class="col-10">
+                              <h4 class="card-title">
+                                <i class="mr-1 fas fa-motorcycle"></i>
+                                {{ "hm-Delivery" | translate }}
+                              </h4>
                             </div>
-
-                        </div>
-                        <div class="d-lg-none mt-4"></div>
-                        <!-- Card -->
-                    </div>
-
-                    <!--			  Second-crd-->
-                    <div class="col-lg-6 clickable">
-
-                        <!-- Card -->
-                        <div class="card shadow" style="border-radius: 15px;">
-
-                            <!--Card content-->
-                            <div class="card-body pl-0">
-
-                                <!--Title-->
-                                <div class="row pb-4">
-                                    <div class="col-2 mt-3">
-                                        <img src="../../../assets/images/no-phone.svg">
-                                    </div>
-                                    <div class="col-10 text-left pt-3 mt-md-3">
-                                        <h5 class="font-weight-bold" style="margin-left: 50px">
-                                            {{"hm-No phone calls" | translate}}</h5>
-                                        <!--Text-->
-                                        <p class="card-text pt-1" style="margin-left: 50px">
-                                            {{"hm-Order your favorite food" | translate}}</p>
-                                    </div>
-                                </div>
-
+                            <div class="col-1 ml-md-4">
+                              <span>
+                                <i class="fas fa-lg fa-arrow-right"></i>
+                              </span>
                             </div>
+                          </div>
 
+                          <!--Text-->
+                          <p class="card-text">
+                            {{ "hm-Get food delivered" | translate }}
+                          </p>
                         </div>
-                        <div class="d-lg-none mt-4"></div>
-                        <!-- Card -->
-                    </div>
-                    <!--			  Second-crd-->
+                      </div>
+                      <hr class="d-lg-none" />
+                      <!-- Card -->
+                    </a>
+                  </div>
 
+                  <div id="clickable-dineout" class="col-lg-6 clickable">
+                    <a routerLink="/dineout" routerLinkActive="active">
+                      <!-- second-Card -->
+                      <div class="card crd-no-brdr">
+                        <!--Card content-->
+                        <div class="card-body">
+                          <!--Title-->
+                          <div class="row">
+                            <div class="col-10">
+                              <h4 class="card-title">
+                                <i class="mr-1 fas fa-utensils"></i>
+                                {{ "hm-Dine Out" | translate }}
+                              </h4>
+                            </div>
+                            <div class="col-1 ml-md-4">
+                              <span>
+                                <i class="fas fa-lg fa-arrow-right"></i>
+                              </span>
+                            </div>
+                          </div>
+
+                          <!--Text-->
+                          <p class="card-text">
+                            {{ "hm-Browse restaurants by" | translate }}
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Card -->
+                    </a>
+                  </div>
                 </div>
                 <!--			2 Cards-->
+              </div>
             </div>
+          </section>
+          <!--Delivery | Dine Out_section	-->
         </div>
-        <!--		second-section-body-->
+      </section>
+      <!--		end_Main_section_BG-->
+    </div>
+  </div>
+  <!-- Background image -->
+  <!--	HomePage_Header_Section-->
 
+  <!--	Second-section-Online_order-->
+  <section class="hm-online-ordr text-center">
+    <!--		second-section-header-->
+    <div class="scnd-section-header mt-4">
+      <h3 class="hdr-subtitle mb-4 d-xl-none">
+        {{ "hm-Now you can" | translate }}
+      </h3>
+      <h2 class="hdr-title text-uppercase">
+        <span style="color: #e5533a">{{ "hm-order-wrd" | translate }}</span>
+        <div>
+          <span style="color: #e9725d">{{ "hm-online-wrd" | translate }}</span>
+        </div>
+      </h2>
+    </div>
+    <!--		second-section-header-->
 
-        <!--		second-section-footer-->
-        <div class="scnd-section-footer mt-5">
-            <div class="container pt-lg-4">
-                <div class="row">
-                    <div class="col-lg-8 text-lg-left">
-                        <h4 style="color: #8e52ff;">{{"hm-Looking for delivery" | translate}}</h4>
-                        <p dir="auto" style="font-size: 24px; font-weight: 500;">
-                            {{"hm-Look for restaurants that have this sign" | translate}} <span
-                                class="ordr-online-chck"><span class="ml-3 "><img
-                                        src="../../../assets/images/check-mark-circle.svg"></span><span
-                                    class="align-middle ml-1" style="font-size: 10px;
-font-weight: 700; color: #8e52ff;"> Order online
-                                </span></span></p>
-                    </div>
-                    <div class="col-lg-4 float-lg-right mt-3">
-                        <a routerLink="/delivery" routerLinkActive="active" id="hm-ordr-btn" class="text-uppercase btn">
-                            {{"hm-Order online now" | translate}}
-                        </a>
-                    </div>
+    <!--		second-section-body-->
+    <div class="scnd-section-body">
+      <div class="container-fluid">
+        <!--			2 Cards-->
+        <!--			row-cols-1 row-cols-md-2-->
+        <div class="row pt-md-4 pb-md-4 mr-lg-5 ml-lg-5 ml-md-1 mr-md-1">
+          <div class="col-lg-6 clickable">
+            <!-- Card -->
+            <div class="card shadow" style="border-radius: 15px">
+              <!--Card content-->
+              <div class="card-body pl-0">
+                <!--Title-->
+                <div class="row pb-3">
+                  <div class="col-2">
+                    <img src="../../../assets/images/track-order.svg" />
+                  </div>
+                  <div class="col-10 text-left pt-3 mt-md-2">
+                    <h5 class="font-weight-bold" style="margin-left: 50px">
+                      {{ "hm-Track your order" | translate }}
+                    </h5>
+                    <!--Text-->
+                    <p class="card-text pt-1" style="margin-left: 50px">
+                      {{
+                        "hm-Want to know your order
+                                            status"
+                          | translate
+                      }}
+                    </p>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div class="d-lg-none mt-4"></div>
+            <!-- Card -->
+          </div>
+
+          <!--			  Second-crd-->
+          <div class="col-lg-6 clickable">
+            <!-- Card -->
+            <div class="card shadow" style="border-radius: 15px">
+              <!--Card content-->
+              <div class="card-body pl-0">
+                <!--Title-->
+                <div class="row pb-4">
+                  <div class="col-2 mt-3">
+                    <img src="../../../assets/images/no-phone.svg" />
+                  </div>
+                  <div class="col-10 text-left pt-3 mt-md-3">
+                    <h5 class="font-weight-bold" style="margin-left: 50px">
+                      {{ "hm-No phone calls" | translate }}
+                    </h5>
+                    <!--Text-->
+                    <p class="card-text pt-1" style="margin-left: 50px">
+                      {{ "hm-Order your favorite food" | translate }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-lg-none mt-4"></div>
+            <!-- Card -->
+          </div>
+          <!--			  Second-crd-->
         </div>
-        <!--		second-section-footer-->
-    </section>
-    <!--	Second-section-Online_order-->
+        <!--			2 Cards-->
+      </div>
+    </div>
+    <!--		second-section-body-->
 
-
+    <!--		second-section-footer-->
+    <div class="scnd-section-footer mt-5">
+      <div class="container pt-lg-4">
+        <div class="row">
+          <div class="col-lg-8 text-lg-left">
+            <h4 style="color: #8e52ff">
+              {{ "hm-Looking for delivery" | translate }}
+            </h4>
+            <p dir="auto" style="font-size: 24px; font-weight: 500">
+              {{ "hm-Look for restaurants that have this sign" | translate }}
+              <span class="ordr-online-chck"
+                ><span class="ml-3"
+                  ><img
+                    src="../../../assets/images/check-mark-circle.svg" /></span
+                ><span
+                  class="align-middle ml-1"
+                  style="font-size: 10px; font-weight: 700; color: #8e52ff"
+                >
+                  Order online
+                </span></span
+              >
+            </p>
+          </div>
+          <div class="col-lg-4 float-lg-right mt-3">
+            <a
+              routerLink="/delivery"
+              routerLinkActive="active"
+              id="hm-ordr-btn"
+              class="text-uppercase btn"
+            >
+              {{ "hm-Order online now" | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--		second-section-footer-->
+  </section>
+  <!--	Second-section-Online_order-->
 </div>
 <app-footer></app-footer>

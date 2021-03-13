@@ -79,9 +79,9 @@
     </ul>
     <!-----right Side -->
     <ul class="navbar-nav navbar-after mr-5 mt-2 mt-lg-0">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-bell"></i>{{'Notification'|translate}}</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">{{'My Orders'|translate}}</a>
       </li>
@@ -155,11 +155,21 @@
                   <div class="modal-body mx-3">
                       <div class="md-form mb-4">
                           <input #emailLogin type="text" id="usr-nm"
-                              class="form-control validate" placeholder="username">
+                              class="form-control validate" name="validate"
+                              #validate="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required/>
                       </div>
                       <div class="md-form mb-1">
                           <input #passLogin type="password" id="defaultForm-pass"
-                              class="form-control validate" placeholder="password">
+                              class="form-control validate"name="validate2"
+                              #validate2="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required>
                       </div>
                   </div>
               </div>
@@ -168,9 +178,9 @@
                   <button id="Modal-Lgn-btn" type="button"
                       class="btn btn-danger btn-block " data-dismiss="modal"
                       (click)="auth.signIn(emailLogin.value,passLogin.value)">Login</button>
-                  <button id="Login-FB-btn" type="button"
+                  <!-- <button id="Login-FB-btn" type="button"
                       class="btn btn-primary btn-block">Continue With Facebook </button>
-                  <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a>
+                  <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a> -->
               </div>
           </form>
 
@@ -197,15 +207,31 @@
                   <div class="modal-body mx-3">
                       <div class="md-form mb-4">
                           <input #name type="text" id="reg-usr-nm"
-                              class="form-control validate" placeholder="name">
+                              class="form-control validate"name="validate5"
+                              #validate5="ngModel"
+                              ngModel
+                              pattern="[Aa-Zz]"
+                              placeholder="name"
+                              required />
                       </div>
                       <div class="md-form mb-4">
                           <input #email type="text" id="usr-mail"
-                              class="form-control validate" placeholder="email">
+                              class="form-control validate"
+                              name="validate3"
+                              #validate3="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required />
                       </div>
                       <div class="md-form mb-1">
                           <input #password type="password" id="usr-pass"
-                              class="form-control validate" placeholder="password">
+                              class="form-control validate"name="validate4"
+                              #validate4="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required />
                       </div>
                   </div>
 
