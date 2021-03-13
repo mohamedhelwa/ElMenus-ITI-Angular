@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 import { Reviews } from 'src/app/ViewModels/reviews';
 
 @Component({
@@ -17,6 +18,8 @@ export class ResturantReviewsComponent implements OnInit {
     comment="";
     restID: string = "";
     UserId = localStorage.getItem("userId");
+    restName="";
+    resturant:Restaurants;
 
     reviewList:Reviews[];
     review$: Observable<Reviews[]>;
@@ -29,35 +32,39 @@ export class ResturantReviewsComponent implements OnInit {
     this.resturantId$ = new BehaviorSubject(productIDParam);
     
     this.restID = productIDParam;
-
-    console.log(this.restID)
-    console.log(this.UserId)
   }
 
   ngOnInit(): void {
+    this.afs.collection('Restaurants').doc(this.restID).ref.get().then((response) =>{
+      this.resturant = response.data();
+      this.restName = this.resturant.restaurantName
+
+    }).catch(function (error) {
+      console.log("There was an error getting your document:", error);
+    });
+
+
     this.review$ = this.resturantId$.pipe(
       switchMap(restId =>
         this.afs.collection<Reviews>('Reviews', ref => ref.where('restaurantId', '==', restId)).valueChanges()
       )
     )
-    console.log(this.review$);
     
     this.review$.subscribe(reviews =>{
       this.reviewList = reviews
       
     })
-    // console.log(this.reviewList)
   }
 
   addReview(){
     this.addAnReivew = {
       restaurantId:this.restID,
+      restaurantName:this.restName,
       userId:this.UserId,
       userName: this.userName,
-      reviewRate:this.rate,
+      reviewRate:this.rate.toString(),
       reviewText:this.comment
     }
-    // console.log(this.addAnReivew)
     this.afs.collection('Reviews').add({...this.addAnReivew}).then(()=> console.log('sucsses'))
   }
 

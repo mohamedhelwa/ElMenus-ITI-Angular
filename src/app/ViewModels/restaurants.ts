@@ -10,6 +10,7 @@ export class Restaurants {
   restaurantType?: string;
   restaurantFeaturedPhotos?: string[];
   reviews?: number =0;
+  rate?: number=0;
 
   /*constructor(
     id:string,

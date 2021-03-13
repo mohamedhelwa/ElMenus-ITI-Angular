@@ -36,7 +36,6 @@ export class ResturantInfoComponent implements OnInit {
       this.featuredPhotos = this.resturant.restaurantFeaturedPhotos;
       this.resturantAddress = this.resturant.adress;      
 
-      console.log(this.resturant)
     }).catch(function (error) {
       console.log("There was an error getting your document:", error);
     });

@@ -2,7 +2,7 @@ export class Reviews {
 
     id?:string;
     restaurantId: string;
-    reviewRate: number;
+    reviewRate: any ;
     reviewText: string;
     userId: string;
     userName: string;

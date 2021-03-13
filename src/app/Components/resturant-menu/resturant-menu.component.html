@@ -6,7 +6,7 @@
           class="list-group-item list-group-item-action cat"
           style="cursor: pointer"
         >
-          <i class="far fa-thumbs-up pr-2"></i>top dishes<i
+          <i class="far fa-thumbs-up pr-2"></i>{{"topDish" | translate}}<i
             class="fas fa-arrow-right float-right"
           ></i>
         </span>
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="col-md-9 pt-3">
-    <h4 class="collection-title">Top Dishes</h4>
+    <h4 class="collection-title">{{"topDish" | translate}}</h4>
     <div class="row colection" *ngFor="let item of menu">
       <div class="col-md-8">
         <p class="meal-info">{{ item.dishDescription }}</p>
@@ -33,11 +33,11 @@
           <p class="meal-info py-3">{{ item.dishDescription }}</p>
           <div class="dish-size p-2">
             <h3>Choose Size :</h3>
-            <input type="radio" checked="checked" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">Small </span>
+            <input type="radio" checked="checked" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"small" | translate}} </span>
             <br/>
-            <input type="radio" value="medium" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">Medium </span>
+            <input type="radio" value="medium" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"midum" | translate}} </span>
             <br/>
-            <input type="radio" value="large" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">Large </span>
+            <input type="radio" value="large" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"large" | translate}} </span>
           </div>
           <p class="addToOrder">
             <i class="fas fa-minus-circle f" (click)="remOrder()"></i>{{ add
@@ -51,7 +51,7 @@
             (click)="modal.close(); buy(item)"
             [disabled]="userID == null"
           >
-            Add to cart
+          {{"addtocart" | translate}}
           </button>
         </div>
       </ng-template>
@@ -67,12 +67,12 @@
           [ngbPopover]="popContent"
           [autoClose]="'outside'"
         >
-          {{ itemsNumber }} items has been added to basket !
+          {{ itemsNumber }} {{"added" | translate}} !
         </p>
       </div>
       <div class="col-md-6 px-4">
         <p (click)="goto()" class="float-right p-0 link">
-          Go to checkout <i class="fas fa-arrow-right"></i>
+          {{"goCheckOut" | translate}}  <i class="fas fa-arrow-right"></i>
         </p>
       </div>
     </div>
@@ -89,8 +89,8 @@
           />
           <div class="d-inline-block">
             <h3>{{ item.dishName }}</h3>
-            <h4> Quantity: {{ item.dishQuantity }}</h4>
-            <h4>Size : {{item.dishSize}}</h4>
+            <h4> {{"qunt" | translate}}: {{ item.dishQuantity }}</h4>
+            <h4>{{"size" | translate}} : {{item.dishSize}}</h4>
           </div>
         </div>
         <div class="col-md-2">
@@ -99,7 +99,7 @@
       </div>
     </div>
     <br/>
-    <h3> Total Price : {{ totalOrderPrice }}</h3>
+    <h3> {{"total" | translate}} : {{ totalOrderPrice }}</h3>
     <br/>
   </ng-template>
 </div>
