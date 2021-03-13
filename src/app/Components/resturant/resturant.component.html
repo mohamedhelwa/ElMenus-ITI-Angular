@@ -10,10 +10,12 @@
     <div class="row mx-4 cove-logo-content">
         <div class="col-md-8 px-4">
             <div class="cover-logo">
-                <img src="{{restaurant.logo}}" class="img-fluid"  alt="resturant-logo">
+                <img src="{{restaurant?.logo}}" class="img-fluid"  alt="resturant-logo">
                 <div class="rest-info pt-2">
-                    <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>order online</span></h2>
-                    <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
+                    <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>{{"OrderOnline" | translate}}</span></h2>
+                     <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
+                        <ngb-rating [max]="5" [rate]="restaurant?.rate"  [readonly]="true"></ngb-rating>
+                         <!--
                             <svg data-v-21f5376e="" data-v-34cbeed1="" height="14" width="14" viewBox="0 0 14 14"
                                 class="vue-star-rating-star" step="10">
                                 <linearGradient data-v-21f5376e="" id="eelzk" x1="0" x2="100%" y1="0" y2="0">
@@ -117,7 +119,7 @@
                                 <polygon data-v-21f5376e=""
                                     points="6.363636363636363,0.7070707070707071,2.121212121212121,14,12.727272727272727,5.515151515151515,0,5.515151515151515,10.606060606060606,14"
                                     fill="url(#eelzk)"></polygon>
-                            </svg>
+                            </svg>-->
 
                         </span> 4.6 (17611)</h5>
                     <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i> Cairo <a
@@ -139,16 +141,16 @@
             <div class="menu-container">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}" routerLinkActive="active" >Menu</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}" routerLinkActive="active" >{{"Menu" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}" routerLinkActive="active">About</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}" routerLinkActive="active">{{"About" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}" routerLinkActive="active">Branches</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}" routerLinkActive="active">{{"branch" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}" routerLinkActive="active">Reviews</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}" routerLinkActive="active">{{"review" | translate}}</a>
                     </li>
                 </ul>
             </div>
@@ -174,12 +176,12 @@
                                 </g>
                             </g>
                         </g>
-                    </svg> Hygiene Checked</span>
+                    </svg> {{"Hygine" | translate}}</span>
                 <span>
                     <i class="fas fa-bicycle"></i>
-                    90 mins</span>
-                <span><i class="fas fa-wallet"></i> 0 EGP</span>
-                <span><i class="far fa-clock"></i>08:00 AM - 03:00 AM</span>
+                    90 {{"review" | translate}}</span>
+                <span><i class="fas fa-wallet"></i> 0 {{"min" | translate}}</span>
+                <span><i class="far fa-clock"></i>08:00 {{"am" | translate}} - 03:00 {{"pm" | translate}}</span>
             </div>
         </div>
     </div>
@@ -198,8 +200,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h2 class="card-title">Delivers to<span> {{ userAdress }} </span></h2>
-                    <button class="btn btn-address" (click)="gotoUserSetings()">Change Adress<i
+                    <h2 class="card-title">{{"DliversTo" | translate}}<span> {{ userAdress }} </span></h2>
+                    <button class="btn btn-address" (click)="gotoUserSetings()">{{"changeAdress" | translate}}<i
                             class="fas fa-arrow-right float-right"></i></button>
                 </div>
             </div>

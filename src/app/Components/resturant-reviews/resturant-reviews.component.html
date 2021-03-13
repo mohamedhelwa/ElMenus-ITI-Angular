@@ -1,21 +1,21 @@
     <div class="col-md-9 pt-3">
-      <h4 class="collection-title">Reviews</h4>
+      <h4 class="collection-title">{{"review" | translate}}</h4>
       <br/>
       <button class="btn buttonAdd-outline btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Write Review <i class="far fa-arrow-alt-circle-down"></i>
+        {{"addReview" | translate}} <i class="far fa-arrow-alt-circle-down"></i>
       </button>
       <div class="collapse" id="collapseExample">
         <div class="add-review jumbotron">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Name :</span>
+              <span class="input-group-text" id="basic-addon1">{{"name" | translate}}:</span>
             </div>
             <input type="text" [(ngModel)]="userName" class="form-control" placeholder="Your Name"  aria-describedby="basic-addon1">
           </div>
           
           <div class="input-group mb-3">
             <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2"> Rate :</span>
+              <span class="input-group-text" id="basic-addon2"> {{"rate" | translate}} :</span>
             </div>
             <input type="number" [(ngModel)]="rate" class="form-control" max="5" min="1" aria-describedby="basic-addon2">
            
@@ -23,12 +23,12 @@
           
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">Comment :</span>
+              <span class="input-group-text">{{"comment" | translate}} :</span>
             </div>
             <textarea class="form-control" [(ngModel)]="comment" aria-label="With textarea"></textarea>
           </div>
           <br/>
-          <button class="btn buttonAdd float-right" (click)="addReview()" > Add </button>
+          <button class="btn buttonAdd float-right" (click)="addReview()" >{{"add" | translate}}  </button>
         </div>
       </div>
       

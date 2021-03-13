@@ -1,16 +1,16 @@
   <div class="col-md-12 pt-3">
-    <h4 class="collection-title">About</h4>
+    <h4 class="collection-title">{{"About" | translate}}</h4>
     <div class="jumbotron jEnfo">
-      <p class="info-3-value"><i class="fas fa-home"></i> Phone : {{resturantPhone}}</p>
-      <p class="info-3-value"><i class="fas fa-map-marker-alt"></i> Address : {{resturantAddress}} <a
+      <p class="info-3-value"><i class="fas fa-home"></i> {{resturantPhone}}</p>
+      <p class="info-3-value"><i class="fas fa-map-marker-alt"></i> {{resturantAddress}} <a
         routerLink="/restaurant/{{restID}}/list/{{restID}}" > +{{returantBrnches.length}}</a></p>
-      <p class="info-3-value"><i class="far fa-clock"></i> Working Hours : {{workOpen}} - {{WrokClose}}</p>
+      <p class="info-3-value"><i class="far fa-clock"></i>  {{workOpen}} - {{WrokClose}}</p>
     </div>
-    <h4 class="start-title"> <i class="fab fa-instagram"></i> Featured photos</h4>
+    <h4 class="start-title"> <i class="fab fa-instagram"></i> {{"FeaterdPhotos" | translate}}</h4>
     <div class="card d-inline-block" *ngFor="let item of featuredPhotos">
       <img [src]="item" alt="dImg" class="d-block w-100">
     </div>
-    <h4 class="start-title"> <i class="fas fa-map-marker-alt"></i> Adrress</h4>
+    <h4 class="start-title"> <i class="fas fa-map-marker-alt"></i>{{"adress" | translate}}</h4>
     <p class="info-2-value"> {{ resturantAddress }} <a routerLink="/restaurant/{{restID}}/list/{{restID}}">+{{returantBrnches.length}}</a></p>
     <!--maps  -->
   <div class="row">
@@ -23,23 +23,23 @@
   </div>
     <h4 class="start-title">
       <i class="far fa-clock"></i>
-      Working Hours
+      {{"workingHours" | translate}}
     </h4>
     <p class="info-2-value">{{workOpen}} - {{WrokClose}} </p>
     <span class="text float-right">
       <i class="far fa-check-circle"></i>
-      open now
+      {{"open" | translate}}
     </span>
     <br> <br>
     <div class="row py-4">
       <div class="col-md-4">
         <h4 class="start-title pl-4">
           <i class="fas fa-bicycle"></i>
-          Delivery Area
+          {{"deleviry" | translate}}
         </h4>
         <span class="text  pl-4">
           <i class="far fa-check-circle"></i>
-          Delevers to you
+          {{"delevertou" | translate}}
         </span>
       </div>
       <div class="area float-right col-md-8">

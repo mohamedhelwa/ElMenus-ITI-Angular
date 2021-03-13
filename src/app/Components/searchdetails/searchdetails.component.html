@@ -27,7 +27,7 @@
         <img src="{{selectedResturant.logo}}" width="40px" height="40px"
           style="float: left;margin-right: 6px;">
         <p class="aria_parag">{{selectedResturant.restaurantType}}</p>
-        <ngb-rating [max]="5" [rate]="5"  [readonly]="true"></ngb-rating>
+        <ngb-rating [max]="5" [rate]="selectedResturant.rate"  [readonly]="true"></ngb-rating>
       </div>
       <div class="card-footer">
         <div class="row">
