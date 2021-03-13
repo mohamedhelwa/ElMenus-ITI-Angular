@@ -9,7 +9,7 @@
           class="list-group-item"
           *ngFor="let rest of restaurantList; let i = index"
         >
-        <img [src]="rest.restaurantFeaturedPhotos" width="40px" height="40px"style="margin-right: 10px;">
+        <img [src]="rest.logo" width="40px" height="40px"style="margin-right: 10px;">
 
           {{ rest.restaurantName}} 
          <button (click)="setActiveRestaurant(rest, i)" class="badge badge-pill" style="float: right;border: none;">Show Restaurant Details</button>

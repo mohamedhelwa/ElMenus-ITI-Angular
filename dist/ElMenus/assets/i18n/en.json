@@ -75,10 +75,7 @@
     "Change":"Change",
     "FindRestaurant":"Find a Restaurant",
 
-    "logout":"Logout",
-
-    "trackOrder":"Track Order",
-    "orderDetails":"Order Details"
+    "logout":"Logout"
     
 }
 

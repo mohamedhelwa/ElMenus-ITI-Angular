@@ -4,7 +4,12 @@
     <!-- order details header -->
     <div class="order-header">
         <div>
-            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder" (click)="reorder()">{{'reorder'|translate}}</button>
+            <button class="reorder-btn" id="reorder-btn" routerLink="/trackOrder" (click)="reorder()" 
+            *ngIf="selectedOrder.orderStatus != 'active' else trackBtn">{{'reorder'|translate}}</button>
+            <ng-template #trackBtn>
+                <button class="track-btn" id="reorder-btn" routerLink="/trackOrder"
+                 (click)="goTotrackOrder(selectedOrder.orderID)">{{'trackOrder'|translate}}</button>
+            </ng-template>
         </div>
         <!-- order image -->
         <img class="rest-image" id="rest-image" src={{selectedOrder.items[0].resturantLogo}}
@@ -18,7 +23,7 @@
                 <span id="order-date" style="font-size: 13px;">{{selectedOrder.orderDate}}</span>
                 <span id="order-id" style="font-size: 13px;">{{selectedOrder.orderID}}</span>
                 <a>
-                    <h6 class="action-btn bold support-btn underline orange pointer">{{'support'|translate}} </h6>
+                    <!-- <h6 class="action-btn bold support-btn underline orange pointer">{{'support'|translate}} </h6> -->
                 </a>
             </p>
         </div>

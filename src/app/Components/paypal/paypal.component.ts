@@ -1,45 +1,17 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 import { ICreateOrderRequest } from 'ngx-paypal';
-import { AuthService } from 'src/app/Services/auth.service';
-import { CheckoutService } from 'src/app/Services/checkout.service';
-import { CreateOrder } from 'src/app/ViewModels/create-order';
-import { Dishes } from 'src/app/ViewModels/dishes';
 
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss'],
-  providers: [
-    DatePipe
-  ]
+  selector: 'app-paypal',
+  templateUrl: './paypal.component.html',
+  styleUrls: ['./paypal.component.scss']
 })
-export class PaymentComponent implements OnInit {
-  userName: string = "";
-  address: string = "";
-  buildingNum: string = "";
-  mobNum: string = "";
-  userId: string = "";
-  order: any;
-  items: Dishes[];
-  paymentMethod:string = "Cash On Delivery";
-
+export class PaypalComponent implements OnInit {
   public payPalConfig: any;
+  public showPaypalButtons: boolean;
+  constructor() {}
 
-  constructor(private router:Router,
-    private db: AngularFirestore,
-    private chckoutService: CheckoutService,
-    private auth: AuthService,
-    private datePipe: DatePipe) { }
-
-  ngOnInit(): void {
-    this.order = JSON.parse(localStorage.getItem("order_data"));
-    console.log(JSON.parse(localStorage.getItem("order_data")));
-
-
-    // PayPal
+  ngOnInit() {
     this.payPalConfig = {
       currency: "EUR",
       clientId:
@@ -110,31 +82,11 @@ export class PaymentComponent implements OnInit {
       }
     };
   }
-
-  goToDelivery() {
-    this.router.navigate(["/delivery"]);
+  pay() {
+    this.showPaypalButtons = true;
   }
 
-  onPaymentChange(value:string){
-    console.log(value)
-    this.paymentMethod = value;
-  }
-  saveOrder() {
-    this.order.paymentMethod = this.paymentMethod;
-    var orderDoc = this.db.collection("Orders").doc();
-    
-    console.log("in save order!!")
-
-    orderDoc.set(this.order);
-    orderDoc.update({"orderID":orderDoc.ref.id,"orderDate":this.datePipe.transform(new Date(), 'short')})
-    localStorage.setItem('reOrderedID', orderDoc.ref.id);
-    // remove order from local stoarge
-    localStorage.removeItem("order_data");
-    console.log("order Done")
-    this.router.navigate(['/trackOrder']);
-  }
-
-  goToPaypal(){
-    this.router.navigate(['/paypal']);
+  back() {
+    this.showPaypalButtons = false;
   }
 }

@@ -37,6 +37,7 @@ import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-m
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { AdminGuard } from './core/admin.guard';
+import { PaypalComponent } from './Components/paypal/paypal.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -65,6 +66,8 @@ const routes: Routes = [
   // { path: "reviewlist", component: ReviewDashboardComponent},
   // { path: "customerlist", component:CustomersDashboardComponent },
   // { path: "addMenu", component:AddMenuDashboardComponent },
+  // { path: 'paypal', component: PaypalComponent },
+
 
   {
     path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard],

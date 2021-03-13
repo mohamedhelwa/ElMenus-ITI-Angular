@@ -74,4 +74,9 @@ export class PastorderdetailsComponent implements OnInit, OnChanges {
       // location.reload();
     });
   }
+
+  goTotrackOrder(orderId:string){
+    this.router.navigate(['/trackOrder']);
+    localStorage.setItem('reOrderedID',orderId);
+  }
 }

@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="container" *ngIf="resturantsList != null">
     <!-- body header -->
-    <div class="row">
-        <h3 class="resturants-number" id="resturants-number">Resturants ( {{resturantsList.length}} )</h3>
+    <div class="row" dir="auto">
+        <h3 class="resturants-number" id="resturants-number">{{'restaurants'|translate}} ( {{resturantsList.length}} )</h3>
     </div>
 
     <!-- body content -->
@@ -13,7 +13,7 @@
                 <app-searchdetails (click)="goResturant(resturant.id)" [resturant]="resturant"></app-searchdetails>
             </div>
         </div>
-        <button class="btn load-more-btn"> Load more restaurants </button>
+        <!-- <button class="btn load-more-btn"> Load more restaurants </button> -->
     </div>
 </div>
 <app-footer></app-footer>
