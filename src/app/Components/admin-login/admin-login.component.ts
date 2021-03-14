@@ -27,7 +27,9 @@ export class AdminLoginComponent implements OnInit {
   constructor(public auth:AuthService,
               private router:Router,
               private afs:AngularFirestore,
-              private FB :FormBuilder) { }
+              private FB :FormBuilder) {
+                console.log('fix merge');
+               }
 
   ngOnInit(): void {
     
