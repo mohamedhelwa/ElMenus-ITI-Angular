@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder,Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DishesService } from 'src/app/Services/dishes.service';
 import { Observable } from 'rxjs';
@@ -33,10 +33,30 @@ export class AddMenuDashboardComponent implements OnInit {
     private restaurantsService: RestaurantsServiceService) { }
 
   menuForm = this.fb.group({
-    dishName: [""],
-    dishPrice: [""],
-    dishSize: [""],
-    dishDescription: [""],
+    dishName: ["", [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
+    dishPrice: ["",
+           [
+      Validators.required,//[0-9]
+      Validators.pattern("^([0-9]*)\.[0-9]+$"),
+              ],
+  ],
+    dishSize: ["",
+            [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
+
+    dishDescription: ["",
+    [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
     dishRate: [""],
     dishImage: [""],
     restId: [""]

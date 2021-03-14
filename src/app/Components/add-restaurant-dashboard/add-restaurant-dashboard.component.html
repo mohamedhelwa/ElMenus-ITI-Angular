@@ -1,8 +1,8 @@
-  <div class="container">
+<!--<div class="container">
   <h3 style="color: #E5533A; margin-top: 20px;">Add New Restaurant</h3>
   <br>
 <div class="row">
-  <div class="col-8 center">
+  <div class="col-12 col-sm-12 col-md-9 center">
   <div class="form-group">
     <label for="title">restaurantName</label>
     <input
@@ -99,111 +99,117 @@
 </div>
 <button class="btn btn-dark-moon btn-rounded" (click)="Add()">Save</button>
 
-</div>
-<!--<div class="row">
-  <div class="col-8 center">
-<form class="needs-validation" [formGroup]="addFrm" 
-                          (ngSubmit)="Add()">
+</div>-->
 
-          <div class="form-group">
-            <label for="title">restaurantName</label>
-            <input
-            formControlName="restName"
-              type="text"
-              class="form-control"
-              id="title"
-              
-              [(ngModel)]="restaurant.restaurantName"
-            
-            />
-          </div>
-          {{restaurant.restaurantName}}
-          <div class="form-group">
-            <label for="title">restaurantBranchs</label>
-            <input
-              formControlName="restBranch"
-              type="text"
-              class="form-control"
-              id="title"
-              
-              [(ngModel)]="restaurant.restaurantBranchs"
-            
-            />
+<!--------------------------------------------------->
+<div class="container-fluid mt-5">
+  <form [formGroup]="restForm" (ngSubmit)="Add()">
+    <fieldset>
+      <legend class="jumbotron text-center"><h2>Add New Restaurant</h2></legend>
+    
+      <div class="form-group">
+        <label for="title">restaurantName</label>
+        <input
+        formControlName="restname"
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Enter Restaurant Name"
+        />
+      </div>
+
+      
+      <div class="form-group">
+        <label for="title">restaurantBranch</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"        
+          formControlName="restbranch"
+          placeholder="Enter Restaurant Branch"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">restaurantClosing</label>
+        <input
           
-          </div>
-        
-          <div class="form-group">
-            <label for="description">restaurantClosing</label>
-            <input
-            formControlName="restClose"
-              type="text"
-              class="form-control"
-              id="description"
-              [(ngModel)]="restaurant.restaurantClosing"
-              name="description"
-            />
-          </div>
-        
-          <div class="form-group">
-            <label for="description">restaurantOpening</label>
-            <input
-            formControlName="restOpen"
-              type="text"
-              class="form-control"
-              id="description2"
-              [(ngModel)]="restaurant.restaurantOpening"
-              name="description"
-            />
-          </div>
-        
-          <div class="form-group">
-            <label for="description">restaurantPhone</label>
-            <input
-            formControlName="restPhone"
-              type="text"
-              class="form-control"
-              id="description3"
-              [(ngModel)]="restaurant.restaurantPhone"
-              name="description"
-            />
-          </div>
-        
-          <div class="form-group">
-            <label for="description">restaurantType</label>
-            <input
-            formControlName="restType"
-              type="text"
-              class="form-control"
-              id="description3"
-              [(ngModel)]="restaurant.restaurantType"
-              name="description"
-            />
-          </div> 
-            <br>
-          <div class="form-group col-12">
-            <input type="file"
-            [hidden]="true"
-            id="file"
-            #file
-            (change)="onFileSelected($event,file.files)"
-            name="image"
-            autocomplete="off"
-            value="Upload Image"
-            /><label for="file" class="btn btn-secondary">upload Restaurant Image <i class="fas fa-upload"></i></label>
-            <img [src]="imgURL" style="margin-left: 20px;" height="200" *ngIf="imgURL">
-            <p *ngIf="fb">{{fb}}</p>
-            <p *ngIf="clicked">Please Wait...</p>
-          </div>                  
+          type="text"
+          class="form-control"
+          id="description"
+          name="description"
+          formControlName="restclose"
+          placeholder="Enter Restaurant Closing Time"
+        />
+      </div>
 
- </form>
- </div>
- </div>
- 
- <button 
- class="btn btn-dark-moon btn-rounded" 
- type="submit" [disabled]="addFrm.invalid">Save</button>-->
-<!--<button class="btn btn-dark-moon btn-rounded" (click)="Add()">Save</button>-->
+      <div class="form-group">
+        <label for="description">restaurantOpening</label>
+        <input 
+          type="text"
+          class="form-control"
+          id="description2"
+          name="description"
+          formControlName="restopen"
+          placeholder="Enter Restaurant Opening Time"
+        />
+      </div>
+    
+      <div class="form-group">
+        <label for="description">restaurantPhone</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description3"
+          name="description"
+          formControlName="restphone"
+          placeholder="Enter Restaurant Phone"
+        />
+      </div>
 
+      <div class="form-group">
+        <label for="description">restaurantType</label>
+        <input
+          
+          type="text"
+          class="form-control"
+          id="description3"
+          name="description"
+          formControlName="resttype"
+          placeholder="Enter Restaurant Type"
+        />
+      </div> 
+    
+      <br>
+  <div class="form-group col-12">
+    <input type="file"
+    [hidden]="true"
+    id="file"
+    #file
+    (change)="onFileSelected($event,file.files)"
+    name="image"
+    autocomplete="off"
+    value="Upload Image"
+    /><label for="file" class="btn btn-secondary">upload Restaurant Image <i class="fas fa-upload"></i></label>
+    <img [src]="imgURL" style="margin-left: 20px;" height="200" *ngIf="imgURL">
+    <p *ngIf="fb">{{fb}}</p>
+   <p *ngIf="clicked">Please Wait...</p>
+  </div>
+
+      <div class="text-center">
+        <button
+        [disabled]="(restForm.invalid)"
+          (click)="Add()"
+          type="button"
+          class="btn btn-dark-moon btn-rounded"
+        >
+          Add Restaurant
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
 
 
 

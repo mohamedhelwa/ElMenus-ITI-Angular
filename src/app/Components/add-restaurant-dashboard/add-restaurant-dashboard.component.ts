@@ -25,26 +25,39 @@ export class AddRestaurantDashboardComponent implements OnInit {
   downloadURL: Observable<string>;
   clicked=false;
   ///////////////
-  addFrm = this.FB.group({
-    
-    restName: [
-      "",
-      [
-        Validators.required,
-        Validators.pattern("^[a-zA-Z]+$"),
-      ],
-    ],
-    restClose: [
-      "",
-      [
-        Validators.required,
-        Validators.pattern("^[0-9]+$"),
-      ],
-    ],
-    restOpen: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
-    restPhone: ["", [Validators.required, Validators.pattern("^[0-9]+$")]],
-    restBranch: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
-    restType: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
+ restForm = this.FB.group({
+    restname: ["", [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]$"),//^[a-zA-Z_ ]{3,}$
+              ],
+  ],
+    restbranch: ["",
+           [
+      Validators.required,//[0-9]
+      Validators.pattern("^[a-zA-Z_ ]$"),
+              ],
+  ],
+    restclose: ["",
+            [
+      Validators.required,
+      Validators.pattern("^([0-9]{2})\.[0-9]+$"),
+              ],
+  ],
+
+    restopen: ["",
+    [
+      Validators.required,
+      Validators.pattern("^([0-9]{2})\.[0-9]+$"),
+              ],
+  ],
+    restphone: ["",
+    Validators.required,
+    Validators.pattern("/(?:^|\D)(\d{5})(?!\d)/g)")
+  ],
+    resttype: ["",[
+      Validators.required,//[0-9]
+      Validators.pattern("^[a-zA-Z_ ]$"),
+              ],]
   });
   //////
   constructor(private FB :FormBuilder,private storage: AngularFireStorage,private rest:RestaurantsServiceService , private router:Router) 
@@ -59,16 +72,26 @@ export class AddRestaurantDashboardComponent implements OnInit {
   {
     //alert('click');
     const data = {
-      restaurantName : this.restaurant.restaurantName,
+     /* restaurantName : this.restaurant.restaurantName,
       restaurantOpening: this.restaurant.restaurantOpening,
       restaurantPhone: this.restaurant.restaurantPhone,
       restaurantType:this.restaurant.restaurantType,
       restaurantClosing:this.restaurant.restaurantClosing,
       restaurantBranchs: this.restaurant.restaurantBranchs =[String(this.restaurant.restaurantBranchs)],
-      restaurantFeaturedPhotos: this.restaurant.restaurantFeaturedPhotos=this.fb };
+    restaurantFeaturedPhotos: this.restaurant.restaurantFeaturedPhotos=this.fb */
+  
+    restaurantName : this.restForm.value.restname,
+    restaurantOpening: this.restForm.value.restopen,
+    restaurantPhone:  this.restForm.value.restphone,
+    restaurantType: this.restForm.value.resttype,
+    restaurantClosing: this.restForm.value.restclose,
+    restaurantBranchs:  this.restForm.value.restbranch =[String( this.restForm.value.restbranch)],
+    restaurantFeaturedPhotos: this.fb
+  };
+
     this.rest.create(data).then(() => {
       console.log('Created new item successfully!');
-      this.router.navigate(['/showrestaurants']);
+      this.router.navigate(['/dashboard/showrestaurants']);
     // this.message="succussfully";
     });
   }

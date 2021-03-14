@@ -2,3 +2,16 @@
   background-color: #e5533a;
   border: none;
 }
+@media(max-width:575px){
+  .form-group{
+      padding-left: 12px;
+  }
+}
+
+input.ng-valid:not(form)
+{
+  border-left: 5px solid #42A948;
+}
+input.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; 
+}

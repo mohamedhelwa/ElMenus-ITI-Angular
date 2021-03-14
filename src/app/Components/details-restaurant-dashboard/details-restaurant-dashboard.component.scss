@@ -1,0 +1,17 @@
+@media(max-width:575px){
+    h4{
+        text-align: center;
+    }
+    .edit-form{
+        padding-left: 12px;
+    }
+}
+
+input.ng-valid:not(form)
+{
+  border-left: 5px solid #42A948;
+}
+input.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; 
+}
+

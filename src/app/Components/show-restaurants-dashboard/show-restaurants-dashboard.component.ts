@@ -14,6 +14,7 @@ export class ShowRestaurantsDashboardComponent implements OnInit {
   currentrestaurant?: Restaurants;
   currentIndex = -1;
   name = '';
+  showFlag=true;
   constructor(private restService: RestaurantsServiceService
              , private router:Router) { }
 
@@ -43,6 +44,7 @@ export class ShowRestaurantsDashboardComponent implements OnInit {
   setActiveRestaurant(rest: Restaurants, index: number): void {
     this.currentrestaurant = rest;
     this.currentIndex = index;
+    this.showFlag=false;
   }
 
   

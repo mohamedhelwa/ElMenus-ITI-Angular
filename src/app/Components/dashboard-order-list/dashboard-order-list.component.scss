@@ -21,3 +21,9 @@ select{
 .red{
     color: red;
 }
+@media(max-width:575px){
+    h2{
+        text-align: center;
+    }
+   
+}

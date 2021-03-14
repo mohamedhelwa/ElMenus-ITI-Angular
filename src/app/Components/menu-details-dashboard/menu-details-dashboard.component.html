@@ -52,6 +52,7 @@
       <button
         (click)="updateMenu()"
         type="button"
+        [disabled]="menuForm.invalid"
         class="btn btn-primary d-inline mr-2 btn-block mt-3"
       >
         Update Menu

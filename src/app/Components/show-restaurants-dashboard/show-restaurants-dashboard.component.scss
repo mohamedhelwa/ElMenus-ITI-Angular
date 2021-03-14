@@ -27,3 +27,10 @@
 .btn-rounded {
     border-radius: 35px;
 }
+
+@media(max-width:575px){
+    h2{
+        text-align: center;
+    }
+   
+}

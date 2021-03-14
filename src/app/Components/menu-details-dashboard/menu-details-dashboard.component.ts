@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { DishesService } from "src/app/Services/dishes.service";
 import { Dishes } from "src/app/ViewModels/dishes";
@@ -23,10 +23,30 @@ export class MenuDetailsDashboardComponent implements OnInit {
   ) {}
 
   menuForm = this.fb.group({
-    dishName: [""],
-    dishPrice: [""],
-    dishSize: [""],
-    dishDescription: [""],
+    dishName: ["",
+    [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
+    dishPrice: ["",
+    [
+      Validators.required,//[0-9]
+      Validators.pattern("^([0-9]*)\.[0-9]+$"),
+              ],
+  ],
+    dishSize: ["",
+    [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
+    dishDescription: ["",
+    [
+      Validators.required,
+      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+              ],
+  ],
   });
 
   ngOnInit() {

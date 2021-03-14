@@ -4,9 +4,9 @@
     background: linear-gradient(to right, #243B55, #E5533A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fff;
     border: 3px solid #eee;
-    margin: 20px 42% ;
+    //margin: 20px 42% ;
     width:200px;
-    margin-right: 0px;
+    //margin-right: 0px;
 }
 .btn-rounded {
     border-radius: 35px;
@@ -21,5 +21,14 @@ input.ng-valid:not(form)
   border-left: 5px solid #42A948;
 }
 input.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid #a94442; 
+}
+
+@media(max-width:575px){
+  h3{
+      text-align: center;
+  }
+  .form-group{
+    padding-left:13px
+  }
 }

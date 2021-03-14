@@ -127,11 +127,16 @@ li:hover {
   .sidebar h3 {
     display: none;
   }
-  // .main{
-  //     margin-left: 19px !important;
-  // }
+   .main{
+       padding-left: 25px !important;
+   }
 }
 
+@media(min-width:576px) and (max-width:777px){
+  .main{
+    margin-left: 70px !important;
+  }
+}
 @media (min-width: 921px) and (max-width: 1290px) {
   .right_side ul li a {
     font-size: 18px !important;

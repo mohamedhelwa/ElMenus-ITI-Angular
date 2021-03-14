@@ -45,7 +45,11 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
  
     if (this.currentrestaurant.id) {
       this.restService.update(this.currentrestaurant.id, data)
-        .then(() =>this.message = 'Restaurant updated successfully!')
+        .then(() => {
+          this.message = 'Restaurant updated successfully!';
+          this.refreshList.emit();
+        }
+          )
         
         .catch(err => console.log(err));
     }
