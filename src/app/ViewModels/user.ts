@@ -10,4 +10,6 @@ export interface User {
     address?:string;
     name?: string;
     roles?:Roles;
+    adress?:string;
+    
   }

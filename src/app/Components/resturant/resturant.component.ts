@@ -31,9 +31,9 @@ export class ResturantComponent implements OnInit {
     }else{
       this.db.collection('users').doc(this.UserId).ref.get().then((response) =>{
         let userObject:User = response.data()
-        this.userAdress = userObject.address
-        // console.log(response.data())
-        // console.log(this.userAdress)
+        this.userAdress = userObject.adress
+         console.log(response.data())
+         console.log(this.userAdress)
     }).catch(function (error) {
       console.log("There was an error getting your document:", error);
     });
