@@ -1,4 +1,6 @@
 export class Restaurants {
+  logo?:string;
+  adress?:string;
   id?:string;
   restaurantName?: string;
   restaurantBranchs?: string[];
@@ -8,7 +10,7 @@ export class Restaurants {
   restaurantType?: string;
   restaurantFeaturedPhotos?: string[];
   reviews?: number =0;
-  logo?:string;
+  rate?: number=0;
 
   /*constructor(
     id:string,

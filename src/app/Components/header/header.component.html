@@ -29,12 +29,25 @@
           <button class="btn sign mr-2 my-sm-0" data-toggle="modal" data-target="#mySignUpModal" >{{'hm-SIGNUP'|translate}}</button>
           <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
     
-          <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-            <option *ngFor="let language of translate.getLangs()" [value]="language"
-              [selected]="language === translate.currentLang">
-              {{ language }}
-            </option>
-          </select>
+          
+          <!-- Translation -->
+          <div *ngIf="lang == 'en'; else arSection">
+            <div class="nav-item">
+                <a class="nav-link">
+                    <button type="button" class="btn btn-link" (click)="changeLanguage('ar')"
+                        style="color: #E5533A; padding-bottom: 10px;">العربية</button>
+                </a>
+            </div>
+        </div>
+        <ng-template #arSection>
+            <div class="nav-item">
+                <a class="nav-link">
+                    <button type="button" class="btn btn-link" (click)="changeLanguage('en')"
+                        style="color: #E5533A; padding-bottom: 10px;">English</button>
+                </a>
+            </div>
+        </ng-template>
+        <!-- Translation -->
         
         <!--</form>-->
       </div>
@@ -66,9 +79,9 @@
     </ul>
     <!-----right Side -->
     <ul class="navbar-nav navbar-after mr-5 mt-2 mt-lg-0">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-bell"></i>{{'Notification'|translate}}</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/myorders']" routerLinkActive="active">{{'My Orders'|translate}}</a>
       </li>
@@ -78,21 +91,40 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item nobg"  [routerLink]="['/setting']" >{{'Account Settings'|translate}}</a>
+          <a class="dropdown-item nobg"  [routerLink]="['/Home']" (click)="auth.signOut()" >{{'logout'|translate}}</a>
         </div>
       </li>
       </ul>
       <!--<a href="#" class="cart"><i style="font-size: 24px; " class="fas fa-shopping-cart"></i></a>-->
-      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+      <!-- <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
         <option *ngFor="let language of translate.getLangs()" [value]="language"
           [selected]="language === translate.currentLang">
           {{ language }}
         </option>
-      </select>
+      </select> -->
+      <!-- Translation -->
+      <div *ngIf="lang == 'en'; else arSection">
+        <div class="nav-item">
+            <a class="nav-link">
+                <button type="button" class="btn" (click)="changeLanguage('ar')"
+                    style="color: #E5533A; padding-bottom: 10px;">العربية</button>
+            </a>
+          </div>
+    </div>
+    <ng-template #arSection>
+        <div class="nav-item">
+            <a class="nav-link">
+                <button type="button" class="btn" (click)="changeLanguage('en')"
+                    style="color: #E5533A; padding-bottom: 10px;">English</button>
+            </a>
+          </div>
+    </ng-template>
+    <!-- Translation -->
   </div>
 </nav> 
 </div>
 <!------------------- 2nd nav --------------------------------->
-    <nav class=" navbar navbar-light bg-light">
+    <!-- <nav class=" navbar navbar-light bg-light">
       <div class="input-container">
         <input class="input-field" type="text" placeholder="{{'FindRestaurant'|translate}}">
         <i class="fas fa-search"></i>
@@ -100,7 +132,7 @@
       <span style="font-size: 20px;"><i class="fas fa-biking" style="color: #E5533A;"></i>{{'Deliver'|translate}}</span>
       <span style="margin-right: 100px;color: #E5533A; font-size: 22px;"><strong> St.Mohamed Tawfik</strong></span>
       <button style="width: 100px; height: 30px; font-size: 17px;border:1px solid #E5533A;background-color: none;color: #E5533A; border-radius: 8px;">{{'Change'|translate}}</button>
-    </nav>
+    </nav> -->
 
 <!-------- Routing -------------------------------------------->
 
@@ -123,11 +155,21 @@
                   <div class="modal-body mx-3">
                       <div class="md-form mb-4">
                           <input #emailLogin type="text" id="usr-nm"
-                              class="form-control validate" placeholder="username">
+                              class="form-control validate" name="validate"
+                              #validate="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required/>
                       </div>
                       <div class="md-form mb-1">
                           <input #passLogin type="password" id="defaultForm-pass"
-                              class="form-control validate" placeholder="password">
+                              class="form-control validate"name="validate2"
+                              #validate2="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required>
                       </div>
                   </div>
               </div>
@@ -136,9 +178,9 @@
                   <button id="Modal-Lgn-btn" type="button"
                       class="btn btn-danger btn-block " data-dismiss="modal"
                       (click)="auth.signIn(emailLogin.value,passLogin.value)">Login</button>
-                  <button id="Login-FB-btn" type="button"
+                  <!-- <button id="Login-FB-btn" type="button"
                       class="btn btn-primary btn-block">Continue With Facebook </button>
-                  <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a>
+                  <a id="frgt-lnk" href="#" class="text-center">Forgot Password</a> -->
               </div>
           </form>
 
@@ -165,15 +207,31 @@
                   <div class="modal-body mx-3">
                       <div class="md-form mb-4">
                           <input #name type="text" id="reg-usr-nm"
-                              class="form-control validate" placeholder="name">
+                              class="form-control validate"name="validate5"
+                              #validate5="ngModel"
+                              ngModel
+                              pattern="[Aa-Zz]"
+                              placeholder="name"
+                              required />
                       </div>
                       <div class="md-form mb-4">
                           <input #email type="text" id="usr-mail"
-                              class="form-control validate" placeholder="email">
+                              class="form-control validate"
+                              name="validate3"
+                              #validate3="ngModel"
+                              ngModel
+                              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                              placeholder="Email"
+                              required />
                       </div>
                       <div class="md-form mb-1">
                           <input #password type="password" id="usr-pass"
-                              class="form-control validate" placeholder="password">
+                              class="form-control validate"name="validate4"
+                              #validate4="ngModel"
+                              ngModel
+                              pattern=".{6,}"
+                              placeholder="password"
+                              required />
                       </div>
                   </div>
 

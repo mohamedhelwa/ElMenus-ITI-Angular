@@ -1,6 +1,6 @@
 import { HomeService } from "./../../Services/home.service";
 import { AfterViewInit, Component, OnChanges, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -17,8 +17,9 @@ import { TranslateService } from "@ngx-translate/core";
 export class HomeComponent implements OnInit, OnChanges {
   lang: string;
 
+  
   restaurantSearchFrm = this.fb.group({
-    restaurantName: ["", Validators.required],
+    restaurantName: [""],
     selectedBranch: [""],
   });
   branches: any[] = [];

@@ -59,6 +59,8 @@ import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-m
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 import { LoadingComponent } from './Components/loading/loading.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PaypalComponent } from './Components/paypal/paypal.component'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD553sG0S5TK4x855X912d7wbMgbrxO88c",
@@ -115,9 +117,11 @@ const firebaseConfig = {
     AddMenuDashboardComponent,
     AdminLoginComponent,
     LoadingComponent,
-    PaymentComponent
+    PaymentComponent,
+    PaypalComponent
   ],
   imports: [
+    NgxPayPalModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

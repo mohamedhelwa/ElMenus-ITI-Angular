@@ -10,19 +10,30 @@
               <h4 class="mb-0">Admin Panel Login</h4>
             </div>
             <div class="card-body">
-              <form autocomplete="off" class="form" id="formLogin" name="formLogin" role="form">
+              <form  [formGroup]="loginForm" (ngSubmit)="auth.signInAdmin(email.value,password.value)">
                 <div class="form-group">
                   <label for="uname1">Email</label>
-                  <input #email class="form-control" id="uname1" name="uname1" required="" type="email">
+                  <input #email 
+                  class="form-control" name="validate"
+                  formControlName="email"
+                            
+                    placeholder="Enter Email"
+                              >
+                  <!--class="form-control" id="uname1" name="uname1" required="" type="email"-->
                 </div>
 
                 <div class="form-group">
                   <label>Password</label>
-                  <input #password class="form-control" id="pwd1" type="password">
+                  <input #password 
+                  class="form-control" name="validate2"
+                  formControlName="pass"           
+                   placeholder="Enter password"
+                              >
+                  <!--class="form-control" id="pwd1" type="password"-->
                 </div>
 
-                <button style="background-color: #E5533A; color:white" class="btn btn-lg float-right" type="button"
-                  (click)="adminAuth.adminSignIn(email.value,password.value)">Login</button>
+                <button [disabled]="(loginForm.invalid)" style="background-color: #E5533A; color:white" class="btn btn-lg float-right" type="button"
+                  (click)="auth.signInAdmin(email.value,password.value)">Login</button>
               </form>
             </div>
           </div>

@@ -4,6 +4,7 @@
     <h3 class="text-center">Update {{currentrestaurant.restaurantName}} Restaurant</h3>
    <br><br>
     <!--<form>-->
+    <form [formGroup]="restForm" (ngSubmit)="updateRestaurant()">
       <div class="form-group">
         <label for="title">restaurantName</label>
         <input
@@ -11,9 +12,8 @@
           type="text"
           class="form-control"
           id="title"
-         
+          formControlName="restname"
           [(ngModel)]="currentrestaurant.restaurantName"
-        
         />
       </div>
       <div class="form-group">
@@ -22,6 +22,20 @@
           <option *ngFor="let rest of currentrestaurant.restaurantBranchs" >{{rest}}</option>
       </select>
       </div>
+
+      <div class="form-group">
+        <label for="title">restaurantAddress</label>
+        <input
+         
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="restaddres"
+          [(ngModel)]="currentrestaurant.adress"
+        
+        />
+      </div>
+
       <div class="form-group">
         <label for="description">restaurantClosing</label>
         <input
@@ -29,8 +43,10 @@
           type="text"
           class="form-control"
           id="description"
-          [(ngModel)]="currentrestaurant.restaurantClosing"
+          formControlName="restclose"
           name="description"
+          [(ngModel)]="currentrestaurant.restaurantClosing"
+
         />
       </div>
   
@@ -41,8 +57,9 @@
           type="text"
           class="form-control"
           id="description2"
-          [(ngModel)]="currentrestaurant.restaurantOpening"
+          formControlName="restopen"
           name="description"
+          [(ngModel)]="currentrestaurant.restaurantOpening"
         />
       </div>
 
@@ -53,8 +70,9 @@
           type="text"
           class="form-control"
           id="description3"
-          [(ngModel)]="currentrestaurant.restaurantPhone"
+          formControlName="restphone"
           name="description"
+          [(ngModel)]="currentrestaurant.restaurantPhone"
         />
       </div>
 
@@ -65,8 +83,10 @@
           type="text"
           class="form-control"
           id="description3"
-          [(ngModel)]="currentrestaurant.restaurantType"
+          formControlName="resttype"
           name="description"
+          [(ngModel)]="currentrestaurant.restaurantType"
+         
         />
       </div>     
     <!--</form>--> 
@@ -79,6 +99,7 @@
       Update
     </button>
     <p>{{ message }}</p>
+  </form>
   </div>
   
   <div *ngIf="!currentrestaurant">

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 import { Reviews } from 'src/app/ViewModels/reviews';
 
 @Component({
@@ -15,10 +16,13 @@ export class ResturantReviewsComponent implements OnInit {
     userName ="";
     rate=1;
     comment="";
-    RList:Reviews[];
-    reviewList:any[];
-    review$: Observable<Reviews[]>;
+    restID: string = "";
+    UserId = localStorage.getItem("userId");
+    restName="";
+    resturant:Restaurants;
 
+    reviewList:Reviews[];
+    review$: Observable<Reviews[]>;
     resturantId$ : BehaviorSubject<string>;
     
   constructor(private afs:AngularFirestore,
@@ -27,54 +31,41 @@ export class ResturantReviewsComponent implements OnInit {
     let productIDParam: string|null = this.activatedRoute.snapshot.paramMap.get('id');
     this.resturantId$ = new BehaviorSubject(productIDParam);
     
-    
+    this.restID = productIDParam;
   }
 
   ngOnInit(): void {
+    this.afs.collection('Restaurants').doc(this.restID).ref.get().then((response) =>{
+      this.resturant = response.data();
+      this.restName = this.resturant.restaurantName
+
+    }).catch(function (error) {
+      console.log("There was an error getting your document:", error);
+    });
+
+
     this.review$ = this.resturantId$.pipe(
       switchMap(restId =>
         this.afs.collection<Reviews>('Reviews', ref => ref.where('restaurantId', '==', restId)).valueChanges()
       )
     )
-    console.log(this.review$);
     
     this.review$.subscribe(reviews =>{
       this.reviewList = reviews
       
     })
-    console.log(this.reviewList)
-  //   restID: string = "";
-  //   UserId = localStorage.getItem("userId");
-
-  // constructor(private review:AngularFirestore,private activatedRoute: ActivatedRoute) { }
-
-  // ngOnInit(): void {
-
-  //   let productIDParam:
-  //     | string
-  //     | null = this.activatedRoute.snapshot.paramMap.get("id");
-  //   this.restID = productIDParam;
-  //   console.log(this.restID)
-
-  //   const r =this.review.collection('Reviews').valueChanges();
-  //   r.subscribe((response) => {
-  //     this.reviewList = response;
-  //     // console.log(this.reviewList)
-  //   },
-  //   (error) => {
-  //     console.log(error);
-  //   }
-  //   );
-  // }
   }
-  // addReview(){
-  //   this.addAnReivew.restaurantId = this.restID;
-  //   this.addAnReivew.userId = this.UserId;
-  //   this.addAnReivew.userName = this.userName;
-  //   this.addAnReivew.reviewRate = this.rate;
-  //   this.addAnReivew.reviewText = this.comment;
-  //   console.log(this.addAnReivew)
-  //   // this.reviewList.push(this.addAnReivew)
-  // }
+
+  addReview(){
+    this.addAnReivew = {
+      restaurantId:this.restID,
+      restaurantName:this.restName,
+      userId:this.UserId,
+      userName: this.userName,
+      reviewRate:this.rate.toString(),
+      reviewText:this.comment
+    }
+    this.afs.collection('Reviews').add({...this.addAnReivew}).then(()=> console.log('sucsses'))
+  }
 
 }

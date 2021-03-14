@@ -18,14 +18,21 @@ export class HeaderComponent implements OnInit {
   constructor(public translate: TranslateService, public auth: AuthService) {
     // translate.addLangs(['en', 'ar']);
     // translate.setDefaultLang('en');
-    this.lang = localStorage.getItem('currentLang') || 'en';
+    this.lang = localStorage.getItem('currentLang') || 'ar';
     this.translate.use(this.lang);
   }
 
   switchLang(lang: string) {
+    localStorage.setItem('currentLang',lang);
     this.translate.use(lang);
   }
 
+  changeLanguage(lang: string) {
+    this.lang = lang;
+    //this.translateService.setDefaultLang(this.lang);
+    this.translate.use(this.lang);
+    localStorage.setItem("currentLang", lang);
+  }
   ngOnInit(): void {}
 
   // login()

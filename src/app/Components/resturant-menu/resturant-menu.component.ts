@@ -6,6 +6,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs/operators";
 import { User } from "src/app/ViewModels/user";
+import { Restaurants } from 'src/app/ViewModels/restaurants';
 
 @Component({
   selector: "app-resturant-menu",
@@ -16,6 +17,7 @@ import { User } from "src/app/ViewModels/user";
   ],
 })
 export class ResturantMenuComponent implements OnInit {
+
   //resturnt ID / Menu
   restID: string = "";
   menu: Dishes[] | any;
@@ -30,7 +32,9 @@ export class ResturantMenuComponent implements OnInit {
 
   //total price
   totalOrderPrice: number = 0;
+  resObj:Restaurants;
 
+  userID = localStorage.getItem("userId");
   
 
   constructor(
@@ -62,6 +66,14 @@ export class ResturantMenuComponent implements OnInit {
         )
       )
       .subscribe((response) => (this.menu = response));
+
+
+      this.db.collection('Restaurants').doc(this.restID).ref.get().then((response) =>{
+        this.resObj = response.data();
+        console.log(this.resObj)
+      }).catch(function (error) {
+        console.log("There was an error getting your document:", error);
+      });
   }
 
   //get resturnt menu
@@ -74,6 +86,8 @@ export class ResturantMenuComponent implements OnInit {
 
   //buy dish / calc total price
   buy(i: Dishes) {
+    i.resturantName = this.resObj.restaurantName;
+    i.resturantLogo = this.resObj.logo;
     i.dishSize = this.dishSize;
     if (this.add != 0){
       this.itemsNumber += this.add;

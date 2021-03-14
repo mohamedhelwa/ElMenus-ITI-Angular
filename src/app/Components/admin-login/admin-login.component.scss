@@ -4,3 +4,11 @@
 
 .header_bgcolor{ background: linear-gradient(to bottom, #e68473, #E5533A); 
 }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }

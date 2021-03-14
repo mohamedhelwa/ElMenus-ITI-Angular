@@ -36,6 +36,8 @@ import { CustomersDashboardComponent } from './Components/customers-dashboard/cu
 import { AddMenuDashboardComponent } from './Components/add-menu-dashboard/add-menu-dashboard.component';
 import { AdminLoginComponent } from './Components/admin-login/admin-login.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { AdminGuard } from './core/admin.guard';
+import { PaypalComponent } from './Components/paypal/paypal.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -43,30 +45,32 @@ const routes: Routes = [
   // { path: "overviewdashboard", component: OverviewDashboardComponent },
   // { path: "showrestaurants", component: ShowRestaurantsDashboardComponent },
   // { path: "addrestaurant", component: AddRestaurantDashboardComponent },
-  { path: "setting", component: SettingsComponent },
+  { path: "setting", component: SettingsComponent , canActivate:[AuthGuard]},
   { path: "delivery", component: DeliveryComponent },
   { path: "noonlineavailable", component: NoAvailableComponent },
   { path: "dineout", component: DineOutComponent },
   { path: "giftmeals", component: GiftMealsComponent },
-  { path: "trackOrder", component: TrackOrderComponent },
-  { path: 'Checkout', component: CheckoutComponent },
+  { path: "trackOrder", component: TrackOrderComponent , canActivate:[AuthGuard]},
+  { path: 'Checkout', component: CheckoutComponent , canActivate:[AuthGuard]},
   { path: 'Giftmeals-individual', component: GiftMealsIndividualComponent },
   { path: 'Delivery2', component: DeliveryFeaturesOrderOnlineComponent },
-  { path: "myorders", component: PastordersComponent },
+  { path: "myorders", component: PastordersComponent , canActivate:[AuthGuard]},
   // { path: "search", component: SearchComponent , canActivate:[AuthGuard]},
   { path: "search", component: SearchComponent },
   { path: "about", component: AboutComponent },
   { path: "terms", component: TermsComponent },
   { path: 'Test', component: TestComponent },
-  { path: 'payment', component: PaymentComponent},
+  { path: 'payment', component: PaymentComponent, canActivate:[AuthGuard]},
   // { path: "orderlist", component: DashboardOrderListComponent},
   // { path: "menulist", component: MenulistDashboardComponent},
   // { path: "reviewlist", component: ReviewDashboardComponent},
   // { path: "customerlist", component:CustomersDashboardComponent },
   // { path: "addMenu", component:AddMenuDashboardComponent },
+  // { path: 'paypal', component: PaypalComponent },
+
 
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard],
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full', },
       { path: 'overview', component: OverviewDashboardComponent },

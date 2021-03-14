@@ -100,7 +100,7 @@
 <button class="btn btn-dark-moon btn-rounded" (click)="Add()">Save</button>
 
 </div>-->
-
+ 
 <!--------------------------------------------------->
 <div class="container-fluid mt-5">
   <form [formGroup]="restForm" (ngSubmit)="Add()">
@@ -129,6 +129,18 @@
           placeholder="Enter Restaurant Branch"
         />
       </div>
+
+      <div class="form-group">
+        <label for="title">restaurantAddress</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"        
+          formControlName="restaddres"
+          placeholder="Enter Restaurant Address"
+        />
+      </div>
+
 
       <div class="form-group">
         <label for="description">restaurantClosing</label>
@@ -196,6 +208,22 @@
     <p *ngIf="fb">{{fb}}</p>
    <p *ngIf="clicked">Please Wait...</p>
   </div>
+
+
+  <!--<div class="form-group col-12">
+    <input type="file"
+    [hidden]="true"
+    id="file"
+    #file
+    (change)="onFileSelectedFeaturephoto($event,file.files)"
+    name="image"
+    autocomplete="off"
+    value="Upload Image"
+    /><label for="file" class="btn btn-secondary">upload Featured photos for Restaurant <i class="fas fa-upload"></i></label>
+    <img [src]="imgURL" style="margin-left: 20px;" height="200" *ngIf="imgURL">
+    <p *ngIf="fb">{{fb}}</p>
+   <p *ngIf="clicked">Please Wait...</p>
+  </div>-->
 
       <div class="text-center">
         <button

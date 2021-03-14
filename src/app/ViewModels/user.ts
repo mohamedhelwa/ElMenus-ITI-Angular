@@ -1,7 +1,13 @@
+
+export interface Roles {
+    admin?:boolean;
+    normalUser?:boolean;
+}
+
 export interface User {
-    uid: string;
-    email: string;
+    uid?: string;
+    email?: string;
     address?:string;
     name?: string;
-   // myCustomData?: string;
+    roles?:Roles;
   }

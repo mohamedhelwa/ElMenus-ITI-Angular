@@ -5,10 +5,10 @@
 <!-- body Start -->
 
 
-<div class="container" *ngIf="ordersList.length != 0; else noOrders">
+<div class="container-fluid" *ngIf="ordersList.length != 0; else noOrders">
 
     <!-- page title -->
-    <h1 class="page-title">{{'myOrders'|translate}}</h1>
+    <h1 class="page-title" dir="auto">{{'myOrders'|translate}}</h1>
 
     <!-- page content -->
     <div class="container">
@@ -16,17 +16,16 @@
             <!-- orders tabs -->
             <div class="col-sm-12 col-lg-5 ">
                 <h3 style="color: #ed3c0b;">{{'previousOrders'|translate}}</h3>
-
                 <ul style="list-style: none;" *ngFor="let order of order$ | async">
                     <li class="list-item-order" (click)="getorderDetails(order.orderID)">
                         <!-- order image -->
-                        <img class="rest-image" id="rest-image" src={{order.restaurantImage}}
+                        <img class="rest-image" id="rest-image" src={{order.items[0].resturantLogo}}
                             style="float: left; border-radius: 50%;">
 
                         <!-- order info -->
                         <div class="rest-info" style="padding-left: 70px;">
                             <h3 class="rest-name" id="rest-name"
-                                style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.restaurantName}}</h3>
+                                style="color: #1f0f10;line-height: 24px;font-size: 16px;">{{order.items[0].resturantName}}</h3>
                             <p>
                                 <span id="quantity-of-item" style="font-size: 13px;">{{order.itemsQuantity}}
                                     {{'itemsQuantity'|translate}}</span><br>
@@ -36,7 +35,7 @@
                                     id="order-price">{{order.totalPrice | currency:'EGP'}}</strong>
                             </p>
                             <p>
-                                <button class="reorder-btn" id="reorder-btn">{{'reorder'|translate}}</button>
+                                <button class="reorder-btn" id="reorder-btn">{{'orderDetails'|translate}}</button>
                                 <span id="order-date" style="font-size: 13px;">{{order.orderDate}}</span><br>
                                 <span id="order-id" style="font-size: 13px;">{{order.orderID}}</span>
                             </p>

@@ -1,3 +1,6 @@
+.clickable-card:hover{
+    cursor: pointer;
+}
 .resturant-card{
     margin-bottom: 15px;
     border-radius: 10px;
@@ -53,6 +56,6 @@
 }
 
 ngb-rating {
-    color: orange;
+    color: #e5533a;
     font-size: 25px;
   }
