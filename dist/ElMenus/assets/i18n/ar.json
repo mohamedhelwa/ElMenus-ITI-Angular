@@ -75,6 +75,45 @@
     "Change":"تغيير",
     "FindRestaurant":"دور علي اي مطعم",
 
-    "logout":"تسجيل الخروج"
+    "logout":"تسجيل الخروج",
+    "trackOrder":"تابع طلبك",
+    "orderDetails":"تفاصيل الطلب",
+
+
+    "Menu":"المينيو",
+    "About":"عن المطعم",
+    "branch":"الفروع",
+    "review":"التقيمات",
+    "topDish":"افضل الاطباق",
+    "OrderOnline":"اطلب اونلاين",
+    "DliversTo":"بيوصل ل",
+    "changeAdress":"غير العنوان",
+    "Hygine":"فحص النظافه",
+    "min":"دقيقه",
+    "am":"ص",
+    "pm":"م",
+    "EGP":"جنيه",
+    "FeaterdPhotos":"صور المطعم",
+    "adress":"العنوان",
+    "workingHours":"سعات العمل",
+    "deleviry":"مناطق التوصيل",
+    "delevertou":"بيوصل لمنطقطك",
+    "small":"صغير",
+    "midum":"وسط",
+    "large":"كبير",
+    "addtocart":"ضيف الطبق للسله",
+    "goCheckOut":"كمل الاوردر",
+    "added":"اطباق فى السله",
+    "size":"الحجم",
+    "qunt":"الكميه",
+    "price":"السعر",
+    "total":"السعر الكلى",
+    "addReview":"ضيف تقيم",
+    "name":"الاسم",
+    "rate":"التقيم",
+    "comment":"رأيك",
+    "add":"ضيف  تقيمك",
+    "open":"مفتوح دلوقتى"
+
 
 }
