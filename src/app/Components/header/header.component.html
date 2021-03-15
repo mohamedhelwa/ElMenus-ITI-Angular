@@ -175,7 +175,7 @@
               </div>
               <!-- Modal footer -->
               <div class="modal-footer justify-content-center">
-                  <button id="Modal-Lgn-btn" type="button"
+                  <button id="Modal-Lgn-btn" type="button" [disabled]='validate2.invalid'
                       class="btn btn-danger btn-block " data-dismiss="modal"
                       (click)="auth.signIn(emailLogin.value,passLogin.value)">Login</button>
                   <!-- <button id="Login-FB-btn" type="button"
@@ -238,7 +238,7 @@
               </div>
               <!-- Modal footer -->
               <div class="modal-footer justify-content-center">
-                  <button id="ModalSignUp-btn" type="button"
+                  <button id="ModalSignUp-btn" type="button" [disabled]='validate4.invalid'
                       (click)="auth.signUp(email.value,password.value,name.value)"
                       class="mb-5 btn btn-danger btn-block " data-dismiss="modal">Create
                       Account</button>

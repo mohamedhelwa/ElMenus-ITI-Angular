@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { FormBuilder,Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DishesService } from 'src/app/Services/dishes.service';
 import { Observable } from 'rxjs';
@@ -36,27 +36,41 @@ export class AddMenuDashboardComponent implements OnInit {
     dishName: ["", [
       Validators.required,
       Validators.pattern("^[a-zA-Z_ ]{3,}$"),
-              ],
-  ],
+    ],
+    ],
+    dishName_ar: ["", [
+      Validators.required,
+    ],
+    ],
     dishPrice: ["",
-           [
-      Validators.required,//[0-9]
-      Validators.pattern("^([0-9]*)\.[0-9]+$"),
-              ],
-  ],
+      [
+        Validators.required,//[0-9]
+        Validators.pattern("^([0-9]*)\.[0-9]+$"),
+      ],
+    ],
     dishSize: ["",
-            [
-      Validators.required,
-      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
-              ],
-  ],
+      [
+        Validators.required,
+        Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+      ],
+    ],
 
+    dishSize_ar: ["",
+      [
+        Validators.required,
+      ],
+    ],
     dishDescription: ["",
-    [
-      Validators.required,
-      Validators.pattern("^[a-zA-Z_ ]{3,}$"),
-              ],
-  ],
+      [
+        Validators.required,
+        Validators.pattern("^[a-zA-Z_ ]{3,}$"),
+      ],
+    ],
+    dishDescription_ar: ["",
+      [
+        Validators.required,
+      ],
+    ],
     dishRate: [""],
     dishImage: [""],
     restId: [""]
@@ -88,7 +102,12 @@ export class AddMenuDashboardComponent implements OnInit {
       dishDescription: this.menuForm.value.dishDescription,
       dishRate: '',
       dishImage: this.fbase,
-      restaurantId: this.selectedRestID
+      restaurantId: this.selectedRestID,
+
+      dishName_ar: this.menuForm.value.dishName_ar,
+      dishSize_ar: this.menuForm.value.dishSize_ar,
+      dishDescription_ar: this.menuForm.value.dishDescription_ar,
+
     };
     this.dishService.addDish(data).then(() => {
       console.log('Created new Menu successfully!');

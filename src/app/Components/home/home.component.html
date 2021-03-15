@@ -149,7 +149,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <form>
+                    <form #loginForm>
                       <div class="form-group">
                         <div class="modal-body mx-3">
                           <div class="md-form mb-4">
@@ -187,7 +187,8 @@
                       </div>
                       <!-- Modal footer -->
                       <div class="modal-footer justify-content-center">
-                        <button
+                        <button 
+                        [disabled]='(validate2.invalid)'
                           id="Modal-Lgn-btn"
                           type="button"
                           class="btn btn-danger btn-block"
@@ -284,6 +285,7 @@
                           "
                           class="mb-5 btn btn-danger btn-block"
                           data-dismiss="modal"
+                          [disabled]='validate4.invalid'
                         >
                           Create Account
                         </button>

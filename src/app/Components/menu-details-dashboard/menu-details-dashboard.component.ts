@@ -29,6 +29,11 @@ export class MenuDetailsDashboardComponent implements OnInit {
       Validators.pattern("^[a-zA-Z_ ]{3,}$"),
               ],
   ],
+  dishName_ar: ["",
+    [
+      Validators.required,
+              ],
+  ],
     dishPrice: ["",
     [
       Validators.required,//[0-9]
@@ -47,6 +52,16 @@ export class MenuDetailsDashboardComponent implements OnInit {
       Validators.pattern("^[a-zA-Z_ ]{3,}$"),
               ],
   ],
+  dishSize_ar: ["",
+    [
+      Validators.required,
+              ],
+  ],
+    dishDescription_ar: ["",
+    [
+      Validators.required,
+              ],
+  ],
   });
 
   ngOnInit() {
@@ -58,9 +73,12 @@ export class MenuDetailsDashboardComponent implements OnInit {
     //console.log(this.menuForm.value);
     const data = {
       dishName: this.menuForm.value.dishName,
+      dishName_ar: this.menuForm.value.dishName_ar,
       dishPrice: this.menuForm.value.dishPrice,
       dishSize: this.menuForm.value.dishSize,
       dishDescription: this.menuForm.value.dishDescription,
+      dishSize_ar: this.menuForm.value.dishSize_ar,
+      dishDescription_ar: this.menuForm.value.dishDescription_ar,
     };
     //console.log("iddd", this.menuId);
 

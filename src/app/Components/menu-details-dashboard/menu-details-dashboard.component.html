@@ -4,49 +4,94 @@
       <legend class="jumbotron text-center">
         <h3>Update {{ menu.dishName }} Menu</h3>
       </legend>
-      <div class="form-group">
-        <label for="dishName">Dish Name</label>
-        <input
-          [(ngModel)]="menu.dishName"
-          formControlName="dishName"
-          type="text"
-          class="form-control"
-          id="dishName"
-          placeholder="Enter Dish Name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="dishPrice">Dish Price</label>
-        <input
-          [(ngModel)]="menu.dishPrice"
-          formControlName="dishPrice"
-          type="text"
-          class="form-control"
-          id="dishPrice"
-          placeholder="Enter Dish Price"
-        />
-      </div>
-      <div class="form-group">
-        <label for="dishSize">Dish Size</label>
-        <input
-          [(ngModel)]="menu.dishSize"
-          formControlName="dishSize"
-          type="text"
-          class="form-control"
-          id="dishSize"
-          placeholder="Enter Dish Size"
-        />
+      
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="dishName">English Dish Name</label>
+          <input
+            [(ngModel)]="menu.dishName"
+            formControlName="dishName"
+            type="text"
+            class="form-control"
+            id="dishName"
+            placeholder="Enter Dish Name"
+          />
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="dishName">Arabic Dish Name</label>
+          <input
+            [(ngModel)]="menu.dishName_ar"
+            formControlName="dishName_ar"
+            type="text"
+            class="form-control"
+            id="dishName"
+            placeholder="اسم الطبق باللغة العربية"
+          />
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="dishDescription">Dish Description</label>
-        <textarea
-          [(ngModel)]="menu.dishDescription"
-          formControlName="dishDescription"
-          class="form-control"
-          id="dishDescription"
-          rows="3"
-        ></textarea>
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <label for="dishPrice">Dish Price</label>
+          <input
+            [(ngModel)]="menu.dishPrice"
+            formControlName="dishPrice"
+            type="text"
+            class="form-control"
+            id="dishPrice"
+            placeholder="Enter Dish Price"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="dishSize">English Dish Size</label>
+          <input
+            [(ngModel)]="menu.dishSize"
+            formControlName="dishSize"
+            type="text"
+            class="form-control"
+            id="dishSize"
+            placeholder="Enter Dish Size"
+          />
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="dishSize">Arabic Dish Size</label>
+          <input
+            [(ngModel)]="menu.dishSize_ar"
+            formControlName="dishSize_ar"
+            type="text"
+            class="form-control"
+            id="dishSize"
+            placeholder="الحجم باللفة العربية"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="dishDescription">English Dish Description</label>
+          <textarea
+            [(ngModel)]="menu.dishDescription"
+            formControlName="dishDescription"
+            class="form-control"
+            id="dishDescription"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="dishDescription">Arabic Dish Description</label>
+          <textarea
+            [(ngModel)]="menu.dishDescription_ar"
+            formControlName="dishDescription_ar"
+            class="form-control"
+            id="dishDescription"
+            rows="3"
+          ></textarea>
+        </div>
       </div>
 
       <button

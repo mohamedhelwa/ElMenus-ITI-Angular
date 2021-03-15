@@ -19,7 +19,11 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
     restaurantType:'',
     adress:'',
     restaurantBranchs:[],
-    restaurantFeaturedPhotos:[]
+    restaurantFeaturedPhotos:[],
+
+    restaurantName_ar: '',
+    adress_ar: '',
+    restaurantType_ar: ''
 
   };
   clientName:string;
@@ -37,6 +41,20 @@ export class DetailsRestaurantDashboardComponent implements OnInit ,OnChanges{
       Validators.pattern("^[a-zA-Z_ ]{0,}$"),
               ],
   ],
+  restaurantname_ar: ["", [
+    Validators.required,
+  ],
+  ],
+  
+  restAddres_ar: ["",
+    [
+      Validators.required,//[0-9]
+    ],
+  ],
+
+  restType_ar: ["", [
+    Validators.required,//[0-9]
+  ],],
 
   restaddres: ["",
   [
@@ -97,6 +115,10 @@ Validators.pattern("^[a-zA-Z_ ]{0,}$"),
       //restaurantBranchs:  this.restForm.value.restbranch =[String( this.restForm.value.restbranch)],
       adress:this.restForm.value.restaddres,
       //rate:this.restForm.value.restrate
+
+      adress_ar: this.restForm.value.restAddres_ar,
+      restaurantName_ar: this.restForm.value.restaurantname_ar,
+      restaurantType_ar: this.restForm.value.restType_ar
   
     };
  
