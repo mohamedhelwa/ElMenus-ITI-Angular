@@ -450,9 +450,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 ng2-charts
 ISC
 
-ngx-paypal
-MIT
-
 regenerator-runtime
 MIT
 MIT License

@@ -75,47 +75,8 @@
     "Change":"Change",
     "FindRestaurant":"Find a Restaurant",
 
-    "logout":"Logout",
-
-    "trackOrder":"Track Order",
-    "orderDetails":"Order Details",
+    "logout":"Logout"
     
-    "Menu":"Menu",
-    "About":"About",
-    "branch":"Branches",
-    "review":"Reviews",
-    "topDish":"Top Dishs",
-    "OrderOnline":"ORDER ONLINE",
-    "DliversTo":"Dlivers to",
-    "changeAdress":"Change Adress",
-    "Hygine":"Hygiene Check",
-    "min":"min",
-    "am":"am",
-    "pm":"pm",
-    "EGP":"EGP",
-    "FeaterdPhotos":"FeaterdPhotos",
-    "adress":"deliveryAddress",
-    "workingHours":"workingHours",
-    "deleviry":"Dlivers to",
-    "delevertou":"Dlivers to you",
-    "small":"Small",
-    "midum":"Medium",
-    "large":"Large",
-    "addtocart":"Add To Cart",
-    "goCheckOut":"Go to Check out ",
-    "added":"items are added to cart",
-    "size":"Size",
-    "qunt":"Quantity",
-    "price":"price",
-    "total":"Total Price",
-    "addReview":"Add Review",
-    "name":"Name",
-    "rate":"Rate",
-    "comment":"Comment",
-    "add":"Add",
-    "open":"Open now"
-
-
 }
 
                                             
