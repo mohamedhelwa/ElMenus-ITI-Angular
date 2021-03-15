@@ -2,42 +2,61 @@
   <div class="col-md-3 pt-3 sec">
     <div id="navbar-example">
       <div class="nav nav-tabs" role="tablist">
-        <span
-          class="list-group-item list-group-item-action cat"
-          style="cursor: pointer"
-        >
-          <i class="far fa-thumbs-up pr-2"></i>{{"topDish" | translate}}<i
-            class="fas fa-arrow-right float-right"
-          ></i>
+        <span class="list-group-item list-group-item-action cat" style="cursor: pointer">
+          <i class="far fa-thumbs-up pr-2"></i>{{"topDish" | translate}}<i class="fas fa-arrow-right float-right"></i>
         </span>
       </div>
     </div>
   </div>
   <div class="col-md-9 pt-3">
     <h4 class="collection-title">{{"topDish" | translate}}</h4>
+
     <div class="row colection" *ngFor="let item of menu">
-      <div class="col-md-8">
+      
+      <div class="col-md-8"  *ngIf="lang == 'en'; else menu_ar">
+        <h3>{{ item.dishName }}</h3>
         <p class="meal-info">{{ item.dishDescription }}</p>
-        <span class="price-span" (click)="open(content)"
-          ><i class="fas fa-plus-circle"></i
-          >{{ item.dishPrice | currency: "EGP" }}</span
-        >
+        <span class="price-span" (click)="open(content)"><i
+            class="fas fa-plus-circle"></i>{{ item.dishPrice | currency: "EGP" }}</span>
       </div>
+
+      <ng-template #menu_ar>
+        <div class="col-md-8">
+          <h3>{{ item.dishName_ar }}</h3>
+          <p class="meal-info">{{ item.dishDescription_ar }}</p>
+          <span class="price-span" (click)="open(content)"><i
+              class="fas fa-plus-circle"></i>{{ item.dishPrice | currency: "EGP" }}</span>
+        </div>
+      </ng-template>
+
       <div class="col-md-4 float-right">
-        <img [src]="item.dishImage" alt="meal" class="img-fluid" />
+        <img [src]="item.dishImage" alt="meal" class="img-fluid" width="100px" height="100px"/>
       </div>
+      
       <ng-template #content let-modal>
-        <div class="modal-body">
+        <div class="modal-body" dir="auto">
           <img [src]="item.dishImage" alt="meal" class="img-thumbnail mb-1" />
-          <h3>{{ item.dishName }}</h3>
-          <p class="meal-info py-3">{{ item.dishDescription }}</p>
+          <div *ngIf="lang == 'en'; else modal_ar">
+            <h3>{{ item.dishName }}</h3>
+            <p class="meal-info py-3">{{ item.dishDescription }}</p>
+          </div>
+          <ng-template #modal_ar>
+            <div>
+              <h3>{{ item.dishName_ar }}</h3>
+              <p class="meal-info py-3">{{ item.dishDescription_ar }}</p>
+            </div>
+          </ng-template>
+          
           <div class="dish-size p-2">
-            <h3>Choose Size :</h3>
-            <input type="radio" checked="checked" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"small" | translate}} </span>
-            <br/>
-            <input type="radio" value="medium" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"midum" | translate}} </span>
-            <br/>
-            <input type="radio" value="large" [(ngModel)]="dishSize" name="size"/> <span class="radio-txt">{{"large" | translate}} </span>
+            <h3>{{"choosesize" | translate}} :</h3>
+            <input type="radio" checked="checked" [(ngModel)]="dishSize" name="size" /> <span
+              class="radio-txt">{{"small" | translate}} </span>
+            <br />
+            <input type="radio" value="medium" [(ngModel)]="dishSize" name="size" /> <span
+              class="radio-txt">{{"midum" | translate}} </span>
+            <br />
+            <input type="radio" value="large" [(ngModel)]="dishSize" name="size" /> <span
+              class="radio-txt">{{"large" | translate}} </span>
           </div>
           <p class="addToOrder">
             <i class="fas fa-minus-circle f" (click)="remOrder()"></i>{{ add
@@ -45,34 +64,25 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-c"
-            (click)="modal.close(); buy(item)"
-            [disabled]="userID == null"
-          >
-          {{"addtocart" | translate}}
+          <button type="button" class="btn btn-c" (click)="modal.close(); buy(item)" [disabled]="userID == null">
+            {{"addtocart" | translate}}
           </button>
         </div>
       </ng-template>
+
     </div>
   </div>
   <!-- checkout bar -->
   <div *ngIf="DishBuy.length != 0" class="orderDetials px-1">
     <div class="row">
       <div class="col-md-6 px-4">
-        <p
-          class="p-0 openOrderModal"
-          placement="top"
-          [ngbPopover]="popContent"
-          [autoClose]="'outside'"
-        >
+        <p class="p-0 openOrderModal" placement="top" [ngbPopover]="popContent" [autoClose]="'outside'">
           {{ itemsNumber }} {{"added" | translate}} !
         </p>
       </div>
       <div class="col-md-6 px-4">
         <p (click)="goto()" class="float-right p-0 link">
-          {{"goCheckOut" | translate}}  <i class="fas fa-arrow-right"></i>
+          {{"goCheckOut" | translate}} <i class="fas fa-arrow-right"></i>
         </p>
       </div>
     </div>
@@ -82,11 +92,7 @@
     <div class="itemsCheckout" *ngFor="let item of DishBuy">
       <div class="row popover-custom">
         <div class="col-md-10">
-          <img
-            [src]="item.dishImage"
-            alt="meal"
-            style="width: 80px; height: 70px;vertical-align: baseline;"
-          />
+          <img [src]="item.dishImage" alt="meal" style="width: 80px; height: 70px;vertical-align: baseline;" />
           <div class="d-inline-block">
             <h3>{{ item.dishName }}</h3>
             <h4> {{"qunt" | translate}}: {{ item.dishQuantity }}</h4>
@@ -98,8 +104,8 @@
         </div>
       </div>
     </div>
-    <br/>
+    <br />
     <h3> {{"total" | translate}} : {{ totalOrderPrice }}</h3>
-    <br/>
+    <br />
   </ng-template>
 </div>

@@ -26,6 +26,7 @@ export class ResturantMenuComponent implements OnInit {
   // cont items
   add: number = 1;
   itemsNumber: number = 0;
+  lang:string;
 
   //local storage saved array
   DishBuy: Dishes[] = [];
@@ -48,6 +49,7 @@ export class ResturantMenuComponent implements OnInit {
 
   //get resturnt menu
   ngOnInit(): void {
+    this.lang = localStorage.getItem('currentLang');
     let productIDParam:
       | string
       | null = this.activatedRoute.snapshot.paramMap.get("id");

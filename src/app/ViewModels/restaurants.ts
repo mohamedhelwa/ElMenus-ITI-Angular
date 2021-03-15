@@ -12,6 +12,10 @@ export class Restaurants {
   reviews?: number =0;
   rate?: number=0;
 
+  restaurantName_ar?: string;
+  restaurantType_ar?:string;
+  adress_ar?:string;
+
   /*constructor(
     id:string,
     restaurantName: string,

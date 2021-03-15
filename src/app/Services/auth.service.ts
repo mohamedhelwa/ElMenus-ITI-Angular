@@ -78,6 +78,7 @@ export class AuthService {
           this.router.navigate(['/dashboard'])
           }
           else{
+            alert('Access Denied Admins Only')
             console.log('access denied')
           }
         }

@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   switchLang(lang: string) {
     localStorage.setItem('currentLang',lang);
     this.translate.use(lang);
+    
   }
 
   changeLanguage(lang: string) {
@@ -32,6 +33,7 @@ export class HeaderComponent implements OnInit {
     //this.translateService.setDefaultLang(this.lang);
     this.translate.use(this.lang);
     localStorage.setItem("currentLang", lang);
+    location.reload();
   }
   ngOnInit(): void {}
 

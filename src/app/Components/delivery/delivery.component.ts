@@ -23,6 +23,7 @@ export class DeliveryComponent implements OnInit {
   reviewsList: Reviews[] | any = [];
   checked=false;
   number_of_restaurants=0;
+  lang:string;
 
   constructor(private restService:RestaurantsServiceService,private db: AngularFirestore ,
     private router:Router) {
@@ -54,6 +55,7 @@ export class DeliveryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.lang = localStorage.getItem('currentLang');
   }
 
   retrieveRestaurants(): void {

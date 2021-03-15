@@ -95,7 +95,7 @@
     "EGP":"جنيه",
     "FeaterdPhotos":"صور المطعم",
     "adress":"العنوان",
-    "workingHours":"سعات العمل",
+    "workingHours":"ساعات العمل",
     "deleviry":"مناطق التوصيل",
     "delevertou":"بيوصل لمنطقطك",
     "small":"صغير",
@@ -113,7 +113,11 @@
     "rate":"التقيم",
     "comment":"رأيك",
     "add":"ضيف  تقيمك",
-    "open":"مفتوح دلوقتى"
+    "open":"مفتوح دلوقتى",
+
+    "choosesize":"اختار الحجم",
+    "orderOnlineCard":"اوردر اونلاين",
+    "liveTrack":"تتبع الطلب"
 
 
 }

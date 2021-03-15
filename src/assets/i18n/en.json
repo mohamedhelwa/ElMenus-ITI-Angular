@@ -113,7 +113,11 @@
     "rate":"Rate",
     "comment":"Comment",
     "add":"Add",
-    "open":"Open now"
+    "open":"Open now",
+
+    "choosesize":"Choose Size",
+    "orderOnlineCard":"Order Online",
+    "liveTrack":"Live Tracking"
 
 
 }

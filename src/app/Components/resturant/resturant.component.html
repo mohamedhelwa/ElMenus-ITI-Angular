@@ -9,23 +9,41 @@
     <!-- resturant name/info -->
     <div class="row mx-4 cove-logo-content">
         <div class="col-md-8 px-4">
-            <div class="cover-logo">
-                <img src="{{restaurant?.logo}}" class="img-fluid"  alt="resturant-logo">
+            <div class="cover-logo" *ngIf="lang == 'en'; else restInfo_ar">
+                <img src="{{restaurant?.logo}}" class="img-fluid" alt="resturant-logo">
                 <div class="rest-info pt-2">
-                    <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>{{"OrderOnline" | translate}}</span></h2>
-                     <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
-                        <ngb-rating [max]="5" [rate]="restaurant?.rate"  [readonly]="true"></ngb-rating>
+                    <h2 class="rest-name"> {{ restaurant?.restaurantName }} <span>{{"OrderOnline" | translate}}</span>
+                    </h2>
+                    <h5 class="rest-type"> {{ restaurant?.restaurantType }} <span class="stars">
+                            <ngb-rating [max]="5" [rate]="restaurant?.rate" [readonly]="true"></ngb-rating>
 
                         </span> {{ restaurant?.rate }}</h5>
-                    <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i> Cairo <a
-                        routerLink="/restaurant/{{restID}}/info/{{restID}}"> {{ restaurant?.adress }} </a></h3>
+                    <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i><a
+                            routerLink="/restaurant/{{restID}}/info/{{restID}}"> {{ restaurant?.adress }} </a></h3>
                 </div>
             </div>
+
+            <ng-template #restInfo_ar>
+                <div class="cover-logo">
+                    <img src="{{restaurant?.logo}}" class="img-fluid" alt="resturant-logo">
+                    <div class="rest-info pt-2">
+                        <h2 class="rest-name"> {{ restaurant?.restaurantName_ar }} <span>{{"OrderOnline" | translate}}</span>
+                        </h2>
+                        <h5 class="rest-type"> {{ restaurant?.restaurantType_ar }} <span class="stars">
+                                <ngb-rating [max]="5" [rate]="restaurant?.rate" [readonly]="true"></ngb-rating>
+    
+                            </span> {{ restaurant?.rate }}</h5>
+                        <h3 class="rest-loc"><i class="fas fa-map-marker-alt"></i><a
+                                routerLink="/restaurant/{{restID}}/info/{{restID}}"> {{ restaurant?.adress_ar }} </a></h3>
+                    </div>
+                </div>
+            </ng-template>
         </div>
         <div class="col-md-4 px-4">
             <div class="cover-btns float-right my-5">
                 <button class="btn"><i class="fas fa-users"></i></button>
-                <button class="btn" data-toggle="tooltip" data-placement="top" title="19991"><i class="fas fa-phone"></i></button>
+                <button class="btn" data-toggle="tooltip" data-placement="top" title="19991"><i
+                        class="fas fa-phone"></i></button>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -36,16 +54,20 @@
             <div class="menu-container">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}" routerLinkActive="active" >{{"Menu" | translate}}</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/menu/{{restID}}"
+                            routerLinkActive="active">{{"Menu" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}" routerLinkActive="active">{{"About" | translate}}</a>
+                        <a class="nav-link tabs " routerLink="/restaurant/{{restID}}/info/{{restID}}"
+                            routerLinkActive="active">{{"About" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}" routerLinkActive="active">{{"branch" | translate}}</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/list/{{restID}}"
+                            routerLinkActive="active">{{"branch" | translate}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}" routerLinkActive="active">{{"review" | translate}}</a>
+                        <a class="nav-link tabs" routerLink="/restaurant/{{restID}}/reviews/{{restID}}"
+                            routerLinkActive="active">{{"review" | translate}}</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +98,8 @@
                     <i class="fas fa-bicycle"></i>
                     90 {{ "min" | translate}}</span>
                 <span><i class="fas fa-wallet"></i> 0 {{ "EGP" | translate}}</span>
-                <span><i class="far fa-clock"></i>{{ restaurant?.restaurantOpening }} {{"am" | translate}} - {{ restaurant?.restaurantClosing }} {{"pm" | translate}}</span>
+                <span><i class="far fa-clock"></i>{{ restaurant?.restaurantOpening }} {{"am" | translate}} -
+                    {{ restaurant?.restaurantClosing }} {{"pm" | translate}}</span>
             </div>
         </div>
     </div>
@@ -103,5 +126,5 @@
         </div>
     </div>
 
-        <app-footer></app-footer>
+    <app-footer></app-footer>
 </div>

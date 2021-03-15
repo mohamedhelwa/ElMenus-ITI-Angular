@@ -8,6 +8,7 @@ import { Restaurants } from 'src/app/ViewModels/restaurants';
 })
 export class SearchdetailsComponent implements OnInit {
 
+  public lang:string;
   @Input() resturant:Restaurants;
   selectedResturant: Restaurants = {
     restaurantName: '',
@@ -16,12 +17,17 @@ export class SearchdetailsComponent implements OnInit {
     restaurantPhone:'',
     restaurantType:'',
     restaurantBranchs:[],
-    restaurantFeaturedPhotos:[]
+    restaurantFeaturedPhotos:[],
+
+    restaurantName_ar:'',
+    restaurantType_ar:'',
+    adress_ar:'',
   };
 
   constructor() { }
 
   ngOnInit(): void {
+    this.lang = localStorage.getItem('currentLang');
     this.selectedResturant = {...this.resturant};
   }
 

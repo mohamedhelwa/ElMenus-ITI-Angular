@@ -10,5 +10,9 @@ export interface Dishes {
     dishSize?:string,
     dishImage?:string,
     dishQuantity:number,
-    dishTotalPrice:number
+    dishTotalPrice:number,
+
+    dishName_ar?:string,
+    dishDescription_ar?:string,
+    dishSize_ar?:string
 }

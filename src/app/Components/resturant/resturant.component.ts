@@ -16,6 +16,7 @@ export class ResturantComponent implements OnInit {
   restaurantList: Restaurants[] | any;
   restaurant: Restaurants;
   userAdress:string;
+  lang:string;
   //user id 
   UserId = localStorage.getItem("userId");
   constructor(private activatedRoute: ActivatedRoute,
@@ -25,6 +26,7 @@ export class ResturantComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.lang = localStorage.getItem('currentLang');
     console.log(this.UserId);
     if(this.UserId == null){
       this.userAdress = "your location"
